@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="Games as search“max” and “min” two players.Max moves frist in the game. The game take turns until it’s over. Max uses search tree to determine “best” next move. Definitions  initial state: set-up defi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Minimax Search">
+<meta property="og:url" content="http://example.com/2018/12/02/minimax-search/index.html">
+<meta property="og:site_name" content="After1995">
+<meta property="og:description" content="Games as search“max” and “min” two players.Max moves frist in the game. The game take turns until it’s over. Max uses search tree to determine “best” next move. Definitions  initial state: set-up defi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/pGo4wlk.png">
+<meta property="article:published_time" content="2018-12-02T10:49:03.000Z">
+<meta property="article:modified_time" content="2018-12-03T02:49:57.080Z">
+<meta property="article:author" content="Kyle Fang">
+<meta property="article:tag" content="learning">
+<meta property="article:tag" content="algorithm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/pGo4wlk.png">
+
+
+<link rel="canonical" href="http://example.com/2018/12/02/minimax-search/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Minimax Search | After1995</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">After1995</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Games-as-search"><span class="nav-number">1.</span> <span class="nav-text">Games as search</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Procedure"><span class="nav-number">2.</span> <span class="nav-text">Procedure</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pesudo-code"><span class="nav-number">3.</span> <span class="nav-text">pesudo code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Alpha-Beta-Pruning-in-Minimax"><span class="nav-number">4.</span> <span class="nav-text">Alpha-Beta Pruning in Minimax</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pesudo-code-1"><span class="nav-number">4.1.</span> <span class="nav-text">pesudo code</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kyle Fang</p>
+  <div class="site-description" itemprop="description">All Ended Happily</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">110</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/endFang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;endFang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fangwilltravel@gmail.com" title="E-Mail → mailto:fangwilltravel@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/02/minimax-search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kyle Fang">
+      <meta itemprop="description" content="All Ended Happily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="After1995">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Minimax Search
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-02 18:49:03" itemprop="dateCreated datePublished" datetime="2018-12-02T18:49:03+08:00">2018-12-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2018-12-03 10:49:57" itemprop="dateModified" datetime="2018-12-03T10:49:57+08:00">2018-12-03</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Games-as-search"><a href="#Games-as-search" class="headerlink" title="Games as search"></a>Games as search</h1><p>“max” and “min” two players.<br>Max moves frist in the game. The game take turns until it’s over. Max uses search tree to determine “best” next move.</p>
+<p><strong>Definitions</strong></p>
+<ul>
+<li>initial state: set-up defined by rules</li>
+<li>player(s): which player has the move in state s</li>
+<li>actions(s): set of legal moves in state</li>
+<li>results(s, a): transition model defines result of a move</li>
+<li>terminal_test(s): true if the game is finished; false otherwise</li>
+<li>utility(s, p): the numerical value of terminal state s for player p<ul>
+<li>win: 1, lose :-1, draw: 0</li>
+</ul>
+</li>
+</ul>
+<h1 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h1><ol>
+<li>generate the whole game tree to leaves</li>
+<li>apply utility function to leaves</li>
+<li>back-up values from leaves toward the root:<ol>
+<li>Max node computes the max of its child values</li>
+<li>Min node computes the min of its chidl values</li>
+</ol>
+</li>
+<li>at root: choose move leading to the child of highest value</li>
+</ol>
+<p>e.g.</p>
+<p><img src="https://i.imgur.com/pGo4wlk.png" alt="minmax example"></p>
+<h1 id="pesudo-code"><a href="#pesudo-code" class="headerlink" title="pesudo code"></a>pesudo code</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">miniMaxSearch(state)</span><br><span class="line">    <span class="keyword">return</span> argmax([minValue(apply(state, a)) <span class="keyword">for</span> each action a])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">maxValue(state)</span><br><span class="line">    <span class="keyword">if</span> (terminal(state))</span><br><span class="line">        <span class="keyword">return</span> utility(state)</span><br><span class="line">	v = -infty</span><br><span class="line">	<span class="keyword">for</span> each action a:</span><br><span class="line">		v = max(v, minValue(apply(state, a)))</span><br><span class="line">    <span class="keyword">return</span> v</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">minValue(state)</span><br><span class="line">    <span class="keyword">if</span> (terminal(state))</span><br><span class="line">        <span class="keyword">return</span> utility(state)</span><br><span class="line">	v = infty</span><br><span class="line">	<span class="keyword">for</span> each action a:</span><br><span class="line">		v = min(v, maxValue(apply(state, a)))</span><br><span class="line">    <span class="keyword">return</span> v</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Alpha-Beta-Pruning-in-Minimax"><a href="#Alpha-Beta-Pruning-in-Minimax" class="headerlink" title="Alpha-Beta Pruning in Minimax"></a>Alpha-Beta Pruning in Minimax</h1><p>If a position is provably bad, it’s no use to search the rest.<br>If the adversary can force a bad position, it’s no use to search the rest because the adversary won’t let me achieve.</p>
+<p>Begin at root (MAX), set:<br>alpha = -infty for Max<br>beta = infty for Min</p>
+<p>for each child node:<br>inherit alpha and beta, check its children:<br>    for each child:<br>        assign its value to beta, if beta &lt; alpha, prune it: terminate this child’s search<br>    update parent’s alpha/beta: alpha = child’s beta, beta = child’s alpha<br>update root’s alpha beta</p>
+<p><strong>Why?</strong></p>
+<p>Max only chooses the maximum number, Min only chooses the minimum number.<br>Therefore, when beta(min) &lt; alpha(max), Min will choose the beta’s value. There’s no use to search the rest children because no matter beta can be smaller or bigger, the situation won’t be better. Min only chooses smaller number. We already know beta is small.</p>
+<h2 id="pesudo-code-1"><a href="#pesudo-code-1" class="headerlink" title="pesudo code"></a>pesudo code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">abSearch(state):</span><br><span class="line">	alpha, beta, a = -infty, +infty, None</span><br><span class="line">	<span class="keyword">for</span> each action a:</span><br><span class="line">		alpha, a = max(alpha, a), (minValue(apply(state, a), alpha, beta), a)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">    </span><br><span class="line">maxValue(state, al, be)</span><br><span class="line">	<span class="keyword">if</span> (cutoff(state)) <span class="keyword">return</span> eval(state);</span><br><span class="line">	<span class="keyword">for</span> each action a:</span><br><span class="line">		al = max( al, minValue( apply(state, a), al, be ))</span><br><span class="line">		<span class="keyword">if</span> (al ≥ be) <span class="keyword">return</span> +infty</span><br><span class="line">	<span class="keyword">return</span> al</span><br><span class="line">	</span><br><span class="line">minValue(state, al, be)</span><br><span class="line">	<span class="keyword">if</span> (cutoff(state)) <span class="keyword">return</span> eval(state);</span><br><span class="line">	<span class="keyword">for</span> each action a:</span><br><span class="line">		be = min( be, maxValue( apply(state, a), al, be))</span><br><span class="line">        <span class="keyword">if</span> (al ≤ be ) <span class="keyword">return</span> -infty</span><br><span class="line">	<span class="keyword">return</span> be</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Kyle Fang
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://example.com/2018/12/02/minimax-search/" title="Minimax Search">http://example.com/2018/12/02/minimax-search/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/learning/" rel="tag"># learning</a>
+              <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/11/25/fire-iv/" rel="prev" title="Fire IV">
+                  <i class="fa fa-chevron-left"></i> Fire IV
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/12/08/instant-noodles-2/" rel="next" title="尝遍方便面 2">
+                  尝遍方便面 2 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-hat-wizard"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kyle Fang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

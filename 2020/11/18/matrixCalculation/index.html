@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="Gaussian EliminationGaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form. The transformation is completed with the row operation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matrix Calculation">
+<meta property="og:url" content="http://example.com/2020/11/18/matrixCalculation/index.html">
+<meta property="og:site_name" content="After1995">
+<meta property="og:description" content="Gaussian EliminationGaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form. The transformation is completed with the row operation">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-18T06:54:20.000Z">
+<meta property="article:modified_time" content="2020-11-23T10:27:06.987Z">
+<meta property="article:author" content="Kyle Fang">
+<meta property="article:tag" content="learning">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/11/18/matrixCalculation/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Matrix Calculation | After1995</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">After1995</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-Elimination"><span class="nav-number">1.</span> <span class="nav-text">Gaussian Elimination</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix-Inversion"><span class="nav-number">2.</span> <span class="nav-text">Matrix Inversion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Markov-Chain"><span class="nav-number">3.</span> <span class="nav-text">Markov Chain</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Absorbing-Markov-Chain"><span class="nav-number">3.1.</span> <span class="nav-text">Absorbing Markov Chain</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kyle Fang</p>
+  <div class="site-description" itemprop="description">All Ended Happily</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">110</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/endFang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;endFang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fangwilltravel@gmail.com" title="E-Mail → mailto:fangwilltravel@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/18/matrixCalculation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kyle Fang">
+      <meta itemprop="description" content="All Ended Happily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="After1995">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Matrix Calculation
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-11-18 14:54:20" itemprop="dateCreated datePublished" datetime="2020-11-18T14:54:20+08:00">2020-11-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-11-23 18:27:06" itemprop="dateModified" datetime="2020-11-23T18:27:06+08:00">2020-11-23</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Gaussian-Elimination"><a href="#Gaussian-Elimination" class="headerlink" title="Gaussian Elimination"></a>Gaussian Elimination</h1><p>Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.</p>
+<p>The transformation is completed with the row operations. We can swap rows, multiply rows by a nonzero number, and adding one row to another. In such a way, the matrix will become an upper triangular matrix whose all leading coefficients are 1.</p>
+<p>for example, the following equations can be transform to the matrix:<br>$$<br>\begin{align}<br>\nonumber r_0 + r_1 = 26 \\<br>\nonumber r_1 + r_2 = 20 \\<br>\nonumber r_0 = 2r_2 \\<br>\end{align}<br>$$</p>
+<p>$$<br>\begin{vmatrix}<br>1 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 26 \\<br>0 &amp;&amp; 1 &amp;&amp; 1 &amp;&amp; 20 \\<br>1 &amp;&amp; 0 &amp;&amp; -2 &amp;&amp; 0 \\<br>\end{vmatrix}<br>$$</p>
+<a id="more"></a>
+
+<p>The reduced row chelon form will be:<br>$$<br>\begin{vmatrix}<br>1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; -14 \\<br>0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 40 \\<br>0 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; -20 \\<br>\end{vmatrix}<br>$$<br>Using bakwward substitute, we can have:</p>
+<p>$$<br>\begin{align}<br>\nonumber r_0 = -14 \\<br>\nonumber r_1 = 40 \\<br>\nonumber r_2 = -20<br>\end{align}<br>$$</p>
+<h1 id="Matrix-Inversion"><a href="#Matrix-Inversion" class="headerlink" title="Matrix Inversion"></a>Matrix Inversion</h1><p>2x2 matrix inversion can be calculated with the fixed equation:<br>$$<br>\begin {vmatrix}<br>a &amp;&amp; b \\<br>c &amp;&amp; d \\<br>\end {vmatrix} ^ {-1}<br>=<br>\frac{1}{ad-bc}<br>\begin {vmatrix}<br>d &amp;&amp; -b \\<br>-c &amp;&amp; a \\<br>\end {vmatrix}<br>$$</p>
+<p>3x3 matrix inversion is calculated using Minors, Cofactors, and Adjugate, but I want to show a more general approach, the Gauss-Jordan method.</p>
+<p>Suppose we have a matrix A:</p>
+<p>$$<br>\begin {vmatrix}<br>3 &amp;&amp; 0 &amp;&amp; 2 \\<br>2 &amp;&amp; 0 &amp;&amp; -2 \\<br>0 &amp;&amp; 1 &amp;&amp; 1 \\<br>\end {vmatrix}<br>$$<br>To calculate the inverse, we will add an identity matrix on the right side to create a new augmented matrix:</p>
+<p>$$<br>\begin {vmatrix}<br>3 &amp;&amp; 0 &amp;&amp; 2 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 0\\<br>2 &amp;&amp; 0 &amp;&amp; -2 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0\\<br>0 &amp;&amp; 2 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 1\\<br>\end {vmatrix}<br>$$<br>Then we use row operations to transfrom the left 3x3 matrix to identity matrix.</p>
+<p>$$<br>\begin {vmatrix}<br>1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 0.2 &amp;&amp; 0.2 &amp;&amp; 0\\<br>0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; -0.2 &amp;&amp; 0.3 &amp;&amp; 1\\<br>0 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0.2 &amp;&amp; -0.3 &amp;&amp; 0\\<br>\end {vmatrix}<br>$$<br>And the 3x3 matrix in the right is the inverse.</p>
+<h1 id="Markov-Chain"><a href="#Markov-Chain" class="headerlink" title="Markov Chain"></a>Markov Chain</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=uvYTGEZQTEs">patrickJMT has a series of nice videos explaining Markov Chain.</a><br>Consider a company A initially has a 10% market share, other companies (A’) hold the 90% share. By using an advertising campaign, the rate of keeping choosing A is 80%, the rate of changing to A is 60%. In other words, from A to A is 80%, A’ to A is 60%, and A to A’ is 20%, A’ to A’ is 40%.<br>So we have this <strong>Transition Matrix</strong>:</p>
+<p>$$<br>\begin{vmatrix}<br>0.8 &amp;&amp; 0.2 \\<br>0.6 &amp;&amp; 0.4<br>\end{vmatrix}<br>$$<br>Suppose the <strong>Initial State</strong> of the rate of choosing A is 0.1.</p>
+<p>$$<br>S_{0} =<br>\begin {vmatrix}<br>0.1 &amp;&amp; 0.9<br>\end {vmatrix}<br>$$<br>After multiplying $S_0$ and Transition matrix, we’ll have<br>$$<br>S_{1} =<br>\begin {vmatrix}<br>0.42 &amp;&amp; 0.38<br>\end {vmatrix}<br>$$</p>
+<p>That means, after one advertising campaign, the rate of choosing A increase to 42%!<br>Keep multipling, we’ll realize that $S$ is approaching to $\begin {vmatrix}<br>0.75 &amp;&amp; 0.25<br>\end {vmatrix}$. And this is the <strong>Stationary Matrix</strong>, and the system is at S<strong>teady State</strong>.</p>
+<h2 id="Absorbing-Markov-Chain"><a href="#Absorbing-Markov-Chain" class="headerlink" title="Absorbing Markov Chain"></a>Absorbing Markov Chain</h2><p>If the possibility of entering another state is zero then the state is an A<strong>bsorbing State</strong>.<br>For example:<br>$$<br>\begin{vmatrix}<br>1 &amp;&amp; 0 \\<br>0.3 &amp;&amp; 0.7<br>\end{vmatrix}<br>$$</p>
+<p>The first row is an absorbing state.</p>
+<p>A standard form of absorbing markov chain is:</p>
+<p>$$<br>\begin{vmatrix}<br>I &amp;&amp; O \\<br>R &amp;&amp; Q<br>\end{vmatrix}<br>$$</p>
+<p>I is the identity matrix, O is a zero matrix. R and Q are two submatrices.<br>The limiting matrix form is:<br>$$<br>\begin{vmatrix}<br>I &amp;&amp; O \\<br>FR &amp;&amp; O<br>\end{vmatrix}<br>\<br>F = (I - Q)^{-1}<br>$$</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Kyle Fang
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://example.com/2020/11/18/matrixCalculation/" title="Matrix Calculation">http://example.com/2020/11/18/matrixCalculation/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/learning/" rel="tag"># learning</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/08/11/where-5-2-is-leading-to/" rel="prev" title="5.2开始铺路">
+                  <i class="fa fa-chevron-left"></i> 5.2开始铺路
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/11/23/shader-basic/" rel="next" title="Shader Basic">
+                  Shader Basic <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-hat-wizard"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kyle Fang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

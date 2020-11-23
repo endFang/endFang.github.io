@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="RWBY: Grimm Eclipse(RWBY) is a multiplayer online action game features the online anime RWBY. The game consists of different maps and combat setting. It has single-player or multiplayer mode. Both mod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RWBY - Linear Level Design And Redundant Rank System">
+<meta property="og:url" content="http://example.com/2018/06/04/rwby-linear-level-design-and-redundant-rank/index.html">
+<meta property="og:site_name" content="After1995">
+<meta property="og:description" content="RWBY: Grimm Eclipse(RWBY) is a multiplayer online action game features the online anime RWBY. The game consists of different maps and combat setting. It has single-player or multiplayer mode. Both mod">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/H0I7jOf.png">
+<meta property="og:image" content="https://i.imgur.com/liTNlVY.jpg">
+<meta property="article:published_time" content="2018-06-04T15:26:01.000Z">
+<meta property="article:modified_time" content="2019-04-22T18:06:28.230Z">
+<meta property="article:author" content="Kyle Fang">
+<meta property="article:tag" content="games">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/H0I7jOf.png">
+
+
+<link rel="canonical" href="http://example.com/2018/06/04/rwby-linear-level-design-and-redundant-rank/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>RWBY - Linear Level Design And Redundant Rank System | After1995</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">After1995</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kyle Fang</p>
+  <div class="site-description" itemprop="description">All Ended Happily</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">110</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/endFang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;endFang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fangwilltravel@gmail.com" title="E-Mail → mailto:fangwilltravel@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/06/04/rwby-linear-level-design-and-redundant-rank/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kyle Fang">
+      <meta itemprop="description" content="All Ended Happily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="After1995">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RWBY - Linear Level Design And Redundant Rank System
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-06-04 23:26:01" itemprop="dateCreated datePublished" datetime="2018-06-04T23:26:01+08:00">2018-06-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2019-04-23 02:06:28" itemprop="dateModified" datetime="2019-04-23T02:06:28+08:00">2019-04-23</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>RWBY: Grimm Eclipse(RWBY) is a multiplayer online action game features the online anime RWBY. The game consists of different maps and combat setting. It has single-player or multiplayer mode. Both modes share the same level and combat system. There are four basic characters are available to control. Players need to defeat waves of enemies on a map to win. A scoreboard will be displayed to tell player’s performance when players finish a map, such as teamwork, attack, or assist. Each character has individual levels that can be increased by earning XP from fighting enemies or collecting artifacts in the game. Levels reward ability points to unlock combat abilities. Certain abilities should be unlocked by completing related achievements first, such as using light attack 200 times. Players also have ranks that can be increased by complete achievements too. For example, players can enter Rank 1 when four basic characters all reach Level 10. Rank does not grant anything useful except displaying a number next to the player’s username to indicate their ranks. Entering new rank will also lock combat abilities again so players need to repeat what they have done.</p>
+<p>RWBY’s level design does not attract players to play it multiple times because it is plain and unvaried. Even though the game allows players to gain the new ability, players will soon lose the fun once they complete the game once and enter the next rank due to the Rank System.</p>
+<p>First, once the players complete the story, the rest of the game is to repeat the same content again and again. The game lacks the variety of enemies and combat system. Most enemies are essentially the same one with more HP. The combat system also provides limited combo. Therefore, even though the game provides multiple maps, the game soon becomes tedious. Players will encounter waves of enemies, spam the same combat combos, and repeat. Especially, the battle time is extended when enemies have larger HP bar.</p>
+<p><img src="https://i.imgur.com/H0I7jOf.png" alt="ability"> </p>
+<p>Second, the rank system is solely unnecessary. It locks abilities, asks players to repeat the completed achievement, and only indicates how much time the player dedicated to the game. The developers probably try to increase the difficulty by limiting character’s actions when they are at a higher rank. Nevertheless, adding the limitation to a simple system makes the game uninteresting. As a result of these excessive linear repetitions, RWBY lacks replayability and hence has a smaller player base. Moreover, the game is designed for multiplayer, matching other players to form a team becomes difficult.</p>
+<p><img src="https://i.imgur.com/liTNlVY.jpg" alt="rank"></p>
+<p>It is true that repetition happens in a lot of games, but the repetition should satisfy the player in a way. For example, Bayonetta 2 is also an action game and has online multiplayer mode too. Similar to RWBY, it also has a relatively linear story, but the combo system and challenge mode make the game worth playing many times. Players can earn combo points when they keep attacking enemies. Points will be accumulated to estimated the medal at the end of each battle in single-player mode and to win rewards in multiplayer mode. Collecting enough</p>
+<p>high-value medal will reward certain hidden items and unlock a new higher difficulty mode. Players can perform very creative actions on enemies for scores or even simply for showing off. Meanwhile, the difficulty mode scales the game’s difficulty from “very easy” to “infinite climax”. Enemies have the stronger attack, more HP, and faster action when the difficulty is higher. This setting is to let players test or challenge their control skills and quick reaction. With these two mechanics, players can always play in a new way. The repetition hence becomes the main gaming experience that provides pleasure.</p>
+<p>In conclusion, the level design in is linear and repetitive, and the rank system is simply redundant. RWBY’s repetition only brings pleasure at the beginning and ruins the fun game after that. Players will feel satisfied when they unlock the ability or achievement by repeating certain actions for the first time, but it is not interesting to lock these abilities and ask players to do it again.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Kyle Fang
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://example.com/2018/06/04/rwby-linear-level-design-and-redundant-rank/" title="RWBY - Linear Level Design And Redundant Rank System">http://example.com/2018/06/04/rwby-linear-level-design-and-redundant-rank/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/games/" rel="tag"># games</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/05/24/gamingEntry7/" rel="prev" title="Final Fantasy XIV - Old Game Content Recycle and Encouragement">
+                  <i class="fa fa-chevron-left"></i> Final Fantasy XIV - Old Game Content Recycle and Encouragement
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/06/13/threejs-shader/" rel="next" title="Three.js - shaderMaterial and vertex/fragment shaders">
+                  Three.js - shaderMaterial and vertex/fragment shaders <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-hat-wizard"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kyle Fang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
