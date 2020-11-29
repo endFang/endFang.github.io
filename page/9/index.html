@@ -136,6 +136,11 @@
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
+        <li class="menu-item menu-item-shader-journal">
+
+    <a href="/tags/Shader-Journal" rel="section"><i class="fa fa-palette fa-fw"></i>Shader Journal</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
@@ -189,7 +194,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">110</span>
+          <span class="site-state-item-count">111</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -239,6 +244,103 @@
       
 
       
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://after1995.info/2018/04/12/color-channel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kyle Fang">
+      <meta itemprop="description" content="All Ended Happily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="After1995">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/04/12/color-channel/" class="post-title-link" itemprop="url">Color Channel 颜色通道</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-04-12 17:47:02" itemprop="dateCreated datePublished" datetime="2018-04-12T17:47:02+08:00">2018-04-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-11-29 17:30:34" itemprop="dateModified" datetime="2020-11-29T17:30:34+08:00">2020-11-29</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>颜色通道(color channel)不能光用类比三原色的方法来理解，还需要理解灰度值(gray scale)。</p>
+<blockquote>
+<p>数字图像的本质是矩阵。</p>
+</blockquote>
+<p>每个矩阵内的元素可以看作是一个像素，每个元素都有关于 BGR 三种颜色的灰度值，而灰度值表示的是颜色的“深浅/强弱/明亮”。灰度值越高，颜色越深/强/暗，反之则是越浅/弱/亮。</p>
+<p>如果一个像素的 BGR 的灰度是 [100, 40, 35]。那么这就表示，这个像素的蓝色通道的灰度值是100，绿色的通道的灰度值是40，红色的则是35。这些颜色混合在一起就变成了这个像素的颜色。</p>
+<hr>
+<p>P1.d 的题目要求的是：</p>
+<blockquote>
+<p>Modify the above code snipet to replace the green with blue, red with green, and blue with red channels. </p>
+</blockquote>
+<p>也就是：<br>green -&gt; blue<br>red -&gt; green<br>blue -&gt; red</p>
+<p>第一次解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">newColor.at&lt;Vec3b&gt;(i, j)[<span class="number">0</span>] = r;</span><br><span class="line">newColor.at&lt;Vec3b&gt;(i, j)[<span class="number">1</span>] = b;</span><br><span class="line">newColor.at&lt;Vec3b&gt;(i, j)[<span class="number">2</span>] = g;</span><br></pre></td></tr></table></figure>
+
+<p>实际上是：<br>red -&gt; blue<br>blue -&gt; green<br>green -&gt; red</p>
+<p>可以将灰度想象成一个容器，灰度值则是液体。液体越多，就代表这个颜色越深。<br>假设有一个像素是蓝色的，那么这个像素的蓝色容器装满了液体的，而红色和绿色的容器是空的。<br>如果我要把像素变成红色，那么我就要把蓝色容器的液体都倒进红色容器里面。</p>
+<p>而第一次解法中的：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 容器                      液体</span></span><br><span class="line">newColor.at&lt;Vec3b&gt;(i, j)[<span class="number">0</span>] = r;</span><br><span class="line">newColor.at&lt;Vec3b&gt;(i, j)[<span class="number">1</span>] = b;</span><br><span class="line">newColor.at&lt;Vec3b&gt;(i, j)[<span class="number">2</span>] = g;</span><br></pre></td></tr></table></figure>
+
+<p>实际上将：<br>红色容器的液体倒进了蓝色容器。<br>蓝色容器的液体倒进了绿色容器。<br>绿色容器的液体倒进了红色容器。<br>因此：<br>原来的蓝色会变成绿色。<br>原来的绿色会变成红色。<br>原来的红色会变成蓝色。</p>
+<p>所以原来的红色变成了蓝色，而不是蓝色变成了红色。</p>
+<p>正确解法的应该是:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">newColor.at&lt;Vec3b&gt;(i, j)[<span class="number">0</span>] = g;</span><br><span class="line">newColor.at&lt;Vec3b&gt;(i, j)[<span class="number">1</span>] = r;</span><br><span class="line">newColor.at&lt;Vec3b&gt;(i, j)[<span class="number">2</span>] = b;</span><br></pre></td></tr></table></figure>
+
+<p>Reference:<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21849710/answer/19529410">如何通俗易懂地讲解 Photoshop 中的「通道」概念？ - 知乎</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
 
 
@@ -995,94 +1097,10 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://after1995.info/2018/01/28/entry2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Kyle Fang">
-      <meta itemprop="description" content="All Ended Happily">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="After1995">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/01/28/entry2/" class="post-title-link" itemprop="url">Entry 2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-01-28 20:39:24" itemprop="dateCreated datePublished" datetime="2018-01-28T20:39:24+08:00">2018-01-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-04-23 02:07:25" itemprop="dateModified" datetime="2019-04-23T02:07:25+08:00">2019-04-23</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>去了 GGJ，和一群不认识的人在 48 小时内创作游戏。今年主题是 “Transmission”。</p>
-<p>Arden 负责背景乐和音效。他拿出了一个接口和话筒，录制了敲击键盘和说话声，然后做成了合成乐。善用 Logic。我特别喜欢他制作的 7 个敲击键盘的声音。我把这七个声音随机播放，再写了一个自动打字的效果，做成了打字机或者 terminal 的样子。Howard 又加上了一个闪烁的光标特效。Mekin 说他觉得最终效果很有意思。</p>
-<p>Tyler 教了我如何用 LoadAll 和 按钮自带的 OnClick()。好机智啊。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> AudioSource mySource;</span><br><span class="line"><span class="keyword">public</span> AudioClips myClips;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Awake</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Text txt;</span><br><span class="line">    mySource = GetComponent&lt;AudioSource&gt;();</span><br><span class="line">    myClips = Resources.LoadAll&lt;AudioClip&gt;(<span class="string">&quot;the_path&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Mekin 提出了以博弈论为基础做一个文字冒险的生存游戏。同时他也负责 3D 建模。他做了一台飞船上的电脑。Tyler 与 Howard 配合做了一个特别酷炫的屏幕放大特效，又在屏幕背后的宇宙中做了星光。</p>
-<p>Eddy 也有一部分美工，但是他大部分时间都在管理创作进程。在最后一个小时内他完成了初始画面的背景图。Arden 三次发现了单词拼写错误，他就改了三次。</p>
-<p>Kyle 依据 Mekin 的主意写出 15 页的剧本，由 Tyler 订正后写了模板导入 Unity3D。<br>原本的计划是制作一个网络匹配后的冒险游戏，但是我们并没有办法在第二天中午之前想出网络连接的程序，只能做成一个单一客户端。Mekin 总是建议我们使用 TCP，实际上我们也这么做了，可是要控制的变量超出了我们的能力。</p>
-<p>最可怕的是在最后一小时发现了一个严重 bug，不得已只能去掉了光标效果才能让游戏运行。</p>
-<p>特别有意思的是，Kyle 在最后一小时拉上了 Mekin 和 Arden，三人一起又做了一个超级简单的射击游戏“One Shot”。在展览上意外获得好评。Arden 制作的洗脑循环 “one shot” 十分魔性，每次听到我都特别想笑。</p>
-<p>我特别佩服 Tyler，写起代码来啪啪的，而且总是能够早起。解决问题也特别快。我也特别佩服 Kyle，能够写出不同文风的剧本。<br>最后是 Electrico 拿了两个奖项。Electrico 是真的好玩啊。三人一起合作跨越障碍抵达终点。我有幸坐在了 Electrico 的旁边看到了整个游戏的诞生。</p>
-<p>我还看到了好多 Apple Watch。</p>
-<p>顺带，<a target="_blank" rel="noopener" href="https://github.com/thetylerace13/SFSF">The Nash Transmission</a>.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

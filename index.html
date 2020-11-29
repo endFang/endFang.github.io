@@ -136,6 +136,11 @@
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
+        <li class="menu-item menu-item-shader-journal">
+
+    <a href="/tags/Shader-Journal" rel="section"><i class="fa fa-palette fa-fw"></i>Shader Journal</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
@@ -189,7 +194,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">110</span>
+          <span class="site-state-item-count">111</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,109 +252,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://after1995.info/2020/11/23/shader-basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Kyle Fang">
-      <meta itemprop="description" content="All Ended Happily">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="After1995">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/23/shader-basic/" class="post-title-link" itemprop="url">Shader Basic</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2020-11-23 18:35:07 / Modified: 18:37:50" itemprop="dateCreated datePublished" datetime="2020-11-23T18:35:07+08:00">2020-11-23</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><ul>
-<li>shader language has a single main that returns color at the end</li>
-<li>final pixel color is assigned to gl_FragColor</li>
-<li>C-flavored language has built in variable, function, type</li>
-<li>preprocessor macros (pre-compiled)<ul>
-<li><code>#define</code> global variable</li>
-<li><code>#ifdef</code> and <code>#endif</code></li>
-</ul>
-</li>
-<li>lower precision → faster rendering, less quality<ul>
-<li><code>precision medium float</code></li>
-<li><code>precision lowp float</code></li>
-<li><code>precision highp float</code></li>
-</ul>
-</li>
-<li>GLSL specs doesn’t guarantee auto-cast<ul>
-<li><code>vec4(1, 0, 0, 1)</code> will raise error, because it’s not float</li>
-</ul>
-</li>
-<li>multiple ways of constructing vec4<ul>
-<li><code>vec4 color = vec4(vec3(1., 1., 0.), 1.);</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="Uniform-amp-Varying"><a href="#Uniform-amp-Varying" class="headerlink" title="Uniform &amp; Varying"></a>Uniform &amp; Varying</h1><ul>
-<li>GPU has multiple threads calculating a portion of the color, each parallel thread is blind to others. The input sent from CPU to GPU are equal and <em>read only</em>  to all the threads. These are <strong>uniforms</strong>.</li>
-<li>supported type: <em>float, vec2, vec3, vec4, mat2, mat3, mat4, sampler2D, samplerCube</em></li>
-<li>uniforms are defined on the top of the shader after the point precision assigning.</li>
-</ul>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#ifdef GL_ES</span></span><br><span class="line"><span class="keyword">precision</span> <span class="keyword">mediump</span> <span class="type">float</span>;</span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec2</span> u_resolution; <span class="comment">// canvas size (width, height)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec2</span> u_mouse; <span class="comment">// mouse position in screen pixels</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> u_time; <span class="comment">// TIme in seconds since load</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>GPU hardware has accelerated angle, trigonometric, and exponential functions<ul>
-<li><em>sin(), cos(), tan(), asin(), acos(), atan(), pow(), exp(), log() …</em></li>
-</ul>
-</li>
-<li><code>gl_FragColor</code> is the default input. It holds the pixel coordinates of the pixels or screen of fragment that the active thread is working on. It’s not a uniform, because threads have it differently, it’s a <strong>varying</strong>. A varying variable contains data shared from vertex shader to a fragment shader.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="http://after1995.info/2020/11/18/matrixCalculation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -382,7 +284,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-11-23 18:27:06" itemprop="dateModified" datetime="2020-11-23T18:27:06+08:00">2020-11-23</time>
+        <time title="Modified: 2020-11-29 17:34:19" itemprop="dateModified" datetime="2020-11-29T17:34:19+08:00">2020-11-29</time>
       </span>
 
   
@@ -402,6 +304,88 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/11/18/matrixCalculation/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://after1995.info/2020/11/01/5-3GrahaTia/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kyle Fang">
+      <meta itemprop="description" content="All Ended Happily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="After1995">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/01/5-3GrahaTia/" class="post-title-link" itemprop="url">5.3 中人人都爱 G'raha Tia</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-11-01 19:22:55" itemprop="dateCreated datePublished" datetime="2020-11-01T19:22:55+08:00">2020-11-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-11-29 19:27:17" itemprop="dateModified" datetime="2020-11-29T19:27:17+08:00">2020-11-29</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://i.imgur.com/1CPPzKa.jpg" alt="welcome"></p>
+<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>The long waited patch 5.3 is finally in her.<br>It’s been so long. I’m just glad that it is delivered without enormous problems.<br>We met Yoshi-P in the Rising event again:</p>
+<p><img src="https://i.imgur.com/SoQaXXl.jpg" alt="yoshi-p"></p>
+<p>Thank you for bring us the XIV!</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/01/5-3GrahaTia/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -576,6 +560,115 @@
 <h1 id="Job-Changes"><a href="#Job-Changes" class="headerlink" title="Job Changes"></a>Job Changes</h1><p>SMN’s Egi Assaults are GCD. This job is less busy on pushing buttons now. BRD’s support ability is back ,but can output less damage. I didn’t feel any different personally, because I don’t do hard-core raid. It’s a shame that AST lost another cool animation: Minor Arcana. We lost Disable and Stellar in 4.0, Time Dilation in 5.0. Now it’s Minor Arcana.<br>5.15 add more BLU skills and BLU party finder. BLU can queue now! Warring Traid’s skill are also learnable.</p>
 <h1 id="Fellowship"><a href="#Fellowship" class="headerlink" title="Fellowship"></a>Fellowship</h1><p>Fellowship is a failure. There is no broadcasting function to let player know what is happening inside the group. It also didn’t give quick way of communication between members. I joined a Roulette Fellowship and hoped to run Roulette faster than usual, but I couldn’t. The message on the board is either outdated or provides no means of contacting the members. At least allowing us to send an invitation for linkshell, or send a /tell.</p>
 <h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>The only plot I remember is that “everyone likes WoL”. Exarch will die for WoL. Alisaie will do anything to make WoL survive. The Fae want have WoL so much that would want to make WoL one of them.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://after1995.info/2019/11/23/shader-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kyle Fang">
+      <meta itemprop="description" content="All Ended Happily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="After1995">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/23/shader-basic/" class="post-title-link" itemprop="url">Shader Basic</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-11-23 18:35:07" itemprop="dateCreated datePublished" datetime="2019-11-23T18:35:07+08:00">2019-11-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-11-29 17:34:56" itemprop="dateModified" datetime="2020-11-29T17:34:56+08:00">2020-11-29</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><ul>
+<li>shader language has a single main that returns color at the end</li>
+<li>final pixel color is assigned to gl_FragColor</li>
+<li>C-flavored language has built in variable, function, type</li>
+<li>preprocessor macros (pre-compiled)<ul>
+<li><code>#define</code> global variable</li>
+<li><code>#ifdef</code> and <code>#endif</code></li>
+</ul>
+</li>
+<li>lower precision → faster rendering, less quality<ul>
+<li><code>precision medium float</code></li>
+<li><code>precision lowp float</code></li>
+<li><code>precision highp float</code></li>
+</ul>
+</li>
+<li>GLSL specs doesn’t guarantee auto-cast<ul>
+<li><code>vec4(1, 0, 0, 1)</code> will raise error, because it’s not float</li>
+</ul>
+</li>
+<li>multiple ways of constructing vec4<ul>
+<li><code>vec4 color = vec4(vec3(1., 1., 0.), 1.);</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="Uniform-amp-Varying"><a href="#Uniform-amp-Varying" class="headerlink" title="Uniform &amp; Varying"></a>Uniform &amp; Varying</h1><ul>
+<li>GPU has multiple threads calculating a portion of the color, each parallel thread is blind to others. The input sent from CPU to GPU are equal and <em>read only</em>  to all the threads. These are <strong>uniforms</strong>.</li>
+<li>supported type: <em>float, vec2, vec3, vec4, mat2, mat3, mat4, sampler2D, samplerCube</em></li>
+<li>uniforms are defined on the top of the shader after the point precision assigning.</li>
+</ul>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#ifdef GL_ES</span></span><br><span class="line"><span class="keyword">precision</span> <span class="keyword">mediump</span> <span class="type">float</span>;</span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec2</span> u_resolution; <span class="comment">// canvas size (width, height)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec2</span> u_mouse; <span class="comment">// mouse position in screen pixels</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> u_time; <span class="comment">// TIme in seconds since load</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>GPU hardware has accelerated angle, trigonometric, and exponential functions<ul>
+<li><em>sin(), cos(), tan(), asin(), acos(), atan(), pow(), exp(), log() …</em></li>
+</ul>
+</li>
+<li><code>gl_FragColor</code> is the default input. It holds the pixel coordinates of the pixels or screen of fragment that the active thread is working on. It’s not a uniform, because threads have it differently, it’s a <strong>varying</strong>. A varying variable contains data shared from vertex shader to a fragment shader.</li>
+</ul>
 
       
     </div>
@@ -980,89 +1073,10 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://after1995.info/2019/07/26/forward-xviii/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Kyle Fang">
-      <meta itemprop="description" content="All Ended Happily">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="After1995">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/26/forward-xviii/" class="post-title-link" itemprop="url">Forward XVIII</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-26 10:53:00" itemprop="dateCreated datePublished" datetime="2019-07-26T10:53:00+08:00">2019-07-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-07-27 01:53:53" itemprop="dateModified" datetime="2019-07-27T01:53:53+08:00">2019-07-27</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>7.24</p>
-<p>开始收尾。首先搭火车回学校 request mailing service，然后关掉银行账户。<br>回 LA 的时候没有意识到 Lyft 的 tips 实际上是从 card payment 中扣除，所以只能用 gift card 的我多了 $1 的 balance。第一位客服图省事一直告诉我不能取消 tip。然后我再发了一封邮件后终于给我取消了。客服懒死算了。</p>
-<p>Daniel 家住地下室，房间算是比较脏乱的 Airbnb。地毯已经变灰色了，而且纸屑和不显眼的小垃圾到处都是。他收藏了半个房间的 Magic 卡片。游戏主机摆满了电视柜。</p>
-<p>7.25</p>
-<p>我去看了 <em>The Lion King</em>。CG 动物看上去就是真的。而且每一只狮子都有它们自己的特点，除了 Nala 和 Sarabi 长得一样。老实说所有母狮子都长得一样。狮子们的表情并不像动画中那么丰富。音乐还是挺好的，中间来了一句  <em>Beauty and Beast</em> 的 “Be Our Guest”。</p>
-<p>然后 …… 我又吃了拉面。还去了 MUJI 买 ……<br>拉面怎么就那么好吃呢？</p>
-<p>7.26</p>
-<p>终于到了最后一站。心情比预期来的平静。<br>但是我离开 Chicago 的时候心情也比预期来的平静，结果伤心到不行。<br>实际上到了最后我好像没什么想说的。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
