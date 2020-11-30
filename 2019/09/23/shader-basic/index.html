@@ -32,7 +32,7 @@
 <meta property="og:description" content="Basics shader language has a single main that returns color at the end final pixel color is assigned to gl_FragColor C-flavored language has built in variable, function, type preprocessor macros (pre-">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-09-23T10:35:07.000Z">
-<meta property="article:modified_time" content="2020-11-30T03:09:26.586Z">
+<meta property="article:modified_time" content="2020-11-30T04:10:37.305Z">
 <meta property="article:author" content="Kyle Fang">
 <meta property="article:tag" content="Shader Journal">
 <meta property="article:tag" content="Computer Graphics">
@@ -199,7 +199,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -289,7 +289,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-11-30 11:09:26" itemprop="dateModified" datetime="2020-11-30T11:09:26+08:00">2020-11-30</time>
+        <time title="Modified: 2020-11-30 12:10:37" itemprop="dateModified" datetime="2020-11-30T12:10:37+08:00">2020-11-30</time>
       </span>
 
   
@@ -476,6 +476,50 @@
   
 
   
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

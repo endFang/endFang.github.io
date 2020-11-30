@@ -194,7 +194,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -244,6 +244,194 @@
       
 
       
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://after1995.info/2018/12/02/minimax-search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kyle Fang">
+      <meta itemprop="description" content="All Ended Happily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="After1995">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/02/minimax-search/" class="post-title-link" itemprop="url">Minimax Search</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-02 18:49:03" itemprop="dateCreated datePublished" datetime="2018-12-02T18:49:03+08:00">2018-12-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2018-12-03 10:49:57" itemprop="dateModified" datetime="2018-12-03T10:49:57+08:00">2018-12-03</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Games-as-search"><a href="#Games-as-search" class="headerlink" title="Games as search"></a>Games as search</h1><p>“max” and “min” two players.<br>Max moves frist in the game. The game take turns until it’s over. Max uses search tree to determine “best” next move.</p>
+<p><strong>Definitions</strong></p>
+<ul>
+<li>initial state: set-up defined by rules</li>
+<li>player(s): which player has the move in state s</li>
+<li>actions(s): set of legal moves in state</li>
+<li>results(s, a): transition model defines result of a move</li>
+<li>terminal_test(s): true if the game is finished; false otherwise</li>
+<li>utility(s, p): the numerical value of terminal state s for player p<ul>
+<li>win: 1, lose :-1, draw: 0</li>
+</ul>
+</li>
+</ul>
+<h1 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h1><ol>
+<li>generate the whole game tree to leaves</li>
+<li>apply utility function to leaves</li>
+<li>back-up values from leaves toward the root:<ol>
+<li>Max node computes the max of its child values</li>
+<li>Min node computes the min of its chidl values</li>
+</ol>
+</li>
+<li>at root: choose move leading to the child of highest value</li>
+</ol>
+<p>e.g.</p>
+<p><img src="https://i.imgur.com/pGo4wlk.png" alt="minmax example"></p>
+<h1 id="pesudo-code"><a href="#pesudo-code" class="headerlink" title="pesudo code"></a>pesudo code</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">miniMaxSearch(state)</span><br><span class="line">    <span class="keyword">return</span> argmax([minValue(apply(state, a)) <span class="keyword">for</span> each action a])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">maxValue(state)</span><br><span class="line">    <span class="keyword">if</span> (terminal(state))</span><br><span class="line">        <span class="keyword">return</span> utility(state)</span><br><span class="line">	v = -infty</span><br><span class="line">	<span class="keyword">for</span> each action a:</span><br><span class="line">		v = max(v, minValue(apply(state, a)))</span><br><span class="line">    <span class="keyword">return</span> v</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">minValue(state)</span><br><span class="line">    <span class="keyword">if</span> (terminal(state))</span><br><span class="line">        <span class="keyword">return</span> utility(state)</span><br><span class="line">	v = infty</span><br><span class="line">	<span class="keyword">for</span> each action a:</span><br><span class="line">		v = min(v, maxValue(apply(state, a)))</span><br><span class="line">    <span class="keyword">return</span> v</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Alpha-Beta-Pruning-in-Minimax"><a href="#Alpha-Beta-Pruning-in-Minimax" class="headerlink" title="Alpha-Beta Pruning in Minimax"></a>Alpha-Beta Pruning in Minimax</h1><p>If a position is provably bad, it’s no use to search the rest.<br>If the adversary can force a bad position, it’s no use to search the rest because the adversary won’t let me achieve.</p>
+<p>Begin at root (MAX), set:<br>alpha = -infty for Max<br>beta = infty for Min</p>
+<p>for each child node:<br>inherit alpha and beta, check its children:<br>    for each child:<br>        assign its value to beta, if beta &lt; alpha, prune it: terminate this child’s search<br>    update parent’s alpha/beta: alpha = child’s beta, beta = child’s alpha<br>update root’s alpha beta</p>
+<p><strong>Why?</strong></p>
+<p>Max only chooses the maximum number, Min only chooses the minimum number.<br>Therefore, when beta(min) &lt; alpha(max), Min will choose the beta’s value. There’s no use to search the rest children because no matter beta can be smaller or bigger, the situation won’t be better. Min only chooses smaller number. We already know beta is small.</p>
+<h2 id="pesudo-code-1"><a href="#pesudo-code-1" class="headerlink" title="pesudo code"></a>pesudo code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">abSearch(state):</span><br><span class="line">	alpha, beta, a = -infty, +infty, None</span><br><span class="line">	<span class="keyword">for</span> each action a:</span><br><span class="line">		alpha, a = max(alpha, a), (minValue(apply(state, a), alpha, beta), a)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">    </span><br><span class="line">maxValue(state, al, be)</span><br><span class="line">	<span class="keyword">if</span> (cutoff(state)) <span class="keyword">return</span> eval(state);</span><br><span class="line">	<span class="keyword">for</span> each action a:</span><br><span class="line">		al = max( al, minValue( apply(state, a), al, be ))</span><br><span class="line">		<span class="keyword">if</span> (al ≥ be) <span class="keyword">return</span> +infty</span><br><span class="line">	<span class="keyword">return</span> al</span><br><span class="line">	</span><br><span class="line">minValue(state, al, be)</span><br><span class="line">	<span class="keyword">if</span> (cutoff(state)) <span class="keyword">return</span> eval(state);</span><br><span class="line">	<span class="keyword">for</span> each action a:</span><br><span class="line">		be = min( be, maxValue( apply(state, a), al, be))</span><br><span class="line">        <span class="keyword">if</span> (al ≤ be ) <span class="keyword">return</span> -infty</span><br><span class="line">	<span class="keyword">return</span> be</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://after1995.info/2018/11/25/fire-iv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kyle Fang">
+      <meta itemprop="description" content="All Ended Happily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="After1995">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/25/fire-iv/" class="post-title-link" itemprop="url">Fire IV</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-11-25 18:24:10" itemprop="dateCreated datePublished" datetime="2018-11-25T18:24:10+08:00">2018-11-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2019-04-23 01:57:43" itemprop="dateModified" datetime="2019-04-23T01:57:43+08:00">2019-04-23</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>只要脑子突然闲下来一点就会突然变成这样：</p>
+<p><img src="https://i.imgur.com/w8rWRuG.png" alt="Imgur"></p>
+<p>内心也出现 BGM：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EOtOA3x8MZo">Das Lied vom Meister</a></p>
+<p>这一定是武内直子胡编乱造的。<br>Renfield 的疯癫独唱也一定是因为耳虫效应。</p>
+<p>但是“欲求不满”带来好多麻烦。以游戏来打比方的话，就是内存，CPU，GPU 已经超出要求很多，但是硬盘里面已经装满了其它东西所以游戏本体反而安装不下。</p>
+<p>机器可以压缩数据或者存在云里面，现实中可是没有冥想盆的。</p>
+<p>是不是作为机器反而能活下去。</p>
+<p>啊好想在 XIV 中作为一个名字土土的冒险者，作为 WoL 的备用队员，召唤一只 Carbuncle 前往 Ishgard。</p>
+<p>17 年的时候 Shadow 就呼唤了一次。我若当时就走，是不是比现在活得更加高明一点？</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
 
 
@@ -982,180 +1170,6 @@
 <h2 id="Captain"><a href="#Captain" class="headerlink" title="Captain"></a>Captain</h2><p>现在 GC 的头衔可以升级为 Captain。换句话说有了新的 Glamour 选择。一部分武器使用了以前的模型，在细节上做了一点修改；另一部分武器使用独特的模型，但是不怎么好看……<br>升 Captain 需要带领小队完成至少 5 个不同的副本。也就是带着三个 AI 玩游戏。AI 真的不怎么聪明，又都没有 Job 用不了一些高级技能比如 Benediction。Braflox 的最终 Boss 用炸弹炸死了我四次。气死我了。幸亏游戏允许在转 GC 的时候继承所有过去的成就。</p>
 <h1 id="Unending"><a href="#Unending" class="headerlink" title="Unending"></a>Unending</h1><p>最后是 4.4 的完成纪念图：</p>
 <p><img src="https://i.imgur.com/ZCu16Rw.jpg" alt="4.4&#39;s ending"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://after1995.info/2018/09/10/4-1-to-4-35/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Kyle Fang">
-      <meta itemprop="description" content="All Ended Happily">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="After1995">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/10/4-1-to-4-35/" class="post-title-link" itemprop="url">4.1 到 4.35</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-09-10 21:14:53" itemprop="dateCreated datePublished" datetime="2018-09-10T21:14:53+08:00">2018-09-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2019-04-23 02:08:17" itemprop="dateModified" datetime="2019-04-23T02:08:17+08:00">2019-04-23</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="剧情"><a href="#剧情" class="headerlink" title="剧情"></a>剧情</h4><p>Ala Mhigo 的剧情基本上可以算是结束了。Raubahn 辞去了在 Immoral Flames 的将军职位，回归故乡 Ala Mhigo。<br>Yotsuyu 和 Gosetsu 也被找到。失忆的 Yotsuyu 成为了 Tsuyu。而她的哥哥 Asahi 来到了 Doma 与 Hien 谈判，希望能够用人质换回 Yotsuyu。<br>最终 Yotsuyu 自愿落入 Asahi 的圈套并在一块镜子和大量水晶的帮助下成为了 Tsukuyomi，在最后一刻杀死了哥哥。<br>4.3 的最后，玩家可以控制 Alphinaud 在 Maxima 的陪同下前往 Garlemald。飞船迫降，打败伏兵，遇见了疑似 Gaius 的猎人，一同前往 Garlemald。<br>还有，Alphinaud  的 Ruin III 攻击力比玩家的高，他的 Moonstone Carbuncle 虽然不能攻击但是可以提高伤害和回复量。</p>
-<h4 id="新增功能"><a href="#新增功能" class="headerlink" title="新增功能"></a>新增功能</h4><p>New features such as Glamour Dresser, message book, delivery customer customization, are added.<br>Glamour Dresser allows player to convert gears into glamour. Each player has 10 glamour plates to create glamour set and link it them to gear set. In such a way, players are able to maintain the same galmour even if they change gears. The only drawback to me is that the dresser is only available in inn or GC barrack.<br>Customer customization is essentially waifu-dress-up simulator.<br>Frontline map’s availability is limited by the date, so players will enter the same map everyday to ensure every map is accessible.<br>New deep dungeon: Heaven-on-High is added. Essentially it’s another PoTD, but players can summon Ifrit, Garuda, or Titan to clear the whole floor. And floors above 30 requires a fixed party to enter. In other words, I need YouTube video to know the rest of the plot. I can’t set a fixed time to play HoH.</p>
-<h4 id="Server-Faerie"><a href="#Server-Faerie" class="headerlink" title="Server: Faerie"></a>Server: Faerie</h4><p>Behemoth 过不下去了。变 Elezen，转 Faerie。<br>从 Limsa 的裸体群舞到各种 LGBT FC，无一不昭示着这是一个 Gay Server。而且我所加入的 FC 是一个每天充满着色情对话的地方。Discord 里面也有一个专门用来放 NSFW 图片的频道。Bottom 和 top 的刻板印象非常严章。大家都是一对一对的加入。到处都是猫人。老实说真是大开眼界。<br>最近变了 Lalafell。矮矮胖胖软乎乎的是真可爱。<br>无论是哪个服务器，Limsa 都是个傻地方。</p>
-<h4 id="Trials-Dungeons"><a href="#Trials-Dungeons" class="headerlink" title="Trials/Dungeons"></a>Trials/Dungeons</h4><p>我是真玩不起 Salvage。所以只能靠 Ex 的武器来弥补。<br>SB 中引入了东方的神话故事。动物修炼百千年可以变为 Auspicious。我是真记不起来这个词对应哪一个汉语词汇。神灵？精怪？妖精？在火山下面能看见各种各样的可爱的小动物说恐怖的话。还能获得一只小镰鼬 minion。<br>剧情上为了阻止朱雀，玄武开始给我们各种各样的任务。不过这个任务链引入了大量的东方神话。雾天狗，大太法师，齐天大圣也作为一个副本的 boss 登场。它的招数包括：Mount Huaguo, Monkey Magicks, Second Heaven, Splitting Hairs ……<br>除了四圣兽，还有日本神话中的月读以月兔形象登场。一开始玩家们创造出了至少三种以上的打法而使得 Ex 变得格外的困难。每个队伍的打法都不同，很容易就会犯糊涂。不过我很幸运地在第七次就 roll 到了坐骑，同 FC 的一女生打了差不多 400 多次才 roll 到。我那个时候都不敢发言怕惹怒她。</p>
-<h4 id="Raid"><a href="#Raid" class="headerlink" title="Raid"></a>Raid</h4><p>Omega 剧情上开始了一般套路的“人工智能要征服世界“。在 3.55 中抓捕 Shinyru 失败的 Omega 夺回了自主权。它为了找到最强的战士，通过回顾历史文学，在它的空间内部创造出虚拟出来的角色并让他们互相战斗来选拔人才。因此内容上也在不断的引入 Final Fantasy 的历代角色。连 FF6 的卡夫卡这种大 Boss 都出现了。而且 Omega 为了测试 WoL 的极限，NPC 们也一个接一个的受伤。<br>24 人 Raid 引入了 FF12 的部分剧情。我是没怎么看懂。有个嘴巴恶毒，脾气暴躁的 NPC。里面的建筑有点像是迪士尼乐园和天空之城。掉落的装备真的好丑。</p>
-<h4 id="FFXIV-Orchestral-Concern"><a href="#FFXIV-Orchestral-Concern" class="headerlink" title="FFXIV Orchestral Concern"></a>FFXIV Orchestral Concern</h4><p>五月底看到消息推送说六月中旬有音乐会。当天订了票然后六月跑到了洛杉矶。顺带安排了一下记下来的魔法世界和迪士尼乐园。<br>现场有很多 cosplay，我刚进大厅就看见了那个在上半年在各种 con 都很活跃的 Tataru。不过我是踩点到达音乐会，只在上下半场之间的休息看到了 coser 拍照，之前的红毯完全没看到。指挥是一个非常帅气又奔放并且从头到尾都在抖腿的短发女人。Susan 演唱了 Answers 和 Dragonsong。Koji 和 Yoshi 在 Mobius 的“时间停止“中用打击乐器模拟了时钟的滴答声。<br>纪念T恤的只买到了 M。真的小啊。跟紧身衣一样。都不好意思穿出门，只能在家里穿一穿。</p>
-<h4 id="2018-Fan-festival-Ticket"><a href="#2018-Fan-festival-Ticket" class="headerlink" title="2018 Fan-festival Ticket"></a>2018 Fan-festival Ticket</h4><p>CNM 根本没买到。只能以后在 Mog Station 买点游戏内的道具。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://after1995.info/2018/09/10/toad-in-the-hole/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Kyle Fang">
-      <meta itemprop="description" content="All Ended Happily">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="After1995">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/10/toad-in-the-hole/" class="post-title-link" itemprop="url">Toad in the Hole 蟾蜍在洞</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-09-10 18:54:54" itemprop="dateCreated datePublished" datetime="2018-09-10T18:54:54+08:00">2018-09-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2018-09-11 09:59:52" itemprop="dateModified" datetime="2018-09-11T09:59:52+08:00">2018-09-11</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Toad-in-the-Hole"><a href="#Toad-in-the-Hole" class="headerlink" title="Toad in the Hole"></a>Toad in the Hole</h2><h4 id="Ingridients"><a href="#Ingridients" class="headerlink" title="Ingridients:"></a>Ingridients:</h4><p>1 Cup All purpose flour<br>1/2 teaspoon salt<br>1 cup milk<br>2 tbsp melted butter<br>2 eggs, beaten<br>1 tbsp oil (vegetable, olive, I don’t really care)<br>any type and amount of sausage you like</p>
-<h4 id="Making-batter"><a href="#Making-batter" class="headerlink" title="Making batter"></a>Making batter</h4><ol>
-<li>whisk together the flour and salt in a bowl.</li>
-<li>add the milk, melted butter and eggs</li>
-<li>beat until the batter is smooth and has the consistency of whipping cream</li>
-<li>let it sit for 30 mins ~ 1 hour</li>
-</ol>
-<h4 id="Saussage"><a href="#Saussage" class="headerlink" title="Saussage"></a>Saussage</h4><ol>
-<li>pre-heat the oven with to 430f</li>
-<li>heat oil in a skillet and brown the saussage</li>
-<li>pour batter over saussage. if your skillet is not oven-safe, put the saussage to a oven-safe container</li>
-<li>bake at 390f about 20 - 30 mins</li>
-</ol>
-<h2 id="Onion-Gravy"><a href="#Onion-Gravy" class="headerlink" title="Onion Gravy"></a>Onion Gravy</h2><h4 id="Ingridients-1"><a href="#Ingridients-1" class="headerlink" title="Ingridients:"></a>Ingridients:</h4><p>1 onion<br>1 garlic clove<br>1/4 cup worcestershire sauce or any substitue<br>2 cup beef stock<br>1/2 tsp sugar<br>Salt&amp;peper for taste<br>1tbsp oil<br>1 pinch flour</p>
-<h4 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h4><ol>
-<li>cut onions into slices</li>
-<li>add oil to skillet</li>
-<li>cook onions to golden brown</li>
-<li>cut garlic gloves and add them to the skillet</li>
-<li>add flour, cook and stir</li>
-<li>add sauce and stir</li>
-<li>add beef stock and stir</li>
-<li>stir til how thick you want</li>
-</ol>
-<h4 id="Enjoy"><a href="#Enjoy" class="headerlink" title="Enjoy :)"></a>Enjoy :)</h4><p><img src="https://i.imgur.com/o4KAqW1.jpg" alt="toad in the hole"></p>
 
       
     </div>

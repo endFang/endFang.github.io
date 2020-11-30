@@ -194,7 +194,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -416,6 +416,94 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://after1995.info/2020/10/23/unity-tree-and-wind/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kyle Fang">
+      <meta itemprop="description" content="All Ended Happily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="After1995">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/23/unity-tree-and-wind/" class="post-title-link" itemprop="url">Tree And Wind Shader</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-10-23 11:26:50" itemprop="dateCreated datePublished" datetime="2020-10-23T11:26:50+08:00">2020-10-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-11-30 11:55:54" itemprop="dateModified" datetime="2020-11-30T11:55:54+08:00">2020-11-30</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Vertex-Color-Alpha-and-Shadow"><a href="#Vertex-Color-Alpha-and-Shadow" class="headerlink" title="Vertex Color, Alpha and Shadow"></a>Vertex Color, Alpha and Shadow</h1><p>Surface shader is actually a vertex and fragment shader too, so theoretically the vertex data is accessible in surface shader too by using <code>SEMANTICS</code> or common state <code>vert</code></p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct v2f</span><br><span class="line">&#123;</span><br><span class="line">	half4 color : COLOR;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>As for the Alpha Texture, we can decide the color based on the UV mapping in vertex function</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fixed4 frag (v2f i) : COLOR0 </span><br><span class="line">&#123;</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">	fixed alpha = tex2D (_AlphaTex, i.uv).r;</span><br><span class="line">	tex.a = alpha;</span><br><span class="line">	</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Surface shader does not generate a shadow-cast pass, so the pass in the fallback is used.<br>To add shadow, we can use <code>addshadow</code> and another SubSahder tagged <code>&quot;ShadowCaster&quot;</code>. </p>
+<p><code>Cull Off</code> makes sure the plane will show both side.</p>
+<p><code>_CutOff</code> is a property.</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">SubShader</span><br><span class="line">&#123;</span><br><span class="line">	Tags</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;LightMode&quot; = &quot;ShadowCaster&quot;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Cull Off</span><br><span class="line">	</span><br><span class="line">	Pass </span><br><span class="line">	&#123;</span><br><span class="line">		CGPROGRAM</span><br><span class="line"></span><br><span class="line">		<span class="meta">#pragma vertex vert</span></span><br><span class="line">		<span class="meta">#pragma fragment frag</span></span><br><span class="line"></span><br><span class="line">		...</span><br><span class="line"></span><br><span class="line">		fixed4 frag (v2f i) : COLOR0</span><br><span class="line">		&#123;</span><br><span class="line">			fixed4 tex = tex2D (_MainTex, i.uv);</span><br><span class="line">			fixed alpha = tex2D (_AlphaTex, i.uv).r;</span><br><span class="line">			tex.a = alpha;</span><br><span class="line">			clip(tex.a - _Cutoff);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">return</span>(alpha);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		...</span><br><span class="line">		</span><br><span class="line">		ENDCG</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This is actually a clumsy solution, because it violates the DRY principle by repeating the same calculation in the shadow part, but I haven’t learned enough yet to find a better solution.</p>
+<h1 id="Wind"><a href="#Wind" class="headerlink" title="Wind"></a>Wind</h1><p>Vertex function can update the vertex data and change the placement.<br>We use the <code>_Time</code> variable to add animation by calculating the displacement based on the all wind parameters.</p>
+<p>However, I didn’t find a good enough mathematical or physical model for the wind. The code will get improved if I can find solution to reduce the cluster of calculation.</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Properties </span><br><span class="line">&#123;</span><br><span class="line">		_wind_dir (&quot;Wind Direction&quot;, Vector) = (0.5,0.05,0.5,0)</span><br><span class="line">    _wind_size (&quot;Wind Wave Size&quot;, range(1,50)) = 15</span><br><span class="line"></span><br><span class="line">    _tree_sway_stutter_influence(&quot;Tree Sway Stutter Influence&quot;, range(0,1)) = 0.2</span><br><span class="line">    _tree_sway_stutter (&quot;Tree Sway Stutter&quot;, range(0,10)) = 1.5</span><br><span class="line">    _tree_sway_speed (&quot;Tree Sway Speed&quot;, range(0,10)) = 1</span><br><span class="line">    _tree_sway_disp (&quot;Tree Sway Displacement&quot;, range(0,1)) = 0.3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Gets the vertex&#x27;s World Position </span></span><br><span class="line">float3 worldPos = mul (unity_ObjectToWorld, v.vertex).xyz;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Tree Movement and Wiggle</span></span><br><span class="line">v.vertex.x += (<span class="built_in">cos</span>(_Time.z * _tree_sway_speed + (worldPos.x/_wind_size) + (<span class="built_in">sin</span>(_Time.z * _tree_sway_stutter * _tree_sway_speed + (worldPos.x/_wind_size)) * _tree_sway_stutter_influence) ) + <span class="number">1</span>)/<span class="number">2</span> * _tree_sway_disp * _wind_dir.x * (v.vertex.y / <span class="number">10</span>) + </span><br><span class="line"><span class="built_in">cos</span>(_Time.w * v.vertex.x * <span class="number">0.01</span> + (worldPos.x/_wind_size)) * <span class="number">0.07</span> * _wind_dir.x * v.color.b;</span><br><span class="line"></span><br><span class="line">v.vertex.z += (<span class="built_in">cos</span>(_Time.z * _tree_sway_speed + (worldPos.z/_wind_size) + (<span class="built_in">sin</span>(_Time.z * _tree_sway_stutter * _tree_sway_speed + (worldPos.z/_wind_size)) * _tree_sway_stutter_influence) ) + <span class="number">1</span>)/<span class="number">2</span> * _tree_sway_disp * _wind_dir.z * (v.vertex.y / <span class="number">10</span>) + </span><br><span class="line"><span class="built_in">cos</span>(_Time.w * v.vertex.z * <span class="number">0.01</span> + (worldPos.x/_wind_size)) * <span class="number">0.07</span> * _wind_dir.z * v.color.b;</span><br><span class="line"></span><br><span class="line">v.vertex.y += <span class="built_in">cos</span>(_Time.z * _tree_sway_speed + (worldPos.z/_wind_size)) * _tree_sway_disp * _wind_dir.y * (v.vertex.y / <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="http://after1995.info/2020/08/11/where-5-2-is-leading-to/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -582,6 +670,85 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://after1995.info/2020/05/07/guide-mask/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kyle Fang">
+      <meta itemprop="description" content="All Ended Happily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="After1995">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/07/guide-mask/" class="post-title-link" itemprop="url">Guide Mask Shader</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-05-07 11:58:35" itemprop="dateCreated datePublished" datetime="2020-05-07T11:58:35+08:00">2020-05-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-11-30 12:07:19" itemprop="dateModified" datetime="2020-11-30T12:07:19+08:00">2020-11-30</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">Shader &quot;UI/GuideMask&quot;</span><br><span class="line">&#123;</span><br><span class="line">    Properties</span><br><span class="line">    &#123;</span><br><span class="line">        [PreRendererData] _MainTex (&quot;Sprite Texture&quot;, 2D) = &quot;white&quot; &#123;&#125;</span><br><span class="line">        _Color (&quot;tint&quot;, Color) = (1,1,1,1)</span><br><span class="line"></span><br><span class="line">        _StencilComp (&quot;Stencil Comparison&quot;, Float) = 8</span><br><span class="line">        _Stencil (&quot;Stencil ID&quot;, Float) = 0</span><br><span class="line">        _StencilOp (&quot;Stencil Operation&quot;, Float) = 0</span><br><span class="line">        _StencilWritemask(&quot;Stencil Write Mask&quot;, Float ) = 255</span><br><span class="line">        _StencilReadMask(&quot;Stencil Read Mask&quot;, Float) = 255</span><br><span class="line"></span><br><span class="line">        _ColorMask(&quot;Color Mask&quot;, Float) = 15</span><br><span class="line"></span><br><span class="line">        [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip (&quot;Use Alpha Clip&quot;, Float) = 0</span><br><span class="line"></span><br><span class="line">        _Center(&quot;Center&quot;, vector) = (0, 0, 0, 0)</span><br><span class="line">        _Slider(&quot;Slider&quot;, Range(0, 1500)) = 1500</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    SubShader</span><br><span class="line">    &#123;</span><br><span class="line">        Tags</span><br><span class="line">        &#123; </span><br><span class="line">            &quot;RenderType&quot;=&quot;Opaque&quot; </span><br><span class="line">            &quot;IgnoreProjector&quot; = &quot;True&quot;</span><br><span class="line">            &quot;RenderType&quot; = &quot;Transparent&quot;</span><br><span class="line">            &quot;PreviewType&quot; = &quot;Plane&quot;</span><br><span class="line">            &quot;CanUseSpriteAtlas&quot; = &quot;True&quot;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Stencil</span><br><span class="line">        &#123;</span><br><span class="line">            Ref [_Stencil]</span><br><span class="line">            Comp [_StencilComp]</span><br><span class="line">            Pass [_StencilOp]</span><br><span class="line">            ReadMask [_StencilReadmask]</span><br><span class="line">            Writemask [_StencilWriteMask]</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">        Cull Off</span><br><span class="line">        Lighting Off</span><br><span class="line">        ZWrite Off</span><br><span class="line">        ZTest [unit_GUIZTestMode]</span><br><span class="line">        Blend SrcAlpha OneMinusSrcAlpha</span><br><span class="line">        ColorMask [_ColorMask]</span><br><span class="line"></span><br><span class="line">        Pass</span><br><span class="line">        &#123;</span><br><span class="line">            Name &quot;Default&quot;</span><br><span class="line">            CGPROGRAM</span><br><span class="line">            <span class="meta">#pragma vertex vert</span></span><br><span class="line">            <span class="meta">#pragma fragment frag</span></span><br><span class="line">            <span class="meta">#pragma target 2.0</span></span><br><span class="line"></span><br><span class="line">            <span class="meta">#include &quot;UnityCG.cginc&quot;</span></span><br><span class="line">            <span class="meta">#include &quot;UnityUI.cginc&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="meta">#pragma multi_compile__UNITY_UI_ALPHACLIP</span></span><br><span class="line"></span><br><span class="line">            struct appdata_t</span><br><span class="line">            &#123;</span><br><span class="line">                float4 vertext : POSITION;</span><br><span class="line">                float4 color : COLOR;</span><br><span class="line">                float2 texcoord : TEXCOORD0;</span><br><span class="line">                UNITY_VERTEX_INPUT_INSTANCE_ID</span><br><span class="line">            </span><br><span class="line">			&#125;;</span><br><span class="line"></span><br><span class="line">            struct v2f</span><br><span class="line">            &#123;</span><br><span class="line">                float4 vertex : SV_POSITION;</span><br><span class="line">                fixed4 color : COLOR;</span><br><span class="line">                float2 texcoord : TEXCOORD0;</span><br><span class="line">                float4 worldPosition : TEXCOORD1;</span><br><span class="line">                UNITY_VERTEX_OUTPUT_STEREO</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            fixed4 _Color;</span><br><span class="line">            fixed4 _TextureSampleAdd;</span><br><span class="line">            float4 _ClipRect;</span><br><span class="line"></span><br><span class="line">            <span class="type">float</span> _Slider;</span><br><span class="line">            float2 _Center;</span><br><span class="line"></span><br><span class="line">            v2f vert (appdata_t IN)</span><br><span class="line">            &#123;</span><br><span class="line">                v2f OUT;</span><br><span class="line">                UNITY_SETUP_INSTANCE_ID(IN);</span><br><span class="line">                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(OUT);</span><br><span class="line">                OUT.worldPosition = IN.vertext;</span><br><span class="line">                OUT.vertex = UnityObjectToClipPos(OUT.worldPosition);</span><br><span class="line">                OUT.texcoord = IN.texcoord;</span><br><span class="line">                OUT.color = IN.color * _Color;</span><br><span class="line">                <span class="keyword">return</span> OUT;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="type">sampler2D</span> _MainTex;</span><br><span class="line"></span><br><span class="line">            fixed4 frag (v2f IN) : SV_Target</span><br><span class="line">            &#123;</span><br><span class="line">                half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;</span><br><span class="line">                </span><br><span class="line">                color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);</span><br><span class="line"></span><br><span class="line">                <span class="meta">#ifdef UNITY_UI_ALPHACLIP</span></span><br><span class="line">                clip (color.a - <span class="number">0.001</span>);</span><br><span class="line">                <span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line">                color.a *= (<span class="built_in">distance</span>(IN.worldPosition.xy, _Center.xy) &gt; _Slider);</span><br><span class="line">                color.rgb *= color.a;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> color;</span><br><span class="line">            &#125;</span><br><span class="line">            ENDCG</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The above shader is from others. It means to create an oval white shape on a gray mask. The oval shape size is controlled by the <code>_Slider</code> parameter.</p>
+<p>To create an rectangle shape mask, let’s add a <code>_RectSize</code> to control the width and height for the rectangle.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_Center(&quot;Center&quot;, vector) = (0, 0, 0, 0)</span><br><span class="line">_RectSize(&quot;RectSize&quot;, vector) = (0, 0, 0, 0)</span><br><span class="line">_Slider(&quot;Slider&quot;, Range(1, 5)) = 1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">float2 size = _RectSize.xy * _Slider;</span><br><span class="line"></span><br><span class="line">float2 d = <span class="built_in">abs</span>(IN.worldPosition - _Center.xy) - (size);</span><br><span class="line">float2 d2 = <span class="built_in">min</span>(<span class="built_in">max</span>(d.x, d.y), <span class="number">0.0</span>) + <span class="built_in">length</span>(<span class="built_in">max</span>(d, <span class="number">0.0</span>));</span><br><span class="line"><span class="type">float</span> d3 = <span class="built_in">smoothstep</span>(<span class="number">0.0</span>, <span class="number">5.0</span>, d2);</span><br><span class="line">color.a *= d3;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="http://after1995.info/2020/03/01/unity-pbr/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -614,7 +781,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-11-30 11:06:49" itemprop="dateModified" datetime="2020-11-30T11:06:49+08:00">2020-11-30</time>
+        <time title="Modified: 2020-11-30 12:10:04" itemprop="dateModified" datetime="2020-11-30T12:10:04+08:00">2020-11-30</time>
       </span>
 
   
@@ -636,7 +803,7 @@
 <p>The coefficient is calculated using ramp texture to re-map it onto different set of values.</p>
 <h2 id="Blinn-Phong-Model"><a href="#Blinn-Phong-Model" class="headerlink" title="Blinn-Phong Model"></a>Blinn-Phong Model</h2><p>Lambertian: $I = N \cdot L$</p>
 <p>Blinn-Phong uses a half vector: </p>
-<p>$$<br>I = (N \cdot H)^{sepcular} \cdot gloss \<br>H = \frac{L + H}{ |L + H| }$$</p>
+<p>$$<br>I = (N \cdot H)^{sepcular} \cdot gloss \<br>H = \frac{L + H}{ |L + H| }<br>$$</p>
 <h1 id="Physically-Based-Rendering-PBR"><a href="#Physically-Based-Rendering-PBR" class="headerlink" title="Physically Based Rendering (PBR)"></a>Physically Based Rendering (PBR)</h1><p>PBR is northing more than surface shader with advanced lighting model.</p>
 <ul>
 <li>Metallic workflow<br>The material reflects light depends on how metallic it is.</li>
@@ -784,7 +951,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-11-30 11:09:56" itemprop="dateModified" datetime="2020-11-30T11:09:56+08:00">2020-11-30</time>
+        <time title="Modified: 2020-11-30 12:10:26" itemprop="dateModified" datetime="2020-11-30T12:10:26+08:00">2020-11-30</time>
       </span>
 
   
@@ -875,7 +1042,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-11-30 11:10:07" itemprop="dateModified" datetime="2020-11-30T11:10:07+08:00">2020-11-30</time>
+        <time title="Modified: 2020-11-30 12:10:23" itemprop="dateModified" datetime="2020-11-30T12:10:23+08:00">2020-11-30</time>
       </span>
 
   
@@ -919,190 +1086,6 @@
 <p><a target="_blank" rel="noopener" href="https://docs.unity3d.com/Manual/SL-Pass.html">Render states</a>:<br><code>ZWrite</code>: whether pixels from this object are written to the depth buffer. Solid object is on (default), semitransparent effects are off.<br><code>Blend</code>: how pixels are combined with what is already there.</p>
 <p><strong>Distortion</strong><br>Shaders usually create distortion via bump map. Bump maps tells how light should reflect onto a surface. </p>
 <h2 id="Texture-Maps"><a href="#Texture-Maps" class="headerlink" title="Texture Maps"></a>Texture Maps</h2><p>Gloss: Roughness<br>Bump: illusion of depth by faking details by using height info to tell when a point should be up or down<br>Normal: a type of Bump map that fakes the details by using angle information to tell which direction each point of the surface should be oriented towards. Better effect with lighting and shadows.<br>Displacement: similar to a height map but actually changes the geometry of the object by moving vertices.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://after1995.info/2019/11/30/unity-shader-overview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Kyle Fang">
-      <meta itemprop="description" content="All Ended Happily">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="After1995">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/30/unity-shader-overview/" class="post-title-link" itemprop="url">Unity Shader Overview</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-11-30 10:59:20" itemprop="dateCreated datePublished" datetime="2019-11-30T10:59:20+08:00">2019-11-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-11-30 11:09:34" itemprop="dateModified" datetime="2020-11-30T11:09:34+08:00">2020-11-30</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Thanks to these posts and blogs:<br><a target="_blank" rel="noopener" href="https://medium.com/@pixelcurio/a-lesson-plan-for-learning-shaders-in-unity-ce151d4e9580">Michael Sanders</a><br><a target="_blank" rel="noopener" href="https://catlikecoding.com/">Catike Coding</a><br><a target="_blank" rel="noopener" href="https://www.alanzucconi.com/">Alan Zucconi</a></p>
-<p>Unity has 3 types of shader: <strong>surface shader</strong>, <strong>fragment and vertex shader</strong>, and the obsolete fixed function shader. They all have the same anatomy.</p>
-<p><a target="_blank" rel="noopener" href="https://catlikecoding.com/">Catlike Coding</a></p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">Shader &quot;MyShader&quot;</span><br><span class="line">&#123;</span><br><span class="line">	Properties</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// The properties of your shaders</span></span><br><span class="line">		<span class="comment">// - textures</span></span><br><span class="line">		<span class="comment">// - colours</span></span><br><span class="line">		<span class="comment">// - parameters</span></span><br><span class="line">		<span class="comment">// ...</span></span><br><span class="line">		_MyTexture (&quot;My texture&quot;, 2D) = &quot;white&quot; &#123;&#125;</span><br><span class="line">		_MyNormalMap (&quot;My normal map&quot;, 2D) = &quot;bump&quot; &#123;&#125; // Grey</span><br><span class="line">		</span><br><span class="line">		_MyInt (&quot;My integer&quot;, Int) = 2</span><br><span class="line">		_MyFloat (&quot;My float&quot;, Float) = 1.5</span><br><span class="line">		_MyRange (&quot;My range&quot;, Range(0.0, 1.0)) = 0.5</span><br><span class="line">		</span><br><span class="line">		_MyColor (&quot;My colour&quot;, Color) = (1, 0, 0, 1) // (R, G, B, A)</span><br><span class="line">		_MyVector (&quot;My Vector4&quot;, Vector) = (0, 0, 0, 0) // (x, y, z, w)</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	SubShader</span><br><span class="line">	&#123;</span><br><span class="line">		Tags</span><br><span class="line">		&#123;</span><br><span class="line">			&quot;Queue&quot; = &quot;Geometry&quot;</span><br><span class="line">			&quot;RenderType&quot; = &quot;Opaque&quot;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		CGPROGRAM</span><br><span class="line"></span><br><span class="line">		<span class="comment">// CG/HLSL code</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">// The code of your shaders</span></span><br><span class="line">		<span class="type">sampler2D</span> _MyTexture;</span><br><span class="line">		<span class="type">sampler2D</span> _MyNormalMap;</span><br><span class="line">		</span><br><span class="line">		<span class="type">int</span> _MyInt;</span><br><span class="line">		<span class="type">float</span> _MyFloat;</span><br><span class="line">		<span class="type">float</span> _MyRange;</span><br><span class="line">		</span><br><span class="line">		half4 _MyColor;</span><br><span class="line">		float4 _MyVector;</span><br><span class="line"></span><br><span class="line">		ENDCG</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>One shader can have multiple <code>SubShader</code> . They contain the instructions for the GPU. Unity execute one by one until it find the compatible one.<br>2D properties = textures. <code>bumb</code> indicates that the texture is used as a normal map. Vector and Color always have 4 elements.<br>Define the properties variables in the <code>SubShader</code> before using them.<br>Tags are telling Unity certain properties of the shader. “Queue” tells the <code>RenderType</code> and controls the render order. Queue accept positive integer too. The smaller, the sooner is drawn.</p>
-<ul>
-<li>Background (1000): background and skyboxes</li>
-<li>Geometry (2000): default label used for most solid objects</li>
-<li>Transparent (3000): materials with transparent properties</li>
-<li>Overlay (4000): effects used as lens flares, GUI elements and texts.</li>
-</ul>
-<p>Relative orders are acceptable, such as <code>Background+2</code>. Messing up the Queue might cause nasty situations.</p>
-<p>CGPROGRAM and ENDCG are keywords to separate the shader program from other statements. They are old design decisions that made sense once, now we’re still stuck with the backwards compatibility.</p>
-<h2 id="ZTest"><a href="#ZTest" class="headerlink" title="ZTest"></a>ZTest</h2><p>An object from <code>Transparent</code> doesn’t always appear above on object from Geometry because GPU performs ZTest which stops hidden pixels from being drawn.<br>GPU uses an extra buffer to store the depth of the object drawn in that pixel. Any further away pixel is discarded.</p>
-<h2 id="Surface-Shader"><a href="#Surface-Shader" class="headerlink" title="Surface Shader"></a>Surface Shader</h2><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CGPROGRAM</span><br><span class="line"><span class="comment">// uses the lambertian lighting model</span></span><br><span class="line"><span class="meta">#program surface surf Lambert</span></span><br><span class="line"></span><br><span class="line"><span class="type">sampler2D</span> _MainText; <span class="comment">// the input texture</span></span><br><span class="line"></span><br><span class="line">struct Input</span><br><span class="line">&#123;</span><br><span class="line">	float2 uv_MainTex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> surf (Input IN, <span class="keyword">inout</span> SurfaceOutput o)</span><br><span class="line">&#123;</span><br><span class="line">	o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb;</span><br><span class="line">&#125;</span><br><span class="line">ENDCG</span><br></pre></td></tr></table></figure>
-
-<p>Use surface shader if the material is affected by lights realistically. Surface shader also hides the calculation of how light isrefelcted.</p>
-<h2 id="Vertex-and-fragment-shader"><a href="#Vertex-and-fragment-shader" class="headerlink" title="Vertex and fragment shader"></a>Vertex and fragment shader</h2><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Pass &#123;</span><br><span class="line">CGPROGRAM</span><br><span class="line"> </span><br><span class="line"><span class="meta">#pragma vertex vert             </span></span><br><span class="line"><span class="meta">#pragma fragment frag</span></span><br><span class="line"><span class="meta">#include &quot;UnityCG.cginc&quot;</span></span><br><span class="line"> </span><br><span class="line">struct vertInput &#123;</span><br><span class="line"> float4 pos : POSITION;</span><br><span class="line">&#125;;  </span><br><span class="line"> </span><br><span class="line">struct vertOutput &#123;</span><br><span class="line"> float4 pos : SV_POSITION;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">vertOutput vert(vertInput input) &#123;</span><br><span class="line"> vertOutput o;</span><br><span class="line"> o.pos = mul(UNITY_MATRIX_MVP, input.pos);</span><br><span class="line"> <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">half4 frag(vertOutput output) : COLOR &#123;</span><br><span class="line"> <span class="keyword">return</span> half4(<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span>); </span><br><span class="line">&#125;</span><br><span class="line">ENDC</span><br></pre></td></tr></table></figure>
-
-<p><code>UnityCG.cginc</code> is one of the shader files bundled with Unity. It includes some other essentials files and contains generic functionality.</p>
-<p><code>UnityCG</code> contains <code>UnityInstancing</code> and <code>UnityShaderVariables</code>, <code>UnityInstancing</code> depends on <code>UnityShaderVariables</code>. <code>UnityShaderVariables</code> includes <code>HLSLsupport</code>.<br><code>UnityShaderVariables</code> defines shader variables like transformation, camera, and light data.<br><code>HLSLSupport</code> helps us to use the same code, no matter which platform we’re targeting.<br><code>UnityInstancing</code> is specifically for instancing support.<br>Include a file more than once will make the content copied more than once. It might lead to compiler errors for duplicate definitions.</p>
-<p><code>pragma</code> is to issue special compiler directives. </p>
-<p>Geometry model is firstly passed thru the <code>vert</code> to alter the vertices. Then individual traingles are passed thru <code>frag</code> to decide the final RGB color.<br>Useful for 2D effects, post-processing and special 3D effects.</p>
-<p>*Each shader consists of a list of subshaders.</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Subshader &#123; [Tags] [CommonState] Passdef [Passdef ...]&#125;</span><br></pre></td></tr></table></figure>
-
-<p>SV_POSITION: SV stands for the System Value, POSITION is the final vertex position<br>SV_TARGET means the default shader target. SV_TARGET1 or 2 indicates the additional render target. 0 is the default.</p>
-<p><a target="_blank" rel="noopener" href="https://www.gamedev.net/forums/topic/579610-hlsl-semantics-position-vs-sv_position/">Any other semantics (not SV) are defined completely by the user is to match the outputs from one stage of the pipeline to the inputs of another stage.</a></p>
-<p>swizzle operations: flexible access a single or more component of a vector. e.g.  <code>.x, .xy, .yx</code></p>
-<p>Texture mapping: to change the tiling and offset, use the TRANSFORM_TEX macro. It will multiply the tilling and add offset. It’s not need to multiply by <code>_Main_ST</code>.<br>ST = Scale and Translation, it’s an old terminology. </p>
-<p>Texels: pixels of a texture<br>Filter Mode:</p>
-<ul>
-<li>Point: the nearest texel is used when a texture is sampled at some UV coordinates. (blocky appearance)</li>
-<li>Bilinear: interpolation between 2 texels. Good for texel density is less than the display pixel but not the other way around, because adjacent pixels will end up with sampels taht are mot than one texel apart.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://after1995.info/2019/10/04/gujian-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Kyle Fang">
-      <meta itemprop="description" content="All Ended Happily">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="After1995">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/04/gujian-3/" class="post-title-link" itemprop="url">放假后从早玩到晚的古剑奇谭3</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2019-10-04 18:53:17 / Modified: 18:58:04" itemprop="dateCreated datePublished" datetime="2019-10-04T18:53:17+08:00">2019-10-04</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>抓到了打折的尾巴。Nice。天朝的 PC 端游戏落后果然是真的。我不是说古剑奇谭3是个糟糕的游戏，但是在比较之下差异就会显现出来。</p>
-<h1 id="石化咒与无声咒"><a href="#石化咒与无声咒" class="headerlink" title="石化咒与无声咒"></a>石化咒与无声咒</h1><p>我第一个注意到的地方就是剧情对话中人物的脸上都是没有表情的。我可以看见人物的眉毛和嘴巴在动，但是我还是觉得他们的表情无限接近于零。跟个石头一样。人物的动作衔接也并不是十分自然，尤其是在过场剧情中。又不是每一个场景都是龙宫皮影戏。</p>
-<p>顺带一提，龙宫是整个游戏中创意表达最优秀的地方。过场剧情由皮影戏和戏曲腔调来展现。战斗也靠着“影”从 3D 变成 2D 横轴。</p>
-<p>配乐很棒，比方说无名之地的背景乐中并没有用急促紧张的节奏或者尖锐的乐器来表现一个鬼地，而是用了缓慢忧伤的调子，其中还混入了鬼哭声。<br>但是嘴巴动作和配音对不上，而且很多战斗的剧情中的音效都像被施了无声咒一样：那只我叫不出名字的鸟妖拍打翅膀没有声音，獍妖的吼叫没有发声，北洛做出一个反人类动作也没有声音。我觉得画面和音乐已经是好的了，但没有声效就显得所做的努力全白费了。</p>
-<h1 id="你把任务日志藏在哪里了"><a href="#你把任务日志藏在哪里了" class="headerlink" title="你把任务日志藏在哪里了"></a>你把任务日志藏在哪里了</h1><p>我所见过的垃圾的 RPG 任务系统之一。任务有主线，支线还有场景。一次只能追踪一个主线和一个支线/场景。场景还要到了相对应的地图才会出来。任务记录和进程不能任意快速查看，全靠地图界面右边侧栏。你好歹给我个便捷的窗口显示一下我接了哪些任务以及做到哪个部分了好吗？那个青桐剑和壁画的任务还是我偶然进了剑炉和无名之地触发了对话才想起来还有这么个事情。侠义榜上有很多都是要制作或者收集的物品，收集到了任务物品也不会有提升说已经收集了多少个，我还得在物品栏里面一个个翻啊？<br>还有主菜单每次都要加载，等那个圆圈转一下。急死我了。每次退出子菜单，默认选项也会退回到“人物”还是“队伍”，烦人。</p>
-<h1 id="不上不下的战斗"><a href="#不上不下的战斗" class="headerlink" title="不上不下的战斗"></a>不上不下的战斗</h1><p>一开始出现的选择控制模式出现了 “ACT”，我以为这是靠组合 combo 来战斗的游戏，结果是靠积攒元气来释放技能的类型。可是元气积攒的很慢…… 为了要提高连击数来发动星蕴的效果（30 以上）我就必须靠不中断攻击，很多爬行动物的攻击必须靠技能打断，不然会被打。所以我陷入了“一格元气到手 —— 爬行动物要发招了 —— 发动技能 —— 打断爬行动物 —— 元气清零” 的死循环中，很少使用需要两格元气的技能。就算放弃连击数，靠契约生物和技能打，战斗还是很枯燥。普通的轻重攻击组合的 combo 效果并不突出，剑技能和召唤还有队友的协作必须等，所以成了一直在磨血的战斗。精力可以用来防御，闪避和冲刺，但是如果防御成功，短时间内闪避和冲刺就会减少，而且防御反击的成功率都我来说连 50% 都不到。一场打下来非常累。再加上每次都见到一样的敌人模型和攻击方式。第一次到了经天轮中后我看见一地的爬行动物就完全放弃了战斗，一路跑到了山顶上。</p>
-<p>另外，为什么我不能控制岑缨和云无月！除了能打 combo 的鬼泣，DAI 中骑士魔法的剑，和 rapier，在所有武器中，剑是我不想用的武器之一。我都能给他们加技能点数了就不能让我控制他们战斗吗？</p>
-<h1 id="人人都爱千秋戏"><a href="#人人都爱千秋戏" class="headerlink" title="人人都爱千秋戏"></a>人人都爱千秋戏</h1><p>是个 NPC 就爱玩千秋戏。侠义榜上也有很多挑战。是不是在古剑的世界中千秋戏有围棋的地位？玩得厉害还能成为国手享无上荣耀？我每次都抽到需要欧阳少恭的牌，但是欧阳少恭宗总是不出现，气死我了。<br>千秋戏给我的感觉和花札牌很像，都是靠做出组合来得分。越难做的组合得分越高。我做过的最高点是“古剑奇谭”，就莫名其妙就收集到了所有的剑，然后分数点蹭的一下就跑到了100以上。<br>这个比 FF14 的 Triple Triad 要老实本分得多。TT 经常玩到最后出现连续 combo 把玩家耍得团团转，千秋戏还会给你提示。<br>感觉能出精美周边。出了我就考虑买。</p>
-<h1 id="似乎要把家园玩塌了"><a href="#似乎要把家园玩塌了" class="headerlink" title="似乎要把家园玩塌了"></a>似乎要把家园玩塌了</h1><p>抛开古剑不说，所有的国产游戏都一定要有一个家园是怎么回事？是因为历史上自给自足的的小农经济带来的影响吗？<br>不玩家园活不下去。除去家具和 customization，家园系统看似方便，实际上是被镶嵌的游戏体验中了。侠义榜上的 10 个鹿活草我就真的不想跑到野外去收集。野外地图很大但是能探索和收集的地方很少。到了中期所有的装备都只能从家园的建造中获得。建造就要靠收集材料和工匠。材料靠契约种族和种植，这些雇佣工人也要靠材料和烹饪存活。这个完美的自给自足的小农经济…… 那个洒水声音的最后有点上不了台面。</p>
-<h1 id="梦能解释一切"><a href="#梦能解释一切" class="headerlink" title="梦能解释一切"></a>梦能解释一切</h1><p>但玩家不是弗洛伊德。有一部分剧情是靠着梦来解释的。我不知道北洛到底在剧情的发展中知道些什么，但是他和缙云之间的联系被解释得很粗糙。XIV 中 Y’shtola 失去视力后没有明说，但是 Matoya 问她为什么眼中失去了光彩后玩家都知道 Y’shtola 已经确实不能靠眼睛来看了。古剑3中很多事情都是靠“因为在梦中见过了”来解释，你说什么就是什么吧，反正我是没看到。我记得很清楚，从梦中的巫之国那里开始，北洛就突然啥都知道了。特别多的名次冒了出来，我是没有听懂。和 <em>王国之心3</em> 的叙事有得一拼。</p>
-<p>还有我讨厌控制缙云。</p>
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>游戏中的剧情并不多，但是我特别感激这个游戏的主题是“inheritance and legacy”而不是 love。从远古时期就被流传至今并且不断发展的知识与文化，和由一代又一代人所书写的历史，这些听上去就比 love 大气得多。评分上很多人都在夸，但是以我的标准还达不到十分优秀能让我发出“唉”的一声的程度，而是在值得一玩的程度。</p>
 
       
     </div>
