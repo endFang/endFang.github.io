@@ -59,7 +59,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -215,16 +219,16 @@
               <h4 id="line-in-3-D"><a href="#line-in-3-D" class="headerlink" title="line in 3-D"></a>line in 3-D</h4><p><img src="https://i.imgur.com/dgvifFZ.gif" srcset="/img/loading.gif" alt="lineEq"></p>
 <p>Define $\vec r_0$ and $\vec r$ are position vectors of $P_0$ and $P$, and $\vec a$ represents $\vec{P_0P}$.</p>
 <p>if $\vec v$ is parallel to $\vec a$, then:<br>$\vec{r} = \vec{r_0} + \vec{a}$<br>$\vec{a} = t\vec{v}$<br>$\vec{r} = \vec{r_0} + t\vec{v}$</p>
-<p>in othe words, $(x_r, y_r, z_r) = (x_{r_0}, y_{r_0}, z_{r_0}) + t \cdot (x_v, y_v, z_v)$</p>
+<p>in othe words, $(x<em>r, y_r, z_r) = (x</em>{r<em>0}, y</em>{r<em>0}, z</em>{r_0}) + t \cdot (x_v, y_v, z_v)$</p>
 <h4 id="sphere"><a href="#sphere" class="headerlink" title="sphere"></a>sphere</h4><p>the sphere’s center point is $(x_0, y_0, z_0)$<br>radius = $r$<br>all point on surface: $(x, y, z)$<br>$(x - x_0)^{2} + (y - y_0)^{2} + (z - z_0)^{2} = r^2$</p>
 <h4 id="Quadratic-Function"><a href="#Quadratic-Function" class="headerlink" title="Quadratic Function"></a>Quadratic Function</h4><p>$f(x) = ax^{2} + bx + c$<br>discriminant: $b^{2} - 4ac$</p>
 <p>D &gt; 0: the roots are real and different<br>$x_1 = \frac{-b + \sqrt{b^{2} - 4ac}}{2a}$<br>$x_2 = \frac{-b - \sqrt{b^{2} - 4ac}}{2a}$</p>
 <p>D = 0: the roots are real and equal<br>$x_1 = x_2 = \frac{-b}{2a}$</p>
 <p>D &lt; 0: the roots are complex and different</p>
-<h4 id="dot-product"><a href="#dot-product" class="headerlink" title="dot product"></a>dot product</h4><p>$a$ and $b$ are two vectors<br>$a \cdot b = \sum_{i=1}^{n} a_{i} b_{i} = a_{1}b_{1}+a_{2}b_{2}+\cdots +a_{n}b_{n}$</p>
+<h4 id="dot-product"><a href="#dot-product" class="headerlink" title="dot product"></a>dot product</h4><p>$a$ and $b$ are two vectors<br>$a \cdot b = \sum<em>{i=1}^{n} a</em>{i} b<em>{i} = a</em>{1}b<em>{1}+a</em>{2}b<em>{2}+\cdots +a</em>{n}b_{n}$</p>
 <h4 id="函数位移的左加右减"><a href="#函数位移的左加右减" class="headerlink" title="函数位移的左加右减"></a>函数位移的左加右减</h4><p>为什么？<br>假设，f(x) = x，也就是 y=x。把图像往右边平移一个单位。那么现在，y 要保持不变，但是 x 反而增加了 1，所以就需要减去 1。<br>Vice Versa，所以左加右减。</p>
 <h4 id="e"><a href="#e" class="headerlink" title="e"></a>e</h4><p>$e = \lim_{(x\to\infty)} (1 + \frac{1}{n})^{n}$</p>
-<p>打个比方：<br>我往银行里存一元钱。一年的利率是 100%，一年结算一次：$(1 + 100 %)^{1}$<br>我往银行里存一元钱。半年的利率是 50%，半年年结算一次：$(1 + 50 %)^{2}$<br>我往银行里存一元钱。1/4年的利率是 50%，1/4年年结算一次：$(1 + 25 %)^{4}$<br>……<br>由此可得：$(1 + \frac{1}{n})^{n}$<br>这是一年后我最终获得的全部钱的数目。<br>那么，如果 n -&gt; ∞，最终答案会是什么？答案是：e。</p>
+<p>打个比方：<br>我往银行里存一元钱。一年的利率是 100%，一年结算一次：$(1 + 100 \%)^{1}$<br>我往银行里存一元钱。半年的利率是 50%，半年年结算一次：$(1 + 50 \%)^{2}$<br>我往银行里存一元钱。1/4年的利率是 50%，1/4年年结算一次：$(1 + 25 \%)^{4}$<br>……<br>由此可得：$(1 + \frac{1}{n})^{n}$<br>这是一年后我最终获得的全部钱的数目。<br>那么，如果 n -&gt; ∞，最终答案会是什么？答案是：e。</p>
 <h4 id="something-something-learning"><a href="#something-something-learning" class="headerlink" title="something something learning"></a>something something learning</h4><p>LaTeX 的数学公式写法比我想的要容易很多，但是重复写是一件非常繁琐的事情。</p>
 <h4 id="Matrix-Multiplication"><a href="#Matrix-Multiplication" class="headerlink" title="Matrix Multiplication"></a>Matrix Multiplication</h4><p>$A =<br>\begin{bmatrix}<br>a \\ b \\ c \\ d \\ e \\<br>\end{bmatrix}$</p>
 <p>$B =<br>\begin{bmatrix}<br>x &amp; y &amp; z &amp; i &amp; j<br>\end{bmatrix}$</p>

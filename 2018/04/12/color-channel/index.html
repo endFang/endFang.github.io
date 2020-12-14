@@ -59,7 +59,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -226,17 +230,14 @@
 <p>也就是：<br>green -&gt; blue<br>red -&gt; green<br>blue -&gt; red</p>
 <p>第一次解法：</p>
 <figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++">newColor.at&lt;Vec3b&gt;(i, j)[<span class="hljs-number">0</span>] = r;<br>newColor.at&lt;Vec3b&gt;(i, j)[<span class="hljs-number">1</span>] = b;<br>newColor.at&lt;Vec3b&gt;(i, j)[<span class="hljs-number">2</span>] = g;<br></code></pre></div></td></tr></table></figure>
-
 <p>实际上是：<br>red -&gt; blue<br>blue -&gt; green<br>green -&gt; red</p>
 <p>可以将灰度想象成一个容器，灰度值则是液体。液体越多，就代表这个颜色越深。<br>假设有一个像素是蓝色的，那么这个像素的蓝色容器装满了液体的，而红色和绿色的容器是空的。<br>如果我要把像素变成红色，那么我就要把蓝色容器的液体都倒进红色容器里面。</p>
 <p>而第一次解法中的：</p>
 <figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">// 容器                      液体</span><br>newColor.at&lt;Vec3b&gt;(i, j)[<span class="hljs-number">0</span>] = r;<br>newColor.at&lt;Vec3b&gt;(i, j)[<span class="hljs-number">1</span>] = b;<br>newColor.at&lt;Vec3b&gt;(i, j)[<span class="hljs-number">2</span>] = g;<br></code></pre></div></td></tr></table></figure>
-
 <p>实际上将：<br>红色容器的液体倒进了蓝色容器。<br>蓝色容器的液体倒进了绿色容器。<br>绿色容器的液体倒进了红色容器。<br>因此：<br>原来的蓝色会变成绿色。<br>原来的绿色会变成红色。<br>原来的红色会变成蓝色。</p>
 <p>所以原来的红色变成了蓝色，而不是蓝色变成了红色。</p>
 <p>正确解法的应该是:</p>
 <figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++">newColor.at&lt;Vec3b&gt;(i, j)[<span class="hljs-number">0</span>] = g;<br>newColor.at&lt;Vec3b&gt;(i, j)[<span class="hljs-number">1</span>] = r;<br>newColor.at&lt;Vec3b&gt;(i, j)[<span class="hljs-number">2</span>] = b;<br></code></pre></div></td></tr></table></figure>
-
 <p>Reference:<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21849710/answer/19529410">如何通俗易懂地讲解 Photoshop 中的「通道」概念？ - 知乎</a></p>
 
             </div>

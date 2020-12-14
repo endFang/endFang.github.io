@@ -59,7 +59,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -242,7 +246,6 @@
 <li>uniforms are defined on the top of the shader after the point precision assigning.</li>
 </ul>
 <figure class="highlight glsl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs glsl"><span class="hljs-meta">#ifdef GL_ES</span><br><span class="hljs-keyword">precision</span> <span class="hljs-keyword">mediump</span> <span class="hljs-type">float</span>;<br><span class="hljs-meta">#endif</span><br><br><span class="hljs-keyword">uniform</span> <span class="hljs-type">vec2</span> u_resolution; <span class="hljs-comment">// canvas size (width, height)</span><br><span class="hljs-keyword">uniform</span> <span class="hljs-type">vec2</span> u_mouse; <span class="hljs-comment">// mouse position in screen pixels</span><br><span class="hljs-keyword">uniform</span> <span class="hljs-type">float</span> u_time; <span class="hljs-comment">// TIme in seconds since load</span><br></code></pre></div></td></tr></table></figure>
-
 <ul>
 <li>GPU hardware has accelerated angle, trigonometric, and exponential functions<ul>
 <li><em>sin(), cos(), tan(), asin(), acos(), atan(), pow(), exp(), log() …</em></li>

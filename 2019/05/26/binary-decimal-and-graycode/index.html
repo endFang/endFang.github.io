@@ -59,7 +59,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -213,7 +217,8 @@
             
             <div class="markdown-body">
               <h1 id="Gray-code"><a href="#Gray-code" class="headerlink" title="Gray code"></a>Gray code</h1><p>Gray code can reduce the errors of changing bits (or switches). It only needs to change 1 bit at a time to increments the decimal number.</p>
-<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h2><table>
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>decimal</th>
@@ -221,7 +226,8 @@
 <th>gray code</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>5</td>
 <td>101</td>
 <td>111</td>
@@ -231,17 +237,21 @@
 <td>110</td>
 <td>101</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>From 5 to 6, binary has two bits changed, while gray code only changed 1 bit.</p>
 <p>XOR is the method of converting binary to gray code. First we copy the most significant bit in binary to gray code’s 1st. Starting from 2nd most significant bit, we use XOR on the current bit and the previous bit.</p>
-<h2 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h2><table>
+<h2 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>binary</th>
 <th>gray code</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1, 0, 1</td>
 <td>1, ?, ?</td>
 </tr>
@@ -277,18 +287,22 @@
 <td>1, 1, 0</td>
 <td>1, 0, 1</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h1 id="Binary-and-Decimal"><a href="#Binary-and-Decimal" class="headerlink" title="Binary and Decimal"></a>Binary and Decimal</h1><p>To convert binary to decimal, simply multiply each bit by $2^{n}$ where n is the order of the position starting from the least significant number as 0.</p>
 <h2 id="Example-1-1"><a href="#Example-1-1" class="headerlink" title="Example 1"></a>Example 1</h2><p>Binary: 1011<br>Decimal: $1 \cdot 2^0 + 1 \cdot 2^1 + 0 \cdot 2^2 + 1 \cdot 2^3 = 1 + 2 + 0 + 8 = 11$</p>
 <p>To convert decimal to binary, simply divide the decimal by 2 and takes the remainder. Please note that the result starts from the least significant number.</p>
-<h2 id="Example-2-1"><a href="#Example-2-1" class="headerlink" title="Example 2"></a>Example 2</h2><table>
+<h2 id="Example-2-1"><a href="#Example-2-1" class="headerlink" title="Example 2"></a>Example 2</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>decimal</th>
 <th>binary</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>11</td>
 <td>?</td>
 </tr>
@@ -312,7 +326,9 @@
 <td>11</td>
 <td>1011</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 
             </div>
             <hr>

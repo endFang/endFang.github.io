@@ -59,7 +59,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -223,16 +227,14 @@
 <p>I can think that they are both in a 2x1 matrix, one is at index 1, another is at index 2, or <code>subplot()</code> divides the figure into seperate parts. I can add plots in 2 subplots.</p>
 <p>Similarly:</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">fig.add_subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)<br>fig.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>)<br>fig.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br>fig.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>)<br></code></pre></div></td></tr></table></figure>
-
 <p><img src="http://scipy-lectures.org/_images/sphx_glr_plot_subplot-grid_001.png" srcset="/img/loading.gif" alt="subplots_result2"></p>
 <p><strong>Axes</strong> is more flexible.</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">fig.add_axes(<span class="hljs-number">0.1</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">0.8</span>, <span class="hljs-number">0.8</span>)<br>fig.add_axes(<span class="hljs-number">0.2</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">0.3</span>, <span class="hljs-number">0.3</span>)<br></code></pre></div></td></tr></table></figure>
-
 <p>This will gives me:</p>
 <p><img src="http://scipy-lectures.org/_images/sphx_glr_plot_axes_001.png" srcset="/img/loading.gif" alt="axes_result"></p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://matplotlib.org/1.5.1/faq/usage_faq.html#parts-of-a-figure">“Parts of a Figure”, matplotlib.org</a></li>
-<li><a target="_blank" rel="noopener" href="https://nbviewer.jupyter.org/github/matplotlib/AnatomyOfMatplotlib/blob/master/AnatomyOfMatplotlib-Part1-Figures_Subplots_and_layouts.ipynb#Anatomy-of-a-%22Plot%22">Anatomy of a “Plot”, jupyter.org</a></li>
+<li><a target="_blank" rel="noopener" href="https://nbviewer.jupyter.org/github/matplotlib/AnatomyOfMatplotlib/blob/master/AnatomyOfMatplotlib-Part1-Figures_Subplots_and_layouts.ipynb#Anatomy-of-a-&quot;Plot&quot;">Anatomy of a “Plot”, jupyter.org</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/51745620">“python matplotlib中axes与axis的区别?”, 禹洋</a></li>
 <li><a target="_blank" rel="noopener" href="http://scipy-lectures.org/intro/matplotlib/matplotlib.html#subplots">“Matplotlib: plotting”, <em>Nicolas Rougier, Mike Müller, Gaël Varoquaux</em></a></li>
 </ol>

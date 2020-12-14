@@ -59,7 +59,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -216,14 +220,14 @@
 <p>Algebra example: </p>
 <p>$\begin{bmatrix} 1 &amp; 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \ 4 \end{bmatrix} = 1 \cdot 3 + 2 \cdot 4$</p>
 <p>Gemoetrically:</p>
-<p>![projection](<a target="_blank" rel="noopener" href="https://i.imgur.com/HYJeePM.png">https://i.imgur.com/HYJeePM.png</a> =150x150)</p>
+<p><img src="https://i.imgur.com/HYJeePM.png =150x150" srcset="/img/loading.gif" alt="projection"></p>
 <p>The dot product of v and u = (length of projection of v onto u)(length of u)</p>
 <h1 id="Order-and-Symmetry"><a href="#Order-and-Symmetry" class="headerlink" title="Order and Symmetry"></a>Order and Symmetry</h1><p>Order doesn’t matter.<br>(Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)</p>
 <p>Why?<br>Symmetry</p>
 <p>Symmetry Example:<br>Suppose we have anoher two unit vectors $\hat{v}$ and $\hat{u}$ .<br>Then, the length of projection of $\hat{v}$ onto $\hat{u}$ = the length of project of $\hat{u}$ onto $\hat{v}$. This is the symmetry between the two vectors.</p>
-<p>![symmetry](<a target="_blank" rel="noopener" href="https://i.imgur.com/i63A1w5.jpg">https://i.imgur.com/i63A1w5.jpg</a> = 100x100)</p>
+<p><img src="https://i.imgur.com/i63A1w5.jpg = 100x100" srcset="/img/loading.gif" alt="symmetry"></p>
 <p>Now we scale $\hat{v}$ by 2, we have 2$\hat{v}$. The projection of $\hat{u}$ on $\hat{v}$ does not change, while the projection of $\hat{v}$ is doubled. Hence the symmtery is broken.<br>However, the dot product is simply scaled by 2, too.<br>Before the scale, the dot product of v and u is: $\hat{u} \cdot \hat{v}$<br>After the scale, the dot product of v and u is: $\hat{u} \cdot 2\hat{v} = 2(\hat{u} \cdot \hat{v})$</p>
-<p>![symetr_broken](<a target="_blank" rel="noopener" href="https://i.imgur.com/UdHlUIp.jpg">https://i.imgur.com/UdHlUIp.jpg</a> =150x150)</p>
+<p><img src="https://i.imgur.com/UdHlUIp.jpg =150x150" srcset="/img/loading.gif" alt="symetr_broken"></p>
 <p>Therefore, (v times w) or (w times v) does not matter.</p>
 <h1 id="Why-dot-product-is-projection"><a href="#Why-dot-product-is-projection" class="headerlink" title="Why dot product is projection?"></a>Why dot product is projection?</h1><p>Suppose I have a number line and a system S that projects vectors(x, y) on the number line:</p>
 <p>$S = \begin{bmatrix} ? &amp; ? \end{bmatrix}$</p>

@@ -59,7 +59,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -216,7 +220,6 @@
 <p>Arden 负责背景乐和音效。他拿出了一个接口和话筒，录制了敲击键盘和说话声，然后做成了合成乐。善用 Logic。我特别喜欢他制作的 7 个敲击键盘的声音。我把这七个声音随机播放，再写了一个自动打字的效果，做成了打字机或者 terminal 的样子。Howard 又加上了一个闪烁的光标特效。Mekin 说他觉得最终效果很有意思。</p>
 <p>Tyler 教了我如何用 LoadAll 和 按钮自带的 OnClick()。好机智啊。</p>
 <figure class="highlight c#"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c#"><span class="hljs-keyword">public</span> AudioSource mySource;<br><span class="hljs-keyword">public</span> AudioClips myClips;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Awake</span> (<span class="hljs-params"></span>)</span><br><span class="hljs-function"></span>&#123;<br>    Text txt;<br>    mySource = GetComponent&lt;AudioSource&gt;();<br>    myClips = Resources.LoadAll&lt;AudioClip&gt;(<span class="hljs-string">&quot;the_path&quot;</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
 <p>Mekin 提出了以博弈论为基础做一个文字冒险的生存游戏。同时他也负责 3D 建模。他做了一台飞船上的电脑。Tyler 与 Howard 配合做了一个特别酷炫的屏幕放大特效，又在屏幕背后的宇宙中做了星光。</p>
 <p>Eddy 也有一部分美工，但是他大部分时间都在管理创作进程。在最后一个小时内他完成了初始画面的背景图。Arden 三次发现了单词拼写错误，他就改了三次。</p>
 <p>Kyle 依据 Mekin 的主意写出 15 页的剧本，由 Tyler 订正后写了模板导入 Unity3D。<br>原本的计划是制作一个网络匹配后的冒险游戏，但是我们并没有办法在第二天中午之前想出网络连接的程序，只能做成一个单一客户端。Mekin 总是建议我们使用 TCP，实际上我们也这么做了，可是要控制的变量超出了我们的能力。</p>

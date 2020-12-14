@@ -59,7 +59,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -212,29 +216,117 @@
             <h1 style="display: none">Matrix Calculation</h1>
             
             <div class="markdown-body">
-              <h1 id="Gaussian-Elimination"><a href="#Gaussian-Elimination" class="headerlink" title="Gaussian Elimination"></a>Gaussian Elimination</h1><p>Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.</p>
+              <h1 id="gaussian-elimination">Gaussian Elimination</h1>
+<p>Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.</p>
 <p>The transformation is completed with the row operations. We can swap rows, multiply rows by a nonzero number, and adding one row to another. In such a way, the matrix will become an upper triangular matrix whose all leading coefficients are 1.</p>
-<p>for example, the following equations can be transform to the matrix:<br>$$<br>\begin{align}<br>\nonumber r_0 + r_1 = 26 \\<br>\nonumber r_1 + r_2 = 20 \\<br>\nonumber r_0 = 2r_2 \\<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{vmatrix}<br>1 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 26 \\<br>0 &amp;&amp; 1 &amp;&amp; 1 &amp;&amp; 20 \\<br>1 &amp;&amp; 0 &amp;&amp; -2 &amp;&amp; 0 \\<br>\end{vmatrix}<br>$$</p>
+<p>for example, the following equations can be transform to the matrix: <span class="math display">\[
+\begin{align}
+\nonumber r_0 + r_1 = 26 \\
+\nonumber r_1 + r_2 = 20 \\
+\nonumber r_0 = 2r_2 \\
+\end{align}
+\]</span></p>
+<p><span class="math display">\[
+\begin{vmatrix}
+1 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 26 \\
+0 &amp;&amp; 1 &amp;&amp; 1 &amp;&amp; 20 \\
+1 &amp;&amp; 0 &amp;&amp; -2 &amp;&amp; 0 \\
+\end{vmatrix}
+\]</span></p>
 <a id="more"></a>
-
-<p>The reduced row chelon form will be:<br>$$<br>\begin{vmatrix}<br>1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; -14 \\<br>0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 40 \\<br>0 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; -20 \\<br>\end{vmatrix}<br>$$<br>Using bakwward substitute, we can have:</p>
-<p>$$<br>\begin{align}<br>\nonumber r_0 = -14 \\<br>\nonumber r_1 = 40 \\<br>\nonumber r_2 = -20<br>\end{align}<br>$$</p>
-<h1 id="Matrix-Inversion"><a href="#Matrix-Inversion" class="headerlink" title="Matrix Inversion"></a>Matrix Inversion</h1><p>2x2 matrix inversion can be calculated with the fixed equation:<br>$$<br>\begin {vmatrix}<br>a &amp;&amp; b \\<br>c &amp;&amp; d \\<br>\end {vmatrix} ^ {-1}<br>=<br>\frac{1}{ad-bc}<br>\begin {vmatrix}<br>d &amp;&amp; -b \\<br>-c &amp;&amp; a \\<br>\end {vmatrix}<br>$$</p>
+<p>The reduced row chelon form will be: <span class="math display">\[
+\begin{vmatrix}
+1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; -14 \\
+0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 40 \\
+0 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; -20 \\
+\end{vmatrix}
+\]</span> Using bakwward substitute, we can have:</p>
+<p><span class="math display">\[
+\begin{align}
+\nonumber r_0 = -14 \\
+\nonumber r_1 = 40 \\
+\nonumber r_2 = -20
+\end{align}
+\]</span></p>
+<h1 id="matrix-inversion">Matrix Inversion</h1>
+<p>2x2 matrix inversion can be calculated with the fixed equation: <span class="math display">\[
+\begin {vmatrix}
+a &amp;&amp; b \\
+c &amp;&amp; d \\
+\end {vmatrix} ^ {-1}
+=
+\frac{1}{ad-bc}
+\begin {vmatrix}
+d &amp;&amp; -b \\
+-c &amp;&amp; a \\
+\end {vmatrix}
+\]</span></p>
 <p>3x3 matrix inversion is calculated using Minors, Cofactors, and Adjugate, but I want to show a more general approach, the Gauss-Jordan method.</p>
 <p>Suppose we have a matrix A:</p>
-<p>$$<br>\begin {vmatrix}<br>3 &amp;&amp; 0 &amp;&amp; 2 \\<br>2 &amp;&amp; 0 &amp;&amp; -2 \\<br>0 &amp;&amp; 1 &amp;&amp; 1 \\<br>\end {vmatrix}<br>$$<br>To calculate the inverse, we will add an identity matrix on the right side to create a new augmented matrix:</p>
-<p>$$<br>\begin {vmatrix}<br>3 &amp;&amp; 0 &amp;&amp; 2 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 0\\<br>2 &amp;&amp; 0 &amp;&amp; -2 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0\\<br>0 &amp;&amp; 2 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 1\\<br>\end {vmatrix}<br>$$<br>Then we use row operations to transfrom the left 3x3 matrix to identity matrix.</p>
-<p>$$<br>\begin {vmatrix}<br>1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 0.2 &amp;&amp; 0.2 &amp;&amp; 0\\<br>0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; -0.2 &amp;&amp; 0.3 &amp;&amp; 1\\<br>0 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0.2 &amp;&amp; -0.3 &amp;&amp; 0\\<br>\end {vmatrix}<br>$$<br>And the 3x3 matrix in the right is the inverse.</p>
-<h1 id="Markov-Chain"><a href="#Markov-Chain" class="headerlink" title="Markov Chain"></a>Markov Chain</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=uvYTGEZQTEs">patrickJMT has a series of nice videos explaining Markov Chain.</a><br>Consider a company A initially has a 10% market share, other companies (A’) hold the 90% share. By using an advertising campaign, the rate of keeping choosing A is 80%, the rate of changing to A is 60%. In other words, from A to A is 80%, A’ to A is 60%, and A to A’ is 20%, A’ to A’ is 40%.<br>So we have this <strong>Transition Matrix</strong>:</p>
-<p>$$<br>\begin{vmatrix}<br>0.8 &amp;&amp; 0.2 \\<br>0.6 &amp;&amp; 0.4<br>\end{vmatrix}<br>$$<br>Suppose the <strong>Initial State</strong> of the rate of choosing A is 0.1.</p>
-<p>$$<br>S_{0} =<br>\begin {vmatrix}<br>0.1 &amp;&amp; 0.9<br>\end {vmatrix}<br>$$<br>After multiplying $S_0$ and Transition matrix, we’ll have<br>$$<br>S_{1} =<br>\begin {vmatrix}<br>0.42 &amp;&amp; 0.38<br>\end {vmatrix}<br>$$</p>
-<p>That means, after one advertising campaign, the rate of choosing A increase to 42%!<br>Keep multipling, we’ll realize that $S$ is approaching to $\begin {vmatrix}<br>0.75 &amp;&amp; 0.25<br>\end {vmatrix}$. And this is the <strong>Stationary Matrix</strong>, and the system is at S<strong>teady State</strong>.</p>
-<h2 id="Absorbing-Markov-Chain"><a href="#Absorbing-Markov-Chain" class="headerlink" title="Absorbing Markov Chain"></a>Absorbing Markov Chain</h2><p>If the possibility of entering another state is zero then the state is an A<strong>bsorbing State</strong>.<br>For example:<br>$$<br>\begin{vmatrix}<br>1 &amp;&amp; 0 \\<br>0.3 &amp;&amp; 0.7<br>\end{vmatrix}<br>$$</p>
+<p><span class="math display">\[
+\begin {vmatrix}
+3 &amp;&amp; 0 &amp;&amp; 2 \\
+2 &amp;&amp; 0 &amp;&amp; -2 \\
+0 &amp;&amp; 1 &amp;&amp; 1 \\
+\end {vmatrix}
+\]</span> To calculate the inverse, we will add an identity matrix on the right side to create a new augmented matrix:</p>
+<p><span class="math display">\[
+\begin {vmatrix}
+3 &amp;&amp; 0 &amp;&amp; 2 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 0\\
+2 &amp;&amp; 0 &amp;&amp; -2 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0\\
+0 &amp;&amp; 2 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 1\\
+\end {vmatrix}
+\]</span> Then we use row operations to transfrom the left 3x3 matrix to identity matrix.</p>
+<p><span class="math display">\[
+\begin {vmatrix}
+1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 0.2 &amp;&amp; 0.2 &amp;&amp; 0\\
+0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; -0.2 &amp;&amp; 0.3 &amp;&amp; 1\\
+0 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0.2 &amp;&amp; -0.3 &amp;&amp; 0\\
+\end {vmatrix}
+\]</span> And the 3x3 matrix in the right is the inverse.</p>
+<h1 id="markov-chain">Markov Chain</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=uvYTGEZQTEs">patrickJMT has a series of nice videos explaining Markov Chain.</a> Consider a company A initially has a 10% market share, other companies (A') hold the 90% share. By using an advertising campaign, the rate of keeping choosing A is 80%, the rate of changing to A is 60%. In other words, from A to A is 80%, A' to A is 60%, and A to A' is 20%, A' to A' is 40%. So we have this <strong>Transition Matrix</strong>:</p>
+<p><span class="math display">\[
+\begin{vmatrix}
+0.8 &amp;&amp; 0.2 \\
+0.6 &amp;&amp; 0.4
+\end{vmatrix}
+\]</span> Suppose the <strong>Initial State</strong> of the rate of choosing A is 0.1.</p>
+<p><span class="math display">\[
+S_{0} =
+\begin {vmatrix}
+0.1 &amp;&amp; 0.9
+\end {vmatrix}
+\]</span> After multiplying <span class="math inline">\(S_0\)</span> and Transition matrix, we'll have <span class="math display">\[
+S_{1} =
+\begin {vmatrix}
+0.42 &amp;&amp; 0.38
+\end {vmatrix}
+\]</span></p>
+<p>That means, after one advertising campaign, the rate of choosing A increase to 42%! Keep multipling, we'll realize that <span class="math inline">\(S\)</span> is approaching to <span class="math inline">\(\begin {vmatrix} 0.75 &amp;&amp; 0.25 \end {vmatrix}\)</span>. And this is the <strong>Stationary Matrix</strong>, and the system is at S<strong>teady State</strong>.</p>
+<h2 id="absorbing-markov-chain">Absorbing Markov Chain</h2>
+<p>If the possibility of entering another state is zero then the state is an A<strong>bsorbing State</strong>. For example: <span class="math display">\[
+\begin{vmatrix}
+1 &amp;&amp; 0 \\
+0.3 &amp;&amp; 0.7
+\end{vmatrix}
+\]</span></p>
 <p>The first row is an absorbing state.</p>
 <p>A standard form of absorbing markov chain is:</p>
-<p>$$<br>\begin{vmatrix}<br>I &amp;&amp; O \\<br>R &amp;&amp; Q<br>\end{vmatrix}<br>$$</p>
-<p>I is the identity matrix, O is a zero matrix. R and Q are two submatrices.<br>The limiting matrix form is:<br>$$<br>\begin{vmatrix}<br>I &amp;&amp; O \\<br>FR &amp;&amp; O<br>\end{vmatrix}<br>\<br>F = (I - Q)^{-1}<br>$$</p>
+<p><span class="math display">\[
+\begin{vmatrix}
+I &amp;&amp; O \\
+R &amp;&amp; Q
+\end{vmatrix}
+\]</span></p>
+<p>I is the identity matrix, O is a zero matrix. R and Q are two submatrices. The limiting matrix form is: <span class="math display">\[
+\begin{vmatrix}
+I &amp;&amp; O \\
+FR &amp;&amp; O
+\end{vmatrix}
+\\
+F = (I - Q)^{-1}
+\]</span></p>
 
             </div>
             <hr>
