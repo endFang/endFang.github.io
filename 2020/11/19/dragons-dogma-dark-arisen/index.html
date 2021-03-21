@@ -17,7 +17,7 @@
   <meta name="description" content="All Ended Happily">
   <meta name="author" content="Kyle Fang">
   <meta name="keywords" content="">
-  <title>Matrix Calculation - After1995</title>
+  <title>Dragon&#39;s Dogma - Dark Arisen - After1995</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,7 +166,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Matrix Calculation">
+            <span class="h2" id="subtitle" title="Dragon's Dogma - Dark Arisen">
               
             </span>
 
@@ -176,8 +176,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-18 14:54" pubdate>
-        November 18, 2020 pm
+      <time datetime="2020-11-19 16:49" pubdate>
+        November 19, 2020 pm
       </time>
     </span>
   
@@ -213,131 +213,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Matrix Calculation</h1>
+            <h1 style="display: none">Dragon&#39;s Dogma - Dark Arisen</h1>
             
             <div class="markdown-body">
-              <h1 id="gaussian-elimination">Gaussian Elimination</h1>
-<p>Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.</p>
-<p>The transformation is completed with the row operations. We can swap rows, multiply rows by a nonzero number, and adding one row to another. In such a way, the matrix will become an upper triangular matrix whose all leading coefficients are 1.</p>
-<p>for example, the following equations can be transform to the matrix: <span class="math display">\[
-\begin{align}
-\nonumber r_0 + r_1 = 26 \\
-\nonumber r_1 + r_2 = 20 \\
-\nonumber r_0 = 2r_2 \\
-\end{align}
-\]</span></p>
-<p><span class="math display">\[
-\begin{vmatrix}
-1 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 26 \\
-0 &amp;&amp; 1 &amp;&amp; 1 &amp;&amp; 20 \\
-1 &amp;&amp; 0 &amp;&amp; -2 &amp;&amp; 0 \\
-\end{vmatrix}
-\]</span></p>
-<a id="more"></a>
-<p>The reduced row chelon form will be: <span class="math display">\[
-\begin{vmatrix}
-1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; -14 \\
-0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 40 \\
-0 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; -20 \\
-\end{vmatrix}
-\]</span> Using bakwward substitute, we can have:</p>
-<p><span class="math display">\[
-\begin{align}
-\nonumber r_0 = -14 \\
-\nonumber r_1 = 40 \\
-\nonumber r_2 = -20
-\end{align}
-\]</span></p>
-<h1 id="matrix-inversion">Matrix Inversion</h1>
-<p>2x2 matrix inversion can be calculated with the fixed equation: <span class="math display">\[
-\begin {vmatrix}
-a &amp;&amp; b \\
-c &amp;&amp; d \\
-\end {vmatrix} ^ {-1}
-=
-\frac{1}{ad-bc}
-\begin {vmatrix}
-d &amp;&amp; -b \\
--c &amp;&amp; a \\
-\end {vmatrix}
-\]</span></p>
-<p>3x3 matrix inversion is calculated using Minors, Cofactors, and Adjugate, but I want to show a more general approach, the Gauss-Jordan method.</p>
-<p>Suppose we have a matrix A:</p>
-<p><span class="math display">\[
-\begin {vmatrix}
-3 &amp;&amp; 0 &amp;&amp; 2 \\
-2 &amp;&amp; 0 &amp;&amp; -2 \\
-0 &amp;&amp; 1 &amp;&amp; 1 \\
-\end {vmatrix}
-\]</span> To calculate the inverse, we will add an identity matrix on the right side to create a new augmented matrix:</p>
-<p><span class="math display">\[
-\begin {vmatrix}
-3 &amp;&amp; 0 &amp;&amp; 2 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 0\\
-2 &amp;&amp; 0 &amp;&amp; -2 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0\\
-0 &amp;&amp; 2 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 1\\
-\end {vmatrix}
-\]</span> Then we use row operations to transfrom the left 3x3 matrix to identity matrix.</p>
-<p><span class="math display">\[
-\begin {vmatrix}
-1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 0.2 &amp;&amp; 0.2 &amp;&amp; 0\\
-0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; -0.2 &amp;&amp; 0.3 &amp;&amp; 1\\
-0 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0.2 &amp;&amp; -0.3 &amp;&amp; 0\\
-\end {vmatrix}
-\]</span> And the 3x3 matrix in the right is the inverse.</p>
-<h1 id="markov-chain">Markov Chain</h1>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=uvYTGEZQTEs">patrickJMT has a series of nice videos explaining Markov Chain.</a> Consider a company A initially has a 10% market share, other companies (A') hold the 90% share. By using an advertising campaign, the rate of keeping choosing A is 80%, the rate of changing to A is 60%. In other words, from A to A is 80%, A' to A is 60%, and A to A' is 20%, A' to A' is 40%. So we have this <strong>Transition Matrix</strong>:</p>
-<p><span class="math display">\[
-\begin{vmatrix}
-0.8 &amp;&amp; 0.2 \\
-0.6 &amp;&amp; 0.4
-\end{vmatrix}
-\]</span> Suppose the <strong>Initial State</strong> of the rate of choosing A is 0.1.</p>
-<p><span class="math display">\[
-S_{0} =
-\begin {vmatrix}
-0.1 &amp;&amp; 0.9
-\end {vmatrix}
-\]</span> After multiplying <span class="math inline">\(S_0\)</span> and Transition matrix, we'll have <span class="math display">\[
-S_{1} =
-\begin {vmatrix}
-0.42 &amp;&amp; 0.38
-\end {vmatrix}
-\]</span></p>
-<p>That means, after one advertising campaign, the rate of choosing A increase to 42%! Keep multipling, we'll realize that <span class="math inline">\(S\)</span> is approaching to <span class="math inline">\(\begin {vmatrix} 0.75 &amp;&amp; 0.25 \end {vmatrix}\)</span>. And this is the <strong>Stationary Matrix</strong>, and the system is at S<strong>teady State</strong>.</p>
-<h2 id="absorbing-markov-chain">Absorbing Markov Chain</h2>
-<p>If the possibility of entering another state is zero then the state is an A<strong>bsorbing State</strong>. For example: <span class="math display">\[
-\begin{vmatrix}
-1 &amp;&amp; 0 \\
-0.3 &amp;&amp; 0.7
-\end{vmatrix}
-\]</span></p>
-<p>The first row is an absorbing state.</p>
-<p>A standard form of absorbing markov chain is:</p>
-<p><span class="math display">\[
-\begin{vmatrix}
-I &amp;&amp; O \\
-R &amp;&amp; Q
-\end{vmatrix}
-\]</span></p>
-<p>I is the identity matrix, O is a zero matrix. R and Q are two submatrices. The limiting matrix form is: <span class="math display">\[
-\begin{vmatrix}
-I &amp;&amp; O \\
-FR &amp;&amp; O
-\end{vmatrix}
-\\
-F = (I - Q)^{-1}
-\]</span></p>
+              <h1 id="entry-1">Entry 1</h1>
+<p>DD has three start vocations. It's amusing that game designers can come up with all those names to describe one thing. I always play mage in every game. Once I reached a certain level, advanced vocation and hybrid vocation will be available. Of course I choose Sorcerer. In the games I've played, Dragon's Dogma has the best magic battle system so far. It takes time to incant a spell and aim to the target, but the casting a spell gives awesome feeling.</p>
+<div class="figure">
+<img src="https://i.imgur.com/8PwTEe3.png" srcset="/img/loading.gif" alt="Casting Gicel on a Cyclope in the night" />
+<p class="caption">Casting <em>Gicel</em> on a Cyclope in the night</p>
+</div>
+<p>Fast travel requires Ferrystones and Portcrystals. Ferry and Port, get it? Once a Ferrystone is used, the entire party can fast travel to a Portcrystal. Portycrystal is placed manually, but Gran Soren and Cassardis have Portcrystal at the start. Both Ferrystoen and Portcrystal are rare and one time use, so the fast travel is limited too. Because of the limitation on fast travel, I could spend 10 mins on walking between quest locations. The map is smaller than I expected, but it is boring to run back and forth.</p>
+<p>With the time goes in the game, daytime and nighttime alternate. The environment gets much darker during the nighttime, so I must use a lantern and add oil to it when the light is dim. Enemies encounters happen more often in the night, too.</p>
+<div class="figure">
+<img src="https://i.imgur.com/BjepH4c.png" srcset="/img/loading.gif" alt="Walking with a lantern" />
+<p class="caption">Walking with a lantern</p>
+</div>
+<p>This is the only game that makes me feel &quot;the night is long&quot;. In the early game time, direwolfs and skeletons keep coming to me and my party can barely survive.</p>
+<p>Arisen and the Main Pawn should have a romance option, if they want to keep the master and pawn system in Dragon's Dogma 2. <a target="_blank" rel="noopener" href="https://www.ign.com/articles/capcom-leak-dragons-dogma-2-street-fighter-6">IGN reported that the massive data leak of Capcom shows the DD2 is in the 2022</a>.</p>
+<h1 id="entry-2">Entry 2</h1>
+<p>After a series of wyrm hunt quests, I meet the weird Duke Edmun. Edmun was an Arisen and people admire him for being the hero slayed the dragon. He is rather acting odd. He lost his mind and confused his wife as someone called Lenore. Dutchess Aelinore the &quot;shameless harlot&quot; is fear of him too. I don't trust him.</p>
+<p>Higher-level spells take time to intone. As a sorcerer, I like to cast Bolide and Gicel to crash my enemies. Bolid is particularly powerful to fight against groups of bandits or packs of wolves, except the intonation takes around 10 seconds. Unlike Gicel, my character cannot move when I cast Bolide because he will float on the ground. There's a quest item, the wyrmking's ring, can reduce the intonation time by 10%. Articulacy is also a trait to reduce the cast time by 10%. They are good for mage and sorcerer, but it always depends on my pawns to cover me.</p>
+<p>Black Cat shop sells ferrystones! I'm happy to find this out in my last game-play. I can finally speed up the game-play by avoiding the unnecessary running around. I've walked to the Blue Moon Tower twice for Griffin and Salomet.</p>
+<h1 id="entry-3">Entry 3</h1>
+<p>I challenged Bitterblack Isle at the middle of level 50. As a sorcerer, many boss can one shot me and Bitterblack Isle is the manifestation of the hell. If the hell that appeared in my dream was real, it would look like the Bitterblack Isle, or worse. The enemies in this Isle's labyrinth are distorted regular monsters. They were quite scary when they knocked me off to the air. Or rushed to the camera. The dead body was everywhere. They were on the ground, hang on the floor and piled in the corner. Blood stain was always in my eyesight. The only thing I want to do is to leave this horrible place as soon as possible. I believe most of the dead bodies were pawns and previous Arisens. The Isle's master was Daimon who was previously an Arisen, Ashe. Before Ashe became an Arisen, he was raised by another Arisen, Grette, and her pawn Olra. Grette defeated the dragon but failed to become the Seneschal and turned to the new dragon. At some point, Ashe became the new Arisen and Olra became his pawn. Ashe rejected this cruel fate: slay Grette or sacrifice Olra. The dragon cursed him, so Ashe transformed to Daimon and was banished to Bitterblack Isle. Daimon tried to break the infinite chain by attracting the Arisen to the isle. Many Arisens and their pawns died in the labyrinth, and only their echoes of memories were left. Some pawns were corrupted and desired to stand with Arisen again. Speaking of pawns, the integration of pawn and quest system is very helpful. Experienced pawns can make suggestions on progressing the quests and even lead me to the destination. Unlike many other RPG games, my party members, Pawns, will run or walk ahead of me. This little details make Pawns more lively, because a group of people would not forever walk behind and follow one person everywhere, at least I wouldn't. Blackbitter Isle is way more challenging than I expected. Sorcerer is too weak and barely survive after 1 hit, even when I was Lv. 83. I attempted at least six times to challenge Daimon and failed. I gave up and hired a Lv. 100 Pawn equipped with dragonforged gears. It was finally over.</p>
+<h1 id="entry-4">Entry 4</h1>
+<p>The pink aura around the NPC indicated that the affinity with this NPC is maximum. It's quite easy to reach the maximum affinity by doing the NPC's personal quests. The affinity level also decides who would become the Arisen's beloved. There's also another quest about choosing &quot;beloved&quot; by giving a ring. In this quest, I brought a tablet that was found in front of Sophia's tomb. The Dragonforged transformed this tablet to a ring and told me that anyone is given this ring would become the &quot;beloved&quot;. This is essentially the romance system. I want to romance my main Pawn but I couldn't give the ring to him, because I couldn't use &quot;present&quot; function on Panws.</p>
+<h1 id="entry-5">Entry 5</h1>
+<p>I planned to defeat Ur-Dragon to end this game, but Ur-Dragon was too challenging and my time was limited. Therefore, I'll mark the end in here and wait for the next game.</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Game-Journal/">Game Journal</a>
+                    
+                  </div>
+                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/learning/">learning</a>
+                      <a class="hover-with-bg" href="/tags/games/">games</a>
+                    
+                      <a class="hover-with-bg" href="/tags/gaymer/">gaymer</a>
                     
                   </div>
                 
@@ -350,9 +272,9 @@ F = (I - Q)^{-1}
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/19/dragons-dogma-dark-arisen/">
+                      <a href="/2020/12/07/5-4-future-rewritten/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Dragon's Dogma - Dark Arisen</span>
+                        <span class="hidden-mobile">Patch 5.4 Future Rewritten</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -360,8 +282,8 @@ F = (I - Q)^{-1}
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/11/01/5-3GrahaTia/">
-                        <span class="hidden-mobile">5.3 中人人都爱 G'raha Tia</span>
+                      <a href="/2020/11/18/matrixCalculation/">
+                        <span class="hidden-mobile">Matrix Calculation</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
