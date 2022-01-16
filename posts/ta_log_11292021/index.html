@@ -1,0 +1,267 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>TA Log 11292021 | After1995</title>
+<meta name=keywords content="shader,unity">
+<meta name=description content="Compute Shader It transfers some computation from CPU to GPU by HLSL code. Hence the name has &ldquo;compute&rdquo; and &ldquo;shader&rdquo;.
+References:
+ Getting Started with Compute Shaders in Unity: https://www.youtube.com/watch?v=BrZ4pWwkpto Coding Adventure: Compute Shaders: https://www.youtube.com/watch?v=9RHGLZLUuwc&list=LL2T54R7-vJmcMBzcaTL_oBw GPU Ray Tracing in Unity: http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/  Unity Documentation: https://docs.unity3d.com/Manual/class-ComputeShader.html
+Compute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:
+ Android: OpenGL ES 3.1, iOS: Metal  Compute Shader Assets">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/ta_log_11292021/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="TA Log 11292021">
+<meta property="og:description" content="Compute Shader It transfers some computation from CPU to GPU by HLSL code. Hence the name has &ldquo;compute&rdquo; and &ldquo;shader&rdquo;.
+References:
+ Getting Started with Compute Shaders in Unity: https://www.youtube.com/watch?v=BrZ4pWwkpto Coding Adventure: Compute Shaders: https://www.youtube.com/watch?v=9RHGLZLUuwc&list=LL2T54R7-vJmcMBzcaTL_oBw GPU Ray Tracing in Unity: http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/  Unity Documentation: https://docs.unity3d.com/Manual/class-ComputeShader.html
+Compute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:
+ Android: OpenGL ES 3.1, iOS: Metal  Compute Shader Assets">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/ta_log_11292021/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-11-29T00:03:01+08:00">
+<meta property="article:modified_time" content="2021-11-29T00:03:01+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="TA Log 11292021">
+<meta name=twitter:description content="Compute Shader It transfers some computation from CPU to GPU by HLSL code. Hence the name has &ldquo;compute&rdquo; and &ldquo;shader&rdquo;.
+References:
+ Getting Started with Compute Shaders in Unity: https://www.youtube.com/watch?v=BrZ4pWwkpto Coding Adventure: Compute Shaders: https://www.youtube.com/watch?v=9RHGLZLUuwc&list=LL2T54R7-vJmcMBzcaTL_oBw GPU Ray Tracing in Unity: http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/  Unity Documentation: https://docs.unity3d.com/Manual/class-ComputeShader.html
+Compute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:
+ Android: OpenGL ES 3.1, iOS: Metal  Compute Shader Assets">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"TA Log 11292021","item":"https://endfang.github.io/posts/ta_log_11292021/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"TA Log 11292021","name":"TA Log 11292021","description":"Compute Shader It transfers some computation from CPU to GPU by HLSL code. Hence the name has \u0026ldquo;compute\u0026rdquo; and \u0026ldquo;shader\u0026rdquo;.\nReferences:\n Getting Started with Compute Shaders in Unity: https://www.youtube.com/watch?v=BrZ4pWwkpto Coding Adventure: Compute Shaders: https://www.youtube.com/watch?v=9RHGLZLUuwc\u0026amp;list=LL2T54R7-vJmcMBzcaTL_oBw GPU Ray Tracing in Unity: http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/  Unity Documentation: https://docs.unity3d.com/Manual/class-ComputeShader.html\nCompute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:\n Android: OpenGL ES 3.1, iOS: Metal  Compute Shader Assets","keywords":["shader","unity"],"articleBody":"Compute Shader It transfers some computation from CPU to GPU by HLSL code. Hence the name has “compute” and “shader”.\nReferences:\n Getting Started with Compute Shaders in Unity: https://www.youtube.com/watch?v=BrZ4pWwkpto Coding Adventure: Compute Shaders: https://www.youtube.com/watch?v=9RHGLZLUuwc\u0026list=LL2T54R7-vJmcMBzcaTL_oBw GPU Ray Tracing in Unity: http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/  Unity Documentation: https://docs.unity3d.com/Manual/class-ComputeShader.html\nCompute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:\n Android: OpenGL ES 3.1, iOS: Metal  Compute Shader Assets\n .compute file extension, DirectX 11 style in HLSL, #pragma indicates compute shader kernel  #pragma kernel FillWithRed RWTexture2Dfloat4 res; [numthreads(1,1,1)] void FillWithRed(uint3 dtid : SV_DispatchThreadID) {\tres[dtid.xy] = float4(1,0,0,1); } numthreads, what does it mean?\nThe amount of threads that share data and are executed in one go (warp). Every group is made of numthreads, so dispatching fewer groups is faster. The threads that are dispatched should be a multiple of the GPU’s architecture’s minimum threads for optima performance. 32 for NVIDIA, 64 for AMD. Fewer threads mean wasted resources.\nComputerBuffer is structured buffer in DX11. Render Texture having “random access” flag is unordered access view in DX11 (UAV)\nTexture and samplers aren’t separate objects in Unity, so:\n use sampler at the beginning use pre-defined sampler, such as SamplerStateMyLinearClampSampler creates a sampler that has linear filter mode and clamp wrap mode.  DirextX 11 supports many actions that are not supported on other platforms. Be aware of this and ensure shaders' behavior offers less support:\n out-of-bounds memory access is bad. initialize resources bind all resources that are declared in compute shader  Sampler State SampelrState decides how to sample a texture (point filter, linear filter, …). Multiple textures can reuse one sampler, and devices have a limitation on the number of sampler states.\nUnity recognizes certain hard-coded naming pattern (all case insensitive):\n filtering mode: “Point”, “Linear”, “Trilinear” wrap mode: “Clamp”, “Repeat”, “Mirror”, “MirrorOnce” “Compare” set up sampler for depth comparison “AnisoX”, (x = 2, 4, 8, 16) for anisotropic filtering  Reflection Pixel-projected Reflections URL: http://advances.realtimerendering.com/s2017/index.html\n  Clear the intermediate buffer\n A pixel-data grid, single value per pixel projection fill the value, reflection read the value problem: multiple pixels can be written in the same place in the buffer, because of GPU scheduling and independent pixel processing solution: encode a screen-space offset instead of color  we know reflected pixel coordinate (current pixel position), and the reflecting pixel coordinate (where we write the data) find and store the smallest offset : InterlockedMin operation for different offset direction: 4 coordinate system is enough, and Y is the most important one, reflection pass will restore the encoded offset most to least significant bits:  12 bits ‘Y’ integer, unsigned 3 bits ‘Y’ fraction, signed, flipped 12 bits ‘X’ integer, signed, 3 bits ‘X’ fraction, signed, not flipped 2 bits coordinate system index        Projection Pass\n for every pixel, find the rectangle on the grid that reflects it. write corresponding pixel-data to the intermediate buffer.    Reflection Pass\n read pixel-data from the “intermediate buffer” write the color to the final reflection buffer Fill the holes: find the neighboring pixel-data with the smallest offset; use it if there’s no data in intermediate buffer. Filtering the distortion caused by stretching and squeezing: use the encoded fraction Color bleeding caused by filtered color sampling: combine filtered and no-filtered samples    Similar implementation Screen Space Planar Reflections in Ghost Recon Wildlands: http://remi-genin.fr/blog/screen-space-plane-indexed-reflection-in-ghost-recon-wildlands/#projection-jump\nThe idea is to retrieve the color from the original pixel position at the projected pixel position.\nMisc Zero-G Cuckooland Ghost In The Machine: https://zero-g.co.uk/products/ghost-in-the-machine\nThis is a collection of audio sampling “textures” for music creation. Many games used it, like this, and this, and this.\n","wordCount":"592","inLanguage":"en","datePublished":"2021-11-29T00:03:01+08:00","dateModified":"2021-11-29T00:03:01+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/ta_log_11292021/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+TA Log 11292021
+</h1>
+<div class=post-meta>November 29, 2021&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#compute-shader aria-label="Compute Shader">Compute Shader</a><ul>
+<li>
+<a href=#sampler-state aria-label="Sampler State">Sampler State</a></li></ul>
+</li>
+<li>
+<a href=#reflection aria-label=Reflection>Reflection</a><ul>
+<li>
+<a href=#pixel-projected-reflections aria-label="Pixel-projected Reflections">Pixel-projected Reflections</a></li></ul>
+</li>
+<li>
+<a href=#misc aria-label=Misc>Misc</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=compute-shader>Compute Shader<a hidden class=anchor aria-hidden=true href=#compute-shader>#</a></h1>
+<p>It transfers some computation from CPU to GPU by HLSL code. Hence the name has &ldquo;compute&rdquo; and &ldquo;shader&rdquo;.</p>
+<p>References:</p>
+<ul>
+<li>Getting Started with Compute Shaders in Unity: <a href="https://www.youtube.com/watch?v=BrZ4pWwkpto">https://www.youtube.com/watch?v=BrZ4pWwkpto</a></li>
+<li>Coding Adventure: Compute Shaders: <a href="https://www.youtube.com/watch?v=9RHGLZLUuwc&list=LL2T54R7-vJmcMBzcaTL_oBw">https://www.youtube.com/watch?v=9RHGLZLUuwc&list=LL2T54R7-vJmcMBzcaTL_oBw</a></li>
+<li>GPU Ray Tracing in Unity: <a href=http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/>http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/</a></li>
+</ul>
+<p>Unity Documentation: <a href=https://docs.unity3d.com/Manual/class-ComputeShader.html>https://docs.unity3d.com/Manual/class-ComputeShader.html</a></p>
+<p>Compute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:</p>
+<ul>
+<li>Android: OpenGL ES 3.1, iOS: Metal</li>
+</ul>
+<p>Compute Shader Assets</p>
+<ul>
+<li><code>.compute</code> file extension, DirectX 11 style in HLSL, <code>#pragma</code> indicates compute shader kernel</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl><span style=color:#75715e>#pragma kernel FillWithRed</span>
+
+RWTexture2D<span style=color:#f92672>&lt;</span>float4<span style=color:#f92672>&gt;</span> res;
+
+[numthreads(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>)]
+<span style=color:#66d9ef>void</span> FillWithRed(uint3 dtid <span style=color:#f92672>:</span> SV_DispatchThreadID)
+{	
+	res[dtid.xy] <span style=color:#f92672>=</span> float4(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>); 
+}
+</code></pre></div><p><code>numthreads</code>, what does it mean?</p>
+<p>The amount of threads that share data and are executed in one go (warp). Every group is made of numthreads, so dispatching fewer groups is faster.
+The threads that are dispatched should be a multiple of the GPU&rsquo;s architecture&rsquo;s minimum threads for optima performance. 32 for NVIDIA, 64 for AMD. Fewer threads mean wasted resources.</p>
+<p>ComputerBuffer is structured buffer in DX11. Render Texture having &ldquo;random access&rdquo; flag is unordered access view in DX11 (UAV)</p>
+<p>Texture and samplers aren&rsquo;t separate objects in Unity, so:</p>
+<ul>
+<li>use <code>sampler</code> at the beginning</li>
+<li>use pre-defined sampler, such as <code>SamplerStateMyLinearClampSampler</code> creates a sampler that has linear filter mode and clamp wrap mode.</li>
+</ul>
+<p>DirextX 11 supports many actions that are not supported on other platforms. Be aware of this and ensure shaders' behavior offers less support:</p>
+<ul>
+<li>out-of-bounds memory access is bad.</li>
+<li>initialize resources</li>
+<li>bind all resources that are declared in compute shader</li>
+</ul>
+<h2 id=sampler-state>Sampler State<a hidden class=anchor aria-hidden=true href=#sampler-state>#</a></h2>
+<p>SampelrState decides how to sample a texture (point filter, linear filter, &mldr;). Multiple textures can reuse one sampler, and devices have a limitation on the number of sampler states.</p>
+<p>Unity recognizes certain hard-coded naming pattern (all case insensitive):</p>
+<ul>
+<li>filtering mode: &ldquo;Point&rdquo;, &ldquo;Linear&rdquo;, &ldquo;Trilinear&rdquo;</li>
+<li>wrap mode: &ldquo;Clamp&rdquo;, &ldquo;Repeat&rdquo;, &ldquo;Mirror&rdquo;, &ldquo;MirrorOnce&rdquo;</li>
+<li>&ldquo;Compare&rdquo; set up sampler for depth comparison</li>
+<li>&ldquo;AnisoX&rdquo;, (x = 2, 4, 8, 16) for anisotropic filtering</li>
+</ul>
+<h1 id=reflection>Reflection<a hidden class=anchor aria-hidden=true href=#reflection>#</a></h1>
+<h2 id=pixel-projected-reflections>Pixel-projected Reflections<a hidden class=anchor aria-hidden=true href=#pixel-projected-reflections>#</a></h2>
+<p>URL: <a href=http://advances.realtimerendering.com/s2017/index.html>http://advances.realtimerendering.com/s2017/index.html</a></p>
+<ul>
+<li>
+<p>Clear the intermediate buffer</p>
+<ul>
+<li>A pixel-data grid, single value per pixel</li>
+<li>projection fill the value, reflection read the value</li>
+<li>problem: multiple pixels can be written in the same place in the buffer, because of GPU scheduling and independent pixel processing</li>
+<li>solution: encode a screen-space offset instead of color
+<ul>
+<li>we know reflected pixel coordinate (current pixel position), and the reflecting pixel coordinate (where we write the data)</li>
+<li>find and store the smallest offset : <code>InterlockedMin</code> operation</li>
+<li>for different offset direction: 4 coordinate system is enough, and Y is the most important one, reflection pass will restore the encoded offset</li>
+<li>most to least significant bits:
+<ul>
+<li>12 bits &lsquo;Y&rsquo; integer, unsigned</li>
+<li>3 bits &lsquo;Y&rsquo; fraction, signed, flipped</li>
+<li>12 bits &lsquo;X&rsquo; integer, signed,</li>
+<li>3 bits &lsquo;X&rsquo; fraction, signed, not flipped</li>
+<li>2 bits coordinate system index</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Projection Pass</p>
+<ul>
+<li>for every pixel, find the rectangle on the grid that reflects it.</li>
+<li>write corresponding pixel-data to the intermediate buffer.</li>
+</ul>
+</li>
+<li>
+<p>Reflection Pass</p>
+<ul>
+<li>read pixel-data from the &ldquo;intermediate buffer&rdquo;</li>
+<li>write the color to the final reflection buffer</li>
+<li>Fill the holes: find the neighboring pixel-data with the smallest offset; use it if there&rsquo;s no data in intermediate buffer.</li>
+<li>Filtering the distortion caused by stretching and squeezing: use the encoded fraction</li>
+<li>Color bleeding caused by filtered color sampling: combine filtered and no-filtered samples</li>
+</ul>
+</li>
+</ul>
+<p><strong>Similar implementation</strong>
+Screen Space Planar Reflections in Ghost Recon Wildlands: <a href=http://remi-genin.fr/blog/screen-space-plane-indexed-reflection-in-ghost-recon-wildlands/>http://remi-genin.fr/blog/screen-space-plane-indexed-reflection-in-ghost-recon-wildlands/#projection-jump</a></p>
+<p>The idea is to retrieve the color from the original pixel position at the projected pixel position.</p>
+<h1 id=misc>Misc<a hidden class=anchor aria-hidden=true href=#misc>#</a></h1>
+<p>Zero-G Cuckooland Ghost In The Machine: <a href=https://zero-g.co.uk/products/ghost-in-the-machine>https://zero-g.co.uk/products/ghost-in-the-machine</a></p>
+<p>This is a collection of audio sampling &ldquo;textures&rdquo; for music creation. Many games used it, like <a href="https://www.youtube.com/watch?v=NsN1IafC33Y">this</a>, and <a href="https://www.youtube.com/watch?v=dTuFnAVjiKw">this</a>, and <a href="https://www.youtube.com/watch?v=46bF5oFF1YI">this</a>.</p>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/shader/>Shader</a></li>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/pre_endwalker_entries/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Pre Endwalker Entries</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/ta_log_11082021/>
+<span class=title>Next Page »</span>
+<br>
+<span>TA Log 11082021</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

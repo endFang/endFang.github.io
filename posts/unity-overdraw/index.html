@@ -1,0 +1,192 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Unity Overdraw | After1995</title>
+<meta name=keywords content="unity,learning,technical artist">
+<meta name=description content="Achieving 60FPS on mobile, Youtube
+Optimizing Graphics in Unity, Unity
+Overdraw Overdrawn is to draw one pixel more than once. Post-processing will re-touch the pixel at least once. It adds burdens to the GPU and delays the frame.
+Rendering is done by draw calls. The intermediate steps are not on the screen but in frame buffers. A frame buffer is a memory buffer that contains data representing the pixels in a complete video frame.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/unity-overdraw/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Unity Overdraw">
+<meta property="og:description" content="Achieving 60FPS on mobile, Youtube
+Optimizing Graphics in Unity, Unity
+Overdraw Overdrawn is to draw one pixel more than once. Post-processing will re-touch the pixel at least once. It adds burdens to the GPU and delays the frame.
+Rendering is done by draw calls. The intermediate steps are not on the screen but in frame buffers. A frame buffer is a memory buffer that contains data representing the pixels in a complete video frame.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/unity-overdraw/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-02-08T01:23:06+08:00">
+<meta property="article:modified_time" content="2021-02-08T01:23:06+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="Unity Overdraw">
+<meta name=twitter:description content="Achieving 60FPS on mobile, Youtube
+Optimizing Graphics in Unity, Unity
+Overdraw Overdrawn is to draw one pixel more than once. Post-processing will re-touch the pixel at least once. It adds burdens to the GPU and delays the frame.
+Rendering is done by draw calls. The intermediate steps are not on the screen but in frame buffers. A frame buffer is a memory buffer that contains data representing the pixels in a complete video frame.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Unity Overdraw","item":"https://endfang.github.io/posts/unity-overdraw/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity Overdraw","name":"Unity Overdraw","description":"Achieving 60FPS on mobile, Youtube\nOptimizing Graphics in Unity, Unity\nOverdraw Overdrawn is to draw one pixel more than once. Post-processing will re-touch the pixel at least once. It adds burdens to the GPU and delays the frame.\nRendering is done by draw calls. The intermediate steps are not on the screen but in frame buffers. A frame buffer is a memory buffer that contains data representing the pixels in a complete video frame.","keywords":["unity","learning","technical artist"],"articleBody":"Achieving 60FPS on mobile, Youtube\nOptimizing Graphics in Unity, Unity\nOverdraw Overdrawn is to draw one pixel more than once. Post-processing will re-touch the pixel at least once. It adds burdens to the GPU and delays the frame.\nRendering is done by draw calls. The intermediate steps are not on the screen but in frame buffers. A frame buffer is a memory buffer that contains data representing the pixels in a complete video frame. It’s a portion of RAM. It’s like a canvas that the artist is going to paint on. (Render Queue decides the order of rendering.) Drawing into the buffer is expensive and costs memory bandwidth.\nMethods to measure overdraw in Unity  Overdraw Visualization Mode in the Scene’s draw mode menu. The most intense color indicates the areas having the highest overdraw. It’s not mostly correct because the built-in doesn’t count the z-writing. Laster version has a “TransparencyOverdraw” in Window → Render Pipeline → Render Pipeline Debug → Rendering → Fullscreen Debug Mode. RenderDoc Overdraw Analysis. It has a built-in Unity integration.  Reduce Opaque overdraw\nOpaque overdraw is cheaper than the transparent overdraw because it’s only substituting the pixels. Unity tries to render opaque objects front-to-back to discard the distant object’s pixels. This sorting is based on the distance between the camera and the object’s bounding-box center. Inefficienty gemoetry increase the costs, however. Skybox, or an inverted sphere, is almost at the camera position, so it will be drawn firstly, even though there are other objects in front of the camera. So skyboxes should be manually rendered after opaque geometry in Unity.\nSplitting objects into smaller sub-objects helps efficiently sorting draw calls, because Unity can take more accurate origin points. Self-intersecting geometry is not great. A way to reduce the overdraw of this type of geometry is to split the intersection. Please note that this will trade more draw calls for less over draw.\nStatic, dynamic batching and GPU instancing merge multiple draw calls in one. It reduces the CPU load of the render thread, but merging draw calls won’t be sorted anymore.\nCommon solution is to disable batching for the troublesome objects. Another is to set the Unity render order manually by changing the render queue.\nTransaprent Overdraw\nAlpha blending requries additional reand arithmetic operations. Transparent materials do not write to the z-buffer, so more pixels won’t be discard. To reduce the transparent overdraw, we can do:\n decrase the amount of transparency layers reducing the screen size the transaprent geometry takes. It means to scale down the screen size of the transparent objects, to remove the 100% transparent texels from the sprites, to make a tight mesh that reduce the fully transparent regions.  Unity UI only supports full-quad rendering so it easily stacks UI elements on top of each other, since they are not tight meshes. On the other hand, sprite renderer supports drawing mesh that more accurately represents the opaque part. Tight mesh reduce the over draw levels.\nParticle systems often stack particles on top of each other, so the GPU has to render the cluttered areas. Unity3D had posted the performance tips.\nPost-processing effects might end up with an additional layer of 100% overdraw per effect, depending on the implementation.\nAdditive blending is cheaper than alpha blending on mobile.\n Source:\n Framebuffer, Wikipedia Improving The GPU Performance of Your Games, The Gamedev Guru. Overdraw Cheatsheet, The Gamedev Guru.  ","wordCount":"562","inLanguage":"en","datePublished":"2021-02-08T01:23:06+08:00","dateModified":"2021-02-08T01:23:06+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/unity-overdraw/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+Unity Overdraw
+</h1>
+<div class=post-meta>February 8, 2021&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#overdraw aria-label=Overdraw>Overdraw</a><ul>
+<li>
+<a href=#methods-to-measure-overdraw-in-unity aria-label="Methods to measure overdraw in Unity">Methods to measure overdraw in Unity</a></li>
+<li>
+<a href=#reduce aria-label=Reduce>Reduce</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><p>Achieving 60FPS on mobile, <a href="https://www.youtube.com/watch?v=vJZcbscZ4-o&feature=emb_title">Youtube</a></p>
+<p>Optimizing Graphics in Unity, <a href=https://learn.unity.com/tutorial/optimizing-graphics-in-unity#5c7f8528edbc2a002053b5ab>Unity</a></p>
+<h1 id=overdraw>Overdraw<a hidden class=anchor aria-hidden=true href=#overdraw>#</a></h1>
+<p>Overdrawn is to draw one pixel more than once. Post-processing will re-touch the pixel at least once. It adds burdens to the GPU and delays the frame.</p>
+<p>Rendering is done by <strong>draw calls</strong>. The intermediate steps are not on the screen but in <strong>frame buffers</strong>. A frame buffer is a memory buffer that contains data representing the pixels in a complete video frame. It&rsquo;s a portion of RAM. It&rsquo;s like a canvas that the artist is going to paint on. (Render Queue decides the order of rendering.) Drawing into the buffer is expensive and costs memory bandwidth.</p>
+<h2 id=methods-to-measure-overdraw-in-unity>Methods to measure overdraw in Unity<a hidden class=anchor aria-hidden=true href=#methods-to-measure-overdraw-in-unity>#</a></h2>
+<ol>
+<li>Overdraw Visualization Mode in the Scene&rsquo;s draw mode menu. The most intense color indicates the areas having the highest overdraw. It&rsquo;s not mostly correct because the built-in doesn&rsquo;t count the z-writing. Laster version has a &ldquo;TransparencyOverdraw&rdquo; in Window → Render Pipeline → Render Pipeline Debug → Rendering → Fullscreen Debug Mode.</li>
+<li>RenderDoc Overdraw Analysis. It has a built-in Unity integration.</li>
+</ol>
+<h2 id=reduce>Reduce<a hidden class=anchor aria-hidden=true href=#reduce>#</a></h2>
+<p><strong>Opaque overdraw</strong></p>
+<p>Opaque overdraw is cheaper than the transparent overdraw because it&rsquo;s only substituting the pixels. Unity tries to render opaque objects front-to-back to discard the distant object&rsquo;s pixels. This sorting is based on the distance between the camera and the object&rsquo;s bounding-box center. Inefficienty gemoetry increase the costs, however. Skybox, or an inverted sphere, is almost at the camera position, so it will be drawn firstly, even though there are other objects in front of the camera. So skyboxes should be manually rendered after opaque geometry in Unity.</p>
+<p>Splitting objects into smaller sub-objects helps efficiently sorting draw calls, because Unity can take more accurate origin points. Self-intersecting geometry is not great. A way to reduce the overdraw of this type of geometry is to split the intersection. Please note that this will trade more draw calls for less over draw.</p>
+<p>Static, dynamic batching and GPU instancing merge multiple draw calls in one. It reduces the CPU load of the render thread, but merging draw calls won&rsquo;t be sorted anymore.</p>
+<p>Common solution is to disable batching for the troublesome objects. Another is to set the Unity render order manually by changing the render queue.</p>
+<p><strong>Transaprent Overdraw</strong></p>
+<p>Alpha blending requries additional reand arithmetic operations. Transparent materials do not write to the z-buffer, so more pixels won&rsquo;t be discard. To reduce the transparent overdraw, we can do:</p>
+<ol>
+<li>decrase the amount of transparency layers</li>
+<li>reducing the screen size the transaprent geometry takes. It means to scale down the screen size of the transparent objects, to remove the 100% transparent texels from the sprites, to make a tight mesh that reduce the fully transparent regions.</li>
+</ol>
+<p>Unity UI only supports full-quad rendering so it easily stacks UI elements on top of each other, since they are not tight meshes. On the other hand, sprite renderer supports drawing mesh that more accurately represents the opaque part. Tight mesh reduce the over draw levels.</p>
+<p>Particle systems often stack particles on top of each other, so the GPU has to render the cluttered areas. Unity3D had posted the <a href=https://unity3d.com/how-to/particle-systems-performance-tips>performance tips</a>.</p>
+<p>Post-processing effects might end up with an additional layer of 100% overdraw per effect, depending on the implementation.</p>
+<p><a href=https://forum.unity.com/threads/additive-vs-standard-alpha-blending-performance.413005/>Additive blending is cheaper than alpha blending on mobile</a>.</p>
+<hr>
+<p>Source:</p>
+<ol>
+<li><a href=https://www.wikiwand.com/en/Framebuffer>Framebuffer</a>, Wikipedia</li>
+<li><a href=https://thegamedev.guru/unity-gpu-performance/overdraw-optimization/>Improving The GPU Performance of Your Games</a>, The Gamedev Guru.</li>
+<li><a href="https://docs.google.com/spreadsheets/d/103boPIh5hxbc-4ybul_RUA37kfHLfxsY2C4d2hhX1Aw/edit#gid=0">Overdraw Cheatsheet</a>, The Gamedev Guru.</li>
+</ol>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+<li><a href=https://endfang.github.io/tags/learning/>learning</a></li>
+<li><a href=https://endfang.github.io/tags/technical-artist/>technical artist</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/2021-new-year-break-review/>
+<span class=title>« Prev Page</span>
+<br>
+<span>2021 Lunar New Year Break Review</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/magenta/>
+<span class=title>Next Page »</span>
+<br>
+<span>Magenta</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

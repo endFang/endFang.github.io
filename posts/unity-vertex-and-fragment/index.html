@@ -1,0 +1,325 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Unity Vertex And Fragment Shader | After1995</title>
+<meta name=keywords content="Shader,Unity">
+<meta name=description content="Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There&rsquo;s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.
+*Surface shader is actually compiled to vert/frag shader.
+Shader &#34;Unlit/SolidColor&#34; { SubShader { Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag struct vertInput { float4 pos : POSITION; }; struct vertOuput { float4 pos : SV_POSITION; }; vertOuput vert(vertInput input) { vertOuput o; o.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/unity-vertex-and-fragment/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Unity Vertex And Fragment Shader">
+<meta property="og:description" content="Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There&rsquo;s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.
+*Surface shader is actually compiled to vert/frag shader.
+Shader &#34;Unlit/SolidColor&#34; { SubShader { Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag struct vertInput { float4 pos : POSITION; }; struct vertOuput { float4 pos : SV_POSITION; }; vertOuput vert(vertInput input) { vertOuput o; o.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/unity-vertex-and-fragment/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2019-11-30T11:03:52+08:00">
+<meta property="article:modified_time" content="2019-11-30T11:03:52+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="Unity Vertex And Fragment Shader">
+<meta name=twitter:description content="Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There&rsquo;s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.
+*Surface shader is actually compiled to vert/frag shader.
+Shader &#34;Unlit/SolidColor&#34; { SubShader { Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag struct vertInput { float4 pos : POSITION; }; struct vertOuput { float4 pos : SV_POSITION; }; vertOuput vert(vertInput input) { vertOuput o; o.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Unity Vertex And Fragment Shader","item":"https://endfang.github.io/posts/unity-vertex-and-fragment/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity Vertex And Fragment Shader","name":"Unity Vertex And Fragment Shader","description":"Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There\u0026rsquo;s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.\n*Surface shader is actually compiled to vert/frag shader.\nShader \u0026#34;Unlit/SolidColor\u0026#34; { SubShader { Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag struct vertInput { float4 pos : POSITION; }; struct vertOuput { float4 pos : SV_POSITION; }; vertOuput vert(vertInput input) { vertOuput o; o.","keywords":["Shader","Unity"],"articleBody":"Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There’s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.\n*Surface shader is actually compiled to vert/frag shader.\nShader \"Unlit/SolidColor\" { SubShader { Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag struct vertInput { float4 pos : POSITION; }; struct vertOuput { float4 pos : SV_POSITION; }; vertOuput vert(vertInput input) { vertOuput o; o.pos = UnityObjectToClipPos(input.pos); return o; } half4 frag(vertOuput output) : COLOR { return half4(1.0, 0.0, 0.0, 1.0); } ENDCG } } } vert receives the position of a vertex in world coordinates. It will be converted into screen coordinates by the UnityObjectToClipPos , which is the good old mul(UNITY_MATRIX_MVP, input.pos). (model-view projection).\n#pragma is a pre-compiler directive. It tells what shader function to compile.\nBinding Semantics the colon in vertInput and vertOutput indicates the variable will play a special role. POSITION is the vertex position, SV_POSITION is the screen position of a vertex and has Z and W components.\nInput Semantics  POSITION, SV_POSITION: the pos of a vertex in world coordinates NORMAL: normal of a vertex, relative to the world COLOR, COLOR0, DIFFUSE, SV_TARGET: color info stored in the vertex COLOR1, SPECULAR: secondary color info stored in the vertex; FOGCOORD: fog coordinate; TEXCOORD0, TEXCOORD1, …, TEXCOORDi: the i-th UV data stored in the vertex  Output Semantics  POSITION, SV_POSITION, HPOS: the pos of a vertex in camera coordinates (clip space) COLOR, COLOR0, COL0, COL, SV_TARGET: the front primary color; COLOR1, COL1: the front secondary color; FOGC, FOG: the fog coordinates TEXCOORD0, TEXCOORD1, …, TEXCOORDi, TEXi: the i-th UV data stored in the vertex; PSIZE, PSIZ: the size of the point we are drawing; WPOS: the pos within the window, in pixel (origin i nthe lower left corner)  Most hardwares forces all fileds of the structs to have a binding semantics. If any data is not listed above, we need to find another way or store it in TEXi. Certain hardwares only allow some semantics ( WPOS should be replaced by ComputerScreenPos).\nGlass Shading Shader \"Custom/GlassShader\" { Properties { _MainTex(\"Base (RGB) Trans (A)\", 2D) = \"white\" {} _Color (\"Color\", Color) = (1,1,1,1) _NormalMap(\"Normal texture\", 2D) = \"Normal\" {} _Magnitude(\"Magnitude\", Range(0, 1)) = 0.05 } SubShader { Tags { \"Queue\" = \"Transparent\" \"IgnoreProjector\" = \"True\" \"RenderType\" = \"Opaque\" } ZWrite On Lighting Off Cull Off Fog { Mode Off } Blend One Zero GrabPass { \"_GrabTexture\" } Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag #include \"UnityCG.cginc\" sampler2D _GrabTexture; sampler2D _MainTex; fixed4 _Color; sampler2D _NormalMap; float _Magnitude; struct appdata { float4 vertex : POSITION; float4 color : COLOR; float2 texcoord : TEXCOORD0; }; struct v2f { float4 vertex : POSITION; fixed4 color : COLOR; float2 texcoord : TEXCOORD0; float4 uvgrab : TEXCOORD1; }; //vertex func v2f vert(appdata v) { v2f o; o.vertex = UnityObjectToClipPos(v.vertex); o.color = v.color; o.texcoord = v.texcoord; o.uvgrab = ComputeGrabScreenPos(o.vertex); return o; } // frag func half4 frag (v2f i) : COLOR { half4 mainColor = tex2D(_MainTex, i.texcoord); half4 normal = tex2D(_NormalMap, i.texcoord); half2 distortion = UnpackNormal(normal).rg; i.uvgrab.xy += distortion * _Magnitude; fixed4 col = tex2Dproj(_GrabTexture, UNITY_PROJ_COORD(i.uvgrab)); return col * mainColor * _Color; } ENDCG } } } GrabPass grabs the contents of the screen where the object is about to be drawn into a texture. This texture can be used in subsequent passes to do advanced image based effects. ComputeGrabScreenPos is given a clip space position and returns texture coordinates. UNITY_PROJ_COORD is given a 4-component vector and returns a texture coordinate suitable for projected texture reads.\nRender states: ZWrite: whether pixels from this object are written to the depth buffer. Solid object is on (default), semitransparent effects are off. Blend: how pixels are combined with what is already there.\nDistortion Shaders usually create distortion via bump map. Bump maps tells how light should reflect onto a surface.\nTexture Maps Gloss: Roughness Bump: illusion of depth by faking details by using height info to tell when a point should be up or down Normal: a type of Bump map that fakes the details by using angle information to tell which direction each point of the surface should be oriented towards. Better effect with lighting and shadows. Displacement: similar to a height map but actually changes the geometry of the object by moving vertices.\n","wordCount":"749","inLanguage":"en","datePublished":"2019-11-30T11:03:52+08:00","dateModified":"2019-11-30T11:03:52+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/unity-vertex-and-fragment/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+Unity Vertex And Fragment Shader
+</h1>
+<div class=post-meta>November 30, 2019&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul><ul>
+<li>
+<a href=#binding-semantics aria-label="Binding Semantics">Binding Semantics</a><ul>
+<li>
+<a href=#input-semantics aria-label="Input Semantics">Input Semantics</a></li>
+<li>
+<a href=#output-semantics aria-label="Output Semantics">Output Semantics</a></li></ul>
+</li></ul>
+<li>
+<a href=#glass-shading aria-label="Glass Shading">Glass Shading</a><ul>
+<li>
+<a href=#texture-maps aria-label="Texture Maps">Texture Maps</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><p>Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There&rsquo;s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.</p>
+<p>*Surface shader is actually compiled to vert/frag shader.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl>Shader <span style=color:#960050;background-color:#1e0010>&#34;</span>Unlit<span style=color:#f92672>/</span>SolidColor<span style=color:#960050;background-color:#1e0010>&#34;</span>
+{
+   SubShader
+   {
+	   Pass
+	   {
+			  CGPROGRAM
+
+			  <span style=color:#960050;background-color:#1e0010>#</span>pragma vertex vert
+			  <span style=color:#960050;background-color:#1e0010>#</span>pragma fragment frag
+
+			  <span style=color:#66d9ef>struct</span> vertInput 
+			  {
+					float4 pos <span style=color:#f92672>:</span> POSITION;
+			  };
+
+			  <span style=color:#66d9ef>struct</span> vertOuput
+			  {
+					float4 pos <span style=color:#f92672>:</span> SV_POSITION;
+			  };
+
+			  vertOuput vert(vertInput <span style=color:#66d9ef>input</span>)
+			  {
+					vertOuput o;
+					o.pos <span style=color:#f92672>=</span> UnityObjectToClipPos(<span style=color:#66d9ef>input</span>.pos);
+					<span style=color:#66d9ef>return</span> o;
+			  }
+
+			  half4 frag(vertOuput <span style=color:#66d9ef>output</span>) <span style=color:#f92672>:</span> COLOR
+			  {
+					<span style=color:#66d9ef>return</span> half4(<span style=color:#ae81ff>1.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>1.0</span>);
+			  }
+
+			  ENDCG
+	   }
+
+   }
+}
+</code></pre></div><p>vert receives the position of a vertex in world coordinates. It will be converted into screen coordinates by the <code>UnityObjectToClipPos</code> , which is the good old <code>mul(UNITY_MATRIX_MVP, input.pos)</code>. (model-view projection).</p>
+<p><code>#pragma</code> is a pre-compiler directive. It tells what shader function to compile.</p>
+<h2 id=binding-semantics>Binding Semantics<a hidden class=anchor aria-hidden=true href=#binding-semantics>#</a></h2>
+<p>the colon in <code>vertInput</code> and <code>vertOutput</code> indicates the variable will play a special role. <code>POSITION</code> is the vertex position, <code>SV_POSITION</code> is the screen position of a vertex and has Z and W components.</p>
+<h3 id=input-semantics>Input Semantics<a hidden class=anchor aria-hidden=true href=#input-semantics>#</a></h3>
+<ul>
+<li>POSITION, SV_POSITION: the pos of a vertex in world coordinates</li>
+<li>NORMAL: normal of a vertex, relative to the world</li>
+<li>COLOR, COLOR0, DIFFUSE, SV_TARGET: color info stored in the vertex</li>
+<li>COLOR1, SPECULAR: secondary color info stored in the vertex;</li>
+<li>FOGCOORD: fog coordinate;</li>
+<li>TEXCOORD0, TEXCOORD1, &mldr;, TEXCOORDi: the i-th UV data stored in the vertex</li>
+</ul>
+<h3 id=output-semantics>Output Semantics<a hidden class=anchor aria-hidden=true href=#output-semantics>#</a></h3>
+<ul>
+<li>POSITION, SV_POSITION, HPOS: the pos of a vertex in camera coordinates (clip space)</li>
+<li>COLOR, COLOR0, COL0, COL, SV_TARGET: the front primary color;</li>
+<li>COLOR1, COL1: the front secondary color;</li>
+<li>FOGC, FOG: the fog coordinates</li>
+<li>TEXCOORD0, TEXCOORD1, &mldr;, TEXCOORDi, TEXi: the i-th UV data stored in the vertex;</li>
+<li>PSIZE, PSIZ: the size of the point we are drawing;</li>
+<li>WPOS: the pos within the window, in pixel (origin i nthe lower left corner)</li>
+</ul>
+<p>Most hardwares forces all fileds of the structs to have a binding semantics. If any data is not listed above, we need to find another way or store it in TEXi.
+Certain hardwares only allow some semantics ( WPOS should be replaced by ComputerScreenPos).</p>
+<h1 id=glass-shading>Glass Shading<a hidden class=anchor aria-hidden=true href=#glass-shading>#</a></h1>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl>Shader <span style=color:#960050;background-color:#1e0010>&#34;</span>Custom<span style=color:#f92672>/</span>GlassShader<span style=color:#960050;background-color:#1e0010>&#34;</span>
+{
+	Properties
+	{
+		_MainTex(<span style=color:#960050;background-color:#1e0010>&#34;</span>Base (RGB) Trans (A)<span style=color:#960050;background-color:#1e0010>&#34;</span>, <span style=color:#ae81ff>2</span>D) <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>&#34;</span>white<span style=color:#960050;background-color:#1e0010>&#34;</span> {}
+		_Color (<span style=color:#960050;background-color:#1e0010>&#34;</span>Color<span style=color:#960050;background-color:#1e0010>&#34;</span>, Color) <span style=color:#f92672>=</span> (<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>)
+		_NormalMap(<span style=color:#960050;background-color:#1e0010>&#34;</span>Normal texture<span style=color:#960050;background-color:#1e0010>&#34;</span>, <span style=color:#ae81ff>2</span>D) <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>&#34;</span>Normal<span style=color:#960050;background-color:#1e0010>&#34;</span> {}
+		_Magnitude(<span style=color:#960050;background-color:#1e0010>&#34;</span>Magnitude<span style=color:#960050;background-color:#1e0010>&#34;</span>, Range(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>)) <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.05</span>
+	}
+	SubShader
+	{
+		Tags
+		{
+			<span style=color:#960050;background-color:#1e0010>&#34;</span>Queue<span style=color:#960050;background-color:#1e0010>&#34;</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>&#34;</span>Transparent<span style=color:#960050;background-color:#1e0010>&#34;</span>
+			<span style=color:#960050;background-color:#1e0010>&#34;</span>IgnoreProjector<span style=color:#960050;background-color:#1e0010>&#34;</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>&#34;</span>True<span style=color:#960050;background-color:#1e0010>&#34;</span>
+			<span style=color:#960050;background-color:#1e0010>&#34;</span>RenderType<span style=color:#960050;background-color:#1e0010>&#34;</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>&#34;</span>Opaque<span style=color:#960050;background-color:#1e0010>&#34;</span>
+		}
+		ZWrite On 
+		Lighting Off 
+		Cull Off 
+		Fog { Mode Off } 
+		Blend One Zero
+	
+		GrabPass { <span style=color:#960050;background-color:#1e0010>&#34;</span>_GrabTexture<span style=color:#960050;background-color:#1e0010>&#34;</span> }
+
+		Pass
+		{
+			CGPROGRAM
+			<span style=color:#960050;background-color:#1e0010>#</span>pragma vertex vert
+			<span style=color:#960050;background-color:#1e0010>#</span>pragma fragment frag
+			<span style=color:#960050;background-color:#1e0010>#</span>include <span style=color:#960050;background-color:#1e0010>&#34;</span>UnityCG.cginc<span style=color:#960050;background-color:#1e0010>&#34;</span>
+
+			<span style=color:#66d9ef>sampler2D</span> _GrabTexture;
+
+			<span style=color:#66d9ef>sampler2D</span> _MainTex;
+			fixed4 _Color;
+
+			<span style=color:#66d9ef>sampler2D</span> _NormalMap;
+			<span style=color:#66d9ef>float</span> _Magnitude;
+		
+			<span style=color:#66d9ef>struct</span> appdata
+			{
+				float4 vertex <span style=color:#f92672>:</span> POSITION;
+				float4 color <span style=color:#f92672>:</span> COLOR;
+				float2 texcoord <span style=color:#f92672>:</span> TEXCOORD0;
+			};
+
+			<span style=color:#66d9ef>struct</span> v2f
+			{
+				float4 vertex <span style=color:#f92672>:</span> POSITION;
+				fixed4 color <span style=color:#f92672>:</span> COLOR;
+				float2 texcoord <span style=color:#f92672>:</span> TEXCOORD0;
+
+				float4 uvgrab <span style=color:#f92672>:</span> TEXCOORD1;
+			};
+
+			<span style=color:#75715e>//vertex func</span>
+			v2f vert(appdata v)
+			{
+				v2f o;
+				o.vertex <span style=color:#f92672>=</span> UnityObjectToClipPos(v.vertex);
+				o.color <span style=color:#f92672>=</span> v.color;
+
+				o.texcoord <span style=color:#f92672>=</span> v.texcoord;
+
+				o.uvgrab <span style=color:#f92672>=</span> ComputeGrabScreenPos(o.vertex);
+				<span style=color:#66d9ef>return</span> o;
+			}
+
+			<span style=color:#75715e>// frag func</span>
+			half4 frag (v2f i) <span style=color:#f92672>:</span> COLOR
+			{
+				half4 mainColor <span style=color:#f92672>=</span> tex2D(_MainTex, i.texcoord);
+
+				half4 normal <span style=color:#f92672>=</span> tex2D(_NormalMap, i.texcoord);
+				half2 distortion <span style=color:#f92672>=</span> UnpackNormal(normal).rg;
+
+				i.uvgrab.xy <span style=color:#f92672>+=</span> distortion <span style=color:#f92672>*</span> _Magnitude;
+
+				fixed4 col <span style=color:#f92672>=</span> tex2Dproj(_GrabTexture, UNITY_PROJ_COORD(i.uvgrab));
+				<span style=color:#66d9ef>return</span> col <span style=color:#f92672>*</span> mainColor <span style=color:#f92672>*</span> _Color;
+			}
+			ENDCG
+		}
+	}
+}
+</code></pre></div><p><code>GrabPass</code> grabs the contents of the screen where the object is about to be drawn into a texture. This texture can be used in subsequent passes to do advanced image based effects.
+<code>ComputeGrabScreenPos</code> is given a clip space position and returns texture coordinates.
+<code>UNITY_PROJ_COORD</code> is given a 4-component vector and returns a texture coordinate suitable for projected texture reads.</p>
+<p><a href=https://docs.unity3d.com/Manual/SL-Pass.html>Render states</a>:
+<code>ZWrite</code>: whether pixels from this object are written to the depth buffer. Solid object is on (default), semitransparent effects are off.
+<code>Blend</code>: how pixels are combined with what is already there.</p>
+<p><strong>Distortion</strong>
+Shaders usually create distortion via bump map. Bump maps tells how light should reflect onto a surface.</p>
+<h2 id=texture-maps>Texture Maps<a hidden class=anchor aria-hidden=true href=#texture-maps>#</a></h2>
+<p>Gloss: Roughness
+Bump: illusion of depth by faking details by using height info to tell when a point should be up or down
+Normal: a type of Bump map that fakes the details by using angle information to tell which direction each point of the surface should be oriented towards. Better effect with lighting and shadows.
+Displacement: similar to a height map but actually changes the geometry of the object by moving vertices.</p>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/shader/>Shader</a></li>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/5-1/>
+<span class=title>« Prev Page</span>
+<br>
+<span>5.1 中人人都爱 WoL</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/unity-shader-overview/>
+<span class=title>Next Page »</span>
+<br>
+<span>Unity Shader Overview</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

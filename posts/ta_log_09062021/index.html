@@ -1,0 +1,163 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>TA Log 09062021 | After1995</title>
+<meta name=keywords content="shader,unity">
+<meta name=description content="Shader Animation The usual method of making shader animation is to use time parameter and sin wave function. It&rsquo;s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/ta_log_09062021/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="TA Log 09062021">
+<meta property="og:description" content="Shader Animation The usual method of making shader animation is to use time parameter and sin wave function. It&rsquo;s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/ta_log_09062021/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-09-06T14:48:48+08:00">
+<meta property="article:modified_time" content="2021-09-06T14:48:48+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="TA Log 09062021">
+<meta name=twitter:description content="Shader Animation The usual method of making shader animation is to use time parameter and sin wave function. It&rsquo;s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"TA Log 09062021","item":"https://endfang.github.io/posts/ta_log_09062021/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"TA Log 09062021","name":"TA Log 09062021","description":"Shader Animation The usual method of making shader animation is to use time parameter and sin wave function. It\u0026rsquo;s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture.","keywords":["shader","unity"],"articleBody":"Shader Animation The usual method of making shader animation is to use time parameter and sin wave function. It’s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture.\nWe can think the period of an animation is from 0 to 1. That’s the uv’s range. The animation input value is the texture’s RGB channel’s value. For example, If I have a texture like this:\nIt’s a 1x512 picture. It is divided into 4 segments. The first segment is in [0, 128), and the RGB linearly increase from 0 to 255. The second segment is in [127, 255), and the RGB value is all 255. The third segment is in [255, 284) and the RGB values change from 255 to 0. The final segment’s value is all 0.\nThis represents a period of animation, the input starts with 0, increase to 1, go down to 0, and stays as 0.\nThe advantage of this method is highly customizable and reduced the complex math calculation of shaping the sin wave. The disadvantage is that the animation is static unless we change the texture. Of course we can assemble multiple 1 pixel height texture into a whole 512 x 512 texture, so that we can have 512 different input, but it requires more work on making textures.\nUV Distortion source: https://twitter.com/Fakirgnome/status/1120421374571495426\nIt’s a quite interesting method to make some water-like effect on a plane. We can use distortion to create water-like effect and a mask to limit the effect area, like a pond on a plane.\nFOW Another attempt to update the Fog of War is to convert all data updates to a texture, and render the fog based on this texture. It will include the opened area, fog-covered area, fog-disappearing area. Shader only renders what it is told and does not render any animation.\nCalculating the NoL is a start to make the color interact with the light source’s position and rotation, such as sunset and sunrise effect.\nhalf NoL = saturate(dot(normalWS, lightPos)); ","wordCount":"383","inLanguage":"en","datePublished":"2021-09-06T14:48:48+08:00","dateModified":"2021-09-06T14:48:48+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/ta_log_09062021/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+TA Log 09062021
+</h1>
+<div class=post-meta>September 6, 2021&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#shader-animation aria-label="Shader Animation">Shader Animation</a></li>
+<li>
+<a href=#uv-distortion aria-label="UV Distortion">UV Distortion</a></li>
+<li>
+<a href=#fow aria-label=FOW>FOW</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=shader-animation>Shader Animation<a hidden class=anchor aria-hidden=true href=#shader-animation>#</a></h1>
+<p>The usual method of making shader animation is to use time parameter and sin wave function. It&rsquo;s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture.</p>
+<p>We can think the period of an animation is from 0 to 1. That&rsquo;s the uv&rsquo;s range. The animation input value is the texture&rsquo;s RGB channel&rsquo;s value. For example, If I have a texture like this:</p>
+<p><img loading=lazy src=https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6f987751-b368-4d4b-8c95-0ba6a39e0f1a/animationBand.png alt=animationBand.png>
+</p>
+<p>It&rsquo;s a 1x512 picture. It is divided into 4 segments. The first segment is in [0, 128), and the RGB linearly increase from 0 to 255. The second segment is in [127, 255), and the RGB value is all 255. The third segment is in [255, 284) and the RGB values change from 255 to 0. The final segment&rsquo;s value is all 0.</p>
+<p>This represents a period of animation, the input starts with 0, increase to 1, go down to 0, and stays as 0.</p>
+<p>The advantage of this method is highly customizable and reduced the complex math calculation of shaping the sin wave. The disadvantage is that the animation is static unless we change the texture. Of course we can assemble multiple 1 pixel height texture into a whole 512 x 512 texture, so that we can have 512 different input, but it requires more work on making textures.</p>
+<h1 id=uv-distortion>UV Distortion<a hidden class=anchor aria-hidden=true href=#uv-distortion>#</a></h1>
+<p>source: <a href=https://twitter.com/Fakirgnome/status/1120421374571495426>https://twitter.com/Fakirgnome/status/1120421374571495426</a></p>
+<p>It&rsquo;s a quite interesting method to make some water-like effect on a plane. We can use distortion to create water-like effect and a mask to limit the effect area, like a pond on a plane.</p>
+<h1 id=fow>FOW<a hidden class=anchor aria-hidden=true href=#fow>#</a></h1>
+<p>Another attempt to update the Fog of War is to convert all data updates to a texture, and render the fog based on this texture. It will include the opened area, fog-covered area, fog-disappearing area. Shader only renders what it is told and does not render any animation.</p>
+<p>Calculating the NoL is a start to make the color interact with the light source&rsquo;s position and rotation, such as sunset and sunrise effect.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#a6e22e>half</span> <span style=color:#a6e22e>NoL</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>saturate</span>(<span style=color:#a6e22e>dot</span>(<span style=color:#a6e22e>normalWS</span>, <span style=color:#a6e22e>lightPos</span>));
+</code></pre></div>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/shader/>Shader</a></li>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/ta_log_09222021/>
+<span class=title>« Prev Page</span>
+<br>
+<span>TA Log 09222021</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/ta_log_08302021/>
+<span class=title>Next Page »</span>
+<br>
+<span>TA Log 08302021</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

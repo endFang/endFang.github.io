@@ -1,0 +1,190 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>TA Log 08022021 | After1995</title>
+<meta name=keywords content="shader,unity">
+<meta name=description content="Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/
+A common way to blend textures is the alpha blending.
+$$C_{result} = C_{source} \cdot F_{source} + C_{destination} \cdot F_{destination} \ F_{source} + F_{destination} = 1$$
+Another way is to do linear interpolation. We can linearly interpolate the result color between two textures.
+$$\frac{y-h_{0}}{x - x_{0}} = \frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$
+$$y = \frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$
+The third way is to use the height map to determine the blend of two textures.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/ta_log_08022021/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="TA Log 08022021">
+<meta property="og:description" content="Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/
+A common way to blend textures is the alpha blending.
+$$C_{result} = C_{source} \cdot F_{source} + C_{destination} \cdot F_{destination} \ F_{source} + F_{destination} = 1$$
+Another way is to do linear interpolation. We can linearly interpolate the result color between two textures.
+$$\frac{y-h_{0}}{x - x_{0}} = \frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$
+$$y = \frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$
+The third way is to use the height map to determine the blend of two textures.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/ta_log_08022021/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-02T14:43:41+08:00">
+<meta property="article:modified_time" content="2021-08-02T14:43:41+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="TA Log 08022021">
+<meta name=twitter:description content="Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/
+A common way to blend textures is the alpha blending.
+$$C_{result} = C_{source} \cdot F_{source} + C_{destination} \cdot F_{destination} \ F_{source} + F_{destination} = 1$$
+Another way is to do linear interpolation. We can linearly interpolate the result color between two textures.
+$$\frac{y-h_{0}}{x - x_{0}} = \frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$
+$$y = \frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$
+The third way is to use the height map to determine the blend of two textures.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"TA Log 08022021","item":"https://endfang.github.io/posts/ta_log_08022021/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"TA Log 08022021","name":"TA Log 08022021","description":"Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/\nA common way to blend textures is the alpha blending.\n$$C_{result} = C_{source} \\cdot F_{source} + C_{destination} \\cdot F_{destination} \\ F_{source} + F_{destination} = 1$$\nAnother way is to do linear interpolation. We can linearly interpolate the result color between two textures.\n$$\\frac{y-h_{0}}{x - x_{0}} = \\frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$\n$$y = \\frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$\nThe third way is to use the height map to determine the blend of two textures.","keywords":["shader","unity"],"articleBody":"Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/\nA common way to blend textures is the alpha blending.\n$$C_{result} = C_{source} \\cdot F_{source} + C_{destination} \\cdot F_{destination} \\ F_{source} + F_{destination} = 1$$\nAnother way is to do linear interpolation. We can linearly interpolate the result color between two textures.\n$$\\frac{y-h_{0}}{x - x_{0}} = \\frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$\n$$y = \\frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$\nThe third way is to use the height map to determine the blend of two textures.\nBlend Mode Unity shader’s Blend Mode is defined by the blend command:Blend SrcFactor DstFactor The default operation is Add when BlendOp is not defined. The generated color is multiplied by the SrcFactor. The color in the buffer is multiplied by DstFactor. The two are added together.\nThe blend works in this equation:\nresult = src * srcFactor blendop dst * dstFactor.\nFor example, the traditional transparency is:\nresult = srcColor * (srcAlpha) + dstColor * (1 - srcAlpha)\nIt use alpha as factor to blend the color, if the srcAlpha is 0, then the srcColor becomes 0 too and dstColor is drawn.\nShadow Receiver There are multiple ways to implement a plane only renders shadow.\nThe first one is to draw shadow only. After all, shadow is part of the shading model. If we ignore all the color, shadow is left. In URP, shadow attenuation is accessible by the Light.\nVertexPositionInputs vertexInput = (VertexPositionInputs)0; vertexInput.positionWS = input.positionWS; float4 shadowCoord = GetShadowCoord(vertexInput); Light mainLight = GetMainLight(shadowCoord); half shadowAttenutation = mainLight.shadowAttenuation; We can simply use the attenuation to draw the shadow.\nAnother way is Planar Shadow. We calculate the projected image of the model looked at a certain point.\n","wordCount":"280","inLanguage":"en","datePublished":"2021-08-02T14:43:41+08:00","dateModified":"2021-08-02T14:43:41+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/ta_log_08022021/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+TA Log 08022021
+</h1>
+<div class=post-meta>August 2, 2021&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#blend-textures-multitexturing aria-label="Blend Textures (Multitexturing)">Blend Textures (Multitexturing)</a></li>
+<li>
+<a href=#blend-mode aria-label="Blend Mode">Blend Mode</a></li>
+<li>
+<a href=#shadow-receiver aria-label="Shadow Receiver">Shadow Receiver</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=blend-textures-multitexturing>Blend Textures (Multitexturing)<a hidden class=anchor aria-hidden=true href=#blend-textures-multitexturing>#</a></h1>
+<p><a href=http://untitledgam.es/2017/01/height-blending-shader/>http://untitledgam.es/2017/01/height-blending-shader/</a></p>
+<p>A common way to blend textures is the alpha blending.</p>
+<p>$$C_{result} = C_{source} \cdot F_{source} + C_{destination} \cdot F_{destination} \ F_{source} + F_{destination} = 1$$</p>
+<p>Another way is to do linear interpolation. We can linearly interpolate the result color between two textures.</p>
+<p>$$\frac{y-h_{0}}{x - x_{0}} = \frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$</p>
+<p>$$y = \frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$</p>
+<p>The third way is to use the height map to determine the blend of two textures.</p>
+<h1 id=blend-mode>Blend Mode<a hidden class=anchor aria-hidden=true href=#blend-mode>#</a></h1>
+<p>Unity shader&rsquo;s Blend Mode is defined by the blend command:<code>Blend SrcFactor DstFactor</code> The default operation is Add when <code>BlendOp</code> is not defined. The generated color is multiplied by the SrcFactor. The color in the buffer is multiplied by DstFactor. The two are added together.</p>
+<p>The blend works in this equation:</p>
+<p>result = src * srcFactor blendop dst * dstFactor.</p>
+<p>For example, the traditional transparency is:</p>
+<p>result = srcColor * (srcAlpha) + dstColor * (1 - srcAlpha)</p>
+<p>It use alpha as factor to blend the color, if the srcAlpha is 0, then the srcColor becomes 0 too and dstColor is drawn.</p>
+<h1 id=shadow-receiver>Shadow Receiver<a hidden class=anchor aria-hidden=true href=#shadow-receiver>#</a></h1>
+<p>There are multiple ways to implement a plane only renders shadow.</p>
+<p>The first one is to draw shadow only. After all, shadow is part of the shading model. If we ignore all the color, shadow is left. In URP, shadow attenuation is accessible by the Light.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#a6e22e>VertexPositionInputs</span> <span style=color:#a6e22e>vertexInput</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>VertexPositionInputs</span>)<span style=color:#ae81ff>0</span>;
+<span style=color:#a6e22e>vertexInput</span>.<span style=color:#a6e22e>positionWS</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>input</span>.<span style=color:#a6e22e>positionWS</span>;
+<span style=color:#a6e22e>float4</span> <span style=color:#a6e22e>shadowCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>GetShadowCoord</span>(<span style=color:#a6e22e>vertexInput</span>);
+<span style=color:#a6e22e>Light</span> <span style=color:#a6e22e>mainLight</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>GetMainLight</span>(<span style=color:#a6e22e>shadowCoord</span>);
+<span style=color:#a6e22e>half</span> <span style=color:#a6e22e>shadowAttenutation</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>mainLight</span>.<span style=color:#a6e22e>shadowAttenuation</span>;
+</code></pre></div><p>We can simply use the attenuation to draw the shadow.</p>
+<p>Another way is Planar Shadow. We calculate the projected image of the model looked at a certain point.</p>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/shader/>Shader</a></li>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/ta_log_08092021/>
+<span class=title>« Prev Page</span>
+<br>
+<span>TA Log 08092021</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/ta_log_07262021/>
+<span class=title>Next Page »</span>
+<br>
+<span>TA Log 07262021</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Dot Product | After1995</title>
+<meta name=keywords content="learning,Shader">
+<meta name=description content="Reference: &ldquo;Dot products and duality | Essence of linear algebra, chapter 9&rdquo;, 3Blue1Brown
+Algebra example:
+$\begin{bmatrix} 1 & 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \ 4 \end{bmatrix} = 1 \cdot 3 + 2 \cdot 4$
+Gemoetrically:
+![projection](https://i.imgur.com/HYJeePM.png =150x150)
+The dot product of v and u = (length of projection of v onto u)(length of u)
+Order and Symmetry Order doesn&rsquo;t matter. (Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/dot-product/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Dot Product">
+<meta property="og:description" content="Reference: &ldquo;Dot products and duality | Essence of linear algebra, chapter 9&rdquo;, 3Blue1Brown
+Algebra example:
+$\begin{bmatrix} 1 & 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \ 4 \end{bmatrix} = 1 \cdot 3 + 2 \cdot 4$
+Gemoetrically:
+![projection](https://i.imgur.com/HYJeePM.png =150x150)
+The dot product of v and u = (length of projection of v onto u)(length of u)
+Order and Symmetry Order doesn&rsquo;t matter. (Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/dot-product/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2019-01-27T16:39:43+08:00">
+<meta property="article:modified_time" content="2019-01-27T16:39:43+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="Dot Product">
+<meta name=twitter:description content="Reference: &ldquo;Dot products and duality | Essence of linear algebra, chapter 9&rdquo;, 3Blue1Brown
+Algebra example:
+$\begin{bmatrix} 1 & 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \ 4 \end{bmatrix} = 1 \cdot 3 + 2 \cdot 4$
+Gemoetrically:
+![projection](https://i.imgur.com/HYJeePM.png =150x150)
+The dot product of v and u = (length of projection of v onto u)(length of u)
+Order and Symmetry Order doesn&rsquo;t matter. (Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Dot Product","item":"https://endfang.github.io/posts/dot-product/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Dot Product","name":"Dot Product","description":"Reference: \u0026ldquo;Dot products and duality | Essence of linear algebra, chapter 9\u0026rdquo;, 3Blue1Brown\nAlgebra example:\n$\\begin{bmatrix} 1 \u0026amp; 2 \\end{bmatrix} \\cdot \\begin{bmatrix} 3 \\ 4 \\end{bmatrix} = 1 \\cdot 3 + 2 \\cdot 4$\nGemoetrically:\n![projection](https://i.imgur.com/HYJeePM.png =150x150)\nThe dot product of v and u = (length of projection of v onto u)(length of u)\nOrder and Symmetry Order doesn\u0026rsquo;t matter. (Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)","keywords":["learning","Shader"],"articleBody":"Reference: “Dot products and duality | Essence of linear algebra, chapter 9”, 3Blue1Brown\nAlgebra example:\n$\\begin{bmatrix} 1 \u0026 2 \\end{bmatrix} \\cdot \\begin{bmatrix} 3 \\ 4 \\end{bmatrix} = 1 \\cdot 3 + 2 \\cdot 4$\nGemoetrically:\n![projection](https://i.imgur.com/HYJeePM.png =150x150)\nThe dot product of v and u = (length of projection of v onto u)(length of u)\nOrder and Symmetry Order doesn’t matter. (Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)\nWhy? Symmetry\nSymmetry Example: Suppose we have anoher two unit vectors $\\hat{v}$ and $\\hat{u}$ . Then, the length of projection of $\\hat{v}$ onto $\\hat{u}$ = the length of project of $\\hat{u}$ onto $\\hat{v}$. This is the symmetry between the two vectors.\n![symmetry](https://i.imgur.com/i63A1w5.jpg = 100x100)\nNow we scale $\\hat{v}$ by 2, we have 2$\\hat{v}$. The projection of $\\hat{u}$ on $\\hat{v}$ does not change, while the projection of $\\hat{v}$ is doubled. Hence the symmtery is broken. However, the dot product is simply scaled by 2, too. Before the scale, the dot product of v and u is: $\\hat{u} \\cdot \\hat{v}$ After the scale, the dot product of v and u is: $\\hat{u} \\cdot 2\\hat{v} = 2(\\hat{u} \\cdot \\hat{v})$\n![symetr_broken](https://i.imgur.com/UdHlUIp.jpg =150x150)\nTherefore, (v times w) or (w times v) does not matter.\nWhy dot product is projection? Suppose I have a number line and a system S that projects vectors(x, y) on the number line:\n$S = \\begin{bmatrix} ? \u0026 ? \\end{bmatrix}$\n$\\begin{bmatrix} ? \u0026 ? \\end{bmatrix} \\cdot \\begin{bmatrix} x \\ y \\end{bmatrix}$\nSuppose there are two unit vector $\\hat{u}$ and it lies on a number line. $L(v)$ is the linear transformation that maps vector v (x, y) between 2D (a 2D space) and 1D (a number line)).\n  Suppose we have another two unit vectors $\\hat{a}$ and $\\hat{b}$, and we use $L$ to map them on the number line. Then the projection between $\\hat{a}$ on $\\hat{u}$, $\\hat{b}$ on $\\hat{u}$ are the same, because of unit vectors and the symmetry.\nAnd, the projection happens to be equal to the dot product.\n","wordCount":"334","inLanguage":"en","datePublished":"2019-01-27T16:39:43+08:00","dateModified":"2019-01-27T16:39:43+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/dot-product/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+Dot Product
+</h1>
+<div class=post-meta>January 27, 2019&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#order-and-symmetry aria-label="Order and Symmetry">Order and Symmetry</a></li>
+<li>
+<a href=#why-dot-product-is-projection aria-label="Why dot product is projection?">Why dot product is projection?</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><p>Reference:
+<a href="https://www.youtube.com/watch?v=LyGKycYT2v0">&ldquo;Dot products and duality | Essence of linear algebra, chapter 9&rdquo;, 3Blue1Brown</a></p>
+<p>Algebra example:</p>
+<p>$\begin{bmatrix} 1 & 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \ 4 \end{bmatrix} = 1 \cdot 3 + 2 \cdot 4$</p>
+<p>Gemoetrically:</p>
+<p>![projection](<a href=https://i.imgur.com/HYJeePM.png>https://i.imgur.com/HYJeePM.png</a> =150x150)</p>
+<p>The dot product of v and u = (length of projection of v onto u)(length of u)</p>
+<h1 id=order-and-symmetry>Order and Symmetry<a hidden class=anchor aria-hidden=true href=#order-and-symmetry>#</a></h1>
+<p>Order doesn&rsquo;t matter.
+(Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)</p>
+<p>Why?
+Symmetry</p>
+<p>Symmetry Example:
+Suppose we have anoher two unit vectors $\hat{v}$ and $\hat{u}$ .
+Then, the length of projection of $\hat{v}$ onto $\hat{u}$ = the length of project of $\hat{u}$ onto $\hat{v}$. This is the symmetry between the two vectors.</p>
+<p>![symmetry](<a href=https://i.imgur.com/i63A1w5.jpg>https://i.imgur.com/i63A1w5.jpg</a> = 100x100)</p>
+<p>Now we scale $\hat{v}$ by 2, we have 2$\hat{v}$. The projection of $\hat{u}$ on $\hat{v}$ does not change, while the projection of $\hat{v}$ is doubled. Hence the symmtery is broken.
+However, the dot product is simply scaled by 2, too.
+Before the scale, the dot product of v and u is: $\hat{u} \cdot \hat{v}$
+After the scale, the dot product of v and u is: $\hat{u} \cdot 2\hat{v} = 2(\hat{u} \cdot \hat{v})$</p>
+<p>![symetr_broken](<a href=https://i.imgur.com/UdHlUIp.jpg>https://i.imgur.com/UdHlUIp.jpg</a> =150x150)</p>
+<p>Therefore, (v times w) or (w times v) does not matter.</p>
+<h1 id=why-dot-product-is-projection>Why dot product is projection?<a hidden class=anchor aria-hidden=true href=#why-dot-product-is-projection>#</a></h1>
+<p>Suppose I have a number line and a system S that projects vectors(x, y) on the number line:</p>
+<p>$S = \begin{bmatrix} ? & ? \end{bmatrix}$</p>
+<p>$\begin{bmatrix} ? & ? \end{bmatrix} \cdot \begin{bmatrix} x \ y \end{bmatrix}$</p>
+<p>Suppose there are two unit vector $\hat{u}$ and it lies on a number line.
+$L(v)$ is the linear transformation that maps vector v (x, y) between 2D (a 2D space) and 1D (a number line)).</p>
+<ol start=2>
+<li></li>
+</ol>
+<p>Suppose we have another two unit vectors $\hat{a}$ and $\hat{b}$, and we use $L$ to map them on the number line.
+Then the projection between $\hat{a}$ on $\hat{u}$, $\hat{b}$ on $\hat{u}$ are the same, because of unit vectors and the symmetry.</p>
+<p>And, the projection happens to be equal to the dot product.</p>
+<p><img loading=lazy src=https://i.imgur.com/hVUdGLP.jpg alt=reason>
+</p>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/learning/>learning</a></li>
+<li><a href=https://endfang.github.io/tags/shader/>Shader</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/figre-axes-and-axis/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Matplotlib, Figure, Axes, Axis, And Subplot</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/spahetti-milk-tea-and-sundae/>
+<span class=title>Next Page »</span>
+<br>
+<span>Spaghetti, Milk Tea and Sundae</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

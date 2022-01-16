@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>OpenCV on After1995</title>
+    <link>https://endfang.github.io/tags/opencv/</link>
+    <description>Recent content in OpenCV on After1995</description>
+    <image>
+      <url>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 12 Apr 2018 17:47:02 +0800</lastBuildDate><atom:link href="https://endfang.github.io/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Color Channel 颜色通道</title>
+      <link>https://endfang.github.io/posts/color-channel/</link>
+      <pubDate>Thu, 12 Apr 2018 17:47:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/color-channel/</guid>
+      <description>颜色通道(color channel)不能光用类比三原色的方法来理解，还需要理解灰度值(gray scale)。
+ 数字图像的本质是矩阵。
+ 每个矩阵内的元素可以看作是一个像素，每个元素都有关于 BGR 三种颜色的灰度值，而灰度值表示的是颜色的“深浅/强弱/明亮”。灰度值越高，颜色越深/强/暗，反之则是越浅/弱/亮。
+如果一个像素的 BGR 的灰度是 [100, 40, 35]。那么这就表示，这个像素的蓝色通道的灰度值是100，绿色的通道的灰度值是40，红色的则是35。这些颜色混合在一起就变成了这个像素的颜色。
+ P1.d 的题目要求的是：
+ Modify the above code snipet to replace the green with blue, red with green, and blue with red channels.
+ 也就是： green -&amp;gt; blue red -&amp;gt; green blue -&amp;gt; red
+第一次解法：
+newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[0] = r; newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[1] = b; newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[2] = g; 实际上是： red -&amp;gt; blue blue -&amp;gt; green green -&amp;gt; red</description>
+    </item>
+    
+  </channel>
+</rss>

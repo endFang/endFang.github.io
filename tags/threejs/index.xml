@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>threejs on After1995</title>
+    <link>https://endfang.github.io/tags/threejs/</link>
+    <description>Recent content in threejs on After1995</description>
+    <image>
+      <url>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 13 Jun 2018 21:24:31 +0800</lastBuildDate><atom:link href="https://endfang.github.io/tags/threejs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Three.js - shaderMaterial and vertex/fragment shaders</title>
+      <link>https://endfang.github.io/posts/threejs-shader/</link>
+      <pubDate>Wed, 13 Jun 2018 21:24:31 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/threejs-shader/</guid>
+      <description>A vertex shader:
+//WebGL Vertex Shader  uniform mat4 uMVMatrix; // Model-view matrix  uniform mat4 uPMatrix; // Projection matrix  uniform mat4 uNMatrix; // Normal matrix  attribute vec3 aVertexPosition; // Vertex position in object space  attribute vec3 aVertexNormal; // Vertex normal in object space  varying vec3 vPosition; // Vertex position (camera space)  varying vec3 vNormal; // Vertex normal (camera space)  void main(void) { vec4 camSpacePosition = uMVMatrix * vec4(aVertexPosition, 1.</description>
+    </item>
+    
+  </channel>
+</rss>

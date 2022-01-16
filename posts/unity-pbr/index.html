@@ -1,0 +1,270 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Unity Physically Based Render | After1995</title>
+<meta name=keywords content="Shader,Unity">
+<meta name=description content="Lambertian and Blinn-Phong Lambertian Model Lambertian model is based on lambertian reflectance, is the property that defines an ideal &ldquo;matte&rdquo; or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.
+Shader &#34;Custom/LambertianShader&#34; { Properties { _MainTex (&#34;Texture&#34;, 2D) = &#34;white&#34; {} } SubShader { Tags { &#34;RenderType&#34;=&#34;Opaque&#34; } LOD 200 CGPROGRAM #pragma surface surf SimpleLambert struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf (Input IN, inout SurfaceOutput o) { o.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/unity-pbr/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Unity Physically Based Render">
+<meta property="og:description" content="Lambertian and Blinn-Phong Lambertian Model Lambertian model is based on lambertian reflectance, is the property that defines an ideal &ldquo;matte&rdquo; or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.
+Shader &#34;Custom/LambertianShader&#34; { Properties { _MainTex (&#34;Texture&#34;, 2D) = &#34;white&#34; {} } SubShader { Tags { &#34;RenderType&#34;=&#34;Opaque&#34; } LOD 200 CGPROGRAM #pragma surface surf SimpleLambert struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf (Input IN, inout SurfaceOutput o) { o.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/unity-pbr/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="Unity Physically Based Render">
+<meta name=twitter:description content="Lambertian and Blinn-Phong Lambertian Model Lambertian model is based on lambertian reflectance, is the property that defines an ideal &ldquo;matte&rdquo; or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.
+Shader &#34;Custom/LambertianShader&#34; { Properties { _MainTex (&#34;Texture&#34;, 2D) = &#34;white&#34; {} } SubShader { Tags { &#34;RenderType&#34;=&#34;Opaque&#34; } LOD 200 CGPROGRAM #pragma surface surf SimpleLambert struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf (Input IN, inout SurfaceOutput o) { o.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Unity Physically Based Render","item":"https://endfang.github.io/posts/unity-pbr/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity Physically Based Render","name":"Unity Physically Based Render","description":"Lambertian and Blinn-Phong Lambertian Model Lambertian model is based on lambertian reflectance, is the property that defines an ideal \u0026ldquo;matte\u0026rdquo; or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.\nShader \u0026#34;Custom/LambertianShader\u0026#34; { Properties { _MainTex (\u0026#34;Texture\u0026#34;, 2D) = \u0026#34;white\u0026#34; {} } SubShader { Tags { \u0026#34;RenderType\u0026#34;=\u0026#34;Opaque\u0026#34; } LOD 200 CGPROGRAM #pragma surface surf SimpleLambert struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf (Input IN, inout SurfaceOutput o) { o.","keywords":["Shader","Unity"],"articleBody":"Lambertian and Blinn-Phong Lambertian Model Lambertian model is based on lambertian reflectance, is the property that defines an ideal “matte” or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.\nShader \"Custom/LambertianShader\" { Properties { _MainTex (\"Texture\", 2D) = \"white\" {} } SubShader { Tags { \"RenderType\"=\"Opaque\" } LOD 200 CGPROGRAM #pragma surface surf SimpleLambert struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf (Input IN, inout SurfaceOutput o) { o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb; } half4 LightingSimpleLambert (SurfaceOutput s, half3 lightDir, half atten) { half NdotL = dot(s.Normal, lightDir); half4 c; c.rgb = s.Albedo * _LightColor0.rgb * NdotL * atten; c.a = s.Alpha; return c; } ENDCG } FallBack \"Diffuse\" } LightingSimpleLambert is the re-implementation. atten is used to modulate the intensity of the light. _LightColor0 is a built-in variable. The light color. half4 Lighting is the naming convention for custom lighting models of surface shaders. Unity documentation lists all other declarations.\nCel Shading (Toon Shading) Shader \"Custom/Cel\" { Properties { _MainTex(\"Texture\", 2D) = \"white\" {} _RampTex(\"Ramp\", 2D) = \"white\" {} } SubShader { Tags { \"RenderType\"=\"Opaque\" } LOD 200 CGPROGRAM #pragma surface surf Toon struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf(Input IN, inout SurfaceOutput o) { o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb; } sampler2D _RampTex; fixed4 LightingToon(SurfaceOutput s, fixed lightDir, fixed atten) { half NdotL = dot(s.Normal, lightDir); NdotL = tex2D(_RampTex, fixed2(NdotL, 0.5)); fixed4 c; c.rgb = s.Albedo * _LightColor0.rgb * NdotL * atten; c.a = s.Alpha; return c; } ENDCG } FallBack \"Diffuse\" } The coefficient is calculated using ramp texture to re-map it onto different set of values.\nBlinn-Phong Model Lambertian: $I = N \\cdot L$\nBlinn-Phong uses a half vector:\n$$ I = (N \\cdot H)^{sepcular} \\cdot gloss \\\nH = \\frac{L + H}{ |L + H| } $$\nPhysically Based Rendering (PBR) PBR is northing more than surface shader with advanced lighting model.\n Metallic workflow The material reflects light depends on how metallic it is. Specular workflow A specular map is required.  PBR surface outputs 3 new properties except Albedo, Normal, and Alpha:\n half Metallic: 0 - 1, how light reflects on the material half Smoothness: the surface’s smoothness 0 - 1 half Occlusion: ambient occlusion.  Specular workflow has half3 Specular instead of Metallic, it’s a half3.\n","wordCount":"382","inLanguage":"en","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/unity-pbr/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+Unity Physically Based Render
+</h1>
+<div class=post-meta>Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#lambertian-and-blinn-phong aria-label="Lambertian and Blinn-Phong">Lambertian and Blinn-Phong</a><ul>
+<li>
+<a href=#lambertian-model aria-label="Lambertian Model">Lambertian Model</a></li>
+<li>
+<a href=#cel-shading-toon-shading aria-label="Cel Shading (Toon Shading)">Cel Shading (Toon Shading)</a></li>
+<li>
+<a href=#blinn-phong-model aria-label="Blinn-Phong Model">Blinn-Phong Model</a></li></ul>
+</li>
+<li>
+<a href=#physically-based-rendering-pbr aria-label="Physically Based Rendering (PBR)">Physically Based Rendering (PBR)</a><ul>
+<li>
+<a href=#pbr-surface-outputs aria-label="PBR surface outputs">PBR surface outputs</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=lambertian-and-blinn-phong>Lambertian and Blinn-Phong<a hidden class=anchor aria-hidden=true href=#lambertian-and-blinn-phong>#</a></h1>
+<h2 id=lambertian-model>Lambertian Model<a hidden class=anchor aria-hidden=true href=#lambertian-model>#</a></h2>
+<p>Lambertian model is based on lambertian reflectance, is the property that defines an ideal &ldquo;matte&rdquo; or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl>Shader <span style=color:#960050;background-color:#1e0010>&#34;</span>Custom<span style=color:#f92672>/</span>LambertianShader<span style=color:#960050;background-color:#1e0010>&#34;</span>
+{
+    Properties
+    {
+        _MainTex (<span style=color:#960050;background-color:#1e0010>&#34;</span>Texture<span style=color:#960050;background-color:#1e0010>&#34;</span>, <span style=color:#ae81ff>2</span>D) <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>&#34;</span>white<span style=color:#960050;background-color:#1e0010>&#34;</span> {}
+    }
+    SubShader
+    {
+        Tags { <span style=color:#960050;background-color:#1e0010>&#34;</span>RenderType<span style=color:#960050;background-color:#1e0010>&#34;</span><span style=color:#f92672>=</span><span style=color:#960050;background-color:#1e0010>&#34;</span>Opaque<span style=color:#960050;background-color:#1e0010>&#34;</span> }
+        LOD <span style=color:#ae81ff>200</span>
+
+        CGPROGRAM
+        <span style=color:#960050;background-color:#1e0010>#</span>pragma surface surf SimpleLambert
+
+        <span style=color:#66d9ef>struct</span> Input
+        {
+            float2 uv_MainTex;
+        };
+
+        <span style=color:#66d9ef>sampler2D</span> _MainTex;
+        
+        <span style=color:#66d9ef>void</span> surf (Input IN, <span style=color:#66d9ef>inout</span> SurfaceOutput o)
+        {
+            o.Albedo <span style=color:#f92672>=</span> tex2D(_MainTex, IN.uv_MainTex).rgb;
+        }
+
+        half4 LightingSimpleLambert (SurfaceOutput s, half3 lightDir, <span style=color:#66d9ef>half</span> atten)
+        {
+            <span style=color:#66d9ef>half</span> NdotL <span style=color:#f92672>=</span> dot(s.Normal, lightDir);
+            half4 c;
+            c.rgb <span style=color:#f92672>=</span> s.Albedo <span style=color:#f92672>*</span> _LightColor0.rgb <span style=color:#f92672>*</span> NdotL <span style=color:#f92672>*</span> atten;
+            c.a <span style=color:#f92672>=</span> s.Alpha;
+            <span style=color:#66d9ef>return</span> c;
+        }
+        ENDCG
+    }
+    FallBack <span style=color:#960050;background-color:#1e0010>&#34;</span>Diffuse<span style=color:#960050;background-color:#1e0010>&#34;</span>
+}
+</code></pre></div><p><code>LightingSimpleLambert</code> is the re-implementation.
+<code>atten</code> is used to modulate the intensity of the light.
+<code>_LightColor0</code> is a built-in variable. The light color.
+<code>half4 Lighting&lt;Name></code> is the naming convention for custom lighting models of surface shaders. <a href=https://docs.unity3d.com/Manual/SL-SurfaceShaderLighting.html>Unity documentation lists all other declarations</a>.</p>
+<h2 id=cel-shading-toon-shading>Cel Shading (Toon Shading)<a hidden class=anchor aria-hidden=true href=#cel-shading-toon-shading>#</a></h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl>Shader <span style=color:#960050;background-color:#1e0010>&#34;</span>Custom<span style=color:#f92672>/</span>Cel<span style=color:#960050;background-color:#1e0010>&#34;</span>
+{
+    Properties
+    {
+        _MainTex(<span style=color:#960050;background-color:#1e0010>&#34;</span>Texture<span style=color:#960050;background-color:#1e0010>&#34;</span>, <span style=color:#ae81ff>2</span>D) <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>&#34;</span>white<span style=color:#960050;background-color:#1e0010>&#34;</span> {}
+        _RampTex(<span style=color:#960050;background-color:#1e0010>&#34;</span>Ramp<span style=color:#960050;background-color:#1e0010>&#34;</span>, <span style=color:#ae81ff>2</span>D) <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>&#34;</span>white<span style=color:#960050;background-color:#1e0010>&#34;</span> {}
+    }
+    SubShader
+    {
+        Tags { <span style=color:#960050;background-color:#1e0010>&#34;</span>RenderType<span style=color:#960050;background-color:#1e0010>&#34;</span><span style=color:#f92672>=</span><span style=color:#960050;background-color:#1e0010>&#34;</span>Opaque<span style=color:#960050;background-color:#1e0010>&#34;</span> }
+        LOD <span style=color:#ae81ff>200</span>
+
+        CGPROGRAM
+        <span style=color:#960050;background-color:#1e0010>#</span>pragma surface surf Toon
+
+        <span style=color:#66d9ef>struct</span> Input
+        {
+            float2 uv_MainTex;
+        };
+        <span style=color:#66d9ef>sampler2D</span> _MainTex;
+        <span style=color:#66d9ef>void</span> surf(Input IN, <span style=color:#66d9ef>inout</span> SurfaceOutput o)
+        {
+            o.Albedo <span style=color:#f92672>=</span> tex2D(_MainTex, IN.uv_MainTex).rgb;
+        }
+
+        <span style=color:#66d9ef>sampler2D</span> _RampTex;
+        fixed4 LightingToon(SurfaceOutput s, <span style=color:#66d9ef>fixed</span> lightDir, <span style=color:#66d9ef>fixed</span> atten)
+        {
+            <span style=color:#66d9ef>half</span> NdotL <span style=color:#f92672>=</span> dot(s.Normal, lightDir);
+            NdotL <span style=color:#f92672>=</span> tex2D(_RampTex, fixed2(NdotL, <span style=color:#ae81ff>0.5</span>));
+
+            fixed4 c;
+            c.rgb <span style=color:#f92672>=</span> s.Albedo <span style=color:#f92672>*</span> _LightColor0.rgb <span style=color:#f92672>*</span> NdotL <span style=color:#f92672>*</span> atten;
+            c.a <span style=color:#f92672>=</span> s.Alpha;
+
+            <span style=color:#66d9ef>return</span> c;
+        }
+
+        ENDCG
+    }
+    FallBack <span style=color:#960050;background-color:#1e0010>&#34;</span>Diffuse<span style=color:#960050;background-color:#1e0010>&#34;</span>
+}
+</code></pre></div><p>The coefficient is calculated using ramp texture to re-map it onto different set of values.</p>
+<h2 id=blinn-phong-model>Blinn-Phong Model<a hidden class=anchor aria-hidden=true href=#blinn-phong-model>#</a></h2>
+<p>Lambertian: $I = N \cdot L$</p>
+<p>Blinn-Phong uses a half vector:</p>
+<p>$$
+I = (N \cdot H)^{sepcular} \cdot gloss \<br>
+H = \frac{L + H}{ |L + H| }
+$$</p>
+<h1 id=physically-based-rendering-pbr>Physically Based Rendering (PBR)<a hidden class=anchor aria-hidden=true href=#physically-based-rendering-pbr>#</a></h1>
+<p>PBR is northing more than surface shader with advanced lighting model.</p>
+<ul>
+<li>Metallic workflow
+The material reflects light depends on how metallic it is.</li>
+<li>Specular workflow
+A specular map is required.</li>
+</ul>
+<h2 id=pbr-surface-outputs>PBR surface outputs<a hidden class=anchor aria-hidden=true href=#pbr-surface-outputs>#</a></h2>
+<p>3 new properties except Albedo, Normal, and Alpha:</p>
+<ul>
+<li>half Metallic: 0 - 1, how light reflects on the material</li>
+<li>half Smoothness: the surface&rsquo;s smoothness 0 - 1</li>
+<li>half Occlusion: ambient occlusion.</li>
+</ul>
+<p>Specular workflow has <code>half3 Specular</code> instead of Metallic, it&rsquo;s a <strong>half3.</strong></p>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/shader/>Shader</a></li>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/nightingalestear/>
+<span class=title>« Prev Page</span>
+<br>
+<span>夜莺的眼泪</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/unity-surface-shader/>
+<span class=title>Next Page »</span>
+<br>
+<span>Unity Surface Shader</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

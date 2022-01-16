@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Fundamentals of Computer Graphics on After1995</title>
+    <link>https://endfang.github.io/tags/fundamentals-of-computer-graphics/</link>
+    <description>Recent content in Fundamentals of Computer Graphics on After1995</description>
+    <image>
+      <url>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 18 Dec 2020 15:47:09 +0800</lastBuildDate><atom:link href="https://endfang.github.io/tags/fundamentals-of-computer-graphics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fundamentals of CG - Raster Images</title>
+      <link>https://endfang.github.io/posts/fcg-raster-images/</link>
+      <pubDate>Fri, 18 Dec 2020 15:47:09 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fcg-raster-images/</guid>
+      <description>Raster Display shows images as rectangular arrays of pixels. It&amp;rsquo;s also prevalent in devices, hence the raster images are also the most common way to store and process images. Raster Image is simply a 2D array that stores the pixel value for each pixel. It&amp;rsquo;s not a good way to display images since the pixel number is not always the same and we want to change the orientation and size sometimes.</description>
+    </item>
+    
+    <item>
+      <title>Fundamentals of CG - Intro</title>
+      <link>https://endfang.github.io/posts/fcg-intro/</link>
+      <pubDate>Mon, 14 Dec 2020 14:03:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fcg-intro/</guid>
+      <description>Avoid any specific hardware or API because CG is a rapidly evolving field and the specifics of that knowledge are moving target.
+Terminology: Modeling deals with the mathematical specification of shape and appearance properties in a way that can be stored on the computer. Rendering deals with the creation of shaded images from 3D computer models. Animation is a technique to create an illusion of motion through sequences of images.</description>
+    </item>
+    
+  </channel>
+</rss>

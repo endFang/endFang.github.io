@@ -1,0 +1,291 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Fundamentals of CG - Raster Images | After1995</title>
+<meta name=keywords content="Computer Graphics,Fundamentals of Computer Graphics">
+<meta name=description content="Raster Display shows images as rectangular arrays of pixels. It&rsquo;s also prevalent in devices, hence the raster images are also the most common way to store and process images. Raster Image is simply a 2D array that stores the pixel value for each pixel. It&rsquo;s not a good way to display images since the pixel number is not always the same and we want to change the orientation and size sometimes.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/fcg-raster-images/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Fundamentals of CG - Raster Images">
+<meta property="og:description" content="Raster Display shows images as rectangular arrays of pixels. It&rsquo;s also prevalent in devices, hence the raster images are also the most common way to store and process images. Raster Image is simply a 2D array that stores the pixel value for each pixel. It&rsquo;s not a good way to display images since the pixel number is not always the same and we want to change the orientation and size sometimes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/fcg-raster-images/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-12-18T15:47:09+08:00">
+<meta property="article:modified_time" content="2020-12-18T15:47:09+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="Fundamentals of CG - Raster Images">
+<meta name=twitter:description content="Raster Display shows images as rectangular arrays of pixels. It&rsquo;s also prevalent in devices, hence the raster images are also the most common way to store and process images. Raster Image is simply a 2D array that stores the pixel value for each pixel. It&rsquo;s not a good way to display images since the pixel number is not always the same and we want to change the orientation and size sometimes.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Fundamentals of CG - Raster Images","item":"https://endfang.github.io/posts/fcg-raster-images/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fundamentals of CG - Raster Images","name":"Fundamentals of CG - Raster Images","description":"Raster Display shows images as rectangular arrays of pixels. It\u0026rsquo;s also prevalent in devices, hence the raster images are also the most common way to store and process images. Raster Image is simply a 2D array that stores the pixel value for each pixel. It\u0026rsquo;s not a good way to display images since the pixel number is not always the same and we want to change the orientation and size sometimes.","keywords":["Computer Graphics","Fundamentals of Computer Graphics"],"articleBody":"Raster Display shows images as rectangular arrays of pixels. It’s also prevalent in devices, hence the raster images are also the most common way to store and process images. Raster Image is simply a 2D array that stores the pixel value for each pixel. It’s not a good way to display images since the pixel number is not always the same and we want to change the orientation and size sometimes.\nVector Image is described by storing descriptions of shapes (line or curves) with no reference to any particular pixel grid. It stores instructions for displaying the image rather than the pixels needed to display it. It’s resolution independent. Often used in images, texts, diagrams, mechanical drawings, …\nRaster Devices  Output  Display  Transmissive: liquid crystal display (LCD) Emissive: light-emitting diode(LED) display   Hardcopy  Binary: ink-jet printer Continuous tone: dye sublimation printer     Input  2D array sensor: digital camera 1D array sensor: flatbed scanner    Output devices Emissive displays: directly emit controllable amounts of light. e.g. LED. A pixel is divided into 3 subpixels (red, green, blue).\nTransmissive displays: vary the amount of light allowed to pass through e.g. LCD. A layer of polarizing film behind it (horizontally). A layer of polarizing film in front of the pixel (vertically). If the voltage doesn’t change the polarization all light is blocked. If the voltage is set so that the liquid crystal rotates the polarization by 90 degrees, then then all the light that entered through the back of the pixel will escape through the front, and the pixel is “on”. It has subpixels too. Transmissive requires a light source to illuminate them (e.g. the light for an projector), but emissive has its own light source. If the voltage doesn’t change the polarization all light is blocked. If the voltage is set so that the liquid crystal rotates the polarization by 90 degrees, then then all the light that entered through the back of the pixel will escape through the front, and the pixel is “on”.\nBinary Images - pigment is either deposited or not, there are no intermediate amounts. The resolution is determined by the size of the smallest drop.\nThermal dye transfer process is an example of a continuous tone printing process. A print head contains a linear array of heating elements, one for each column of pixels in the image. As the paper and ribbon move past the head, the heating elements switch on and off to heat the ribbon in areas where dye is desired. The process is repeated for each of dye colors. The resolution is determined by the rate of heating and cooling compared to the speed of the paper. It’s described in pixel density. 300 per inch across its print head has a resolution of 300 pixels per inch (ppi).\nInput Devices Make a light measurement for each pixel, usually based on arrays of sensros\ne.g. digital camera.\n CCD (charge-coupled devices) CMOS (complimentary metal-oxide-semiconductor)  the lens projects an image of the scene onto the sensor, then each pixel measures the light energy.\ncolor-filter array / mosaic - allow each pixel to see only red, green, blue light. image processing fill in the missing values in a process known as demosaicking.\ne.g. flatbed scanner use 1D array that sweeps across the page being scanned. A color scanner has a $3 \\times n_{x}$ array, where $n_{x}$ is the number of pixels across the page.\nImages, Pixels, and Geometry we can abstract an image as a function: $$ I(x, y): R \\rightarrow V $$ R is a rectangular area and V is the set of possible pixel values.\nA pixel from a camera/scanner is a measurement of the average color of the image over some small area around the pixel. The pixel value is a local average of the color of the image (point sample). Value x in a pixel = “the value of the image in the vicinity of this grid point is x”.\nPixel Value Images should be arrays of floating-point numbers with either one or three 32-bit floating point numbers stored per pixel. High Dynamic Range (HDR): Images stored with floating-point numbers allows a wide range of values. Low Dynamic Range (LDR): store integers\nSome pixel formats with typical applications:\n 1-bit grayscale: intermediate grays are not desired, text 8-bit RGB fixed-range color: web, email, consumer photographs. 8- or 10-bit fixed-range RGB: digital interfaces to computer displays. 12- to 14-bit fixed-range RGB: raw camera images 16-bit fixed-range RGB: professional photography and printing; intermediate format for image processing of fixed-range images. 16-bit fixed-range grayscale: radiology and medical imaging 16-bit “half-precision” floating-point RGB — HDR images; intermediate format for real-time rendering; 32-bit floating-point RGB — general purpose intermediate format for software rendering and processing of HDR images.  Reducing the number of bits used to store each pixel leads to 2 distinctive types of artifacts.\n clipping: when pixel value should be greater (brighter), it’s set to the maximum value quantization/banding: rounding pixel values to the nearest representable value results in jumping in intensity or color. Very visible in animation.  Monitor Intensities and Gamma Real monitors have some non-zero intensity when they are off because the screen reflects some light. We assume a numeric description of pixel color that ranges from zero to one. Black is zero, white is one. Monitors doesn’t display input linearly because of human perception. They might display [0, 0.5, 1.0] as [0, 0.25, 1.0]. This nonlinear is called gamma value. $$ \\text{displayed intensity} = (\\text{maximum intensity}) a ^{\\gamma} $$ a = input pixel value between zero and one.\nA nice method to find gamma is giving halfway grey between [0, 1]:\nBy logarithms: $$ \\begin{gather} y = \\log_a{x} \\leftrightarrow a^{y} = x \\ \\ln{x} \\equiv \\log_e{x} \\\n\\end{gather} $$ We can deduce the “halfway” grey color: $$ \\begin{gather} 0.5 = a^{\\gamma} \\\n\\log_a{0.5} = \\gamma \\\n\\frac{\\ln{0.5}}{\\ln{a}} = \\gamma \\end{gather} $$ To find the value a, we can use the checkerboard technique:\nAdjusting value $a$ of grey pixels until both square have the same brightness in the distance, because the blurred checkerboard mix even number of black and white color so that the overall is a uniform color of half grey. $$ \\begin{gather} \\ln{a} = \\frac{\\ln{0.5}}{\\gamma} \\ e^{\\ln{a}} = e^{\\ln{0.5^{\\frac{1}{\\gamma}}}} \\ a = 0.5^{\\frac{1}{\\gamma}} \\end{gather} $$\n$$ a^{\\prime} = a^{\\frac{1}{\\gamma}} $$\nPlugin the displayed intensity equation we have: $$ \\text{displayed intensity} = (a^{\\prime})^{\\gamma} = (a^{\\frac{1}{\\gamma}})^{\\gamma} (\\text{maximum intensity}) = a(\\text{maximum intensity}) $$\nRGB Color 3 primary lights: red, green, blue. The lights mix in an additive manner. The RYB color system is a subtractive color mixing. If the primary lights from fully off to fully on (0 to 1), it will create all the colors that can be displayed on an RGB monitor. When we put them in a 3D coordinates:\nyellow = (1, 1, 0); magenta = (1, 0, 1); cyan = (0, 1, 1)\nEach component is specified with an integer. The integer’s common size is 1 byte (0 — 255). 3 components make 24 bits. Thus a system that has “24-bit color” has 256 possible levels for each of the three primary colors.\nAlpha Compositing Compositing: a foreground wants to cover the background over. opaque pixel replaces; transparent doesn’t change background; partially transparent pixel needs some care, most time is to blend at the edge of the foreground object or sub-pixel holes.\nPixel Coverage tells the fraction of the pixel covered by the foreground layer. $$ c = \\alpha c_{f} + (1 - \\alpha) c_{b} $$ opaque foreground layer: $\\alpha$ is the foreground object cover area. transparent foreground layer: foreground blocks $(1-\\alpha)$ fraction of the light coming through from the background and contributes a fraction $\\alpha$ of its own color.\nAlpha Mask/Transparency Mask: it stores the image’s alpha value. Or the alpha value is stored in RGBA format. Takes up 32 bits for one pixel value.\nImage Storage Image format is either lossless or lossy.\njpeg: lossy format compresses image blocks based on thresholds in the human visual system.\ntiff: commonly used to hold binary images or losslessly compressed 8- or 16-bit RGB although many other options exist.\nppm: uncompressed format for 8-bit RGB images.\npng: lossless formats with a good set of open source management tools.\nQ: why use gamma?\nA: human perception of intensity is itself nonlinear. Gamma between 1.5 and 3 makes the intensities approximately uniform in a subjective sense.\n","wordCount":"1386","inLanguage":"en","datePublished":"2020-12-18T15:47:09+08:00","dateModified":"2020-12-18T15:47:09+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/fcg-raster-images/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+Fundamentals of CG - Raster Images
+</h1>
+<div class=post-meta>December 18, 2020&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#raster-devices aria-label="Raster Devices">Raster Devices</a><ul>
+<li>
+<a href=#output-devices aria-label="Output devices">Output devices</a></li>
+<li>
+<a href=#input-devices aria-label="Input Devices">Input Devices</a></li></ul>
+</li>
+<li>
+<a href=#images-pixels-and-geometry aria-label="Images, Pixels, and Geometry">Images, Pixels, and Geometry</a></li>
+<li>
+<a href=#pixel-value aria-label="Pixel Value">Pixel Value</a></li>
+<li>
+<a href=#monitor-intensities-and-gamma aria-label="Monitor Intensities and Gamma">Monitor Intensities and Gamma</a></li>
+<li>
+<a href=#rgb-color aria-label="RGB Color">RGB Color</a></li>
+<li>
+<a href=#alpha-compositing aria-label="Alpha Compositing">Alpha Compositing</a></li>
+<li>
+<a href=#image-storage aria-label="Image Storage">Image Storage</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><p><strong>Raster Display</strong> shows images as rectangular arrays of pixels. It&rsquo;s also prevalent in devices, hence the raster images are also the most common way to store and process images. <strong>Raster Image</strong> is simply a 2D array that stores the pixel value for each pixel. It&rsquo;s not a good way to display images since the pixel number is not always the same and we want to change the orientation and size sometimes.</p>
+<p>Vector Image is described by storing descriptions of shapes (line or curves) with no reference to any particular pixel grid. It stores instructions for displaying the image rather than the pixels needed to display it. It&rsquo;s resolution independent. Often used in images, texts, diagrams, mechanical drawings, &mldr;</p>
+<h1 id=raster-devices>Raster Devices<a hidden class=anchor aria-hidden=true href=#raster-devices>#</a></h1>
+<ul>
+<li>Output
+<ul>
+<li>Display
+<ul>
+<li>Transmissive: liquid crystal display (LCD)</li>
+<li>Emissive: light-emitting diode(LED) display</li>
+</ul>
+</li>
+<li>Hardcopy
+<ul>
+<li>Binary: ink-jet printer</li>
+<li>Continuous tone: dye sublimation printer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Input
+<ul>
+<li>2D array sensor: digital camera</li>
+<li>1D array sensor: flatbed scanner</li>
+</ul>
+</li>
+</ul>
+<h2 id=output-devices>Output devices<a hidden class=anchor aria-hidden=true href=#output-devices>#</a></h2>
+<p>Emissive displays: directly emit controllable amounts of light. e.g. LED. A pixel is divided into 3 subpixels (red, green, blue).</p>
+<p>Transmissive displays: vary the amount of light allowed to pass through e.g. LCD. A layer of polarizing film behind it (horizontally). A layer of polarizing film in front of the pixel (vertically). If the voltage doesn&rsquo;t change the polarization all light is blocked. If the voltage is set so that the liquid crystal rotates the polarization by 90 degrees, then then all the light that entered through the back of the pixel will escape through the front, and the pixel is &ldquo;on&rdquo;. It has subpixels too. Transmissive requires a light source to illuminate them (e.g. the light for an projector), but emissive has its own light source. If the voltage doesn&rsquo;t change the polarization all light is blocked. If the voltage is set so that the liquid crystal rotates the polarization by 90 degrees, then then all the light that entered through the back of the pixel will escape through the front, and the pixel is &ldquo;on&rdquo;.</p>
+<p>Binary Images - pigment is either deposited or not, there are no intermediate amounts. The resolution is determined by the size of the smallest drop.</p>
+<p>Thermal dye transfer process is an example of a continuous tone printing process. A print head contains a linear array of heating elements, one for each column of pixels in the image. As the paper and ribbon move past the head, the heating elements switch on and off to heat the ribbon in areas where dye is desired. The process is repeated for each of dye colors. The resolution is determined by the rate of heating and cooling compared to the speed of the paper. It&rsquo;s described in pixel density. 300 per inch across its print head has a resolution of 300 pixels per inch (ppi).</p>
+<h2 id=input-devices>Input Devices<a hidden class=anchor aria-hidden=true href=#input-devices>#</a></h2>
+<p>Make a light measurement for each pixel, usually based on arrays of sensros</p>
+<p>e.g. digital camera.</p>
+<ul>
+<li>CCD (charge-coupled devices)</li>
+<li>CMOS (complimentary metal-oxide-semiconductor)</li>
+</ul>
+<p>the lens projects an image of the scene onto the sensor, then each pixel measures the light energy.</p>
+<p>color-filter array / mosaic - allow each pixel to see only red, green, blue light. image processing fill in the missing values in a process known as demosaicking.</p>
+<p>e.g. flatbed scanner use 1D array that sweeps across the page being scanned. A color scanner has a $3 \times n_{x}$ array, where $n_{x}$ is the number of pixels across the page.</p>
+<h1 id=images-pixels-and-geometry>Images, Pixels, and Geometry<a hidden class=anchor aria-hidden=true href=#images-pixels-and-geometry>#</a></h1>
+<p>we can abstract an image as a function:
+$$
+I(x, y): R \rightarrow V
+$$
+R is a rectangular area and V is the set of possible pixel values.</p>
+<p>A pixel from a camera/scanner is a measurement of the average color of the image over some small area around the pixel. The pixel value is a local average of the color of the image (point sample). Value x in a pixel = &ldquo;the value of the image in the vicinity of this grid point is x&rdquo;.</p>
+<h1 id=pixel-value>Pixel Value<a hidden class=anchor aria-hidden=true href=#pixel-value>#</a></h1>
+<p>Images should be arrays of floating-point numbers with either one or three 32-bit floating point numbers stored per pixel. High Dynamic Range (HDR): Images stored with floating-point numbers allows a wide range of values. Low Dynamic Range (LDR): store integers</p>
+<p>Some pixel formats with typical applications:</p>
+<ul>
+<li>1-bit grayscale: intermediate grays are not desired, text</li>
+<li>8-bit RGB fixed-range color: web, email, consumer photographs.</li>
+<li>8- or 10-bit fixed-range RGB: digital interfaces to computer displays.</li>
+<li>12- to 14-bit fixed-range RGB: raw camera images</li>
+<li>16-bit fixed-range RGB: professional photography and printing; intermediate format for image processing of fixed-range images.</li>
+<li>16-bit fixed-range grayscale: radiology and medical imaging</li>
+<li>16-bit &ldquo;half-precision&rdquo; floating-point RGB — HDR images; intermediate format for real-time rendering;</li>
+<li>32-bit floating-point RGB — general purpose intermediate format for software rendering and processing of HDR images.</li>
+</ul>
+<p>Reducing the number of bits used to store each pixel leads to 2 distinctive types of artifacts.</p>
+<ul>
+<li>clipping: when pixel value should be greater (brighter), it&rsquo;s set to the maximum value</li>
+<li>quantization/banding: rounding pixel values to the nearest representable value results in jumping in intensity or color. Very visible in animation.</li>
+</ul>
+<h1 id=monitor-intensities-and-gamma>Monitor Intensities and Gamma<a hidden class=anchor aria-hidden=true href=#monitor-intensities-and-gamma>#</a></h1>
+<p>Real monitors have some non-zero intensity when they are off because the screen reflects some light. We assume a numeric description of pixel color that ranges from zero to one. Black is zero, white is one. Monitors doesn&rsquo;t display input linearly because of human perception. They might display [0, 0.5, 1.0] as [0, 0.25, 1.0]. This nonlinear is called gamma value.
+$$
+\text{displayed intensity} = (\text{maximum intensity}) a ^{\gamma}
+$$
+a = input pixel value between zero and one.</p>
+<p>A nice method to find gamma is giving halfway grey between [0, 1]:</p>
+<p>By logarithms:
+$$
+\begin{gather}
+y = \log_a{x} \leftrightarrow a^{y} = x \
+\ln{x} \equiv \log_e{x} \<br>
+\end{gather}
+$$
+We can deduce the &ldquo;halfway&rdquo; grey color:
+$$
+\begin{gather}
+0.5 = a^{\gamma} \</p>
+<p>\log_a{0.5} = \gamma \</p>
+<p>\frac{\ln{0.5}}{\ln{a}} = \gamma
+\end{gather}
+$$
+To find the value a, we can use the checkerboard technique:</p>
+<p><img loading=lazy src=https://i.imgur.com/WhUcxCT.png alt=checkerboard>
+</p>
+<p>Adjusting value $a$ of grey pixels until both square have the same brightness in the distance, because the blurred checkerboard mix even number of black and white color so that the overall is a uniform color of half grey.
+$$
+\begin{gather}
+\ln{a} = \frac{\ln{0.5}}{\gamma} \
+e^{\ln{a}} = e^{\ln{0.5^{\frac{1}{\gamma}}}} \
+a = 0.5^{\frac{1}{\gamma}}
+\end{gather}
+$$</p>
+<p>$$
+a^{\prime} = a^{\frac{1}{\gamma}}
+$$</p>
+<p>Plugin the displayed intensity equation we have:
+$$
+\text{displayed intensity} = (a^{\prime})^{\gamma} = (a^{\frac{1}{\gamma}})^{\gamma} (\text{maximum intensity}) = a(\text{maximum intensity})
+$$</p>
+<h1 id=rgb-color>RGB Color<a hidden class=anchor aria-hidden=true href=#rgb-color>#</a></h1>
+<p><img loading=lazy src=https://i.imgur.com/g0tqVaz.png alt="RGB colors">
+</p>
+<p>3 primary lights: red, green, blue. The lights mix in an <strong>additive</strong> manner. The RYB color system is a subtractive color mixing. If the primary lights from fully off to fully on (0 to 1), it will create all the colors that can be displayed on an RGB monitor. When we put them in a 3D coordinates:</p>
+<p><img loading=lazy src=https://i.imgur.com/Cn536B7.png alt="RGB cube">
+</p>
+<p>yellow = (1, 1, 0); magenta = (1, 0, 1); cyan = (0, 1, 1)</p>
+<p>Each component is specified with an integer. The integer&rsquo;s common size is 1 byte (0 — 255). 3 components make 24 bits. Thus a system that has &ldquo;24-bit color&rdquo; has 256 possible levels for each of the three primary colors.</p>
+<h1 id=alpha-compositing>Alpha Compositing<a hidden class=anchor aria-hidden=true href=#alpha-compositing>#</a></h1>
+<p>Compositing: a foreground wants to cover the background over. opaque pixel replaces; transparent doesn&rsquo;t change background; partially transparent pixel needs some care, most time is to blend at the edge of the foreground object or sub-pixel holes.</p>
+<p>Pixel Coverage tells the fraction of the pixel covered by the foreground layer.
+$$
+c = \alpha c_{f} + (1 - \alpha) c_{b}
+$$
+opaque foreground layer: $\alpha$ is the foreground object cover area. transparent foreground layer: foreground blocks $(1-\alpha)$ fraction of the light coming through from the background and contributes a fraction $\alpha$ of its own color.</p>
+<p>Alpha Mask/Transparency Mask: it stores the image&rsquo;s alpha value. Or the alpha value is stored in RGBA format. Takes up 32 bits for one pixel value.</p>
+<h1 id=image-storage>Image Storage<a hidden class=anchor aria-hidden=true href=#image-storage>#</a></h1>
+<p>Image format is either lossless or lossy.</p>
+<p>jpeg: lossy format compresses image blocks based on thresholds in the human visual system.</p>
+<p>tiff: commonly used to hold binary images or losslessly compressed 8- or 16-bit RGB although many other options exist.</p>
+<p>ppm: uncompressed format for 8-bit RGB images.</p>
+<p>png: lossless formats with a good set of open source management tools.</p>
+<p>Q: why use gamma?</p>
+<p>A: human perception of intensity is itself nonlinear. Gamma between 1.5 and 3 makes the intensities approximately uniform in a subjective sense.</p>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/computer-graphics/>Computer Graphics</a></li>
+<li><a href=https://endfang.github.io/tags/fundamentals-of-computer-graphics/>Fundamentals of Computer Graphics</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/magenta/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Magenta</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/frowned-i/>
+<span class=title>Next Page »</span>
+<br>
+<span>Frowned I</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

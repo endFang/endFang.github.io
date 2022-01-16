@@ -1,0 +1,329 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Matrix Calculation | After1995</title>
+<meta name=keywords content="learning">
+<meta name=description content="Gaussian Elimination
+Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.
+The transformation is completed with the row operations. We can swap rows, multiply rows by a nonzero number, and adding one row to another. In such a way, the matrix will become an upper triangular matrix whose all leading coefficients are 1.
+for example, the following equations can be transform to the matrix:
+$$
+\begin{align}
+\nonumber r_0 + r_1 = 26 \
+\nonumber r_1 + r_2 = 20 \
+\nonumber r_0 = 2r_2 \
+\end{align}
+$$
+$$
+\begin{vmatrix}
+1 && 1 && 0 && 26 \
+0 && 1 && 1 && 20 \
+1 && 0 && -2 && 0 \
+\end{vmatrix}
+$$">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/matrixcalculation/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Matrix Calculation">
+<meta property="og:description" content="Gaussian Elimination
+Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.
+The transformation is completed with the row operations. We can swap rows, multiply rows by a nonzero number, and adding one row to another. In such a way, the matrix will become an upper triangular matrix whose all leading coefficients are 1.
+for example, the following equations can be transform to the matrix:
+$$
+\begin{align}
+\nonumber r_0 + r_1 = 26 \
+\nonumber r_1 + r_2 = 20 \
+\nonumber r_0 = 2r_2 \
+\end{align}
+$$
+$$
+\begin{vmatrix}
+1 && 1 && 0 && 26 \
+0 && 1 && 1 && 20 \
+1 && 0 && -2 && 0 \
+\end{vmatrix}
+$$">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/matrixcalculation/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-11-18T14:54:20+08:00">
+<meta property="article:modified_time" content="2020-11-18T14:54:20+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="Matrix Calculation">
+<meta name=twitter:description content="Gaussian Elimination
+Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.
+The transformation is completed with the row operations. We can swap rows, multiply rows by a nonzero number, and adding one row to another. In such a way, the matrix will become an upper triangular matrix whose all leading coefficients are 1.
+for example, the following equations can be transform to the matrix:
+$$
+\begin{align}
+\nonumber r_0 + r_1 = 26 \
+\nonumber r_1 + r_2 = 20 \
+\nonumber r_0 = 2r_2 \
+\end{align}
+$$
+$$
+\begin{vmatrix}
+1 && 1 && 0 && 26 \
+0 && 1 && 1 && 20 \
+1 && 0 && -2 && 0 \
+\end{vmatrix}
+$$">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Matrix Calculation","item":"https://endfang.github.io/posts/matrixcalculation/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Matrix Calculation","name":"Matrix Calculation","description":"Gaussian Elimination Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.\nThe transformation is completed with the row operations. We can swap rows, multiply rows by a nonzero number, and adding one row to another. In such a way, the matrix will become an upper triangular matrix whose all leading coefficients are 1.\nfor example, the following equations can be transform to the matrix: $$ \\begin{align} \\nonumber r_0 + r_1 = 26 \\\n\\nonumber r_1 + r_2 = 20 \\\n\\nonumber r_0 = 2r_2 \\\n\\end{align} $$\n$$ \\begin{vmatrix} 1 \u0026amp;\u0026amp; 1 \u0026amp;\u0026amp; 0 \u0026amp;\u0026amp; 26 \\\n0 \u0026amp;\u0026amp; 1 \u0026amp;\u0026amp; 1 \u0026amp;\u0026amp; 20 \\\n1 \u0026amp;\u0026amp; 0 \u0026amp;\u0026amp; -2 \u0026amp;\u0026amp; 0 \\\n\\end{vmatrix} $$\n","keywords":["learning"],"articleBody":"Gaussian Elimination Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.\nThe transformation is completed with the row operations. We can swap rows, multiply rows by a nonzero number, and adding one row to another. In such a way, the matrix will become an upper triangular matrix whose all leading coefficients are 1.\nfor example, the following equations can be transform to the matrix: $$ \\begin{align} \\nonumber r_0 + r_1 = 26 \\\n\\nonumber r_1 + r_2 = 20 \\\n\\nonumber r_0 = 2r_2 \\\n\\end{align} $$\n$$ \\begin{vmatrix} 1 \u0026\u0026 1 \u0026\u0026 0 \u0026\u0026 26 \\\n0 \u0026\u0026 1 \u0026\u0026 1 \u0026\u0026 20 \\\n1 \u0026\u0026 0 \u0026\u0026 -2 \u0026\u0026 0 \\\n\\end{vmatrix} $$\nThe reduced row chelon form will be: $$ \\begin{vmatrix} 1 \u0026\u0026 0 \u0026\u0026 0 \u0026\u0026 -14 \\\n0 \u0026\u0026 1 \u0026\u0026 0 \u0026\u0026 40 \\\n0 \u0026\u0026 0 \u0026\u0026 1 \u0026\u0026 -20 \\\n\\end{vmatrix} $$ Using bakwward substitute, we can have:\n$$ \\begin{align} \\nonumber r_0 = -14 \\\n\\nonumber r_1 = 40 \\\n\\nonumber r_2 = -20 \\end{align} $$\nMatrix Inversion 2x2 matrix inversion can be calculated with the fixed equation: $$ \\begin {vmatrix} a \u0026\u0026 b \\\nc \u0026\u0026 d \\\n\\end {vmatrix} ^ {-1} \\frac{1}{ad-bc} \\begin {vmatrix} d \u0026\u0026 -b \\\n-c \u0026\u0026 a \\\n\\end {vmatrix} $$\n3x3 matrix inversion is calculated using Minors, Cofactors, and Adjugate, but I want to show a more general approach, the Gauss-Jordan method.\nSuppose we have a matrix A:\n$$ \\begin {vmatrix} 3 \u0026\u0026 0 \u0026\u0026 2 \\\n2 \u0026\u0026 0 \u0026\u0026 -2 \\\n0 \u0026\u0026 1 \u0026\u0026 1 \\\n\\end {vmatrix} $$ To calculate the inverse, we will add an identity matrix on the right side to create a new augmented matrix:\n$$ \\begin {vmatrix} 3 \u0026\u0026 0 \u0026\u0026 2 \u0026\u0026 1 \u0026\u0026 0 \u0026\u0026 0\\\n2 \u0026\u0026 0 \u0026\u0026 -2 \u0026\u0026 0 \u0026\u0026 1 \u0026\u0026 0\\\n0 \u0026\u0026 2 \u0026\u0026 1 \u0026\u0026 0 \u0026\u0026 0 \u0026\u0026 1\\\n\\end {vmatrix} $$ Then we use row operations to transfrom the left 3x3 matrix to identity matrix.\n$$ \\begin {vmatrix} 1 \u0026\u0026 0 \u0026\u0026 0 \u0026\u0026 0.2 \u0026\u0026 0.2 \u0026\u0026 0\\\n0 \u0026\u0026 1 \u0026\u0026 0 \u0026\u0026 -0.2 \u0026\u0026 0.3 \u0026\u0026 1\\\n0 \u0026\u0026 0 \u0026\u0026 1 \u0026\u0026 0.2 \u0026\u0026 -0.3 \u0026\u0026 0\\\n\\end {vmatrix} $$ And the 3x3 matrix in the right is the inverse.\nMarkov Chain patrickJMT has a series of nice videos explaining Markov Chain. Consider a company A initially has a 10% market share, other companies (A') hold the 90% share. By using an advertising campaign, the rate of keeping choosing A is 80%, the rate of changing to A is 60%. In other words, from A to A is 80%, A' to A is 60%, and A to A' is 20%, A' to A' is 40%. So we have this Transition Matrix:\n$$ \\begin{vmatrix} 0.8 \u0026\u0026 0.2 \\\n0.6 \u0026\u0026 0.4 \\end{vmatrix} $$ Suppose the Initial State of the rate of choosing A is 0.1.\n$$ S_{0} = \\begin {vmatrix} 0.1 \u0026\u0026 0.9 \\end {vmatrix} $$ After multiplying $S_0$ and Transition matrix, we’ll have $$ S_{1} = \\begin {vmatrix} 0.42 \u0026\u0026 0.38 \\end {vmatrix} $$\nThat means, after one advertising campaign, the rate of choosing A increase to 42%! Keep multipling, we’ll realize that $S$ is approaching to $\\begin {vmatrix} 0.75 \u0026\u0026 0.25 \\end {vmatrix}$. And this is the Stationary Matrix, and the system is at Steady State.\nAbsorbing Markov Chain If the possibility of entering another state is zero then the state is an Absorbing State. For example: $$ \\begin{vmatrix} 1 \u0026\u0026 0 \\\n0.3 \u0026\u0026 0.7 \\end{vmatrix} $$\nThe first row is an absorbing state.\nA standard form of absorbing markov chain is:\n$$ \\begin{vmatrix} I \u0026\u0026 O \\\nR \u0026\u0026 Q \\end{vmatrix} $$\nI is the identity matrix, O is a zero matrix. R and Q are two submatrices. The limiting matrix form is: $$ \\begin{vmatrix} I \u0026\u0026 O \\\nFR \u0026\u0026 O \\end{vmatrix} \\\nF = (I - Q)^{-1} $$\n","wordCount":"673","inLanguage":"en","datePublished":"2020-11-18T14:54:20+08:00","dateModified":"2020-11-18T14:54:20+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/matrixcalculation/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+Matrix Calculation
+</h1>
+<div class=post-meta>November 18, 2020&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#gaussian-elimination aria-label="Gaussian Elimination">Gaussian Elimination</a></li>
+<li>
+<a href=#matrix-inversion aria-label="Matrix Inversion">Matrix Inversion</a></li>
+<li>
+<a href=#markov-chain aria-label="Markov Chain">Markov Chain</a><ul>
+<li>
+<a href=#absorbing-markov-chain aria-label="Absorbing Markov Chain">Absorbing Markov Chain</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=gaussian-elimination>Gaussian Elimination<a hidden class=anchor aria-hidden=true href=#gaussian-elimination>#</a></h1>
+<p>Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.</p>
+<p>The transformation is completed with the row operations. We can swap rows, multiply rows by a nonzero number, and adding one row to another. In such a way, the matrix will become an upper triangular matrix whose all leading coefficients are 1.</p>
+<p>for example, the following equations can be transform to the matrix:
+$$
+\begin{align}
+\nonumber r_0 + r_1 = 26 \<br>
+\nonumber r_1 + r_2 = 20 \<br>
+\nonumber r_0 = 2r_2 \<br>
+\end{align}
+$$</p>
+<p>$$
+\begin{vmatrix}
+1 && 1 && 0 && 26 \<br>
+0 && 1 && 1 && 20 \<br>
+1 && 0 && -2 && 0 \<br>
+\end{vmatrix}
+$$</p>
+<p>The reduced row chelon form will be:
+$$
+\begin{vmatrix}
+1 && 0 && 0 && -14 \<br>
+0 && 1 && 0 && 40 \<br>
+0 && 0 && 1 && -20 \<br>
+\end{vmatrix}
+$$
+Using bakwward substitute, we can have:</p>
+<p>$$
+\begin{align}
+\nonumber r_0 = -14 \<br>
+\nonumber r_1 = 40 \<br>
+\nonumber r_2 = -20
+\end{align}
+$$</p>
+<h1 id=matrix-inversion>Matrix Inversion<a hidden class=anchor aria-hidden=true href=#matrix-inversion>#</a></h1>
+<h1 id=end-vmatrix---1>2x2 matrix inversion can be calculated with the fixed equation:
+$$
+\begin {vmatrix}
+a && b \<br>
+c && d \<br>
+\end {vmatrix} ^ {-1}</h1>
+<p>\frac{1}{ad-bc}
+\begin {vmatrix}
+d && -b \<br>
+-c && a \<br>
+\end {vmatrix}
+$$</p>
+<p>3x3 matrix inversion is calculated using Minors, Cofactors, and Adjugate, but I want to show a more general approach, the Gauss-Jordan method.</p>
+<p>Suppose we have a matrix A:</p>
+<p>$$
+\begin {vmatrix}
+3 && 0 && 2 \<br>
+2 && 0 && -2 \<br>
+0 && 1 && 1 \<br>
+\end {vmatrix}
+$$
+To calculate the inverse, we will add an identity matrix on the right side to create a new augmented matrix:</p>
+<p>$$
+\begin {vmatrix}
+3 && 0 && 2 && 1 && 0 && 0\<br>
+2 && 0 && -2 && 0 && 1 && 0\<br>
+0 && 2 && 1 && 0 && 0 && 1\<br>
+\end {vmatrix}
+$$
+Then we use row operations to transfrom the left 3x3 matrix to identity matrix.</p>
+<p>$$
+\begin {vmatrix}
+1 && 0 && 0 && 0.2 && 0.2 && 0\<br>
+0 && 1 && 0 && -0.2 && 0.3 && 1\<br>
+0 && 0 && 1 && 0.2 && -0.3 && 0\<br>
+\end {vmatrix}
+$$
+And the 3x3 matrix in the right is the inverse.</p>
+<h1 id=markov-chain>Markov Chain<a hidden class=anchor aria-hidden=true href=#markov-chain>#</a></h1>
+<p><a href="https://www.youtube.com/watch?v=uvYTGEZQTEs">patrickJMT has a series of nice videos explaining Markov Chain.</a>
+Consider a company A initially has a 10% market share, other companies (A') hold the 90% share. By using an advertising campaign, the rate of keeping choosing A is 80%, the rate of changing to A is 60%. In other words, from A to A is 80%, A' to A is 60%, and A to A' is 20%, A' to A' is 40%.
+So we have this <strong>Transition Matrix</strong>:</p>
+<p>$$
+\begin{vmatrix}
+0.8 && 0.2 \<br>
+0.6 && 0.4
+\end{vmatrix}
+$$
+Suppose the <strong>Initial State</strong> of the rate of choosing A is 0.1.</p>
+<p>$$
+S_{0} =
+\begin {vmatrix}
+0.1 && 0.9
+\end {vmatrix}
+$$
+After multiplying $S_0$ and Transition matrix, we&rsquo;ll have
+$$
+S_{1} =
+\begin {vmatrix}
+0.42 && 0.38
+\end {vmatrix}
+$$</p>
+<p>That means, after one advertising campaign, the rate of choosing A increase to 42%!
+Keep multipling, we&rsquo;ll realize that $S$ is approaching to $\begin {vmatrix}
+0.75 && 0.25
+\end {vmatrix}$. And this is the <strong>Stationary Matrix</strong>, and the system is at S<strong>teady State</strong>.</p>
+<h2 id=absorbing-markov-chain>Absorbing Markov Chain<a hidden class=anchor aria-hidden=true href=#absorbing-markov-chain>#</a></h2>
+<p>If the possibility of entering another state is zero then the state is an A<strong>bsorbing State</strong>.
+For example:
+$$
+\begin{vmatrix}
+1 && 0 \<br>
+0.3 && 0.7
+\end{vmatrix}
+$$</p>
+<p>The first row is an absorbing state.</p>
+<p>A standard form of absorbing markov chain is:</p>
+<p>$$
+\begin{vmatrix}
+I && O \<br>
+R && Q
+\end{vmatrix}
+$$</p>
+<p>I is the identity matrix, O is a zero matrix. R and Q are two submatrices.
+The limiting matrix form is:
+$$
+\begin{vmatrix}
+I && O \<br>
+FR && O
+\end{vmatrix}
+\<br>
+F = (I - Q)^{-1}
+$$</p>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/learning/>learning</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/dragons-dogma-dark-arisen/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Dragon's Dogma - Dark Arisen</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/5-4-future-rewritten/>
+<span class=title>Next Page »</span>
+<br>
+<span>Patch 5.4 Future Rewritten</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

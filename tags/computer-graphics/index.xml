@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Computer Graphics on After1995</title>
+    <link>https://endfang.github.io/tags/computer-graphics/</link>
+    <description>Recent content in Computer Graphics on After1995</description>
+    <image>
+      <url>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 18 Dec 2020 15:47:09 +0800</lastBuildDate><atom:link href="https://endfang.github.io/tags/computer-graphics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fundamentals of CG - Raster Images</title>
+      <link>https://endfang.github.io/posts/fcg-raster-images/</link>
+      <pubDate>Fri, 18 Dec 2020 15:47:09 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fcg-raster-images/</guid>
+      <description>Raster Display shows images as rectangular arrays of pixels. It&amp;rsquo;s also prevalent in devices, hence the raster images are also the most common way to store and process images. Raster Image is simply a 2D array that stores the pixel value for each pixel. It&amp;rsquo;s not a good way to display images since the pixel number is not always the same and we want to change the orientation and size sometimes.</description>
+    </item>
+    
+    <item>
+      <title>Fundamentals of CG - Intro</title>
+      <link>https://endfang.github.io/posts/fcg-intro/</link>
+      <pubDate>Mon, 14 Dec 2020 14:03:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fcg-intro/</guid>
+      <description>Avoid any specific hardware or API because CG is a rapidly evolving field and the specifics of that knowledge are moving target.
+Terminology: Modeling deals with the mathematical specification of shape and appearance properties in a way that can be stored on the computer. Rendering deals with the creation of shaded images from 3D computer models. Animation is a technique to create an illusion of motion through sequences of images.</description>
+    </item>
+    
+    <item>
+      <title>Shader Basic</title>
+      <link>https://endfang.github.io/posts/shader-basic/</link>
+      <pubDate>Mon, 23 Sep 2019 18:35:07 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/shader-basic/</guid>
+      <description>Basics  shader language has a single main that returns color at the end final pixel color is assigned to gl_FragColor C-flavored language has built in variable, function, type preprocessor macros (pre-compiled)  #define global variable #ifdef and #endif   lower precision → faster rendering, less quality  precision medium float precision lowp float precision highp float   GLSL specs doesn&amp;rsquo;t guarantee auto-cast  vec4(1, 0, 0, 1) will raise error, because it&amp;rsquo;s not float   multiple ways of constructing vec4  vec4 color = vec4(vec3(1.</description>
+    </item>
+    
+    <item>
+      <title>Binary, Decimal, Graycode</title>
+      <link>https://endfang.github.io/posts/binary-decimal-and-graycode/</link>
+      <pubDate>Sun, 26 May 2019 11:21:31 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/binary-decimal-and-graycode/</guid>
+      <description>Gray code Gray code can reduce the errors of changing bits (or switches). It only needs to change 1 bit at a time to increments the decimal number.
+Example 1    decimal binary gray code     5 101 111   6 110 101    From 5 to 6, binary has two bits changed, while gray code only changed 1 bit.
+XOR is the method of converting binary to gray code.</description>
+    </item>
+    
+    <item>
+      <title>Color Channel 颜色通道</title>
+      <link>https://endfang.github.io/posts/color-channel/</link>
+      <pubDate>Thu, 12 Apr 2018 17:47:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/color-channel/</guid>
+      <description>颜色通道(color channel)不能光用类比三原色的方法来理解，还需要理解灰度值(gray scale)。
+ 数字图像的本质是矩阵。
+ 每个矩阵内的元素可以看作是一个像素，每个元素都有关于 BGR 三种颜色的灰度值，而灰度值表示的是颜色的“深浅/强弱/明亮”。灰度值越高，颜色越深/强/暗，反之则是越浅/弱/亮。
+如果一个像素的 BGR 的灰度是 [100, 40, 35]。那么这就表示，这个像素的蓝色通道的灰度值是100，绿色的通道的灰度值是40，红色的则是35。这些颜色混合在一起就变成了这个像素的颜色。
+ P1.d 的题目要求的是：
+ Modify the above code snipet to replace the green with blue, red with green, and blue with red channels.
+ 也就是： green -&amp;gt; blue red -&amp;gt; green blue -&amp;gt; red
+第一次解法：
+newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[0] = r; newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[1] = b; newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[2] = g; 实际上是： red -&amp;gt; blue blue -&amp;gt; green green -&amp;gt; red</description>
+    </item>
+    
+  </channel>
+</rss>

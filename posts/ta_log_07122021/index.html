@@ -1,0 +1,202 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>TA Log 07122021 | After1995</title>
+<meta name=keywords content="shader,unity">
+<meta name=description content="hlsl float frac(float v) { return v - floor(v); } fmod(x, y) returns the floating-point remainder of the x parameter divided by the y parameter
+float remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x); } float fresnelEffect(float3 normal, float3 viewDir, float power) { return pow(1.0 - saturate(dot(normalize(normal), normalize(viewDir))), power) } Shader Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/ta_log_07122021/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="TA Log 07122021">
+<meta property="og:description" content="hlsl float frac(float v) { return v - floor(v); } fmod(x, y) returns the floating-point remainder of the x parameter divided by the y parameter
+float remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x); } float fresnelEffect(float3 normal, float3 viewDir, float power) { return pow(1.0 - saturate(dot(normalize(normal), normalize(viewDir))), power) } Shader Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/ta_log_07122021/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-07-12T01:40:30+08:00">
+<meta property="article:modified_time" content="2021-07-12T01:40:30+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="TA Log 07122021">
+<meta name=twitter:description content="hlsl float frac(float v) { return v - floor(v); } fmod(x, y) returns the floating-point remainder of the x parameter divided by the y parameter
+float remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x); } float fresnelEffect(float3 normal, float3 viewDir, float power) { return pow(1.0 - saturate(dot(normalize(normal), normalize(viewDir))), power) } Shader Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"TA Log 07122021","item":"https://endfang.github.io/posts/ta_log_07122021/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"TA Log 07122021","name":"TA Log 07122021","description":"hlsl float frac(float v) { return v - floor(v); } fmod(x, y) returns the floating-point remainder of the x parameter divided by the y parameter\nfloat remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x); } float fresnelEffect(float3 normal, float3 viewDir, float power) { return pow(1.0 - saturate(dot(normalize(normal), normalize(viewDir))), power) } Shader Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another.","keywords":["shader","unity"],"articleBody":"hlsl float frac(float v) { return v - floor(v); } fmod(x, y) returns the floating-point remainder of the x parameter divided by the y parameter\nfloat remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x); } float fresnelEffect(float3 normal, float3 viewDir, float power) { return pow(1.0 - saturate(dot(normalize(normal), normalize(viewDir))), power) } Shader Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another.\nvoid Unity_Posterize_float4(float4 In, float4 steps, out float4 Out) { Out = floor( In/(1/Steps)) * (1/Steps); } Shader Graph: Random Range Node It returns a pseudo-random number between min and max based on the seed. The same seed always gives the same result.\nvoid Unity_RandomRange_float(float2 Seed, float Min, float Max, out float Out) { float randomno = frac(sin(dot(Seed, float2(12.9898, 78.233)))*43758.5453); Out = lerp(Min, Max, randomno); } Toggle and keyword\n[Toggle(_EXAMPLE_KEYWORD] _ExampleKeyword(\"Keyword\", Float) = 1 #pragma shader_feature_loca _EXAMPLE_KEYWORD The above statements work together to enable and disable the keyword.\nSprite shaders\nTo access the sprite, we either declare a [PerRendererData] _MainTex in ShaderLab or create a texture property with a reference named by _MainTex.\nGlitch Effect To create the glitch effect, we can simply move around the vertex (3D models) or UV (2D sprites). The random offset happens in every time interval. We can add another layer of randomness to decide if this glitch effect would appear. To add some animation to the shader, like vertex displacement or uv flow, we usually use the _Time, because it keeps changing. We can use it directly or plug in it to some equations, like sine or cosine wave.\nColor changing is also part of the glitch.\nTo control the effect’s visibility or intensity, from a bit of vertex offset to a strongly distorted model, we can create another float value to multiply the glitch result, or plug it in functions like lerp() to change the max or min value.\nMultiplication can mix two textures or two colors, but the result will be black if one of the tex/color is black. Black is 0, and anything multiplied by 0 is 0.\nShader Properties Attributes Add certain attributes to the properties can help us unexpectedly.\nExamples:\n[NoScaleOffset] removes the tilling and offset.\n[Toggle] works like true and false (int). We can add a #pragma shader_feature to create branches.\n[enum] and [keywordEnum] gives a menu for single option\n[IntRange] makes Range(0,10) assign integers only.\nSource:\n 【UnityShader】ShaderLabのプロパティ属性 【1】#77, https://soramamenatan.hatenablog.com/entry/2020/11/01/110554 【UnityShader】ShaderLabのプロパティ属性 【2】#78, https://soramamenatan.hatenablog.com/entry/2020/11/08/094204  ","wordCount":"423","inLanguage":"en","datePublished":"2021-07-12T01:40:30+08:00","dateModified":"2021-07-12T01:40:30+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/ta_log_07122021/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+TA Log 07122021
+</h1>
+<div class=post-meta>July 12, 2021&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#hlsl aria-label=hlsl>hlsl</a></li>
+<li>
+<a href=#shader aria-label=Shader>Shader</a></li>
+<li>
+<a href=#glitch-effect aria-label="Glitch Effect">Glitch Effect</a></li>
+<li>
+<a href=#shader-properties-attributes aria-label="Shader Properties Attributes">Shader Properties Attributes</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=hlsl>hlsl<a hidden class=anchor aria-hidden=true href=#hlsl>#</a></h1>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>float</span> frac(<span style=color:#66d9ef>float</span> v)
+{
+    <span style=color:#66d9ef>return</span> v - floor(v);
+}
+</code></pre></div><p><code>fmod(x, y)</code> returns the floating-point remainder of the x parameter divided by the y parameter</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>float</span> remap(<span style=color:#66d9ef>float</span> v, float2 inMinMax, float2 outMinMax)
+{
+	<span style=color:#66d9ef>return</span> outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x);
+}
+<span style=color:#66d9ef>float</span> fresnelEffect(float3 normal, float3 viewDir, <span style=color:#66d9ef>float</span> power)
+{
+	<span style=color:#66d9ef>return</span> pow(<span style=color:#ae81ff>1.0</span> - saturate(dot(normalize(normal), normalize(viewDir))), power)
+}
+</code></pre></div><h1 id=shader>Shader<a hidden class=anchor aria-hidden=true href=#shader>#</a></h1>
+<p>Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>void</span> Unity_Posterize_float4(float4 In, float4 steps, <span style=color:#66d9ef>out</span> float4 Out)
+{
+	Out = floor( In/(<span style=color:#ae81ff>1</span>/Steps)) * (<span style=color:#ae81ff>1</span>/Steps);
+}
+</code></pre></div><p>Shader Graph: Random Range Node It returns a pseudo-random number between min and max based on the seed. The same seed always gives the same result.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>void</span> Unity_RandomRange_float(float2 Seed, <span style=color:#66d9ef>float</span> Min, <span style=color:#66d9ef>float</span> Max, <span style=color:#66d9ef>out</span> <span style=color:#66d9ef>float</span> Out)
+{
+    <span style=color:#66d9ef>float</span> randomno =  frac(sin(dot(Seed, float2(<span style=color:#ae81ff>12.9898</span>, <span style=color:#ae81ff>78.233</span>)))*<span style=color:#ae81ff>43758.5453</span>);
+    Out = lerp(Min, Max, randomno);
+}
+</code></pre></div><p>Toggle and keyword</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#a6e22e>[Toggle(_EXAMPLE_KEYWORD]</span> <span style=color:#ae81ff>_</span>ExampleKeyword(<span style=color:#e6db74>&#34;Keyword&#34;</span>, Float) = <span style=color:#ae81ff>1</span>
+
+<span style=color:#75715e>#pragma shader_feature_loca _EXAMPLE_KEYWORD
+</span></code></pre></div><p>The above statements work together to enable and disable the keyword.</p>
+<p>Sprite shaders</p>
+<p>To access the sprite, we either declare a <code>[PerRendererData] _MainTex</code> in ShaderLab or create a texture property with a reference named by <code>_MainTex</code>.</p>
+<h1 id=glitch-effect>Glitch Effect<a hidden class=anchor aria-hidden=true href=#glitch-effect>#</a></h1>
+<p>To create the glitch effect, we can simply move around the vertex (3D models) or UV (2D sprites). The random offset happens in every time interval. We can add another layer of randomness to decide if this glitch effect would appear. To add some animation to the shader, like vertex displacement or uv flow, we usually use the <code>_Time</code>, because it keeps changing. We can use it directly or plug in it to some equations, like sine or cosine wave.</p>
+<p>Color changing is also part of the glitch.</p>
+<p>To control the effect&rsquo;s visibility or intensity, from a bit of vertex offset to a strongly distorted model, we can create another float value to multiply the glitch result, or plug it in functions like lerp() to change the max or min value.</p>
+<p>Multiplication can mix two textures or two colors, but the result will be black if one of the tex/color is black. Black is 0, and anything multiplied by 0 is 0.</p>
+<h1 id=shader-properties-attributes>Shader Properties Attributes<a hidden class=anchor aria-hidden=true href=#shader-properties-attributes>#</a></h1>
+<p>Add certain attributes to the properties can help us unexpectedly.</p>
+<p>Examples:</p>
+<p><code>[NoScaleOffset]</code> removes the tilling and offset.</p>
+<p><code>[Toggle]</code> works like true and false (int). We can add a <code>#pragma shader_feature</code> to create branches.</p>
+<p><code>[enum]</code> and <code>[keywordEnum]</code> gives a menu for single option</p>
+<p><code>[IntRange]</code> makes Range(0,10) assign integers only.</p>
+<p>Source:</p>
+<ol>
+<li>【UnityShader】ShaderLabのプロパティ属性 【1】#77, <a href=https://soramamenatan.hatenablog.com/entry/2020/11/01/110554>https://soramamenatan.hatenablog.com/entry/2020/11/01/110554</a></li>
+<li>【UnityShader】ShaderLabのプロパティ属性 【2】#78, <a href=https://soramamenatan.hatenablog.com/entry/2020/11/08/094204>https://soramamenatan.hatenablog.com/entry/2020/11/08/094204</a></li>
+</ol>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/shader/>Shader</a></li>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/ta_log_07192021/>
+<span class=title>« Prev Page</span>
+<br>
+<span>TA Log 07192021</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/5-5-full-moon/>
+<span class=title>Next Page »</span>
+<br>
+<span>Patch 5.5 Full Moon</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

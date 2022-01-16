@@ -1,0 +1,305 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Unity EditorWindow And Assetprocessor | After1995</title>
+<meta name=keywords content="unity,learning,technical artist">
+<meta name=description content="Tutorials Editor folder contains any editor scripts. It allows no mono behavior scripts in it.
+AssetPostprocessor is one of the editor class. One of the properties is assetPath, the path name of the asset being imported.
+A series of function is called in the following order during the model import:
+ OnPreprocessModel: I can override ModelImporter settings in here. After meshes and materials are imported, GameObjects hierarchy is created from the imported nodes.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/unity-editorwindow-and-assetpostprocessor/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Unity EditorWindow And Assetprocessor">
+<meta property="og:description" content="Tutorials Editor folder contains any editor scripts. It allows no mono behavior scripts in it.
+AssetPostprocessor is one of the editor class. One of the properties is assetPath, the path name of the asset being imported.
+A series of function is called in the following order during the model import:
+ OnPreprocessModel: I can override ModelImporter settings in here. After meshes and materials are imported, GameObjects hierarchy is created from the imported nodes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/unity-editorwindow-and-assetpostprocessor/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-11-30T01:18:33+08:00">
+<meta property="article:modified_time" content="2020-11-30T01:18:33+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="Unity EditorWindow And Assetprocessor">
+<meta name=twitter:description content="Tutorials Editor folder contains any editor scripts. It allows no mono behavior scripts in it.
+AssetPostprocessor is one of the editor class. One of the properties is assetPath, the path name of the asset being imported.
+A series of function is called in the following order during the model import:
+ OnPreprocessModel: I can override ModelImporter settings in here. After meshes and materials are imported, GameObjects hierarchy is created from the imported nodes.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Unity EditorWindow And Assetprocessor","item":"https://endfang.github.io/posts/unity-editorwindow-and-assetpostprocessor/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity EditorWindow And Assetprocessor","name":"Unity EditorWindow And Assetprocessor","description":"Tutorials Editor folder contains any editor scripts. It allows no mono behavior scripts in it.\nAssetPostprocessor is one of the editor class. One of the properties is assetPath, the path name of the asset being imported.\nA series of function is called in the following order during the model import:\n OnPreprocessModel: I can override ModelImporter settings in here. After meshes and materials are imported, GameObjects hierarchy is created from the imported nodes.","keywords":["unity","learning","technical artist"],"articleBody":"Tutorials Editor folder contains any editor scripts. It allows no mono behavior scripts in it.\nAssetPostprocessor is one of the editor class. One of the properties is assetPath, the path name of the asset being imported.\nA series of function is called in the following order during the model import:\n OnPreprocessModel: I can override ModelImporter settings in here. After meshes and materials are imported, GameObjects hierarchy is created from the imported nodes. Use OnPostProcessMeshHierarchy to change the hierarchy. Every GameObject that represents an imported node is given a corresponding MeshFilter, MeshRenderer, and MeshCollider component. OnAssignMaterialModel is invoked before assigning a Material to the MeshRenderer. After MeshRenderers and “userdata” exists, and before children game objects are generated, OnPostprocessGameObjectWithUserProperties is called if animation generation was not disabled at previous stages, SkinnedMesh and Animations are generated. Avatar is also created and GameObjects hierarchy is optimized if possible. Then OnPostprocessModel is called for the root GameObject.  Code example: change texture type to “Sprite” when a new texture is imported to the “Sprites” folder.\nusing UnityEditor; using UnityEngine; public class SpriteProcessor : AssetPostprocessor { private void OnPostprocessTexture(Texture2D texture) { string lowerCaseAssetPath = assetPath.ToLower(); // check if it's in sprites directory  bool isInSpirtesDirectory = lowerCaseAssetPath.IndexOf(\"/sprites/\") != -1; if (isInSpirtesDirectory) { TextureImporter textureImporter = (TextureImporter) assetImporter; textureImporter.textureType = TextureImporterType.Sprite; } } }  ScriptableWizard\nIt’s to create an editor wizard. Editor wizards are typically opened using a menu item.\nusing UnityEngine; using System.Collections; using UnityEditor; public class SelectAllOfTag : ScriptableWizard { public string searchTag = \"Your tag here\"; [MenuItem (\"My Tools/Select All Of Tag...\")] static void SelectAllOfTagWizard() { ScriptableWizard.DisplayWizard (\"Select All Of Tag...\", \"Make Selection\"); } void OnWizardCreate() { GameObject[] gameObjects = GameObject.FindGameObjectsWithTag (searchTag); Selection.objects = gameObjects; } } ScriptabelWizard has 3 messages: OnWizardCreate is called when the Create button is clicked. OnWizardOtherButton is called when the other button is lcicked. OnWizardUpdate is called when the wizard is opened or user changed something in the wizard.\nSource:\n YouTube: Live Training 3rd October 2016 - Creating Basic Editor Tools Unity Documentation: AssetPostprocessor Unity Documentation: ScriptableWizard   My Application Q: A batch of texture’s format was set wrong, especially the max size and compression.\nA: Apply AssetPostprocessor to change the current setting when reimporting.\npublic class TextureFormatReimporter : AssetPostprocessor { private static string mainPath = \"assets/textures/path\"; void OnPreprocessTexture() { string lowerCasePat = assetPath.ToLower(); if (lowerCasePat.Contains(mainPath)) { TextureImporter texImporter = (TextureImporter)assetImporter; if (/*in some condition*/) { texImporter.isReadable = false; } texImporter.mipmapEnabled = false; TextureImporterPlatformSettings defaultSetting = texImporter.GetDefaultPlatformTextureSettings(); TextureImporterPlatformSettings standAloneSetting = texImporter.GetPlatformTextureSettings(\"Standalone\"); TextureImporterPlatformSettings iOSSetting = texImporter.GetPlatformTextureSettings(\"iPhone\"); TextureImporterPlatformSettings androidSetting = texImporter.GetPlatformTextureSettings(\"Android\"); if (androidSetting.overridden) { defaultSetting.maxTextureSize = androidSetting.maxTextureSize; } else if (iOSSetting.overridden) { defaultSetting.maxTextureSize = iOSSetting.maxTextureSize; } if ( /* in some condition */ ) { defaultSetting.textureCompression = TextureImporterCompression.Uncompressed; } else if (/* in some condition */) { defaultSetting.format = TextureImporterFormat.Automatic; } texImporter.SetPlatformTextureSettings(defaultSetting); texImporter.ClearPlatformTextureSettings(\"Android\"); texImporter.ClearPlatformTextureSettings(\"Standalone\"); } } } It’s a Preprocessor, so the importer doesn’t need to save and reimport.\nQ: how to find the application’s path?\nA:\nPath.GetDirectoryName( Application.dataPath ) This will return a root of the full path that is relative to the Unity.\n Q: How to find the subdirectories in the EditorWindow?\nA:\nDirectory.GetDirectories(dir); // return the sub directories in dir  // recursively use the method will return all the possible subdirectories in dir Liststring subdirs = new Liststring(); FindSubdir(dir) static void FindSubdirectoryRecursion(string directory) { var subdirectories = Directory.GetDirectories(directory); foreach (var dir in subdirectories ) { subdirs .Add(dir); FindSubdirectoryRecursion(dir); } }  Q: How to access the Importer Settings in EditorWindow?\nA:\nTextureImporter textureImporter = AssetImporter.GetAtPath(relativePath) as TextureImporter;  Q: Can the EditorWindow output a log?\nA:\nStreamWriter writer = new StreamWriter(outputPath, true); writer.WriteLine(outputline); writer.Close(); ","wordCount":"591","inLanguage":"en","datePublished":"2020-11-30T01:18:33+08:00","dateModified":"2020-11-30T01:18:33+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/unity-editorwindow-and-assetpostprocessor/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+Unity EditorWindow And Assetprocessor
+</h1>
+<div class=post-meta>November 30, 2020&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#tutorials aria-label=Tutorials>Tutorials</a></li>
+<li>
+<a href=#my-application aria-label="My Application">My Application</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=tutorials>Tutorials<a hidden class=anchor aria-hidden=true href=#tutorials>#</a></h1>
+<p><code>Editor</code> folder contains any editor scripts. It allows no mono behavior scripts in it.</p>
+<p><code>AssetPostprocessor</code> is one of the editor class. One of the properties is assetPath, the path name of the asset being imported.</p>
+<p>A series of function is called in the following order during the model import:</p>
+<ol>
+<li><code>OnPreprocessModel</code>: I can override <code>ModelImporter</code> settings in here.</li>
+<li>After meshes and materials are imported, GameObjects hierarchy is created from the imported nodes. Use <code>OnPostProcessMeshHierarchy</code> to change the hierarchy. Every GameObject that represents an imported node is given a corresponding MeshFilter, MeshRenderer, and MeshCollider component. <code>OnAssignMaterialModel</code> is invoked before assigning a Material to the MeshRenderer.</li>
+<li>After MeshRenderers and &ldquo;userdata&rdquo; exists, and before children game objects are generated, <code>OnPostprocessGameObjectWithUserProperties</code> is called</li>
+<li>if animation generation was not disabled at previous stages, SkinnedMesh and Animations are generated. Avatar is also created and GameObjects hierarchy is optimized if possible. Then <code>OnPostprocessModel</code> is called for the root GameObject.</li>
+</ol>
+<p>Code example: change texture type to &ldquo;Sprite&rdquo; when a new texture is imported to the &ldquo;Sprites&rdquo; folder.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>using</span> UnityEditor;
+<span style=color:#66d9ef>using</span> UnityEngine;
+
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SpriteProcessor</span> : AssetPostprocessor
+{
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> OnPostprocessTexture(Texture2D texture)
+    {
+        <span style=color:#66d9ef>string</span> lowerCaseAssetPath = assetPath.ToLower();
+				
+				 <span style=color:#75715e>// check if it&#39;s in sprites directory
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>bool</span> isInSpirtesDirectory = lowerCaseAssetPath.IndexOf(<span style=color:#e6db74>&#34;/sprites/&#34;</span>) != -<span style=color:#ae81ff>1</span>;
+
+        <span style=color:#66d9ef>if</span> (isInSpirtesDirectory)
+        {
+            TextureImporter textureImporter = (TextureImporter) assetImporter;
+            textureImporter.textureType = TextureImporterType.Sprite;
+        }
+    }
+}
+</code></pre></div><hr>
+<p>ScriptableWizard</p>
+<p>It&rsquo;s to create an editor wizard. Editor wizards are typically opened using a menu item.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>using</span> UnityEngine;
+<span style=color:#66d9ef>using</span> System.Collections;
+<span style=color:#66d9ef>using</span> UnityEditor;
+
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SelectAllOfTag</span> : ScriptableWizard 
+{
+
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string</span> searchTag = <span style=color:#e6db74>&#34;Your tag here&#34;</span>;
+<span style=color:#a6e22e>
+</span><span style=color:#a6e22e>    [MenuItem (&#34;My Tools/Select All Of Tag...&#34;)]</span>
+    <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> SelectAllOfTagWizard()
+    {
+        ScriptableWizard.DisplayWizard&lt;SelectAllOfTag&gt; (<span style=color:#e6db74>&#34;Select All Of Tag...&#34;</span>, <span style=color:#e6db74>&#34;Make Selection&#34;</span>);
+    }
+
+    <span style=color:#66d9ef>void</span> OnWizardCreate()
+    {
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag (searchTag);
+        Selection.objects = gameObjects;
+    }
+}
+</code></pre></div><p>ScriptabelWizard has 3 messages: <code>OnWizardCreate</code> is called when the Create button is clicked. <code>OnWizardOtherButton</code> is called when the other button is lcicked. <code>OnWizardUpdate</code> is called when the wizard is opened or user changed something in the wizard.</p>
+<p>Source:</p>
+<ol>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=L24GKk1qQD4&feature=emb_title">Live Training 3rd October 2016 - Creating Basic Editor Tools</a></li>
+<li>Unity Documentation: <a href=https://docs.unity3d.com/ScriptReference/AssetPostprocessor.html>AssetPostprocessor</a></li>
+<li>Unity Documentation: <a href=https://docs.unity3d.com/ScriptReference/ScriptableWizard.html>ScriptableWizard</a></li>
+</ol>
+<hr>
+<h1 id=my-application>My Application<a hidden class=anchor aria-hidden=true href=#my-application>#</a></h1>
+<p>Q: A batch of texture&rsquo;s format was set wrong, especially the max size and compression.</p>
+<p>A: Apply AssetPostprocessor to change the current setting when reimporting.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>TextureFormatReimporter</span> : AssetPostprocessor
+{
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>string</span> mainPath = <span style=color:#e6db74>&#34;assets/textures/path&#34;</span>;
+
+    <span style=color:#66d9ef>void</span> OnPreprocessTexture()
+    {
+        <span style=color:#66d9ef>string</span> lowerCasePat = assetPath.ToLower();
+        <span style=color:#66d9ef>if</span> (lowerCasePat.Contains(mainPath))
+        {
+            TextureImporter texImporter = (TextureImporter)assetImporter;
+            
+            <span style=color:#66d9ef>if</span> (<span style=color:#75715e>/*in some condition*/</span>)
+            {
+                texImporter.isReadable = <span style=color:#66d9ef>false</span>;
+            }
+
+            texImporter.mipmapEnabled = <span style=color:#66d9ef>false</span>;
+
+            TextureImporterPlatformSettings defaultSetting = texImporter.GetDefaultPlatformTextureSettings();
+            TextureImporterPlatformSettings standAloneSetting = texImporter.GetPlatformTextureSettings(<span style=color:#e6db74>&#34;Standalone&#34;</span>);
+            TextureImporterPlatformSettings iOSSetting = texImporter.GetPlatformTextureSettings(<span style=color:#e6db74>&#34;iPhone&#34;</span>);
+            TextureImporterPlatformSettings androidSetting = texImporter.GetPlatformTextureSettings(<span style=color:#e6db74>&#34;Android&#34;</span>);
+
+            <span style=color:#66d9ef>if</span> (androidSetting.overridden)
+            {
+                defaultSetting.maxTextureSize = androidSetting.maxTextureSize;
+            }
+            <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (iOSSetting.overridden)
+            {
+                defaultSetting.maxTextureSize = iOSSetting.maxTextureSize;
+            }
+
+            <span style=color:#66d9ef>if</span> ( <span style=color:#75715e>/* in some condition */</span> )
+            {
+                defaultSetting.textureCompression = TextureImporterCompression.Uncompressed;
+            }
+            <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#75715e>/* in some condition */</span>)
+            {
+                defaultSetting.format = TextureImporterFormat.Automatic;
+            }
+
+            texImporter.SetPlatformTextureSettings(defaultSetting);
+            texImporter.ClearPlatformTextureSettings(<span style=color:#e6db74>&#34;Android&#34;</span>);
+            texImporter.ClearPlatformTextureSettings(<span style=color:#e6db74>&#34;Standalone&#34;</span>);
+
+        }
+    }
+
+}
+</code></pre></div><p>It&rsquo;s a Preprocessor, so the importer doesn&rsquo;t need to save and reimport.</p>
+<p>Q: how to find the application&rsquo;s path?</p>
+<p>A:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp>Path.GetDirectoryName( Application.dataPath )
+</code></pre></div><p>This will return a root of the full path that is relative to the Unity.</p>
+<hr>
+<p>Q: How to find the subdirectories in the EditorWindow?</p>
+<p>A:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp>Directory.GetDirectories(dir);
+<span style=color:#75715e>// return the sub directories in dir
+</span><span style=color:#75715e></span>
+<span style=color:#75715e>// recursively use the method will return all the possible subdirectories in dir
+</span><span style=color:#75715e></span>List&lt;<span style=color:#66d9ef>string</span>&gt; subdirs = <span style=color:#66d9ef>new</span> List&lt;<span style=color:#66d9ef>string</span>&gt;();
+
+FindSubdir(dir)
+
+<span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> FindSubdirectoryRecursion(<span style=color:#66d9ef>string</span> directory)
+{
+    <span style=color:#66d9ef>var</span> subdirectories = Directory.GetDirectories(directory);
+    <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> dir <span style=color:#66d9ef>in</span> subdirectories )
+    {
+        subdirs .Add(dir);
+        FindSubdirectoryRecursion(dir);
+    }
+}
+</code></pre></div><hr>
+<p>Q: How to access the Importer Settings in EditorWindow?</p>
+<p>A:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp>TextureImporter textureImporter = AssetImporter.GetAtPath(relativePath) <span style=color:#66d9ef>as</span> TextureImporter;
+</code></pre></div><hr>
+<p>Q: Can the EditorWindow output a log?</p>
+<p>A:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp>StreamWriter writer = <span style=color:#66d9ef>new</span> StreamWriter(outputPath, <span style=color:#66d9ef>true</span>);
+writer.WriteLine(outputline);
+writer.Close();
+</code></pre></div>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+<li><a href=https://endfang.github.io/tags/learning/>learning</a></li>
+<li><a href=https://endfang.github.io/tags/technical-artist/>technical artist</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/interview-preparation/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Interview Preparation</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/dragons-dogma-dark-arisen/>
+<span class=title>Next Page »</span>
+<br>
+<span>Dragon's Dogma - Dark Arisen</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

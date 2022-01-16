@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Graphic Sorcery on After1995</title>
+    <link>https://endfang.github.io/categories/graphic-sorcery/</link>
+    <description>Recent content in Graphic Sorcery on After1995</description>
+    <image>
+      <url>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 17 Mar 2021 01:06:35 +0800</lastBuildDate><atom:link href="https://endfang.github.io/categories/graphic-sorcery/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity Rendering Optimization</title>
+      <link>https://endfang.github.io/posts/rendering-optimization/</link>
+      <pubDate>Wed, 17 Mar 2021 01:06:35 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rendering-optimization/</guid>
+      <description>Q; The ways of optimizting?
+  Static Batching.
+Objects are explicitly specified to be static. It can&amp;rsquo;t have any change in transform. It also requires additional memory to store combined geometry. 100 objects are 100 copy.
+  Dynamic Batching
+The mesh and materials need to be the same, and the mesh must have less than 300 vertices. The objects should not moving around. Shaders should have one pass. Instanced materials and lightmapping are not allowed.</description>
+    </item>
+    
+    <item>
+      <title>Unity Overdraw</title>
+      <link>https://endfang.github.io/posts/unity-overdraw/</link>
+      <pubDate>Mon, 08 Feb 2021 01:23:06 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-overdraw/</guid>
+      <description>Achieving 60FPS on mobile, Youtube
+Optimizing Graphics in Unity, Unity
+Overdraw Overdrawn is to draw one pixel more than once. Post-processing will re-touch the pixel at least once. It adds burdens to the GPU and delays the frame.
+Rendering is done by draw calls. The intermediate steps are not on the screen but in frame buffers. A frame buffer is a memory buffer that contains data representing the pixels in a complete video frame.</description>
+    </item>
+    
+    <item>
+      <title>Magenta</title>
+      <link>https://endfang.github.io/posts/magenta/</link>
+      <pubDate>Tue, 22 Dec 2020 14:35:52 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/magenta/</guid>
+      <description>Lovecraft&amp;rsquo;s described a color outside of the visible spectrum in his novel Color Out of Space. This color was emitted from an alien creature which destroyed an area later in the. Even though the idea of a color that is outside the spectrum sounds illogical, but magenta is such color. We can see magenta, but it doesn&amp;rsquo;t exist in the spectrum.
+Magenta is loosely defined as purplish-red or reddish-purple. In color wheels of the RGB, it is located exactly midway between red and blue.</description>
+    </item>
+    
+    <item>
+      <title>Fundamentals of CG - Raster Images</title>
+      <link>https://endfang.github.io/posts/fcg-raster-images/</link>
+      <pubDate>Fri, 18 Dec 2020 15:47:09 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fcg-raster-images/</guid>
+      <description>Raster Display shows images as rectangular arrays of pixels. It&amp;rsquo;s also prevalent in devices, hence the raster images are also the most common way to store and process images. Raster Image is simply a 2D array that stores the pixel value for each pixel. It&amp;rsquo;s not a good way to display images since the pixel number is not always the same and we want to change the orientation and size sometimes.</description>
+    </item>
+    
+    <item>
+      <title>Fundamentals of CG - Intro</title>
+      <link>https://endfang.github.io/posts/fcg-intro/</link>
+      <pubDate>Mon, 14 Dec 2020 14:03:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fcg-intro/</guid>
+      <description>Avoid any specific hardware or API because CG is a rapidly evolving field and the specifics of that knowledge are moving target.
+Terminology: Modeling deals with the mathematical specification of shape and appearance properties in a way that can be stored on the computer. Rendering deals with the creation of shaded images from 3D computer models. Animation is a technique to create an illusion of motion through sequences of images.</description>
+    </item>
+    
+    <item>
+      <title>Unity EditorWindow And Assetprocessor</title>
+      <link>https://endfang.github.io/posts/unity-editorwindow-and-assetpostprocessor/</link>
+      <pubDate>Mon, 30 Nov 2020 01:18:33 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-editorwindow-and-assetpostprocessor/</guid>
+      <description>Tutorials Editor folder contains any editor scripts. It allows no mono behavior scripts in it.
+AssetPostprocessor is one of the editor class. One of the properties is assetPath, the path name of the asset being imported.
+A series of function is called in the following order during the model import:
+ OnPreprocessModel: I can override ModelImporter settings in here. After meshes and materials are imported, GameObjects hierarchy is created from the imported nodes.</description>
+    </item>
+    
+    <item>
+      <title>Tree And Wind Shader</title>
+      <link>https://endfang.github.io/posts/unity-tree-and-wind/</link>
+      <pubDate>Fri, 23 Oct 2020 11:26:50 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-tree-and-wind/</guid>
+      <description>Vertex Color, Alpha and Shadow Surface shader is actually a vertex and fragment shader too, so theoretically the vertex data is accessible in surface shader too by using SEMANTICS or common state vert
+struct v2f { half4 color : COLOR; }; As for the Alpha Texture, we can decide the color based on the UV mapping in vertex function
+fixed4 frag (v2f i) : COLOR0 { ... fixed alpha = tex2D (_AlphaTex, i.</description>
+    </item>
+    
+    <item>
+      <title>Unity Render Pipeline</title>
+      <link>https://endfang.github.io/posts/unity-render-pipeline/</link>
+      <pubDate>Sat, 30 May 2020 11:07:27 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-render-pipeline/</guid>
+      <description>RP is a series of operations that take the contents of a Scene and displays them on a screen. At a high level, these operations are Culling, Rendering, and Post-Processing. It&amp;rsquo;s difficult to switch from one to another RP because the shader outputs varies and might not have the same feature. We can custom shaders in different piplelines, but the ultimate effect may be different. Unity has Built-In, Universal, and High Definition and Scriptable RP.</description>
+    </item>
+    
+    <item>
+      <title>Guide Mask Shader</title>
+      <link>https://endfang.github.io/posts/guide-mask/</link>
+      <pubDate>Thu, 07 May 2020 11:58:35 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/guide-mask/</guid>
+      <description>Shader &amp;#34;UI/GuideMask&amp;#34; { Properties { [PreRendererData] _MainTex (&amp;#34;Sprite Texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} _Color (&amp;#34;tint&amp;#34;, Color) = (1,1,1,1) _StencilComp (&amp;#34;Stencil Comparison&amp;#34;, Float) = 8 _Stencil (&amp;#34;Stencil ID&amp;#34;, Float) = 0 _StencilOp (&amp;#34;Stencil Operation&amp;#34;, Float) = 0 _StencilWritemask(&amp;#34;Stencil Write Mask&amp;#34;, Float ) = 255 _StencilReadMask(&amp;#34;Stencil Read Mask&amp;#34;, Float) = 255 _ColorMask(&amp;#34;Color Mask&amp;#34;, Float) = 15 [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip (&amp;#34;Use Alpha Clip&amp;#34;, Float) = 0 _Center(&amp;#34;Center&amp;#34;, vector) = (0, 0, 0, 0) _Slider(&amp;#34;Slider&amp;#34;, Range(0, 1500)) = 1500 } SubShader { Tags { &amp;#34;RenderType&amp;#34;=&amp;#34;Opaque&amp;#34; &amp;#34;IgnoreProjector&amp;#34; = &amp;#34;True&amp;#34; &amp;#34;RenderType&amp;#34; = &amp;#34;Transparent&amp;#34; &amp;#34;PreviewType&amp;#34; = &amp;#34;Plane&amp;#34; &amp;#34;CanUseSpriteAtlas&amp;#34; = &amp;#34;True&amp;#34; } Stencil { Ref [_Stencil] Comp [_StencilComp] Pass [_StencilOp] ReadMask [_StencilReadmask] Writemask [_StencilWriteMask] } Cull Off Lighting Off ZWrite Off ZTest [unit_GUIZTestMode] Blend SrcAlpha OneMinusSrcAlpha ColorMask [_ColorMask] Pass { Name &amp;#34;Default&amp;#34; CGPROGRAM #pragma vertex vert #pragma fragment frag #pragma target 2.</description>
+    </item>
+    
+    <item>
+      <title>Unity Vertex And Fragment Shader</title>
+      <link>https://endfang.github.io/posts/unity-vertex-and-fragment/</link>
+      <pubDate>Sat, 30 Nov 2019 11:03:52 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-vertex-and-fragment/</guid>
+      <description>Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There&amp;rsquo;s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.
+*Surface shader is actually compiled to vert/frag shader.
+Shader &amp;#34;Unlit/SolidColor&amp;#34; { SubShader { Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag struct vertInput { float4 pos : POSITION; }; struct vertOuput { float4 pos : SV_POSITION; }; vertOuput vert(vertInput input) { vertOuput o; o.</description>
+    </item>
+    
+    <item>
+      <title>Unity Shader Overview</title>
+      <link>https://endfang.github.io/posts/unity-shader-overview/</link>
+      <pubDate>Sat, 30 Nov 2019 10:59:20 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-shader-overview/</guid>
+      <description>Thanks to these posts and blogs: Michael Sanders Catike Coding Alan Zucconi
+Unity has 3 types of shader: surface shader, fragment and vertex shader, and the obsolete fixed function shader. They all have the same anatomy.
+Catlike Coding
+Shader &amp;#34;MyShader&amp;#34; { Properties { // The properties of your shaders // - textures // - colours // - parameters // ... _MyTexture (&amp;#34;My texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} _MyNormalMap (&amp;#34;My normal map&amp;#34;, 2D) = &amp;#34;bump&amp;#34; {} // Grey _MyInt (&amp;#34;My integer&amp;#34;, Int) = 2 _MyFloat (&amp;#34;My float&amp;#34;, Float) = 1.</description>
+    </item>
+    
+    <item>
+      <title>Shader Basic</title>
+      <link>https://endfang.github.io/posts/shader-basic/</link>
+      <pubDate>Mon, 23 Sep 2019 18:35:07 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/shader-basic/</guid>
+      <description>Basics  shader language has a single main that returns color at the end final pixel color is assigned to gl_FragColor C-flavored language has built in variable, function, type preprocessor macros (pre-compiled)  #define global variable #ifdef and #endif   lower precision → faster rendering, less quality  precision medium float precision lowp float precision highp float   GLSL specs doesn&amp;rsquo;t guarantee auto-cast  vec4(1, 0, 0, 1) will raise error, because it&amp;rsquo;s not float   multiple ways of constructing vec4  vec4 color = vec4(vec3(1.</description>
+    </item>
+    
+    <item>
+      <title>Binary, Decimal, Graycode</title>
+      <link>https://endfang.github.io/posts/binary-decimal-and-graycode/</link>
+      <pubDate>Sun, 26 May 2019 11:21:31 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/binary-decimal-and-graycode/</guid>
+      <description>Gray code Gray code can reduce the errors of changing bits (or switches). It only needs to change 1 bit at a time to increments the decimal number.
+Example 1    decimal binary gray code     5 101 111   6 110 101    From 5 to 6, binary has two bits changed, while gray code only changed 1 bit.
+XOR is the method of converting binary to gray code.</description>
+    </item>
+    
+    <item>
+      <title>Rotation Matrix</title>
+      <link>https://endfang.github.io/posts/rotation-matrix/</link>
+      <pubDate>Tue, 14 May 2019 18:19:27 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rotation-matrix/</guid>
+      <description>$P = (x, y) = (1, 0)$	$P&#39; = (x&#39;, y&#39; )$
+$\cos{\theta} = \frac{x&#39;}{x}$ $\sin{\theta} = \frac{y&#39;}{x}$
+therefore:
+$x&#39; = \cos{\theta} \cdot x$	$y&#39; = \sin{\theta} \cdot x$
+similarly:
+$Q = (x, y) = (0, 1)$ $ Q&#39; = (x&#39;, y&#39; )$
+$\cos{\theta} = \frac{y&#39;}{y}$ $\sin{\theta} = \frac{-x&#39;}{y}$
+therefore:
+$x&#39; = -\sin{\theta} \cdot y$ $y&#39; = \cos{\theta} \cdot y$
+add them together:
+$\begin{bmatrix} \cos{\theta} &amp;amp; -\sin{\theta} \\
+\sin{\theta} &amp;amp; \cos{\theta} \\</description>
+    </item>
+    
+    <item>
+      <title>Matplotlib, Figure, Axes, Axis, And Subplot</title>
+      <link>https://endfang.github.io/posts/figre-axes-and-axis/</link>
+      <pubDate>Wed, 30 Jan 2019 17:07:41 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/figre-axes-and-axis/</guid>
+      <description>Figure, Axes, Axis, and Subplot As we can see, the Figure is a top-level container that includes &amp;ldquo;Axes&amp;rdquo; and &amp;ldquo;Axis&amp;rdquo;.&amp;ldquo;Axes&amp;rdquo; is the area where plots appear, while &amp;ldquo;Axis&amp;rdquo; is the axis of the plots.
+Axes is set up by calling subplot, so &amp;ldquo;Axes&amp;rdquo; and &amp;ldquo;Subplot&amp;rdquo; are synonymous in many cases.
+Subplot vs. Axes Subplot can arrange grid. plt.subplot(row, col, index) return me an area where occupies part of the Figure. For example:</description>
+    </item>
+    
+    <item>
+      <title>Dot Product</title>
+      <link>https://endfang.github.io/posts/dot-product/</link>
+      <pubDate>Sun, 27 Jan 2019 16:39:43 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/dot-product/</guid>
+      <description>Reference: &amp;ldquo;Dot products and duality | Essence of linear algebra, chapter 9&amp;rdquo;, 3Blue1Brown
+Algebra example:
+$\begin{bmatrix} 1 &amp;amp; 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \ 4 \end{bmatrix} = 1 \cdot 3 + 2 \cdot 4$
+Gemoetrically:
+![projection](https://i.imgur.com/HYJeePM.png =150x150)
+The dot product of v and u = (length of projection of v onto u)(length of u)
+Order and Symmetry Order doesn&amp;rsquo;t matter. (Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)</description>
+    </item>
+    
+    <item>
+      <title>Three.js - shaderMaterial and vertex/fragment shaders</title>
+      <link>https://endfang.github.io/posts/threejs-shader/</link>
+      <pubDate>Wed, 13 Jun 2018 21:24:31 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/threejs-shader/</guid>
+      <description>A vertex shader:
+//WebGL Vertex Shader  uniform mat4 uMVMatrix; // Model-view matrix  uniform mat4 uPMatrix; // Projection matrix  uniform mat4 uNMatrix; // Normal matrix  attribute vec3 aVertexPosition; // Vertex position in object space  attribute vec3 aVertexNormal; // Vertex normal in object space  varying vec3 vPosition; // Vertex position (camera space)  varying vec3 vNormal; // Vertex normal (camera space)  void main(void) { vec4 camSpacePosition = uMVMatrix * vec4(aVertexPosition, 1.</description>
+    </item>
+    
+    <item>
+      <title>Sphere Coordinates and Trigonometry</title>
+      <link>https://endfang.github.io/posts/recall-sphere-coordinates/</link>
+      <pubDate>Sun, 13 May 2018 12:24:46 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/recall-sphere-coordinates/</guid>
+      <description>Sphere in 3-D three parameters: (r, θ, φ) $x = r \cdot sin(φ) cos(θ)$ $y = r \cdot sin(φ) sin(θ)$ $z = r \cdot cos(θ)$
+Trigonometry $\cos(θ) = \frac{x}{\sqrt{x^{2} + y^{2}}}$ $\sin(θ) = \frac{y}{\sqrt{x^{2} + y^{2}}}$ $\tan(θ) = \frac{y}{x}$
+arcsin/arccos/arctan is the inverse. e.g. $\tan(45^{\circ}) = 1$ $\arctan(1) = 45^{\circ}$</description>
+    </item>
+    
+    <item>
+      <title>Recall I</title>
+      <link>https://endfang.github.io/posts/recall1/</link>
+      <pubDate>Thu, 26 Apr 2018 13:03:56 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/recall1/</guid>
+      <description>line in 3-D Define $\vec r_0$ and $\vec r$ are position vectors of $P_0$ and $P$, and $\vec a$ represents $\vec{P_0P}$.
+if $\vec v$ is parallel to $\vec a$, then: $\vec{r} = \vec{r_0} + \vec{a}$ $\vec{a} = t\vec{v}$ $\vec{r} = \vec{r_0} + t\vec{v}$
+in othe words, $(x_r, y_r, z_r) = (x_{r_0}, y_{r_0}, z_{r_0}) + t \cdot (x_v, y_v, z_v)$
+sphere the sphere&amp;rsquo;s center point is $(x_0, y_0, z_0)$ radius = $r$ all point on surface: $(x, y, z)$ $(x - x_0)^{2} + (y - y_0)^{2} + (z - z_0)^{2} = r^2$</description>
+    </item>
+    
+    <item>
+      <title>Color Channel 颜色通道</title>
+      <link>https://endfang.github.io/posts/color-channel/</link>
+      <pubDate>Thu, 12 Apr 2018 17:47:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/color-channel/</guid>
+      <description>颜色通道(color channel)不能光用类比三原色的方法来理解，还需要理解灰度值(gray scale)。
+ 数字图像的本质是矩阵。
+ 每个矩阵内的元素可以看作是一个像素，每个元素都有关于 BGR 三种颜色的灰度值，而灰度值表示的是颜色的“深浅/强弱/明亮”。灰度值越高，颜色越深/强/暗，反之则是越浅/弱/亮。
+如果一个像素的 BGR 的灰度是 [100, 40, 35]。那么这就表示，这个像素的蓝色通道的灰度值是100，绿色的通道的灰度值是40，红色的则是35。这些颜色混合在一起就变成了这个像素的颜色。
+ P1.d 的题目要求的是：
+ Modify the above code snipet to replace the green with blue, red with green, and blue with red channels.
+ 也就是： green -&amp;gt; blue red -&amp;gt; green blue -&amp;gt; red
+第一次解法：
+newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[0] = r; newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[1] = b; newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[2] = g; 实际上是： red -&amp;gt; blue blue -&amp;gt; green green -&amp;gt; red</description>
+    </item>
+    
+    <item>
+      <title>Unity Physically Based Render</title>
+      <link>https://endfang.github.io/posts/unity-pbr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-pbr/</guid>
+      <description>Lambertian and Blinn-Phong Lambertian Model Lambertian model is based on lambertian reflectance, is the property that defines an ideal &amp;ldquo;matte&amp;rdquo; or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.
+Shader &amp;#34;Custom/LambertianShader&amp;#34; { Properties { _MainTex (&amp;#34;Texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} } SubShader { Tags { &amp;#34;RenderType&amp;#34;=&amp;#34;Opaque&amp;#34; } LOD 200 CGPROGRAM #pragma surface surf SimpleLambert struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf (Input IN, inout SurfaceOutput o) { o.</description>
+    </item>
+    
+    <item>
+      <title>Unity Surface Shader</title>
+      <link>https://endfang.github.io/posts/unity-surface-shader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-surface-shader/</guid>
+      <description>Shader &amp;#34;Example/Diffuse Simple&amp;#34; { SubShader { Tags { &amp;#34;RenderType&amp;#34; = &amp;#34;Opaque&amp;#34; } CGPROGRAM #pragma surface surf Lambert struct Input { float4 color : COLOR; }; void surf (Input IN, inout SurfaceOutput o) { o.Albedo = 1; // 1 = (1,1,1,1) = white } ENDCG } Fallback &amp;#34;Diffuse&amp;#34; } #pragma surface surf Lambert specify the shader is surface and use Lambertian Lighting Model.
+SurfaceOutput has several properties to determine the final aspect of a material.</description>
+    </item>
+    
+  </channel>
+</rss>

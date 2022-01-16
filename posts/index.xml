@@ -1,0 +1,2009 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on After1995</title>
+    <link>https://endfang.github.io/posts/</link>
+    <description>Recent content in Posts on After1995</description>
+    <image>
+      <url>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 17 Jan 2022 00:07:40 +0800</lastBuildDate><atom:link href="https://endfang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TA Log 01102022</title>
+      <link>https://endfang.github.io/posts/ta_log_01102022/</link>
+      <pubDate>Mon, 17 Jan 2022 00:07:40 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_01102022/</guid>
+      <description>Vertex Animation Vertex offset achieves the wind animation of tree leaves. By specifying the vertex color, vertex shader can use lerp to filter the animation on a certain part of the mesh. For example, only leaves will wave by painting all leaves’ color red.
+URP Sample Texture
+https://forum.unity.com/threads/writing-shaders-urp-texture2d-sampler.1000782/
+TEXTURE2D()translates the texture to the target API’s native type. GLES2 is sampler2D and others are Texture2D.
+Maintenance pow() vs. sqrt()
+After compile pow(a, b) in shader, the code will become exp2(log2(a) * b )</description>
+    </item>
+    
+    <item>
+      <title>TA Log 12202021</title>
+      <link>https://endfang.github.io/posts/ta_log_12202021/</link>
+      <pubDate>Mon, 20 Dec 2021 00:06:11 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_12202021/</guid>
+      <description>SRP Batcher + OpenGL bug:
+https://forum.unity.com/threads/srp-batcher-does-not-work-with-opengles3.1095937/
+Shadow Cascade
+Unity Doc: https://docs.unity3d.com/Manual/shadow-cascades.html Cat Like Coding: https://catlikecoding.com/unity/tutorials/scriptable-render-pipeline/directional-shadows/
+Shadow map pixels close to the Camera look enlarged and chunky to those farther away. Unity solves this problem by splitting the frustum area int otwo zones based on the distance from the camera, and use two separate shadow map. The resolution of each map is staged reduced.
+It also increased Drawcall: https://forum.unity.com/threads/unity-draw-5-4-introducing-more-draw-calls.426185/
+Outline https://alexanderameye.github.io/notes/rendering-outlines/</description>
+    </item>
+    
+    <item>
+      <title>TA Log 12132021</title>
+      <link>https://endfang.github.io/posts/ta_log_12132021/</link>
+      <pubDate>Mon, 13 Dec 2021 00:05:07 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_12132021/</guid>
+      <description>Unity URP _MainLightShadowParams
+ x: shadowStrength y: 1.0 = soft shadow, 0.0 = otherwise z: 1/ fade distance w: 1- start fade  Anti-Aliasing What is AA: https://www.youtube.com/watch?v=hqi0114mwtY
+How to do AA? There’re two types of AA. One is to increase the sample rate, that means to render the scene in a higher resolution and sample down it to the target resolution to smooth the line. Two is to blur the edge or contrast, known as Post AA or Post Processing .</description>
+    </item>
+    
+    <item>
+      <title>Pre Endwalker Entries</title>
+      <link>https://endfang.github.io/posts/pre_endwalker_entries/</link>
+      <pubDate>Fri, 03 Dec 2021 00:10:12 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/pre_endwalker_entries/</guid>
+      <description>Entry 1 SE announced the next expansion for Final Fantasy XIV was named &amp;ldquo;Endwalker&amp;rdquo;(EW). It meant to be the end of the saga between Zodiark and Hydaelyn. In the teaser trailer, WoL became the PLD and walked on the moon. It seems that Garlemald is not the only map we&amp;rsquo;ll going to visit, but also the moon itself. Alphinaud also revealed his new power from the new shield healer job, Sage.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 11292021</title>
+      <link>https://endfang.github.io/posts/ta_log_11292021/</link>
+      <pubDate>Mon, 29 Nov 2021 00:03:01 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_11292021/</guid>
+      <description>Compute Shader It transfers some computation from CPU to GPU by HLSL code. Hence the name has &amp;ldquo;compute&amp;rdquo; and &amp;ldquo;shader&amp;rdquo;.
+References:
+ Getting Started with Compute Shaders in Unity: https://www.youtube.com/watch?v=BrZ4pWwkpto Coding Adventure: Compute Shaders: https://www.youtube.com/watch?v=9RHGLZLUuwc&amp;amp;list=LL2T54R7-vJmcMBzcaTL_oBw GPU Ray Tracing in Unity: http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/  Unity Documentation: https://docs.unity3d.com/Manual/class-ComputeShader.html
+Compute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:
+ Android: OpenGL ES 3.1, iOS: Metal  Compute Shader Assets</description>
+    </item>
+    
+    <item>
+      <title>TA Log 11082021</title>
+      <link>https://endfang.github.io/posts/ta_log_11082021/</link>
+      <pubDate>Mon, 08 Nov 2021 00:01:24 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_11082021/</guid>
+      <description>Blom like an artist:
+Bloom Like an Artist
+Circular Progress Bar https://bgolus.medium.com/progressing-in-circles-13452434fdb9
+ATan vs. ATan2 $$ \tan{\alpha} = \frac{\sin{\alpha}}{\cos{\alpha}} $$
+and we have
+Quadrant Angle sin cos tan ------------------------------------------------- I 0 &amp;lt; α &amp;lt; π/2 + + + II π/2 &amp;lt; α &amp;lt; π + - - III π &amp;lt; α &amp;lt; 3π/2 - - + IV 3π/2 &amp;lt; α &amp;lt; 2π - + - Only knowing tangent doesn&amp;rsquo;t give exact quadrant, so we need atan2().</description>
+    </item>
+    
+    <item>
+      <title>TA Log 11012021</title>
+      <link>https://endfang.github.io/posts/ta_log_11012021/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:24 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_11012021/</guid>
+      <description>Unity Lighting System Direct light is light that is emitted, hits a surface and is then reflected directly into a sensor. Indirect light is all other light that is ultimately reflected into a sensor, including sky light.
+Reali-time lighting is calculated at runtime, while baked lighting is calculated in advance and is saved as lighting data.
+Unity: Render Feature Blit https://forum.unity.com/threads/apply-effect-to-objects-on-specific-layer-using-stencil-solved.841150/
+https://forum.unity.com/threads/has-anyone-ever-gotten-a-stencil-buffer-to-copy-with-commandbuffer-blit.432503/
+In URP&amp;rsquo;s custom render feature pass, Blit doesn&amp;rsquo;t pass the depth/stencil when blitting a color texture.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 10182021</title>
+      <link>https://endfang.github.io/posts/ta_log_10182021/</link>
+      <pubDate>Thu, 21 Oct 2021 23:58:45 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_10182021/</guid>
+      <description>Sprite Billboard https://www.reddit.com/r/Unity3D/comments/ahqbod/a_billboard_sprite_shader_in_only_one_axis/
+To make the sprite look at the camera all the time (billboard)_
+ View space is a rotated version of world space with the xy plane parallel to the view plane. It&amp;rsquo;s intuitive to make the billboard in here. First we transform the origin in the view coordinates and then  float4 newVertex = mul(UNITY_MATRIX_P, mul(UNITY_MATRIX_MV, float4(0.0, 0.0, 0.0, 1.0)) + float4(input.vertex.x, input.vertex.y, 0.0, 1.0));  We can also cancel out the rotation before the model matrix and then apply the view matrix.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 09262021</title>
+      <link>https://endfang.github.io/posts/ta_log_09262021/</link>
+      <pubDate>Sun, 26 Sep 2021 23:55:47 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_09262021/</guid>
+      <description>C# It&amp;rsquo;s a good practice to save game setting data to binary files.
+To save:
+FileStream dataStream = new FileStream( dataPath, FileMode.Create); BinaryFormatter converter = new BinaryFormatter(); converter.Serialize(dataStream, toSave); dataStream.Close(); To open/load:
+FileStream dataStream = new FileStream(dataPath, FileMode.Open); BinaryFormatter converter = new BinaryFormatter(); DataClass data = converter.Deserialize(dataStream) as DataClass; We can use it outside game too. For example, dynamic bone&amp;rsquo;s parameter settings will lost once the model is updated, because people usually replace the whole prefab.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 09222021</title>
+      <link>https://endfang.github.io/posts/ta_log_09222021/</link>
+      <pubDate>Wed, 22 Sep 2021 14:50:30 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_09222021/</guid>
+      <description>RGB to Grayscale dot(color.rgb, float3(0.298999995, 0.587000012, 0.114)); It&amp;rsquo;s a convenient way to write rather than multiply and add up every channel.
+Tangent, Normal, Bitangent Tangent is the U of the UV for both OpenGL and DirectX. Left to right, 0.0 to 1.0. The binormal is the V of the UV. OpenGL is bottom to top, and DirectX is top to bottom. Unity is +Y, OpenGL standard. Unreal is -Y, DirectX standard.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 09062021</title>
+      <link>https://endfang.github.io/posts/ta_log_09062021/</link>
+      <pubDate>Mon, 06 Sep 2021 14:48:48 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_09062021/</guid>
+      <description>Shader Animation The usual method of making shader animation is to use time parameter and sin wave function. It&amp;rsquo;s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 08302021</title>
+      <link>https://endfang.github.io/posts/ta_log_08302021/</link>
+      <pubDate>Mon, 30 Aug 2021 14:47:26 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_08302021/</guid>
+      <description>Collections  UV distortion: https://twitter.com/Fakirgnome/status/1120421374571495426 Easy PS techniques to create distance field texture: https://twitter.com/Ed_dV/status/1415156393959518209 easing demonstration: https://easings.net/  URP SurfaceInput.hlsl Declartion:
+ BaseMap BumpMap / NormalMap EmissionMap  Helpers:
+ Alpha() sample albedo and alpha sample normal sample emission  There&amp;rsquo;s a problem in URP&amp;rsquo;s hlsl files. They are all tight together to build the URP shader, not SRP. This reminds me that URP is an example of SRP. It&amp;rsquo;s better to have my own helper library.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 08162021</title>
+      <link>https://endfang.github.io/posts/ta_log_08162021/</link>
+      <pubDate>Mon, 16 Aug 2021 14:46:11 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_08162021/</guid>
+      <description>Fog Linear Fog
+c = fog coordinates,
+S, E = start and end
+$$f = \frac{E - c}{ E - S}$$
+Exponential Fog
+d = fog density
+$$f = \frac{1}{2^{cd}} = 2^{-cd}$$
+Exponential Squared Fog
+$$f = \frac{1}{2^{cd^2}} = 2^{- (cd)^2}$$</description>
+    </item>
+    
+    <item>
+      <title>TA Log 08092021</title>
+      <link>https://endfang.github.io/posts/ta_log_08092021/</link>
+      <pubDate>Mon, 09 Aug 2021 14:44:52 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_08092021/</guid>
+      <description>Light URP has only one main light. It must be the directional light. If it is not set in the Sun Source, then the brightest directional light is the main light. Test it with the light direction.
+half4 color = half4(_MainLightPosition.xyz, 1.0); Stencil Manual: https://docs.unity3d.com/Manual/SL-Stencil.html YouTube: https://www.youtube.com/watch?v=-NB2TR8IjE8
+The stencil buffer stores an 8-bit integer value for each pixel in the frame buffer. Stencil test happens before executing the fragment shader. It will compare the value with the reference value.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 08022021</title>
+      <link>https://endfang.github.io/posts/ta_log_08022021/</link>
+      <pubDate>Mon, 02 Aug 2021 14:43:41 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_08022021/</guid>
+      <description>Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/
+A common way to blend textures is the alpha blending.
+$$C_{result} = C_{source} \cdot F_{source} + C_{destination} \cdot F_{destination} \ F_{source} + F_{destination} = 1$$
+Another way is to do linear interpolation. We can linearly interpolate the result color between two textures.
+$$\frac{y-h_{0}}{x - x_{0}} = \frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$
+$$y = \frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$
+The third way is to use the height map to determine the blend of two textures.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 07262021</title>
+      <link>https://endfang.github.io/posts/ta_log_07262021/</link>
+      <pubDate>Mon, 26 Jul 2021 14:39:52 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_07262021/</guid>
+      <description>Render Texture OnRenderImage is an event function called after a Camera has finished rendering. It allows us to modify the Camera&amp;rsquo;s final image. Built-in: calls it on the same GameObject as an enabled Camera component. SRP: use ScriptableRenderPass instead.
+GetTemporary and ReleaseTemporary GetTemporary will return a RT for temporary calculations. Release it using ReleaseTemporary as soon as we&amp;rsquo;re done with it. Unity keeps an internal RT pool, so calling GetTemporary might return a created one if the size and the format are the same.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 07192021</title>
+      <link>https://endfang.github.io/posts/ta_log_07192021/</link>
+      <pubDate>Mon, 19 Jul 2021 14:38:31 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_07192021/</guid>
+      <description>Shader Shader.SetGlobalVector(int nameID, Vector4 value)` Sets a global vector proper. Shader will use the global property if it is not defined in Properties block. example: `_LightDirection` in `ShadowCasterPass.hlsl ZTest Always sets NO depth testing. The geometry is drawn regardless of distance.
+Texels vs. Pixels Texels are the elements of a texture. While pixel is the element of an image. When we zoom in a 3D model, we may see 1 texel presented by many pixels.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 07122021</title>
+      <link>https://endfang.github.io/posts/ta_log_07122021/</link>
+      <pubDate>Mon, 12 Jul 2021 01:40:30 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_07122021/</guid>
+      <description>hlsl float frac(float v) { return v - floor(v); } fmod(x, y) returns the floating-point remainder of the x parameter divided by the y parameter
+float remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x); } float fresnelEffect(float3 normal, float3 viewDir, float power) { return pow(1.0 - saturate(dot(normalize(normal), normalize(viewDir))), power) } Shader Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another.</description>
+    </item>
+    
+    <item>
+      <title>Patch 5.5 Full Moon</title>
+      <link>https://endfang.github.io/posts/5-5-full-moon/</link>
+      <pubDate>Thu, 10 Jun 2021 18:57:37 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/5-5-full-moon/</guid>
+      <description>Intro I resigned and I have one week&amp;rsquo;s free time, so here it goes the gaming marathon. I had to change my glamours and hairstyle because they were ugly. I would never start a MSQ without getting well dressed.
+MSQ After Zeno killed the previous emperor, he and Fandaniel formed a fraction &amp;quot; Telophoroi&amp;quot; and joined the civil war. However, crown prince had no intention on controlling the empire. Most of the soldiers were tempered by the Lunar Primals.</description>
+    </item>
+    
+    <item>
+      <title>Frowned II</title>
+      <link>https://endfang.github.io/posts/frowned-ii/</link>
+      <pubDate>Wed, 09 Jun 2021 01:37:41 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/frowned-ii/</guid>
+      <description>That was March. I was suffering from the poor project management and designer&amp;rsquo;s whimsical feature requirements. I started sending resumes and taking interviews and really got one position before the Qingming break. It was the best decision I made in Daydream Games. Now I don&amp;rsquo;t need to deal with the tightened project timeline and other nonsense.
+It disappointed me that this game company did not want a technical artist but a cheap labor.</description>
+    </item>
+    
+    <item>
+      <title>Mali Offline Compiler</title>
+      <link>https://endfang.github.io/posts/malioffline/</link>
+      <pubDate>Sat, 29 May 2021 01:34:25 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/malioffline/</guid>
+      <description>Valhall uses index-driven vertex shading to compiles vertex shaders into two binaries: Position Shader and Varying Shader.
+Position Shader computes only position and is executed for every indexed vertex. Varying Shader computes the remaining non-position attribute outputs. It&amp;rsquo;s only executed for vertices that are part of a visible primitive that survives culling.
+ Work Registers Uniform Registers Stack spilling: how much memory is stacked because variables spilled  spill: when there are not enough registers to keep the variables, some of them may be moved to and from RAM.</description>
+    </item>
+    
+    <item>
+      <title>Unity Rendering Optimization</title>
+      <link>https://endfang.github.io/posts/rendering-optimization/</link>
+      <pubDate>Wed, 17 Mar 2021 01:06:35 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rendering-optimization/</guid>
+      <description>Q; The ways of optimizting?
+  Static Batching.
+Objects are explicitly specified to be static. It can&amp;rsquo;t have any change in transform. It also requires additional memory to store combined geometry. 100 objects are 100 copy.
+  Dynamic Batching
+The mesh and materials need to be the same, and the mesh must have less than 300 vertices. The objects should not moving around. Shaders should have one pass. Instanced materials and lightmapping are not allowed.</description>
+    </item>
+    
+    <item>
+      <title>2021 Lunar New Year Break Review</title>
+      <link>https://endfang.github.io/posts/2021-new-year-break-review/</link>
+      <pubDate>Fri, 19 Feb 2021 01:21:07 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/2021-new-year-break-review/</guid>
+      <description>The lunar new year break was longer than I expected. I spent all the time in my apartment and barely go outside. I usually play the games from morning to 2pm. Then I would either read or play Ring Fit Adventure in the afternoon, and a movie or another gaming session for the night. It was peaceful until I watched a monitor review video on YouTube. This video shown me an affordable 27 inches 4K resolution monitor, and I didn&amp;rsquo;t resist the urge to buy it.</description>
+    </item>
+    
+    <item>
+      <title>Unity Overdraw</title>
+      <link>https://endfang.github.io/posts/unity-overdraw/</link>
+      <pubDate>Mon, 08 Feb 2021 01:23:06 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-overdraw/</guid>
+      <description>Achieving 60FPS on mobile, Youtube
+Optimizing Graphics in Unity, Unity
+Overdraw Overdrawn is to draw one pixel more than once. Post-processing will re-touch the pixel at least once. It adds burdens to the GPU and delays the frame.
+Rendering is done by draw calls. The intermediate steps are not on the screen but in frame buffers. A frame buffer is a memory buffer that contains data representing the pixels in a complete video frame.</description>
+    </item>
+    
+    <item>
+      <title>Magenta</title>
+      <link>https://endfang.github.io/posts/magenta/</link>
+      <pubDate>Tue, 22 Dec 2020 14:35:52 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/magenta/</guid>
+      <description>Lovecraft&amp;rsquo;s described a color outside of the visible spectrum in his novel Color Out of Space. This color was emitted from an alien creature which destroyed an area later in the. Even though the idea of a color that is outside the spectrum sounds illogical, but magenta is such color. We can see magenta, but it doesn&amp;rsquo;t exist in the spectrum.
+Magenta is loosely defined as purplish-red or reddish-purple. In color wheels of the RGB, it is located exactly midway between red and blue.</description>
+    </item>
+    
+    <item>
+      <title>Fundamentals of CG - Raster Images</title>
+      <link>https://endfang.github.io/posts/fcg-raster-images/</link>
+      <pubDate>Fri, 18 Dec 2020 15:47:09 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fcg-raster-images/</guid>
+      <description>Raster Display shows images as rectangular arrays of pixels. It&amp;rsquo;s also prevalent in devices, hence the raster images are also the most common way to store and process images. Raster Image is simply a 2D array that stores the pixel value for each pixel. It&amp;rsquo;s not a good way to display images since the pixel number is not always the same and we want to change the orientation and size sometimes.</description>
+    </item>
+    
+    <item>
+      <title>Frowned I</title>
+      <link>https://endfang.github.io/posts/frowned-i/</link>
+      <pubDate>Mon, 14 Dec 2020 15:49:36 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/frowned-i/</guid>
+      <description>Here I am. Writing about my depression. It&amp;rsquo;s coming back to me.
+I almost believed that I do not need to write my dprs series anymore, because I did not feel depressed and anxious often. Nevertheless, they all jump back and hit me hard in the last several weeks.
+The reason might be the job hunting, the anger towards the gov, the uncertainty, the nightmares, the longing, the lonesomeness, the irregular eating habit.</description>
+    </item>
+    
+    <item>
+      <title>Fundamentals of CG - Intro</title>
+      <link>https://endfang.github.io/posts/fcg-intro/</link>
+      <pubDate>Mon, 14 Dec 2020 14:03:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fcg-intro/</guid>
+      <description>Avoid any specific hardware or API because CG is a rapidly evolving field and the specifics of that knowledge are moving target.
+Terminology: Modeling deals with the mathematical specification of shape and appearance properties in a way that can be stored on the computer. Rendering deals with the creation of shaded images from 3D computer models. Animation is a technique to create an illusion of motion through sequences of images.</description>
+    </item>
+    
+    <item>
+      <title>Interview Preparation</title>
+      <link>https://endfang.github.io/posts/interview-preparation/</link>
+      <pubDate>Fri, 11 Dec 2020 21:17:26 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/interview-preparation/</guid>
+      <description>I’ve been hunting jobs since my current jobs are not satisfying me.
+Here are my preparation on some C# and Unity questions.
+what is c# c# is an object-oriented, type-safe, and managed language that is compiled by .Net framework to generate Microsoft Intermediate Language. object-oriented is a paradigm based on the concept of &amp;ldquo;objects&amp;rdquo;, which can contain data in the form of field and code in the form of procedures. A feature is that the code procedure can modify the data fields of itself.</description>
+    </item>
+    
+    <item>
+      <title>Unity EditorWindow And Assetprocessor</title>
+      <link>https://endfang.github.io/posts/unity-editorwindow-and-assetpostprocessor/</link>
+      <pubDate>Mon, 30 Nov 2020 01:18:33 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-editorwindow-and-assetpostprocessor/</guid>
+      <description>Tutorials Editor folder contains any editor scripts. It allows no mono behavior scripts in it.
+AssetPostprocessor is one of the editor class. One of the properties is assetPath, the path name of the asset being imported.
+A series of function is called in the following order during the model import:
+ OnPreprocessModel: I can override ModelImporter settings in here. After meshes and materials are imported, GameObjects hierarchy is created from the imported nodes.</description>
+    </item>
+    
+    <item>
+      <title>Dragon&#39;s Dogma - Dark Arisen</title>
+      <link>https://endfang.github.io/posts/dragons-dogma-dark-arisen/</link>
+      <pubDate>Thu, 19 Nov 2020 16:49:54 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/dragons-dogma-dark-arisen/</guid>
+      <description>Entry 1 DD has three start vocations. It&amp;rsquo;s amusing that game designers can come up with all those names to describe one thing. I always play mage in every game. Once I reached a certain level, advanced vocation and hybrid vocation will be available. Of course I choose Sorcerer. In the games I&amp;rsquo;ve played, Dragon&amp;rsquo;s Dogma has the best magic battle system so far. It takes time to incant a spell and aim to the target, but the casting a spell gives awesome feeling.</description>
+    </item>
+    
+    <item>
+      <title>Matrix Calculation</title>
+      <link>https://endfang.github.io/posts/matrixcalculation/</link>
+      <pubDate>Wed, 18 Nov 2020 14:54:20 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/matrixcalculation/</guid>
+      <description>&lt;h1 id=&#34;gaussian-elimination&#34;&gt;Gaussian Elimination&lt;/h1&gt;
+&lt;p&gt;Gaussian Elimination is used to solve a system of linear equations. It transforms the matrix into a reduced row-echelon form.&lt;/p&gt;
+&lt;p&gt;The transformation is completed with the row operations. We can swap rows, multiply rows by a nonzero number, and adding one row to another. In such a way, the matrix will become an upper triangular matrix whose all leading coefficients are 1.&lt;/p&gt;
+&lt;p&gt;for example, the following equations can be transform to the matrix:
+$$
+\begin{align}
+\nonumber r_0 + r_1 = 26 \&lt;br&gt;
+\nonumber r_1 + r_2 = 20 \&lt;br&gt;
+\nonumber r_0 = 2r_2 \&lt;br&gt;
+\end{align}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{vmatrix}
+1 &amp;amp;&amp;amp; 1 &amp;amp;&amp;amp; 0 &amp;amp;&amp;amp; 26 \&lt;br&gt;
+0 &amp;amp;&amp;amp; 1 &amp;amp;&amp;amp; 1 &amp;amp;&amp;amp; 20 \&lt;br&gt;
+1 &amp;amp;&amp;amp; 0 &amp;amp;&amp;amp; -2 &amp;amp;&amp;amp; 0 \&lt;br&gt;
+\end{vmatrix}
+$$&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Patch 5.4 Future Rewritten</title>
+      <link>https://endfang.github.io/posts/5-4-future-rewritten/</link>
+      <pubDate>Sat, 07 Nov 2020 19:22:55 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/5-4-future-rewritten/</guid>
+      <description>Intro I&amp;rsquo;m very glad when they announce Future Rewritten is on December 8, because I worried that it might get delayed like 5.3.
+I do not mind the spoiler, so I checked the /ffxivdiscussion subreddit. The 5.4 special website only revealed the first and second boss of Eden&amp;rsquo;s Promise. The third and fourth are supposed to be a surprise and not so easy to think of. According to the data mining, a creature mixed of Thancred and Ranjit will be a boss.</description>
+    </item>
+    
+    <item>
+      <title>5.3 中人人都爱 G&#39;raha Tia</title>
+      <link>https://endfang.github.io/posts/5-3grahatia/</link>
+      <pubDate>Sun, 01 Nov 2020 19:22:55 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/5-3grahatia/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://i.imgur.com/1CPPzKa.jpg&#34; alt=&#34;welcome&#34;  /&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;
+&lt;p&gt;The long waited patch 5.3 is finally in her.
+It&amp;rsquo;s been so long. I&amp;rsquo;m just glad that it is delivered without enormous problems.
+We met Yoshi-P in the Rising event again:&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://i.imgur.com/SoQaXXl.jpg&#34; alt=&#34;yoshi-p&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;Thank you for bring us the XIV!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tree And Wind Shader</title>
+      <link>https://endfang.github.io/posts/unity-tree-and-wind/</link>
+      <pubDate>Fri, 23 Oct 2020 11:26:50 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-tree-and-wind/</guid>
+      <description>Vertex Color, Alpha and Shadow Surface shader is actually a vertex and fragment shader too, so theoretically the vertex data is accessible in surface shader too by using SEMANTICS or common state vert
+struct v2f { half4 color : COLOR; }; As for the Alpha Texture, we can decide the color based on the UV mapping in vertex function
+fixed4 frag (v2f i) : COLOR0 { ... fixed alpha = tex2D (_AlphaTex, i.</description>
+    </item>
+    
+    <item>
+      <title>5.2开始铺路</title>
+      <link>https://endfang.github.io/posts/where-5-2-is-leading-to/</link>
+      <pubDate>Tue, 11 Aug 2020 00:32:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/where-5-2-is-leading-to/</guid>
+      <description>Intro Everything is next level.
+MSQ WoD heads back to the First and is informed that a new crystal vessel storing soul is invented to help Scions go back to the Source.
+After WoD cleaned Warriors of Light&amp;rsquo;s name by telling the truth behind the Floor, Elidibus possessed Ardbert&amp;rsquo;s body to encourage everyone to become a Warrior of Light. He also created an illusion of the meteor shower to invoke many people&amp;rsquo;s Echo.</description>
+    </item>
+    
+    <item>
+      <title>Unity Render Pipeline</title>
+      <link>https://endfang.github.io/posts/unity-render-pipeline/</link>
+      <pubDate>Sat, 30 May 2020 11:07:27 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-render-pipeline/</guid>
+      <description>RP is a series of operations that take the contents of a Scene and displays them on a screen. At a high level, these operations are Culling, Rendering, and Post-Processing. It&amp;rsquo;s difficult to switch from one to another RP because the shader outputs varies and might not have the same feature. We can custom shaders in different piplelines, but the ultimate effect may be different. Unity has Built-In, Universal, and High Definition and Scriptable RP.</description>
+    </item>
+    
+    <item>
+      <title>Guide Mask Shader</title>
+      <link>https://endfang.github.io/posts/guide-mask/</link>
+      <pubDate>Thu, 07 May 2020 11:58:35 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/guide-mask/</guid>
+      <description>Shader &amp;#34;UI/GuideMask&amp;#34; { Properties { [PreRendererData] _MainTex (&amp;#34;Sprite Texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} _Color (&amp;#34;tint&amp;#34;, Color) = (1,1,1,1) _StencilComp (&amp;#34;Stencil Comparison&amp;#34;, Float) = 8 _Stencil (&amp;#34;Stencil ID&amp;#34;, Float) = 0 _StencilOp (&amp;#34;Stencil Operation&amp;#34;, Float) = 0 _StencilWritemask(&amp;#34;Stencil Write Mask&amp;#34;, Float ) = 255 _StencilReadMask(&amp;#34;Stencil Read Mask&amp;#34;, Float) = 255 _ColorMask(&amp;#34;Color Mask&amp;#34;, Float) = 15 [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip (&amp;#34;Use Alpha Clip&amp;#34;, Float) = 0 _Center(&amp;#34;Center&amp;#34;, vector) = (0, 0, 0, 0) _Slider(&amp;#34;Slider&amp;#34;, Range(0, 1500)) = 1500 } SubShader { Tags { &amp;#34;RenderType&amp;#34;=&amp;#34;Opaque&amp;#34; &amp;#34;IgnoreProjector&amp;#34; = &amp;#34;True&amp;#34; &amp;#34;RenderType&amp;#34; = &amp;#34;Transparent&amp;#34; &amp;#34;PreviewType&amp;#34; = &amp;#34;Plane&amp;#34; &amp;#34;CanUseSpriteAtlas&amp;#34; = &amp;#34;True&amp;#34; } Stencil { Ref [_Stencil] Comp [_StencilComp] Pass [_StencilOp] ReadMask [_StencilReadmask] Writemask [_StencilWriteMask] } Cull Off Lighting Off ZWrite Off ZTest [unit_GUIZTestMode] Blend SrcAlpha OneMinusSrcAlpha ColorMask [_ColorMask] Pass { Name &amp;#34;Default&amp;#34; CGPROGRAM #pragma vertex vert #pragma fragment frag #pragma target 2.</description>
+    </item>
+    
+    <item>
+      <title>5.1 中人人都爱 WoL</title>
+      <link>https://endfang.github.io/posts/5-1/</link>
+      <pubDate>Sun, 15 Dec 2019 17:24:20 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/5-1/</guid>
+      <description>Intro 回国后只能靠加速器低速更新。总有一天要再出去。
+MSQ According to Krile, the link between scions&#39; bodies and souls are weakening. It is urgent to find a way to bring scions back to the source. crystal exarch suggests we ask help from the soul expert. With his help, Alisaie learned a spell to stimulate tempered people&amp;rsquo;s aether and bring them back. Meanwhile, Master Chai was elected as the new mayo in Eulmore. He sought help from the former mayor&amp;rsquo;s advisory Wreden.</description>
+    </item>
+    
+    <item>
+      <title>Unity Vertex And Fragment Shader</title>
+      <link>https://endfang.github.io/posts/unity-vertex-and-fragment/</link>
+      <pubDate>Sat, 30 Nov 2019 11:03:52 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-vertex-and-fragment/</guid>
+      <description>Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There&amp;rsquo;s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.
+*Surface shader is actually compiled to vert/frag shader.
+Shader &amp;#34;Unlit/SolidColor&amp;#34; { SubShader { Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag struct vertInput { float4 pos : POSITION; }; struct vertOuput { float4 pos : SV_POSITION; }; vertOuput vert(vertInput input) { vertOuput o; o.</description>
+    </item>
+    
+    <item>
+      <title>Unity Shader Overview</title>
+      <link>https://endfang.github.io/posts/unity-shader-overview/</link>
+      <pubDate>Sat, 30 Nov 2019 10:59:20 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-shader-overview/</guid>
+      <description>Thanks to these posts and blogs: Michael Sanders Catike Coding Alan Zucconi
+Unity has 3 types of shader: surface shader, fragment and vertex shader, and the obsolete fixed function shader. They all have the same anatomy.
+Catlike Coding
+Shader &amp;#34;MyShader&amp;#34; { Properties { // The properties of your shaders // - textures // - colours // - parameters // ... _MyTexture (&amp;#34;My texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} _MyNormalMap (&amp;#34;My normal map&amp;#34;, 2D) = &amp;#34;bump&amp;#34; {} // Grey _MyInt (&amp;#34;My integer&amp;#34;, Int) = 2 _MyFloat (&amp;#34;My float&amp;#34;, Float) = 1.</description>
+    </item>
+    
+    <item>
+      <title>放假后从早玩到晚的古剑奇谭3</title>
+      <link>https://endfang.github.io/posts/gujian-3/</link>
+      <pubDate>Fri, 04 Oct 2019 18:53:17 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/gujian-3/</guid>
+      <description>Intro 抓到了打折的尾巴。Nice。天朝的 PC 端游戏落后果然是真的。我不是说古剑奇谭3是个糟糕的游戏，但是在比较之下差异就会显现出来。
+石化咒与无声咒 我第一个注意到的地方就是剧情对话中人物的脸上都是没有表情的。我可以看见人物的眉毛和嘴巴在动，但是我还是觉得他们的表情无限接近于零。跟个石头一样。人物的动作衔接也并不是十分自然，尤其是在过场剧情中。又不是每一个场景都是龙宫皮影戏。
+顺带一提，龙宫是整个游戏中创意表达最优秀的地方。过场剧情由皮影戏和戏曲腔调来展现。战斗也靠着“影”从 3D 变成 2D 横轴。
+配乐很棒，比方说无名之地的背景乐中并没有用急促紧张的节奏或者尖锐的乐器来表现一个鬼地，而是用了缓慢忧伤的调子，其中还混入了鬼哭声。 但是嘴巴动作和配音对不上，而且很多战斗的剧情中的音效都像被施了无声咒一样：那只我叫不出名字的鸟妖拍打翅膀没有声音，獍妖的吼叫没有发声，北洛做出一个反人类动作也没有声音。我觉得画面和音乐已经是好的了，但没有声效就显得所做的努力全白费了。
+你把任务日志藏在哪里了 我所见过的垃圾的 RPG 任务系统之一。任务有主线，支线还有场景。一次只能追踪一个主线和一个支线/场景。场景还要到了相对应的地图才会出来。任务记录和进程不能任意快速查看，全靠地图界面右边侧栏。你好歹给我个便捷的窗口显示一下我接了哪些任务以及做到哪个部分了好吗？那个青桐剑和壁画的任务还是我偶然进了剑炉和无名之地触发了对话才想起来还有这么个事情。侠义榜上有很多都是要制作或者收集的物品，收集到了任务物品也不会有提升说已经收集了多少个，我还得在物品栏里面一个个翻啊？ 还有主菜单每次都要加载，等那个圆圈转一下。急死我了。每次退出子菜单，默认选项也会退回到“人物”还是“队伍”，烦人。
+不上不下的战斗 一开始出现的选择控制模式出现了 “ACT”，我以为这是靠组合 combo 来战斗的游戏，结果是靠积攒元气来释放技能的类型。可是元气积攒的很慢…… 为了要提高连击数来发动星蕴的效果（30 以上）我就必须靠不中断攻击，很多爬行动物的攻击必须靠技能打断，不然会被打。所以我陷入了“一格元气到手 —— 爬行动物要发招了 —— 发动技能 —— 打断爬行动物 —— 元气清零” 的死循环中，很少使用需要两格元气的技能。就算放弃连击数，靠契约生物和技能打，战斗还是很枯燥。普通的轻重攻击组合的 combo 效果并不突出，剑技能和召唤还有队友的协作必须等，所以成了一直在磨血的战斗。精力可以用来防御，闪避和冲刺，但是如果防御成功，短时间内闪避和冲刺就会减少，而且防御反击的成功率都我来说连 50% 都不到。一场打下来非常累。再加上每次都见到一样的敌人模型和攻击方式。第一次到了经天轮中后我看见一地的爬行动物就完全放弃了战斗，一路跑到了山顶上。
+另外，为什么我不能控制岑缨和云无月！除了能打 combo 的鬼泣，DAI 中骑士魔法的剑，和 rapier，在所有武器中，剑是我不想用的武器之一。我都能给他们加技能点数了就不能让我控制他们战斗吗？
+人人都爱千秋戏 是个 NPC 就爱玩千秋戏。侠义榜上也有很多挑战。是不是在古剑的世界中千秋戏有围棋的地位？玩得厉害还能成为国手享无上荣耀？我每次都抽到需要欧阳少恭的牌，但是欧阳少恭宗总是不出现，气死我了。 千秋戏给我的感觉和花札牌很像，都是靠做出组合来得分。越难做的组合得分越高。我做过的最高点是“古剑奇谭”，就莫名其妙就收集到了所有的剑，然后分数点蹭的一下就跑到了100以上。 这个比 FF14 的 Triple Triad 要老实本分得多。TT 经常玩到最后出现连续 combo 把玩家耍得团团转，千秋戏还会给你提示。 感觉能出精美周边。出了我就考虑买。
+似乎要把家园玩塌了 抛开古剑不说，所有的国产游戏都一定要有一个家园是怎么回事？是因为历史上自给自足的的小农经济带来的影响吗？ 不玩家园活不下去。除去家具和 customization，家园系统看似方便，实际上是被镶嵌的游戏体验中了。侠义榜上的 10 个鹿活草我就真的不想跑到野外去收集。野外地图很大但是能探索和收集的地方很少。到了中期所有的装备都只能从家园的建造中获得。建造就要靠收集材料和工匠。材料靠契约种族和种植，这些雇佣工人也要靠材料和烹饪存活。这个完美的自给自足的小农经济…… 那个洒水声音的最后有点上不了台面。
+梦能解释一切 但玩家不是弗洛伊德。有一部分剧情是靠着梦来解释的。我不知道北洛到底在剧情的发展中知道些什么，但是他和缙云之间的联系被解释得很粗糙。XIV 中 Y&amp;rsquo;shtola 失去视力后没有明说，但是 Matoya 问她为什么眼中失去了光彩后玩家都知道 Y&amp;rsquo;shtola 已经确实不能靠眼睛来看了。古剑3中很多事情都是靠“因为在梦中见过了”来解释，你说什么就是什么吧，反正我是没看到。我记得很清楚，从梦中的巫之国那里开始，北洛就突然啥都知道了。特别多的名次冒了出来，我是没有听懂。和 王国之心3 的叙事有得一拼。</description>
+    </item>
+    
+    <item>
+      <title>Shader Basic</title>
+      <link>https://endfang.github.io/posts/shader-basic/</link>
+      <pubDate>Mon, 23 Sep 2019 18:35:07 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/shader-basic/</guid>
+      <description>Basics  shader language has a single main that returns color at the end final pixel color is assigned to gl_FragColor C-flavored language has built in variable, function, type preprocessor macros (pre-compiled)  #define global variable #ifdef and #endif   lower precision → faster rendering, less quality  precision medium float precision lowp float precision highp float   GLSL specs doesn&amp;rsquo;t guarantee auto-cast  vec4(1, 0, 0, 1) will raise error, because it&amp;rsquo;s not float   multiple ways of constructing vec4  vec4 color = vec4(vec3(1.</description>
+    </item>
+    
+    <item>
+      <title>Jibber Jabber 07</title>
+      <link>https://endfang.github.io/posts/jibber-jabber-07/</link>
+      <pubDate>Sun, 22 Sep 2019 19:32:41 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/jibber-jabber-07/</guid>
+      <description>KFC I ordered some small snacks and sides in KFC, french fries, hot wings, chicken popcorn, and chicken nuggets. They all taste like&amp;hellip; nothing? It is either my tongue or the food. I think it is food. It It is worth to mention that I did not expect that the chicken nuggets are durian flavor. I hate durian&amp;rsquo;s smell, but it is fairly good when it is cooked with other food.</description>
+    </item>
+    
+    <item>
+      <title>Jibber Jabber 06</title>
+      <link>https://endfang.github.io/posts/jibber-jabber-06/</link>
+      <pubDate>Wed, 04 Sep 2019 22:05:09 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/jibber-jabber-06/</guid>
+      <description>Q&amp;amp;A The Q&amp;amp;A section in Taobao/Jindong is full of idiots.
+Q: How much liquid can this cup contains? A1: Just okay. A2: I bought for my boyfriend. A3: I don&amp;rsquo;t know.
+Just… okay … how much is “okay”? Boyfriend … Are you blind？Did you read the question? Do you have dyslexia? Did your boyfriend help you understand the question? Or is he also an idiot? You don&amp;rsquo;t know… what&amp;rsquo;s wrong with you?</description>
+    </item>
+    
+    <item>
+      <title>5.0 的熬夜</title>
+      <link>https://endfang.github.io/posts/shadowbringers/</link>
+      <pubDate>Mon, 02 Sep 2019 12:32:46 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/shadowbringers/</guid>
+      <description>我根本就没有睡着。我是第一批登陆服务器的玩家。
+AST 很多人都不喜欢 AST 的技能修改：从六种不同的 buff 到 只增加伤害。对我来说其实并没有改变多少，以前的六种不同的 buff 最终目的都是增加伤害，比如 BLM 是减少咏唱时间 的 Arrow，DPS 是增加伤害的 Balance，Tank 是减少受到的伤害的 Bole。现在每一张卡片的效果都是增加伤害，只是对应了不同的 role 而已；而且以前大部分人都只想要抽到 Balance，现在的目的则是抽到不同的卡片来收集 seals。一旦有三种不同的 Seals 就可以使用 Divination 来进一步增加伤害。不过是从 Balance 变成 Seal 而已。没有很大的区别。 不过由于 sects 缺少了 healing buff，以及 Largess 的消失，所以在 leveling dungeon 中很难处理 big pull。就我的体验来说，WHM 是所有 healer 中最完美的，既能 burst healing 又能使用 shielding。SCH 的 新仙女 Seraph 的用处并不明显。我对于 SMN 和 SCH 的新的召唤唯一不满的地方就是剧情上 和 lore 上并没有解释为什么会出现新的召唤技能。现在每一个 Job 都只有一个 80 级的 Job Quest，剧情非常少。5.0 集中在了 Role Quest 上。玩家通过升级不同的 role 来回顾 WoD 的冒险。</description>
+    </item>
+    
+    <item>
+      <title>Jibber Jabber 05</title>
+      <link>https://endfang.github.io/posts/jibber-jabber-5/</link>
+      <pubDate>Tue, 06 Aug 2019 16:29:24 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/jibber-jabber-5/</guid>
+      <description>Why is so hot One thing I don&amp;rsquo;t understand about my family is why they like to drink hot tea and eat spicy food in hot weather. It&amp;rsquo;s already above 30-celsius degree inside the building and they are complaining about how hot the weather is. Why do you complain about it when you are doing it willingly? I made ice cubes to have cool water every day in the past week.</description>
+    </item>
+    
+    <item>
+      <title>Forward XVIII</title>
+      <link>https://endfang.github.io/posts/forward-xviii/</link>
+      <pubDate>Fri, 26 Jul 2019 10:53:00 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-xviii/</guid>
+      <description>7.24
+开始收尾。首先搭火车回学校 request mailing service，然后关掉银行账户。 回 LA 的时候没有意识到 Lyft 的 tips 实际上是从 card payment 中扣除，所以只能用 gift card 的我多了 $1 的 balance。第一位客服图省事一直告诉我不能取消 tip。然后我再发了一封邮件后终于给我取消了。客服懒死算了。
+Daniel 家住地下室，房间算是比较脏乱的 Airbnb。地毯已经变灰色了，而且纸屑和不显眼的小垃圾到处都是。他收藏了半个房间的 Magic 卡片。游戏主机摆满了电视柜。
+7.25
+我去看了 The Lion King。CG 动物看上去就是真的。而且每一只狮子都有它们自己的特点，除了 Nala 和 Sarabi 长得一样。老实说所有母狮子都长得一样。狮子们的表情并不像动画中那么丰富。音乐还是挺好的，中间来了一句 Beauty and Beast 的 “Be Our Guest”。
+然后 …… 我又吃了拉面。还去了 MUJI 买 …… 拉面怎么就那么好吃呢？
+7.26
+终于到了最后一站。心情比预期来的平静。 但是我离开 Chicago 的时候心情也比预期来的平静，结果伤心到不行。 实际上到了最后我好像没什么想说的。</description>
+    </item>
+    
+    <item>
+      <title>Forward XVII - Mr. David</title>
+      <link>https://endfang.github.io/posts/forward-xvii/</link>
+      <pubDate>Tue, 23 Jul 2019 08:03:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-xvii/</guid>
+      <description>7.20 - 7.23
+The heartless life likes to mock us. It made us meet each other, yet give us so little time.
+His brown-ish yellow eyes are beautiful. I can see me reflected in his eyes. His hands are bigger than mine and can easily hold mine. He likes kissing. His kiss is sweet, wet and cool, probably because he likes to chew gums. He likes nature and walking around in the park.</description>
+    </item>
+    
+    <item>
+      <title>Forward XVI</title>
+      <link>https://endfang.github.io/posts/forward-xvi/</link>
+      <pubDate>Fri, 19 Jul 2019 09:50:20 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-xvi/</guid>
+      <description>7.8
+Do it when you could. 这就是 Forward 现在所教给我的。出发的时候我很难过，现在旅程开始朝着终点加速，我还是很难过。这六年来我一直在说“光阴似箭日月如梭”，这一次是真的时间飞逝了。“欢乐的时光总是过的特别快。”我十分确定这种感觉以后一定还会有。
+最早知道 California Zephyr 是 2015 年的春天，当时读到了关于火车上 Game Jam 的新闻。一群人在火车上组成队伍，两天内制作出一部游戏作品。到了终点后就开始展示队伍的成果。
+我预订了一间 rommette。由于是一个人，可以独享两个座位和床。要经历两个晚上还是不要坐在一般的椅子上了。窗户很大，有窗帘。下午的时候太阳会直射进车厢。 Roomette 包括了所有的 meals。我发现 dinning cart 里面大部分乘客都是老人。可能是年轻人都想着自驾或者飞行吧。我点了一份鸡胸肉。一盘下去我觉得我真的太饱了。同桌的人还点了点心。我彻底放弃，根本吃不下。我想起了很久很久以前唐老师不准我在饭桌上浪费食物。
+一开始的窗外风景大多是田地，大草坪和小树林。偶尔能看见小镇或者工厂。 老实说我很希望我的对面能坐着一个人。我决定在到达终点后再去一次洛杉矶的 Universal，以及去格里菲斯天文台。我想再看看。
+因为是在火车上，所以试着把 Grindr 加上了照片。反正我是在异国一辆行驶的火车上，也不会有什么严重的后果。顶多就是很倒霉地让一个反社会分子把我的照片 PS 后 po 到网上最终成为 meme 永远被人笑话或者被 serial killer 看上然后被谋杀。考虑到很多 Grindr 用户都用了照片，这种事情发生的几率还是很小很小。顶多就是被笑上长得丑陋。实际上还是有人搭话，我借这个机会练习如何在谈话中夸人。就比如说有人的照片是小腹，我就夸他的肚脐很好看。 我真的没什么夸人的能力。 夸了几轮之后，我觉得我掌握了聊天的技巧。比如有人的身上有纹身我会夸纹身很酷。总之就是根据照片来找一个点。光说 hi 和 hello 可么啥用。然后我被疑似骗子的 sugar daddy 搭话了。对方说想找一个 sugar babby，每周给 500 零花钱。那一个月不就有 2000 了？哪有这种好事。尤其是对方能看见我离他有多远的情况下。为什么要找一个只能发消息不能见面的 baby 呢。脑子坏了吗？ Grindr 毕竟早就沦为约炮工具了。练习完夸人之后就要练习拒绝。夸完就跑，听上去好渣。好吧，我在火车上本身就是个拒绝，都不要练习瞎编理由。但有一个人很特别，就算我跟他说了我在火车上之后他还是继续和我聊天，也问我会不会再去伊利亚诺斯中部，他愿意见我。他刚好是我喜欢的类型。好吧，这可能是花招，但是从没经历过这种事情的我懵了。就像 Minfilia 被 Thancred 摸头。这可能是我夸完就跑的报应吧。 气死我了。
+7.9
+昨晚 Nebraska 有风暴，铁轨上覆盖了泥沙，需要清洗才能行车。所以从 2:30 am 开始火车就停在了 Lincoln 站台。半夜我就觉得好冷，但我以为是 AC 太强了。早餐也从 7 am 才开始供应。一直到 10:30am 火车才开始行使，这之前我一直用热点玩 XIV。 窗外的景色总是一样的：农场和草坪，偶尔的小镇。没有什么特别的景象。下午开始洗脑循环 Satisfied。 Surge 上还是没有 match。Grindr 上的风向倒是开始变化了，搭讪的人已经全部变成了 daddies。我都不知道该从哪里了开始夸，都是上来就是问要不要做他的 sugar babby。我觉得大多数都是 scammer。放着附近的真人不着要却来找虚拟世界的人，还只要 sex chat 和 naughty pics。我还从一位用户的 profile 上学到了怼人句式：“Save your dick pics.</description>
+    </item>
+    
+    <item>
+      <title>红楼 Theme Park</title>
+      <link>https://endfang.github.io/posts/red-chamber-theme-park/</link>
+      <pubDate>Fri, 19 Jul 2019 09:35:46 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/red-chamber-theme-park/</guid>
+      <description>再一次和友人溪谷恩 yy 红楼。起因是我在 Universal Hollywood 玩疯了。
+ 首先大观园搞起来。 主要角色不能出场，演员容易被骂。一些次要角色和丫鬟小厮门可以有。 能捡到“妖精打架”的绣囊。可以直接卖。 假山后建一个厕所。 鸽子蛋 2 两一个。 潇湘馆要去五次以上，交钱氪金才准进去。（太过分了吧。）乘着黛玉不在的时候还会上演“老鼠偷香芋”的皮影剧。卖扇套，和怡红院的扇子成套。 端午节的时候怡红院可以举行赶鸭子游戏。怡红院还卖扇子，和潇湘馆的扇套成套，西厢记，和其他小说。不下雨可以去怡红院玩花签/占花名，下雨出售蓑衣灯笼。那个黛玉给的琉璃的灯笼可以做成比较贵重的纪念品。（是琉璃吗？） 栊翠庵在冬天有红梅。开门密码是槛外人或者土馒头。卖妙玉的杯子。 工作人员扮演丫鬟小厮。到了晚上，工作人员就变成巡夜的婆子。 梨香院是个小剧场。 黄昏的时候有贵妃省亲，晚上就是放过年的烟花，还能猜灯谜。限量周边“大哥有脚只八只”的枕头。 一僧一道随机出现表演“好了歌”，甄士隐负责 rap。还能购买风月宝鉴。只有和尚出现的时候卖冷香丸。指不定还有盗版的暖香丸。 “写不得字”黄酒。“拉不得弓”鹅掌鸭舌。 “陋室空堂”。 松瓢馅儿的月饼搭配茶饮套餐。 听个笛子表演。 芦雪庵冬季鹿肉烤场。 贾氏宗祠的祭祀大场面可能有点难，游客可能看不到，准备的场面可以有，比如端着鱼肉一行人走过去。 宗祠还有鬼故事。 一天一次，拣到随机隐藏的金麒麟可以兑换奖品。换什么呢？鹅油卷儿，菱角，绛云石戒指选。 贾母的拐杖，王夫人的佛经，猩红大斗篷，孔雀裘也统统卖起来。 蜡烛烛台可以做成小机关，做成那种一不小心就要打翻在游客身上的效果。 这个乐园对女性员工的要求有点大啊。 化妆品！蔷薇硝，茉莉粉，还有那玫瑰捣的胭脂。 迪士尼给小孩化公主装，大观园给女子化金陵妆。（这个创意抄袭地太明显了） 两年后决定开一个新区：太虚幻境。云里雾里的。搞一个薄命司图书馆，红楼梦十二支曲表演，关联到无稽崖。  </description>
+    </item>
+    
+    <item>
+      <title>Forward XV</title>
+      <link>https://endfang.github.io/posts/forward-xv/</link>
+      <pubDate>Mon, 08 Jul 2019 12:53:42 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-xv/</guid>
+      <description>7.5
+早上五点开始就很难受。实际上只要是早上起来我都很难受。可还是要起床赶飞机去芝加哥。我现在在飞机上都是睡觉，飞机上发的小点心和饮料根本就没碰过。
+Ramon 和 Ryan 住在一个类似地下室的地方，虽然是一楼，但是真正的客厅地板还要在入门后下几个台阶，所以窗户水平对着外面的街道地面。他们两人养了两只黑色的拉布拉多。一上来就围着我转舔我的手指。很多 host 都提供电视，Netflix，Hulu，还有其它的流媒体。但是我从来没有碰过。老实说我几乎不怎么看电视了，这六年来。
+芝加哥和 Orlando 的天气有的一拼。暴晒下走了半小时感觉洗了个澡。溪谷恩说芝加哥是“风城”，听上去是一座和煦的城市。我希望天气会舒服一点。
+有趣的是 Grindr 上有人 tap 我，一开始就说想要我用电话联系，而且给了号码。听上去就很可疑。但是他的照片上他穿了一件夹克衫，衣领上别着很好看的 pin-back buttons： 我试着问他在哪里可以买到，他却坚持要我用电话联系。太可疑了。没有打电话。
+7.6
+不知道因为什么原因我一直认为今天是 7 号。天气不是特别热，我可以穿一件单薄的 cardigan 也不会觉得特别的热。我在搭地铁的时候看见了许多乘客。我认为这些乘客都很面善。我是说我觉得我好像在哪里看见过他们。可能是什么心理作用。所以我望向窗外，我看见了一个红头发的男人在草地上和狗玩。我确定我在什么地方看见过他，或者类似的人，他的火红头发以及那副黑框眼镜，还有他脸庞的轮廓。我一定在什么地方看见过。奇妙的感觉。
+芝加哥和纽约一样有很多高楼大厦： 这张照片居然没人信是我自己照的。
+芝加哥的艺术博物馆和 Metropolitan Museum 有的一拼。Metro 技术性来说是免费的，但是里面的餐点贵。芝加哥博物馆要买票，但接受全国范围内的学生票，里面的餐点也价格合理。我只知道美国人中午吃得少，Coast Starlight 的 menu 就能看出来：中午只有简单的食物，比如汉堡和沙拉；但是晚餐就比较丰盛了：牛排和鸡肉。同样的，Museum Cafe 里面大家也只点了一点食物，要么是沙拉，要么是一个汉堡。我喜欢中午多吃，晚上少吃，所以我拿了披萨和沙拉。
+去了这么多次艺术博物馆我算是明白我不喜欢看出土文物的展示，更喜欢看 painting 和听解说。文物要看背景介绍才能懂，但是 painting 比较直观。有一点就是我有读《小顾聊绘画》，所以还是知道一点绘画的知识的。比如鸽子代表了维纳斯，孔雀是赫拉，老鹰是宙斯，维纳斯旁边的会飞小男孩儿是丘比特。有一幅画是一个女人对着男人摆出训斥的样子，周围一群人围观讨论。男人脚下的老鹰和倾向他的女人脚下的孔雀就能说明这幅画是奥林匹斯十二神，生气的女人旁边是长着翅膀的小男孩，这就表示是维纳斯和丘比特。背后金发的英俊男人就肯定是阿波罗。头上有月亮装饰的则是阿尔忒弥斯。非常机智的我。 18世纪的欧洲的瓷器上全是欧洲人对亚洲的 fantasy。上面都描画着当时人们对亚洲的理解。老实说真的很丑。但是他们自己制作的装饰则是相当精美。比如有一座壁钟，由三个部分组成：底座，时钟和装饰。时钟的表盘上除了一般指针以外，上方还有一根调整报时旋律的指针。一共有六首曲子。时钟的周围装饰着神话故事：阿波罗对战 python。站在时钟最顶上的阿波罗将弓箭瞄准了时钟下放的 python。底座的正面有着雕刻，我没有看清上面的花纹，似乎是一颗心分成两半，人们认为这是代表着做华丽精致的壁钟是一件结婚礼物。 盔甲和武器的展区和 Metropolitan 大同小异。我没有找到日本刀，但是有很多欧洲中世纪时期的武器，骑士盔甲和蒙古装备。我对 rapier 有一种奇妙的 fatnasy。除了一般的武器以外，还有非常漂亮的装饰性 rapier：手柄是 war hammer，靠近手柄的刀身上有 pistol。这种三合一的 rapier 很难说有任何实用性，但却是很新奇很漂亮。 我发现了一尊英俊的河神的装饰雕像。
+Museum shop 里有非常漂亮的古铜色装饰着花朵和枝叶的发卡，居然要 75 刀；摆在一旁发簪却只要 15 刀。
+6.7
+我在最后一刻才决定去看 Hamilton。搭地铁只需要 30 分钟的时间。观众中我只看见了我一个亚洲人，而且座位还是左右两别都空着，觉得被排挤了。 我还是得看提词器上的歌词才行。大部分曲子的节奏都很快，如果是 rap 没有提词器我真的很难听懂。我喜欢的是由 Angelica Schuyler 演唱的 Satisfied。舞台上演员们表现出来的 rewind 效果，从 Hamilton 与 Eliza 的婚礼回溯到了 Winter Ball。Angelica 用 rap 表达自己对 Hamilton 的感情以及理智的思考，自己如何看待这个男人以及为何把他介绍给了自己的妹妹。她很尖锐的看出了 Hamilton 是一个不会被 satisfied 人；这也体现在后面的剧情中，Hamilton 在战争中领导战斗；独立后又成为律师，也为 The Federralist 写了 51 篇 essays。 Hamilton 的儿子 Philip 在决斗中遵从了父亲的建议，没有对准对手，而是将手枪指向了天空，却不幸中弹逝世。三年后，Hamilton 在和 Burr 的决斗中也将手枪指向天空，在 Burr 射出子弹的瞬间，所有以前发生的事，已经去世的家人和朋友，他们都站在另一边对 Hamilton 招手。 Eliza 在 Hamilton 去世后成立了孤儿院，Eliza 问 “Will they tell my story?</description>
+    </item>
+    
+    <item>
+      <title>Forward XIV</title>
+      <link>https://endfang.github.io/posts/forward-xiv/</link>
+      <pubDate>Fri, 05 Jul 2019 12:02:47 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-xiv/</guid>
+      <description>7.1
+一旦过了 Pride March，进入七月，旅行的终点就显得特别近了。
+Surge 上到目前为止只有一个 match，想赞美人都不行。总不能全部都点喜欢然后上去就骂。也有可能是我不太会找赞美的点，所以 pass 了很多。换了 Grindr 试了试，但是我误会了 Grindr 也是卡片模式，其实是 Blued 那种。我就觉得会非常糟糕。这种完全靠地理坐标太容易沦为约炮工具了。实际上我用了一个完全空白的 profile，但还是有人直接来约炮。我都不知道要怎么夸这个人。太直接了。 Suege 都是先找到能夸的点，这个上来就要夸该怎么办。
+第三次来到了 Orlando。天气预报又开始鼓吹要下大雨。机场外面阳光普照热到不行，但还是有很多云。吃晚饭的时候还打雷了。我觉得以防万一我还是带把伞。而且我还想去 Disney World。因为 app 推送有 Frozen 的 sing-alone，超级想一起唱 “For The First Time In Forever”。想到已经打开音乐 app 练习。
+7.2
+我真的觉得感冒已经好了。
+从早上刚开始低落到一度不想出门，到吃了早饭喝了一杯加糖的咖啡之后兴奋到想买五双袜子，我人为多巴胺是能拯救人类的神经递质。并没有买五双袜子。只买了一双。
+我比较想说的是最新的 Hagrid’s Magical Creatures Motorbike Adventure。这个不是那种起伏很大的过山车。Ride 除了会靠惯性移动以外，还会像摩托车一样加速。是那种能感觉得到的加速。座位每一排分为 motorbike 和 side car，我选择了 motorbike。除了一般过山车都有的扭曲的轨道以外，轨道是有尽头的。当摩托抵达尽头的时候会停止，接着靠惯性和加速下落和倒着跑。同时会切换轨道，所以再一次往前跑的时候会到达新的区域。我很不喜欢坐过山车，因为我怕高。但是这个 ride 的设计太棒，不是特别高的那种，但是旋转，加速，下坠和倒车的组合太棒了。要不是因为队伍太长又不接受 express 或者 single rider，我真的很想再坐一次。我一直在尖叫呐喊，出来后嗓子有点哑。值得一提的是我遇上了 maintenance，在队伍倔强的等了两个多小时。在室内昏暗的环境中。中途站着睡着了一会儿，脑海中出现了各种能记住的怪力乱神，从 flood of light 到宝石重合。我好像领悟了“站着浅睡”这个技能了。当队伍终于移动，坐着摩托看见外面的天空时所有人都在欢呼。
+7.3
+昨晚 XIV 剧情正精彩玩到凌晨3点不得不睡下后醒来已是下午，并不是很想唱歌了。所以继续推进剧情。Shadowbringers 的剧情棒极了，比 Heavensward 还要精彩。
+7.4
+我对 HP 有一种非常强烈的感觉，强烈到无论走哪条路都会逐渐朝着它走。 我知道我已经参观游玩过很多遍了。从对角巷走到国王十字车站，乘坐霍格沃茨特快到霍格莫德。</description>
+    </item>
+    
+    <item>
+      <title>Forward XIII</title>
+      <link>https://endfang.github.io/posts/forward-xiii/</link>
+      <pubDate>Sun, 30 Jun 2019 07:19:32 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-xiii/</guid>
+      <description>6.30
+依旧鼻塞。
+昨晚玩游戏到两点，又睡到了快中午。这个时差是倒不过来了。纽约和LA的时差是 3 个小时不是 4 个小时。 中午先吃个麦当劳。服务员给了我 6 包番茄酱。一打餐巾纸，但是我只点了一个中薯条和一个小小的鱼堡。纽约街上墙壁也有很多涂鸦。和在洛杉矶与西雅图看到的一样，大家涂鸦的时候都首选类幼圆体。为什么？很少看到其他类型的字体。
+看游行的人非常多。多到我看不到游行。太矮了没办法。 纽约的街头有很多钢架支起来，上面盖上布来遮风挡雨，于是人们也爬到了支架上。看着逐渐弯曲的钢架我好担心这个架子要垮了。我跟着游行队伍边走边看。有一个游行队伍放了彩纸炮弹，被风卷起来真是漂亮极了。到了转弯的地方没办法移动，我前面是人后面也是人。离开人群的人留出了空地，大家纷纷往空地走，后面的人以为队伍在移动也跟着走。实际上队伍根本没动。多亏有一列人拼命往外挤，我悄悄跟在这列队伍的后面脱离了人群。要过这个弯实在太难了，后面的人想进来，但是前面的人不想走。于是往回走，此时也差不多两点，游行在五点结束，还是能够看到大部分的。天气也不是特别热，风刮过来很舒服。 我想过要不要像伊恩麦克莱恩一样在游行结束之后再到街上去。满地的彩纸屑，说不定还能捡到标语牌。但是考虑到地铁的乘坐时间和明天早上的飞机，还是算了。 总的来说，因为人太多了我太矮了的缘故，这趟游行并没有想象中的那么有趣。我觉的纽约的英俊男人也没有那么多了。其实大家都是平均的长相。审美疲劳？ 很有趣的是我在回家的路上遇见了一对老人。丈夫一个劲儿地边玩手机游戏边走路，妻子无奈又生气得拍了拍他示意不要再玩了。</description>
+    </item>
+    
+    <item>
+      <title>Forward XII</title>
+      <link>https://endfang.github.io/posts/forward-xii/</link>
+      <pubDate>Sat, 29 Jun 2019 07:18:49 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-xii/</guid>
+      <description>6.27
+又是中午才醒来。这 4 个小时的时差可真是难倒过来。 今天原定是要去 Metropolita Museum，可是今天后半夜，也就是明天早上 5 点就能玩 ShB，而且衣服也没洗什么的，后面的行程也没有定下来。临时改成待在家里。
+6.28
+因为 ShadowBringers early access 根本就没睡着。好不容易到了早上五点，玩了三个小时终于有睡意。然后又一次睡到了 12 点。 Kingdom Hearts 音乐会是临时决定的。乐团的指挥就是去年 xiv 的指挥。那种独一无二的身体姿势和手势绝不会错。下村阳子出现后全场欢呼。但老实说我不是很想来，KH 对我来说就是一个普通游戏，不像 XIV 那么特殊。这回并没有哭。观众也不多，座位剩下了很多。到了 12 点才回家，我发现了一个十分美味的披萨店，每一块披萨都很大，是 Pippin 的三倍。蟹肉和pepperoni 都很好吃。为什么要去音乐会啊？还不如在家老老实实的玩游戏。点个披萨，喝点橙汁。
+顺带一提，纽约的英俊男人真多啊。
+6.29
+我把水壶给烧了。昨晚玩完游戏之后烧了一壶水。但是我忘了，连把手和滤嘴都烧融了。 幸亏厨房没有出事。远在欧洲的 Briyah 吓坏了，连发消息问我怎么回事。这种不鸣叫的水壶太不方便。实际上我现在完全依靠笔记和定时闹钟来记住自己要做什么事情。没有加提醒的东西都会被忘记。</description>
+    </item>
+    
+    <item>
+      <title>Forward XI</title>
+      <link>https://endfang.github.io/posts/forward-xi/</link>
+      <pubDate>Wed, 26 Jun 2019 01:34:16 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-xi/</guid>
+      <description>6.26
+感冒还是没有完全好。
+纽约有 4 个小时的时差。快中午的时候我才醒来。着急忙慌准备出门。Suege 上有了一个 match。花了 40s 写了两句赞美。
+我根本就没有读 Cursed Child，所以是头一次知道剧情。 Al 和 Scorpius 真是一对好朋友。我预感同人圈里肯定能有一对关于他们两个的文章。从以前开始就出现了一种奇怪的风气，就是两个男性一旦站在一起除了基就没有其它情感联系了。这些人脑子里面是长了什么东西还是被不可名状的生物寄生了？ 整个表演的过程中我又哭了。而且哭了很多次。希望没有人发现。 舞台上的魔法效果比起电影毫不逊色。电影里的 CGI 可以做出各种特效，可是舞台上的巧妙装置加上就在现场的效果让魔法变得更加真实。我有很长一段时间没有看舞台剧了，上一次是五年前的Q大道，再上一次是录制版的八号提案。学院袍子和电影里面穿的也不一样。 马尔福和哈利的决斗，我不知道是不是为了搞笑，完全是一种中二斗法。在黑幕辅助员的帮助下，马尔福和哈利呈现出了特别夸张的子弹时间来躲避咒语。舞台的灯光效果非常棒，阴影就彻底是阴影，所以黑幕辅助员很难看见。邓布利多的画像是由演员和一张画框组成，可是在灯光下演员就像真的是站在画中一样。在发现了 Delphini 的秘密后，整个剧场的墙壁，从高到低，都投射下了魔法文字，场面非常震撼。我很喜欢魔法部的入口和飞路粉的效果，靠着舞台装置，巫师们可以瞬间被吸入电话亭和冲出壁炉。一切都发生得迅速而且自然。 学生们穿的袍子也和电影里不一样。要我说的话应该是更加适合表演了。而且在移动道具，比如床和行李箱，的时候，演员们都会挥动长袍，非常飘逸。
+另外一提，很莫名其妙地，我的票多了 lounge experience，我不知道是怎么回事，我买票的时候根本没有注意这个，可能是有魔法作祟吧。
+最后在纽约街头： </description>
+    </item>
+    
+    <item>
+      <title>Forward X</title>
+      <link>https://endfang.github.io/posts/forward-x/</link>
+      <pubDate>Tue, 25 Jun 2019 01:33:37 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-x/</guid>
+      <description>6.25
+我觉得感冒应该已经快好了。现在不打喷嚏只觉得喉咙偶尔不舒服。
+一大早就起来跑到 Liz 家里换行李箱，因为我买了一件大袍子。小行李箱装不下。然后就是连续坐火车和飞机。飞机上两次坐在我旁边的人都有着火红色的头发。火红色的头发。火红色。
+闲的无聊的我下载了 Jack&amp;rsquo;d 扮演 lusty boy。虽然我把 stats 设的特别夸张，99 岁 200 磅 120 cm 的老肉丸。但还是有人前来搭讪。这些人是眼瞎还是根本不看 stats？这明显就不是个正经账号。另一方面我下载了 surge。如果有 match 我就赞美他一句。因为我总是往右边 swipe 如果我觉得照片或者 intro 有我能够赞美的点。结果是没有任何 match。
+Briyah 是一名时尚设计师。她虽然出国了，但是很巧妙的把钥匙藏在了某个地方。她的公寓装饰多到放不下。冰箱上贴满了世界各地的冰箱贴，架子上摆满了装饰物。各式各样的颜色洒满了整间公寓。她还有两个假人和各式布匹，以及一张玛丽莲梦露的人形立牌。 </description>
+    </item>
+    
+    <item>
+      <title>Forward IX</title>
+      <link>https://endfang.github.io/posts/forward-ix/</link>
+      <pubDate>Mon, 24 Jun 2019 01:33:00 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-ix/</guid>
+      <description>6.24
+昨晚睡觉出了一身汗，我觉得发热已经结束了。剩下的只有鼻塞与咳嗽。
+啥都没吃就跑到了 Disneyland，入园的时候被没收了迷你瑞士军刀。
+实际上今天是 Star Wars: Galaxy‘s Edge 解除 reservation 的第一天。我入园后做的第一件事情就是加入 Boarding Group。很幸运的在 10 点左右就可以进入了。
+Galaxy&amp;rsquo;s Edge 现在只开放了 Millennium Falcon: Smugglers Run。在 Single Rider Line 并没有排很长的队伍，队伍里遇见了一个在 70 年代为迪士尼工作过的老人。他很开心迪士尼能把电影里的内容化为现实，而且一个劲的拍照。如果排 General Line 可以看见建筑外面的千年隼上层，同时还能看到 Hondo Ohnaka 的表演。千年隼并不是一般的 3-D Ride。游客们会被赋予不同的角色：Pilot, Gunnar 和 Engineer。三个角色，一共六人。在 ride 的过程中需要与飞船本身互动来操作千年隼，pilot 控制飞行，gunner 负责射击，engineer 则是收拾烂摊子，修复损伤。我的第二次 ride 遇上星战粉丝，可热闹了，“we’re doomed!” “ go up! Up! UP!” “Shoot them! Use Missles!” 在飞行结束的时候还会根据游客的操作打分，第一次的分数特别低，第二次则是 “Not bad.” 这个区域内经常有飞行器呼啸而过的音效，营造出一种这是一个基地的氛围。里面分成帝国和反抗军两个区域，风暴兵四处走来走去寻找可疑人物。似乎和 Universal Studio 中一样有 performance，因为我看见了疑似达斯维达的人物在舞台表演： Milk Stan 出售 Blue Milk 和 Green Milk。我买了 Green，有点像鼻涕： 老实说我太矮了，人又多，我照不到好照片。</description>
+    </item>
+    
+    <item>
+      <title>Forward VIII</title>
+      <link>https://endfang.github.io/posts/forward-viii/</link>
+      <pubDate>Sun, 23 Jun 2019 18:07:24 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-viii/</guid>
+      <description>6.23
+感冒了后的旅行就不怎么舒服了。首先要比别人多穿一件衣服，因为容易着凉。走着走着就容易热，脱下衣服又冷。随身携带纸巾，水瓶，和感冒药。因此我尽量待在凉爽的室内，有水有垃圾桶的地方。幸运的是这几天都是往 theme park 这种地方跑。
+Switch 中途没电，顿时变得特别无聊。最近没有玩新的游戏，所以也没有新的音乐。也不知道要听什么。Apple Music 的个性化推荐根本就不更新我根本就不知道最近的人在听什么流行乐，我记得上一次特别流行的是……好像是 Swift 的 “Look What You Made Me Do” 还是丁日洗脑的 Despacito ?
+Richard 的房子是那种在剪刀手爱德华中出现的居民房子。我第一次在 Airbnb 房间里看到这种大屏电视，Hulu 和 Netflix 随便看。但是没有桌子，所以要去客厅或者餐厅才能用笔记本。 Richard 住的附近有一个日韩社区。到处都是韩文和日文，我一个字也看不懂。但是我在 85C 买了小糕点，奶茶，还在一家韩国店吃了石锅拌饭。我原本想吃面，可是穿了一件喜欢的白色T恤，不想让汤汁溅在上面。还用了 pager。我太久没有在外面吃饭都不知道要怎么做才好。 并不是什么美味的石锅拌饭，但是吃了热气腾腾的食物后满头大汗，有一种感冒已经好了的错觉。
+天气太好了。 好想养只狗啊。</description>
+    </item>
+    
+    <item>
+      <title>Forward VII</title>
+      <link>https://endfang.github.io/posts/forward-vii/</link>
+      <pubDate>Sat, 22 Jun 2019 18:07:19 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-vii/</guid>
+      <description>6.22
+虽然鼻子开始有点堵，但根据我以前的经验，身体已经开始恢复。昨晚梦见自己在开车，还是开的特别顺利的那种。以前梦中开车要么是东撞西碰，要么是停不下来。 Lyft 小哥 Jeffery 是个倾向于 talk 的人。As a passenger who is recovering, I prefer to be silent.
+今天只能穿 Nero 大衣穿不了袍子，因为袍子不是特别保暖？因为我没带。Nero 大衣还被误认为 AC 大衣。
+周末的 Universal Studio 的人是真的多啊。大家都穿短袖，就我穿着大衣。我真不是装逼，感冒了身体时冷时热的，幸亏今天气温相对较低。好多人都穿了袍子羡慕死我了。差点又买一件。 排队的时间虽然在通知表上显示的都超过了一个小时，但是因为 single rider line，我基本上只要等待 20 mins 左右，超棒。HP 周边又出新品了，我看见了以前没有的 Alumni 系列。等我去 Orlando 的时候再买好了。Triwizard Spirit Rally 和 Frog Choir 很奇怪的从时间表上消失了，但是表演依旧在。我注意到 Frog Choir 的格兰芬多还是去年的那个男生。
+午饭吃肉。晚饭吃菜。黄油啤酒和南瓜汁太甜。
+Dark Arts Lightshow 开始于蛇佬腔，午夜下的霍格沃茨失去所有灯火，巨蜘蛛爬上了塔楼，魔鬼网缠绕住城堡，巨魔被魔鬼网吞噬，摄魂怪降临，伏地魔的索命咒让城堡成为废墟。邓布利多的声音响起，“Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.</description>
+    </item>
+    
+    <item>
+      <title>Forward VI</title>
+      <link>https://endfang.github.io/posts/forward-vi/</link>
+      <pubDate>Fri, 21 Jun 2019 18:58:27 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-vi/</guid>
+      <description>6.20
+花了大量的时间在 Irvine，因为回 LA 的火车只有下午才有。原本想去看大侦探皮卡丘，可是时间不太够。
+6.21
+一早就觉得有点发烧。乖乖呆在家里吃感冒药。也放弃去格里菲斯天文台。明天再去。</description>
+    </item>
+    
+    <item>
+      <title>Forward V</title>
+      <link>https://endfang.github.io/posts/forward-v/</link>
+      <pubDate>Wed, 19 Jun 2019 20:22:24 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-v/</guid>
+      <description>一大清早就被要求发旅行照。根本就不想发。我不喜欢在旅行的时候照相或者摄影。我第一次一个人去奥兰多的时候一直用手机拍来摄去的，尤其是迪士尼的 Magic Kindom Parade，我全程拿着手机，结果到头来觉得自己完全不知道看了些什么，而且拍摄的视频和照片也很不理想。我也基本没有再回去看过那些照片和视频。因此放弃旅行的照相摄影，除非为了博客素材和免费照片，不然我懒得动手。我一个人看到就行了，至于分享照片什么的见鬼去吧。
+Seattle-Tacoma 机场安检的时候很幸运的去了一个临时开的安检站，因为人太多了。这个安检站人很少，避免了连续掏出各种 electornic device 的尴尬脸红。而且只用了两个篮子。也不用脱鞋。比起 LAX 实在太好了。LAX 又要脱鞋又要解腰带的好麻烦。
+我觉得旅行还是能以一种微妙的方式让人振奋起来。我不会欣赏美景，对我来说就是一副漂亮的景象，看完就没了。但是旅行中各种做计划和赶路让我情绪上扬了一点。
+Las Vegas 的机场里面有老虎机。Spirit 的客服太差。check-in 的时候两个姑娘百无聊赖的样子。登机的时候我的 QR code 扫不动要重新打印一张机票。我站在前台的客服面前说话，一个别开了头，另外两个继续互相交谈还对正在登机的乘客指指点点。我当时就有点火了，特别大声的说了一句“excuse me” 她们才看过来。从此对 Las Vegas 的好感度下降到零。
+Rodolfo 家也是一栋小房子，并没有很多装饰，是想旅馆一样的房间： 但是附近有我喜欢的便利店 7-11，所以购买食物和水很方便。我买了一杯混合水果。尝到草莓后想了半天这就是草莓的味道吗？</description>
+    </item>
+    
+    <item>
+      <title>Forward IV</title>
+      <link>https://endfang.github.io/posts/forward-iv/</link>
+      <pubDate>Wed, 19 Jun 2019 10:37:46 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-iv/</guid>
+      <description>难得的起早了。昨天还是晴天的西雅图在早上就开始下雨了。我忘了带 Nero 外套，决定一整天都要尽量呆在室内。
+去了一家叫做 Biscuit Bitch 的店吃早餐。我在结账的时候弄错了店员，把订单纸递给了负责饮料的人。她们可能以为我并不会说英文或者英文不好，所以当着我的面说“Yeah, I don&amp;rsquo;t know why he gives me the order.” 我想了想，回了一句：“Because you are wearing the apron and the name tag.” 店员们愣了一会儿立马互相笑着说:“Right! You are working here! Wearing the apron!” 这是一家以 LGBT 为主题的店。店里可以的颜色很鲜明，而且“彩虹”主题出现在很多地方。
+六月是同志骄傲月。起源是石墙事件。所以这家店为了响应骄傲月，推出了 Proud Unicorn。味道很一般，只是一般的牛奶咖啡上加了奶油和 sprinkles。
+Space Needle 对我来说并没有什么特别出彩的地方。只是一个很高的可以看到西雅图全貌的建筑。我还挺害怕高处的。观光台的边缘有着玻璃墙和玻璃凳，所以许多游客趴在墙上，站在凳子上留影。二楼是旋转的观光区，而且加下的地板时透明的。我鼓起了所有能找到的勇气走在上面，完全不敢往下看，假装自己走在平地上。
+旁边的 Chihuly Garden &amp;amp; Glass 更加有意思一点。Chihuly 是一位玻璃艺术家，擅长用玻璃制作艺术品。我喜欢 Macchia 这批作品。意大利语中“斑点”的意思。Macchia 的做法是先烧融一层玻璃，然后在表面加上一层白色玻璃，烧融后再加另一层其它颜色的玻璃。也可以烧制三层以上。最后的结果是中间的白色玻璃做出了一种漂亮的云朵效果。这批作品的原名是 “The Uglies”，因为 Chihuly 的妈妈觉得这些作品很丑。后来他问了自己的意大利朋友“斑点”的意大利语才用了新名字 “Macchia”。
+中午去了 Pike Place Market 吃午饭。第一家星巴克外面有着老长的一条队伍。我去了人比较少的 Pike Place Chowder。杨红樱在假小子戴安中描述巧达海鲜汤是装在面包碗里的。吃法是先喝一点汤，再撕下一点面包吃，如此重复，直到吃完。现实是面包碗并不深，而且外皮比较结实，所以很难撕下来。吃到最后我的左手手指蘸满了汤汁。
+回去的时候遇见了一个奇怪的人。他在我吃完饭后就像选中了我一样跟在我后面。我停下里后他笑着向我搭话。他说自己这一天过的很不好，能不能让我请他喝杯酒。我刚吃完饭，脑子转不过来，居然说了好。但是三秒钟后又觉得这事不对。这是一个邋邋遢遢满脸胡渣的男人，而且他明显是我在他旁边路过的时候才开始跟着我的。而且他想去两个 block 外的地方买酒。我借口自己有急事处理，不能多待，在两步以外的地方给他买了一杯酒就走了。 不过我为什么要花钱买酒呢？</description>
+    </item>
+    
+    <item>
+      <title>Forward III</title>
+      <link>https://endfang.github.io/posts/forward-iii/</link>
+      <pubDate>Tue, 18 Jun 2019 10:38:25 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-iii/</guid>
+      <description>在火车上半躺着睡觉并不舒服，尤其是在没有毯子或者外套的情况下。以前做飞机最长也就是 14 个小时，这回是 36 个小时的车程。窗外的风景也并不是那么值得，对我来说。后半夜的时候路过一个灯火通明的城市，每一栋建筑都闪着黄色的光。 我在凌晨四点的时候醒来，窗外漆黑一片，觉得冷。在下层车厢发现了一间比较宽敞的卫生间。趁着没人立刻拿上牙刷和毛巾洗漱。自从留了长发之后就必须要每天洗漱，不然容易油腻和发痒。想剪头发，剪一个 dmc5 Nero 的短发。如果还打算搭乘芝加哥的 Zephyr，我一定要选择 sleeper cart。在日出的时候路过森林和覆盖着雪的山。森林的边缘可以看到人为修建出来的草地和栏栅，旁边有两座房子。再过去一点可以看到更多的房子，大多带着庭院。我猜这是乡下，因为没有看到许多娱乐的地方，房子外停的车也是很老的款式。 餐车里要和陌生人坐在一起，和人搭话。我现在不喜欢做这些事情，强迫笑脸很累。阳光透过车窗照射在脸上很舒服。实际上早晨和黄昏的阳光都一样，如果不是因为刷过牙，嘴里有薄荷的清凉感觉，我都察觉不出区别。
+到了下午的时候，有一位老人坐在了我的身边。中间有一段时间他很疑惑列车为什么走了错误的方向：原本应该是朝着北方，但是却朝着南方前进。我完全没有注意到这个变化。他在临近西雅图的时候问了列车长这个问题，列车长却说“why don&amp;rsquo;t you take off the train and sleep in a Motel, and face the right direction tomorrow?” 他回到座位后自言自语。“He has no time for me. A smarter person can answer my question. Maybe the gal working in cafe.” 我不知道该说什么。过了一会儿他又问了另一位列车长。原来有另一辆火车要往东西方向走，所以为了避免交叉，所以绕了个路。
+Brittany&amp;amp;Daniel 的房间更加像个卧室。墙壁上挂着艺术画和一副世界地图。地图上插着大头针，代表着曾经来过的客人的家乡。大部分都是北美和欧洲，唯一没有的大头针的是南美。南美是最湿润的大洲，我记得很清楚，初中地理学过。 </description>
+    </item>
+    
+    <item>
+      <title>Forward II</title>
+      <link>https://endfang.github.io/posts/forward-ii/</link>
+      <pubDate>Sun, 16 Jun 2019 10:38:19 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-ii/</guid>
+      <description>房间里是没有大灯光的，唯一光源是一盏小台灯和窗外的光。窗外是一个天井，边缘有一个麦当劳的招牌。关灯后招牌灯光透过窗户反而变得和月光一样。昨晚在半梦半醒之间看见窗户外灯光变幻，从蓝色变成黄色，好像月亮在改变颜色。
+这是一个墨西哥人和非裔美国人的社区。很少看到高加索人，亚裔也很少见。从商店招牌到涂鸦创作，墙上到处都是颜料。对我来说许多涂鸦都是我完全不能理解的图画。街上并不是特别干净。
+到了车站后就开始预见各种各样的人了。Business Class 里面的老年人居多。我猜年轻人们大多不愿意在这上面多花钱。我见到了两个漂亮的小女孩。其中一个把头发染成了很难看的绿色。
+我还以为自己会特别努力的编辑视频，但是在火车上并不是什么好的工作场合。 刚刚开出城区的时候，两边的土丘上有着许多的岩石，上面有着喷绘涂鸦。过一段时间后左手边的窗户就能看见海了，而右手边的的窗户外有很多小山坡。上面长有一大片开着黄色小花的绿色植物，黄色和绿色融在一起非常漂亮。在国内的时候，即使在郊区，我看到的大多是田地，很少看到这么漂亮的自然景象。打个比方，就像是装了美化的 Skyrim 中的山丘一样。
+在 Dinning Cart 上遇见了三个老人。应该说是年长的人。其中一个是小学老师，她很可惜许多家里贫困的学生的家长更愿意把钱花在日常上而不是在教育上。“Only ten percent of them realized that education is key of success.” 她的丈夫是一位在电影中经常出现的中产阶级白人。他在自己的胸口别了一根圆珠笔。另一位女士的 sister 于 97 岁高龄逝世，她要回去处理相关事宜。她的丈夫是来自加拿大的苏格兰人，因此她自嘲自己有点吝啬。中午吃的是素食汉堡，比起 Pippin 的汉堡差远了。 实际上车厢很空旷，乘客们比我想象的要少很多。但是列车长在发车前说今天的人很多。人都去哪里了？ 我穿了一件九又四分之三月台的T恤，没想到被很多人看出，纷纷指出这是一件很适合火车的T恤。但我在挑选T恤的时候并没有想这么多。 这趟旅程我准备的并不充分。实现也没有看完攻略，比如我没有带稍微厚实一点的衣服或者一件毯子。Coast Starlight 的商务舱并不提供 amenties kit，只有一瓶水和一张餐车优惠券。餐车的价钱稍微贵了一点，还在我的可接受范围内。
+坐在我前面的是一个优雅的老人。他穿着白色衬衫，给自己倒了一杯酒。
+天黑的时候，周围的的房子亮起了灯光。我却觉得有点瘆人。就像随时会发生什么可怕的事情一样。到了半夜，火车在桥上摇摇晃晃的行驶，从窗户向外望去能看到另一座大桥，桥上的灯光落在水面上发光。河水像是黑色的液体在翻滚；又像是有无数细小的生物在地面上爬行，它们的身体反射灯光造成了水面的假象。</description>
+    </item>
+    
+    <item>
+      <title>Forward I</title>
+      <link>https://endfang.github.io/posts/forward-i/</link>
+      <pubDate>Sat, 15 Jun 2019 20:22:46 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/forward-i/</guid>
+      <description>6.15
+其实我也不是特别想去旅行。但是总得找点事情做，在 6.28 之前。可能不会花时间在欣赏美景或者游乐上。
+没有目的的生活是充满抑郁的。我必须找到一个目标前进。现在的大目标是完成旅行。小目标是完成 Goodbye Stormblood。所以在出发前我还在处理视频文件。
+我很害怕，也很惊慌。手上有很多事情要做。我不是不明白。只能一点点的完成。
+阳光特别刺眼，温度上升的也特别的快。前一秒我还在担心要不要带上 Nero 的大衣，下一秒就开始热到什么都不想穿。
+有时候连游戏也不想玩，就只想永远睡下去。另一部分的我又挣扎着醒来，大喊着 kill them all。
+我还挺喜欢坐火车的，如果乘客不是很多的话。 曾经在一辆堆满了杂物汽车上吃饭，然后被载着回家。就像龙猫的开头，皋月从装满家具的卡车中探头出来给爸爸递糖。我也在那样一个狭小的空间里吃午饭，边吃边想着这真是一个奇妙的小空间。好像有全世界，又好像什么都没有。
+Junior 提供的房间特别简单，就只有一张床和一把椅子。如果再加上一张大桌子，这就是我理想的基础房间了。床垫的材料是凝胶记忆棉，软软的，忍不住想扭来扭去。天花板也特别高。
+这种空旷的房间呆久了后觉得特别抑郁。
+East L.A. 街头总是能够看到各式各样的流浪汉。他们穿着厚厚的邋遢衣服，眼光低垂望着地面，头发纠缠在一起。也不怎么向路人乞讨。
+我昨天晚上梦见下暴雨，自己躺在草地上抱成一团试图睡觉。有一个巨大的闪光灯照着我，一个男声疑惑地问我在做什么。我回答说我觉得冷。
+还真是挺冷的。</description>
+    </item>
+    
+    <item>
+      <title>Fire VI</title>
+      <link>https://endfang.github.io/posts/fire-vi/</link>
+      <pubDate>Sat, 15 Jun 2019 10:21:56 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fire-vi/</guid>
+      <description>来路已毁，唯有向前。</description>
+    </item>
+    
+    <item>
+      <title>Jibber Jabber 04</title>
+      <link>https://endfang.github.io/posts/jibber-jabber-04/</link>
+      <pubDate>Mon, 10 Jun 2019 20:34:40 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/jibber-jabber-04/</guid>
+      <description>特别焦虑。因为毕业，离别，XIV三重压迫。 首先毕业要考虑可能性无限接近于零的美帝就业以及 finals。我已经放弃了毕业典礼和长袍，也没打算照毕业照。14 号我就开始火车旅行。这样也增加了更多的事情要做，预定车票和 airbnb 真是很麻烦。 然后是离别。差不多六年的美帝生活就要结束，还是很难接受的。说走就走，我还没那么随性。 再来是 XIV 的 Shadowbringers 在 6/28 就开始。XIV 是我接触到的最好的 MMO，也因此入了 FF 系列 和 SE 的坑。想去 SE 工作。真的想去。真的真的想去。大家都想去 Blizzard，Apple，Google，我就想去 SE。 这种又是紧张，又是伤心，又是期待的心情混在一起真的很不好受。
+wont ShB 的 trailer zhong，Y&amp;rsquo;shtola(Master Matoya) 说了这么一句话：
+ &amp;ldquo;Deny? I am not wont to run from my troubles. &amp;quot;
+ 这个 “wont” 我是真的没听出来。我的听到的是“I’m not the one who runs from troubles”。大脑自动纠错。 wont 意味 “in the habit of doing something”。也就是“习惯性的（做出动作）”。 Y’shtola 是在说不会逃避问题，而不是说 WoD。
+emote 我从没想过 XIV 里的 emote 有什么需要讨论的。但是 Zepla HQ 的新作品 review 了 ShB 中新增加种族的 emote，very inspiring.</description>
+    </item>
+    
+    <item>
+      <title>Binary, Decimal, Graycode</title>
+      <link>https://endfang.github.io/posts/binary-decimal-and-graycode/</link>
+      <pubDate>Sun, 26 May 2019 11:21:31 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/binary-decimal-and-graycode/</guid>
+      <description>Gray code Gray code can reduce the errors of changing bits (or switches). It only needs to change 1 bit at a time to increments the decimal number.
+Example 1    decimal binary gray code     5 101 111   6 110 101    From 5 to 6, binary has two bits changed, while gray code only changed 1 bit.
+XOR is the method of converting binary to gray code.</description>
+    </item>
+    
+    <item>
+      <title>Rotation Matrix</title>
+      <link>https://endfang.github.io/posts/rotation-matrix/</link>
+      <pubDate>Tue, 14 May 2019 18:19:27 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rotation-matrix/</guid>
+      <description>$P = (x, y) = (1, 0)$	$P&#39; = (x&#39;, y&#39; )$
+$\cos{\theta} = \frac{x&#39;}{x}$ $\sin{\theta} = \frac{y&#39;}{x}$
+therefore:
+$x&#39; = \cos{\theta} \cdot x$	$y&#39; = \sin{\theta} \cdot x$
+similarly:
+$Q = (x, y) = (0, 1)$ $ Q&#39; = (x&#39;, y&#39; )$
+$\cos{\theta} = \frac{y&#39;}{y}$ $\sin{\theta} = \frac{-x&#39;}{y}$
+therefore:
+$x&#39; = -\sin{\theta} \cdot y$ $y&#39; = \cos{\theta} \cdot y$
+add them together:
+$\begin{bmatrix} \cos{\theta} &amp;amp; -\sin{\theta} \\
+\sin{\theta} &amp;amp; \cos{\theta} \\</description>
+    </item>
+    
+    <item>
+      <title>Jibber Jabber 3</title>
+      <link>https://endfang.github.io/posts/jibber-jabber-3/</link>
+      <pubDate>Fri, 19 Apr 2019 20:47:41 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/jibber-jabber-3/</guid>
+      <description>iPad iPad Pro 新出了一系列的 how-to 广告和 Life on iPad。看完之后产生了自己的生活也像广告中的那样精彩的幻觉：到处旅行，制作音乐和视频，能策划婚礼和生意，时不时和两三个人视频通话，还能单手旋转带着 Apple Pencil 的 iPad 并且不让任何部件掉在地上。 实际上我的生活比这单调的多。iPad 派不上什么用场。
+溪谷恩说 Surface 指不定就行。 看了之后觉得 Surface 的广告不行。 我觉得我就不可能会突然拿着平板开始和一群不认识的人在街上或者办公室跳街舞。太羞耻了。平板还可能会掉进喷泉里或者摔在地板上。
+撇开 Surface 不说，iPad 实际上就是一个能用 Apple Pencil 的大屏幕 iPhone。iOS 和非鼠标操作极大地限制了 iPad 在专业领域能发挥的作用。在 Surface 和 iPad 的广告中都在使劲强调“笔”这个配件。设计师，艺术家，文字相关的工作，还有学生，可能会从中受益。但是我不能用它编译代码或者制作 3D 模型的话，iPad 对我来说就是个玩具。虽然 Apple 一直宣传 iPad 是电脑的替代品，可是它的使用场景实际上是非常有限的。 没用过 Surface。考虑到它的系统是 Windows，我感觉它站在笔记本和台式机的中间某个位置。
+Calvin Ball Calvin Ball is a game. Go back to the magic circle theory and ritual, wearing Calvin mask, which is the only fixed rule, is the ritual.</description>
+    </item>
+    
+    <item>
+      <title>方便面 3</title>
+      <link>https://endfang.github.io/posts/instant-noodles-3/</link>
+      <pubDate>Fri, 19 Apr 2019 20:46:20 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/instant-noodles-3/</guid>
+      <description>又开始迷上方便面了。上次吃日本的日清拉面，因为太好吃就吃到想吐。 这次吃韩国的。
+Hot Chicken Flavor Ramen 就是那个有的人说辣，有的人说不辣的火鸡面。对于我这种不能够吃辣的人来说，肯定是辣的。 每一包有一个面饼，一包芝麻和蔬菜，一包辣酱。 辣酱放进去后很快就出现了那种红油一般的颜色。已经可以感受到辣味。我在煮面的时候室友刚好走进厨房，立刻打了个喷嚏，也不知道是不是因为辣。尝起来算是比较辣的面。我的感觉是在甜椒之上，干辣椒之下。这个排名没什么用处，但我这几年来吃过的辣椒也就这两种，所以也做不出什么比较。 吃的时候请用遮挡物围住衣服。有先见之明的我成功保护了我的衣服。
+Nongshim Chapagetti 谷歌告诉我这是炸酱面。 每一包有一个面饼，一包蔬菜，一包粉料，一包油。 韩国的面包就比较厚实。每一根面条都是比日清或者康师傅的面条的要粗一些。 煮起来没什么味，吃起来也没什么味。但是很魔性的还想吃？就莫名其妙地还想吃。吃了两天后终于腻了。
+Nongshim Neoguri 这个是辣的海鲜面。 每一包有一块面饼，一包粉料，一包蔬菜。 煮面的时候香味四溢。辣味比火鸡面弱很多，在我的可接受范围中。面条很有嚼劲。 我觉得比前面两种都好吃。
+Shin Noodles 辛拉面。 每一包有一块面饼，一包粉料，一包蔬菜。 很 Neoguri 很类似，但是有更强的刺激性气味。并不是贬义。 就一般的辣味面条。
+Samyang Ramen 三养拉面。 每一包有一块面饼，一包粉料，一包蔬菜。 这个是属于那种长了后会觉得“这就是方便面”的方便面。味道比辛拉面好，和 neoguri 是一个级别。面条比其它的都要细，也没什么嚼头。汤汁很好喝，而且是包装袋上的那种橘红色，不像火鸡面的汤就是辣油的颜色。</description>
+    </item>
+    
+    <item>
+      <title>Jibber Jabber 02</title>
+      <link>https://endfang.github.io/posts/jibber-jabber-02/</link>
+      <pubDate>Mon, 15 Apr 2019 18:03:31 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/jibber-jabber-02/</guid>
+      <description>I&amp;rsquo;m afraid of the night because of nightmares. I have been having them since I was diagnosed as having depression. My dream contains a continent of bizarreness. Strange and perplexing things dwell on it. The unpredictable horror disguised in various forms comes to me every night. Soon, they escape and vanish in the air in the morning. Only the unsettling feeling tells that how ill it was at last night.</description>
+    </item>
+    
+    <item>
+      <title>Jibber Jabber - 01</title>
+      <link>https://endfang.github.io/posts/jibber-jabber-01/</link>
+      <pubDate>Sun, 07 Apr 2019 17:24:59 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/jibber-jabber-01/</guid>
+      <description>Patriarchal It emphasizes the structure instead of the genders. Patriarchal, or matriarchal, is that a group of people who have the authority and stand at a higher position governs the rest of people in society. That means, someone will command and someone will obey. 20 Questions might not be patriarchal in its mechanics, but the real world practices make it is. People who are living in a patriarchal society incur patriarchal system into it.</description>
+    </item>
+    
+    <item>
+      <title>Five V</title>
+      <link>https://endfang.github.io/posts/five-v/</link>
+      <pubDate>Mon, 01 Apr 2019 17:51:17 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/five-v/</guid>
+      <description>鹰丘和椿泉让我意识到这个世界比我预期的更加现实主义。我认定自己已经远离了通往更加高明的道路。现在回头看去，那些我所羡慕过的事物全都是一碰就碎的水中月亮，都不如一只马克笔和一间空教室来得真实。起码我还能写能算，能用电脑播放背景音乐。
+Knox 已经开始成形。最好的结果是他像过去的那些人一样最终完全脱离。但是我认为这一次不会那么顺利。
+ 我觉得我做的挺好的，还没死就挺好的。就是特别想睡。
+ 我觉得到目前为止我对 depression 做的还行。 都不需要写大段大段的文字了，但是还是特别特别的疼。 但是如果现在父母飞过来看我，我会崩溃的，并且在他们离开后就去死。</description>
+    </item>
+    
+    <item>
+      <title>4.5 的终结</title>
+      <link>https://endfang.github.io/posts/unending-in-4-5/</link>
+      <pubDate>Tue, 26 Mar 2019 14:58:41 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unending-in-4-5/</guid>
+      <description>Intro 这可能是我最后一个 Patch。真想活在日本，可以玩 XIV。
+我曾经对 4.4 的标题 Prelude in Violet / 狂乱的前奏曲 提出质疑。 Fenzy 甚至 Chaos 明显比 Violet 更适合 “狂乱”。转念一想 Stormblood 是 “红莲的解放者”，所以随便怎样都好了。 但是 Koji 说之所以用 Violet 是因为 &amp;ldquo;Red + X = Violet，X = Blue”。所以这是一个关于新职业 Blue Mage/青魔导士 的暗示。 Koji 说什么就是什么吧。
+MarchTUpdate:+08:00 6.28 是 ShB 的 Early Access，让我用一周的时间结束它吧。
+March Update 2: 我记错了时间。所以我可能没法用 Early Access 了。
+Plot Part 1 in Jan 唯二两个有可能解开沉睡谜团的 Scion，Urianger 和 Y&amp;rsquo;shtola， 也陷入沉眠。Krile 从 Eureka 返回帮忙做调查。在试图反向搜寻 aether 后发现所有陷入睡眠的人的 aether 都突然中断，凭空消失。Alphinaud 也因为沉睡而被 Gaius 公主抱。又一次迷上新的冷 CP。 Varis 和其它国家首领进行和平会谈。过场剧情揭露 Varis 用 Allagan 的克隆技术将第一位君王 Solus 复活，造了无数个复制身体； Solus 是 Ascian。会谈中 Varis 的雄辩术是真厉害。一对七能够滴水不漏的把所有人说得哑口无言。不过他想要引起所有的 Calamity 这个想法遭到一致反对。战役开始。我注意到 Varis 的眼睛是 Au Ra 才有的“怒目圆睁”类型。虽然并不是特别圆。但是 Au Ra 这个种族的年轻男性看上去总是一副“所有人都欠我五百万”。 新的副本中 Kan-E-Senna 会用 AST 的 Collective Unconsious。我一直认为 Y&amp;rsquo;shtola 的魔法壁是另一种不同的技巧，因为动作，效果和范围都不一样。又或者她早年在 AST 的起源地， Sharlayan，学到了这个技巧。但是 Kan-E-Senna 的这招连动作和效果都和 AST 一模一样，过分了。连 WHM 都会用，过分了。作为 AST 我也想用 Divine Benision 和 Benediction 啊。</description>
+    </item>
+    
+    <item>
+      <title>Dissidia NT</title>
+      <link>https://endfang.github.io/posts/dissidia-nt/</link>
+      <pubDate>Sun, 24 Mar 2019 17:02:14 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/dissidia-nt/</guid>
+      <description>Intro 不和人对战就没什么有趣的内容。 这篇 review 写的真不怎么样。可是我已经放弃了，因为懒。
+Combat 和其它 PVP 类型大同小异。比较独特的设定是 Bravery。 攻击分为 Bravery 和 HP Attack。Bravery Attack 击中后会增加自己的 Bravery 并且 降低对方的 Bravery。Bravery 也决定了 HP Attack 的数值。因此每一场 match 的目的大多是通过累计更高的 Bravery 来降低对方的威胁性，并且增加自己能造成的伤害。 有意思的是 HP Attack 后会将 Bravery 清零然后回复到 1000。
+Modes Dissidia 的游戏分为不同的 Mode：Story, Tutorial, Online, Offline。我不知道为什么 Tutorial 会单独列出来作为一个 Mode。但是每一种都大同小异。
+Story Story Mode 下可以看到整个 Dissidia 的剧情。大意是 Materia 和 Spiritus 召唤了不同 FF 世界里的人物来对抗对方，最后发现共同的敌人是 Shinryu 在夺取由众人战斗而产生的能量。于是双方大战一场，引出 Shinryu 后杀死它，世界和平。
+Sotry Mode 下有一系列的 node 需要用 Memoria 获得。Memoria 通过赢得战斗提升 rank 获得。大部分 node 都是影像，少数是 Story Trial 和 Boss 战。特别蠢的设定。因为 Story Trial 根据故事线会限定能够使用的人物。我非常擅长 marksman 但是对于近战是一窍不通。每一次我追上了 AI 后想要砍一刀，都会被 AI 灵活地躲过去。所以大部分 Story Trial 都是一点点磨过去。Marksman 就不一样了，基本上都是一次过。</description>
+    </item>
+    
+    <item>
+      <title>Viera and Hrothgar</title>
+      <link>https://endfang.github.io/posts/viera-and-hrothgar/</link>
+      <pubDate>Sat, 23 Mar 2019 23:03:58 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/viera-and-hrothgar/</guid>
+      <description>In the Final Fantasy XIV Fanfest at Tokyo, Yoshida announced that male Viera is not avaliable because male Viera is very rare in lore-wise, so Hrothgar is the counterpart of female Viera. In other words, Viera and Hrothgar are gender-locked.
+Curiouser and curiouser.
+This decision contradicts with what they did in the past. Mi&amp;rsquo;qote and Roegadyn are two examples. These two races were designed to have limited tender option back in 1.</description>
+    </item>
+    
+    <item>
+      <title>Calendar, Reminders, and GoodTask</title>
+      <link>https://endfang.github.io/posts/calendar-reminders-and-goodtask/</link>
+      <pubDate>Sat, 23 Mar 2019 13:12:48 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/calendar-reminders-and-goodtask/</guid>
+      <description>Calendar Calendar should list a series of events that either happens in a period of time, such as courses, work schedule, or periodically happens. It could also be used to plan a day’s task that is detailed to hours and minutes.
+My calendars:
+ Classes: class schedule or anything happening periodically and related to classes Work: working time, or anything happening periodically and related to works. Events: it receives anything that randomly happens, such as a doctor appointment, or meet with friends.</description>
+    </item>
+    
+    <item>
+      <title>Devil May Cry 5</title>
+      <link>https://endfang.github.io/posts/devil-may-cry-5/</link>
+      <pubDate>Fri, 22 Mar 2019 23:34:46 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/devil-may-cry-5/</guid>
+      <description>Intro 请您欣赏，假欧美真日式耍酷：
+{% raw %}
+{% endraw %}
+Play 杀杀杀。 大量剧透。
+Nero 在刚刚上手的时候，Nero 和前作相比在操作上“迟钝”了不少。不是说这个游戏很卡，而是每一招比 4 都多延长了一点动作。在视觉上感觉更加流畅和真实。操作上不像 4 一样特别迅速。 这个只是主观感受。
+Nero 除了使用加上内燃机的大剑 Red Queen 和一次能发射两枚子弹的左轮手枪 Blue Rose 这两把扯淡的武器以外，还用 Devil Breaker 来弥补自己失去的左手 Devil Bringer。 Red Queen 在连招上并没有太大的改变。Blue Rose 的蓄力除了三级蓄力以外还增加了一个“填充子弹”的基本动作。 Devil Breaker 有很多种，但是在战斗中不能够自由切换。也就是必须破坏一个后才能够使用下一个。而且 DB 的耐久度不是特别高，使用中受伤就会损坏，蓄力一次也会损坏。但也是很好用的一次性近身炸弹。 也能够像 Devil Bringer 一样来拉近敌人。
+我个人比较喜欢使用的 DB 是 Overture 和 Ragtime。Oberture 能够爆发出巨大鬼手形状的雷电能量，可以用在 Combo 的末尾增加额外的伤害。Ragtime 则是为自己争取多一点的逃跑闪避时间，因为我现在对闪避的时机把握的不是很好。 Tomboy 能够直接为 Red Queen 充能到满，随时保持满格热能的状态，但只要被打就会坏，因为一直处于使用状态中。
+Devil Trigger 形态比起 4 有新的改变。
+V V 打架全靠召唤兽。 Griffon 是只话痨老鹰，作为远程攻击能够发射雷电。招数也大都是蓄力类型。Shadow 是只黑豹，尾巴和身体可以变成各种锋利的形态用来做近身攻击。Nightmare 是 Devil Trigger 下才会出现的召唤兽，像是一个泥巴巨人。能够发射激光召唤火球。 在 DT 状态下的 V 的头发会变成白色，因为召唤兽的契约让他的头发变成了黑色。好多中二作品在颜色这一点上刚好相反，但是作用却还是一样的。基本上 V 的大部分动作都要靠召唤兽来完成，比如二段跳会抓住 Griffon，躲避也是靠 Shadow 在脚下形成黑色的雾气来快速移动。因此召唤兽一旦被打败处于回复的状态，相关的动作就不能使用。要么召唤 Nightmare 一次性 revive 全员，要么就靠近召唤兽加快回复，要么就等死吧。 比较特别的是召唤兽不能彻底杀死敌人，必须靠 V 的拐杖来给予最后一击。 读诗能够会降低移动但是增加 DT 槽……</description>
+    </item>
+    
+    <item>
+      <title>Kingdom Hearts 3</title>
+      <link>https://endfang.github.io/posts/kingdom-hearts-3/</link>
+      <pubDate>Sat, 16 Mar 2019 12:48:51 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/kingdom-hearts-3/</guid>
+      <description>Intro 听了播客被带了进来。 明明是很有同人潜质的作品，看到的同人却很少。但这个不重要。 作为一个迪士尼的无脑吹，我要说的是：迪士尼天下第一。
+Plot 所有的 KH 作品加起来组成了一个错综复杂的故事。多亏了播客，我才知道了大略的剧情。
+实际上，我认为 KH3 更适合粉丝们或者知道前作剧情的玩家来玩。 从 1 到现在的 3，不算 remake，KH 一共有 10 部作品。每一部作品之间的联系都非常紧密，而且从不同的角度和角色来讲述这个故事的过去和现在。但如果 KH3 是玩家接触的第一步 KH，故事上体验会非常糟糕。剧情的叙述直接承接了过去作品的所有内容，对新玩家了解剧情是非常不友好的。剧情中 Axel 也吐槽了这一点。 影视和文学经常用一系列的作品讲述一个故事的不同阶段或者一条时间线上的不同故事。比如 HP 和饥饿游戏。冰与火之歌到现在还没有结束。在游戏中却很少出现这种情况。最终幻想的主系列有 15 部，但全都发生在不同的世界，除了 XIV 是个大型 FF 游乐园以外，其它世界之间都毫无关联。鬼泣的剧情在同一条时间线上能够成立，但就算玩家不认识 Lady 和 Trish，也不影响他们看懂 DMC4 的剧情，因为四个故事是相对独立的。王国之心不同。从 1 开始到 Dream Drop Distance，所有的剧情走向最终都汇集到了 3 中。
+在 KH3 中，Sora 为了重新获得 Power of Waking，与 Donald Duck 和 Goofy 再次开始穿梭在各个世界冒险。这一作中只出现了迪士尼的世界，SE 的世界并没有出现。我个人是比较喜欢 Tangled 和 Frozen。迪士尼公主天下第一。每次看到结局都会感动到拿纸巾擦眼泪。 救回了 Aqua 和 Ventus 后与 Organization XIII 决战，一直很坚强但是没什么用处的 Kairi 又被…… 王国之心出现。和 Master Xehanort 决战。Sora 离开寻找 Kairi。</description>
+    </item>
+    
+    <item>
+      <title>XIV - Eureka</title>
+      <link>https://endfang.github.io/posts/ffxiv-eureka/</link>
+      <pubDate>Fri, 22 Feb 2019 12:43:26 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ffxiv-eureka/</guid>
+      <description>Intro Eureka 就是 XIV 4.0 的 relic weapon 任务线。 用一句话说就是：“Eureka 是一个大型劝退地图”。 我对这几个地图真的是一言难尽。比起 Eureka，HW 中的 Anima 任务线要容易可爱得多。起码我努努力，重复做些事情我还能拿到新武器。
+Anemous Anemous 是 Eureka 的第一部分。地图还是很漂亮的。满足一定条件，such as killing a certain amount of enemies, will spawn Notorious Monster. It is essentially the &amp;ldquo;fate&amp;rdquo; in Eureka. Notorious Monsters are the main method of leveling back at the beginning. Players formed parties and hang out in the same place. Some killed monsters, most were AFK. Kill NM when it spawns to earn XP and crystals.</description>
+    </item>
+    
+    <item>
+      <title>Matplotlib, Figure, Axes, Axis, And Subplot</title>
+      <link>https://endfang.github.io/posts/figre-axes-and-axis/</link>
+      <pubDate>Wed, 30 Jan 2019 17:07:41 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/figre-axes-and-axis/</guid>
+      <description>Figure, Axes, Axis, and Subplot As we can see, the Figure is a top-level container that includes &amp;ldquo;Axes&amp;rdquo; and &amp;ldquo;Axis&amp;rdquo;.&amp;ldquo;Axes&amp;rdquo; is the area where plots appear, while &amp;ldquo;Axis&amp;rdquo; is the axis of the plots.
+Axes is set up by calling subplot, so &amp;ldquo;Axes&amp;rdquo; and &amp;ldquo;Subplot&amp;rdquo; are synonymous in many cases.
+Subplot vs. Axes Subplot can arrange grid. plt.subplot(row, col, index) return me an area where occupies part of the Figure. For example:</description>
+    </item>
+    
+    <item>
+      <title>Dot Product</title>
+      <link>https://endfang.github.io/posts/dot-product/</link>
+      <pubDate>Sun, 27 Jan 2019 16:39:43 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/dot-product/</guid>
+      <description>Reference: &amp;ldquo;Dot products and duality | Essence of linear algebra, chapter 9&amp;rdquo;, 3Blue1Brown
+Algebra example:
+$\begin{bmatrix} 1 &amp;amp; 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \ 4 \end{bmatrix} = 1 \cdot 3 + 2 \cdot 4$
+Gemoetrically:
+![projection](https://i.imgur.com/HYJeePM.png =150x150)
+The dot product of v and u = (length of projection of v onto u)(length of u)
+Order and Symmetry Order doesn&amp;rsquo;t matter. (Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)</description>
+    </item>
+    
+    <item>
+      <title>Spaghetti, Milk Tea and Sundae</title>
+      <link>https://endfang.github.io/posts/spahetti-milk-tea-and-sundae/</link>
+      <pubDate>Sun, 20 Jan 2019 19:00:26 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/spahetti-milk-tea-and-sundae/</guid>
+      <description>Spaghetti  Ingredients: uncooked Spaghetti marinara sauce ground beef garlic oil optional ingredients: cheese, onion, optioal vegetable, seasoning, whatever Steps:  add spaghetti to the boiled water and wait for 5-10 mins. combine oil, ground beef, garlic and optional vegetable in the pan, stir until the meat is brown and vegetable is tender add cooked spaghetti, marinara sauce into the pan. add salt and seasoning. stir 2-3 mins.   Insight This receipt is more flexible.</description>
+    </item>
+    
+    <item>
+      <title>FFXV Comrades</title>
+      <link>https://endfang.github.io/posts/ffxv-comrades/</link>
+      <pubDate>Fri, 04 Jan 2019 16:49:25 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ffxv-comrades/</guid>
+      <description>这个嘛，因为假期比较闲 ……
+Comrades 可以算是 XV 的一个 DLC。多人在线，但不是 MMO，更像是极度缩水版的 Monster Hunter: World。 玩家扮演一名失忆的 Glaive。在 Noctis 离开后的十年内和其它 Glaive 一起对抗黑暗，最终接受 Bahamut 的审判，等待国王归来。
+游戏内剧情基本等于没有，除了去年春天更新的 1.2 之后就没什么新剧情了。无论是那把卖不出去也无法锻造升级的 Lucian Saber 和游戏提示中“要经常查看”的手机，都没什么有意义的剧情。
+就没什么人在玩。服务器的划分基于时区，同时除了 XBOX 和 WINDOWS Store 平台，XBOX，WINDOWS Store，PS4 和 Steam 上不能跨平台。所以这个游戏是假装多人在线，实际上是和 AI 一起玩。因为根本找不到匹配。这也导致像我这个更加倾向于 support 的类型的人变成了队伍里的主力输出，因为 AI 太蠢了。除了能够治疗和防御以外，AI 对其它事情一点也不上心。
+这一点在 Defense 的任务中非常明显。任务有几个分类，最常见的就是 Hunt 和 Defense。Hunt 很容易，杀光怪物就可以了。Defense 则是在杀光敌人的同时还要保护一个建筑，如果建筑的 HP 为零则任务失败。除了能够防御的 Jenica 和会 AoE 治疗的 Delilah，其它AI 在 Defense 中形同虚设，全都是靠我用魔法输出。
+人物等级和任务等级也很难画上等号，因为可以靠锻造非常 OP 的武器来提高属性。像是魔防全满什么的不在话下。 而武器锻造则是靠刷材料。刷材料靠刷任务和游戏内货币。货币靠任务。任务靠玩家。玩家靠自己而不是队友。
+像这种多人协作的游戏必须有持续的内容更新才能维持运行。Comrades 出来之后直到 XV 的 Royal Edition 才有一个重大更新，匹配体验也非常糟糕，所以玩家群体就很少。何况 Royal Edition 发布之后也没有出现更多的玩家。这个游戏基本上就是死了。 话又说回来，Comrades 顶多算是一个 DLC，而非一个独立的游戏，因此玩家很少也是可以预见的。 我还蛮喜欢这种多人在线合作的类型。 Battle Royale 类的 PVP 不算。</description>
+    </item>
+    
+    <item>
+      <title>Divinity Original Sin II</title>
+      <link>https://endfang.github.io/posts/divinity-original-sin-ii/</link>
+      <pubDate>Wed, 02 Jan 2019 16:43:26 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/divinity-original-sin-ii/</guid>
+      <description>Intro 1 代是我比较喜欢的。2 代去年一致好评，所以 …… 在 Steam 上购买了 Definitive Edition，其实我不懂这些 Editions 之间的区别，UI 好像有重新设计还有修复了 Bug 吧。
+同伴 我选择了蜥蜴王子 Red Prince，人类 Lohse，还有人类 Ifan 作为同伴，自己则是使用骨架子 Fane。
+Red Prince 是一个非常荒淫又强大的王子。以前住在 Forbidden City，并不是紫禁城。在荣华富贵和缺少对手的生活中觉得无聊，于是召唤了一个 succubus 来陪他玩乐。和 Red Prince 中还特别提到一种性爱游戏：fang play。毒牙 play？最终某一次醒来后发现 succubus 准备杀死他。打斗声引来了众人围观。 实际上 Red Prince 发现自己是 father of dragon，还有蜥蜴以前都是龙。于是他开始寻找 Red Princess：Sadha。 有趣的是虽然玩家可以和 Red Prince 发展恋爱关系，但是最终他会选择 Sadha 而不是玩家。很明显玩家就是那个第三者。
+Lohse 身体里有一个恶魔。她的故事就是将这个恶魔除掉。同时这个恶魔涉及到了多个支线任务和一个主线任务。每次转换人格的时候 Lohse 的声音都会变得像男人一样低沉。还挺好听的。 Lohse 的 tag 中包括了 Jester，所以她喜欢开玩笑。在 Driftwood 的酒馆中可以找实际上是仙人跳的娼妓玩乐，但是需要先付钱。Lohse 可以通过讲一个“会说话的狗”的笑话来免掉一部分贿赂，反正我没听懂这个笑话。 她是一个很坚决的人，在不开玩笑的时候她说什么就是什么，有着明确的目标。
+Ifan 是雇佣杀手。是那种在电影和小说中会出现的典型的“男人”。一开始的目标是猎杀 Alexander，随后发现自己被背叛，转头就杀了自己的老板。以前是 Lucian 的同伴，非常信任他，但从 Hannag 哪里得知自己被 Lucian 所骗，亲手释放了 deathfog，害死了许多精灵。</description>
+    </item>
+    
+    <item>
+      <title>Divinity Original Sin</title>
+      <link>https://endfang.github.io/posts/divinity-original-sin/</link>
+      <pubDate>Tue, 18 Dec 2018 13:46:56 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/divinity-original-sin/</guid>
+      <description>Intro Trialer 来看是一款类似于无冬之夜的游戏。而且 2 的好评如潮。正好 1 打折。买一个。 相比起无冬之夜的战斗模式，我更喜欢 DOS 的设计。 无冬的“回合制”模仿了 DND 的回合设定。但是所有队友的动作同步进行而且没有时间做选择，因此必须要暂停游戏来考虑对策。DOS 直接使用了半回合制给予玩家更多的时间来思考对策，因此更加容易上手。 等等，这不就是 GBA 上 FF Tactics 的设定吗？我当年特别讨厌这个战略版。裁判是猪。
+Plot 全是剧透：
+两个主角的前世是 Guardian 守护一个封印了邪恶的箱子什么的，这一世还纠结在一起。好的我知道你们两个有羁绊了。两人被诱惑离开了岗位，潘多拉的盒子最后被打开所以逃了？！在时间尽头两人还有超级豪华的卧室，什么都有的铸造房和实验室，超大的图书馆，一群跟着跑的 Imp。时间女神一开始看不透主角的命运，于是两人收集 Star Stone 恢复命运的织线来看到过去的自己故事。
+一路上发生了各种各样的事情：
+“我要恢复世界的秩序所以我要杀人！” ”我是王子，我和恶魔做了交易倒大霉，所以我讨厌恶魔。“ 变成了偷内裤和袜子还挖坟的变态。 “爆炸！爆炸！爆炸！” “哇咔咔咔，我复活了等死吧你们这群死老百姓。” 连续爆炸！ “那条路没有什么好看的，快来救我。”在尽头发现了一个宝箱。 “服从国王命令！” “臣服在我脚下！现在站起来，现在躺下去，现在站起来，现在躺下去 …… ” 遇到了崇拜蜘蛛的一群人。 人类和兽人产生了同性之爱，但结果不是被杀就是互相残杀。但是他们两个侵略了一个镇子，杀了一群无辜的人。死就死了吧。 “我爱的人变成了巫妖。杀了她吧。” 堆积如山的尸体，血流成河。看上去就真的很恐怖和瘆人。我玩恶魔城的时候都没有这种感觉。 “血！血！” 巫师偷情：“你确定我们没有被跟踪吗？” “这是能够击杀死亡骑士的小魔杖。” “哎我就是来看戏的，我还卖东西呢。” “Muhahaha，轮到我 Leandra 控制这个身体了。”
+算是一个比较传统的英雄故事吧。
+Combat 虽然在一开始会选择职业，但只是决定属性点和初始技能而已。像许多 tRPG 一样并没有很严格的职业限制。只要满足条件就可以学习天赋和技能。所以可以有暴力法师或者高智商战士这种反传统 RPG 类型的奇怪 build。理论上来说是这样。实际上我完全没试过。而且到了后期许多装备都有属性点的要求，所以高 INT 低 STR 的人是穿不上铠甲的。
+每回合所有角色都有一轮的动作。谁先被轮到要靠 Initiate 这个属性，越高就越靠前。所有动作，移动，攻击，使用道具，更换装备都会消耗 Action Points。AP 每回合会恢复，没有被使用的 AP 会积累。</description>
+    </item>
+    
+    <item>
+      <title>最近吃食</title>
+      <link>https://endfang.github.io/posts/recent-diet/</link>
+      <pubDate>Thu, 13 Dec 2018 13:07:29 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/recent-diet/</guid>
+      <description>macOS 的默认中文输入法的 “chishi” 的第一个选项居然是 “吃屎”。 垃圾输入法。
+亚马逊购买一个 Instant Pot。打了个 7 折。买了之后立刻开始打 5 折，好像在嘲笑我：“你个傻逼。” 垃圾亚马逊。
+据说 Instant Pot 可以用高压三分钟煮熟白米饭。试了一下。根本没熟。骗子。 垃圾 Instant Pot。
+洗完的时候磕碎了一个喜欢的用来喝水的量杯。就真的是轻轻一碰。 垃圾质量。
+同时买了个饭团模具用来做三角饭团。附近超市居然有卖饭团的 seasoning。做了六个饭团，并没有什么味道，大概要撒一点盐。 饭团的英文是 Onigiri。就是罗马音。
+买了一块三文鱼。用日清味增拉面剩下的味增调料包调味，加了一点点热水和 mirin 作为调料。煎三文鱼的味道还行。我想到一个好主意，如果我订购日清拉面，调料包总是会剩下来。可以收集起来作为其它料理的调料。 饭团沾了一点三文鱼上的味增后顿时味道提升一个单位。
+Soylent 的草莓口味是假的。第一口就尝出了那种草莓饮料的“草莓味”。过个几十秒还有化学味道返上来。 呕。就这垃圾口味还经常或存不足。
+买来的土豆发芽了，面包也长霉了。 扔了。扔了。
+飞利浦的空气炸锅打了六折。真的好大一个啊。比 Instant Pot 还大。炸出来的薯条没什么味道，但是烤出来的鸡肉比用烤箱做的要好吃一个单位。 特别难洗又占地方，没买。
+Pippin 的午餐菜单上居然有炸牛排这种怪里怪气的菜。必须用刀叉，因为牛肉一口是咬不烂的。Buffalo Chicken Pizza 真咸。Dominos 的 Plain Wings 能排上我心中鸡肉料理的前三名了。David 在星期四让我提早回家了。是真的没什么客人。 特别想吃草莓圣代。
+Target 的 Starbucks 可以用 Cartwheel 折扣。Seasonal Drink 打八五折。新的 Juniper Latte 是真难喝。像是把一颗树榨汁后喝下去。又涩又辣。twitter 上嘲笑 &amp;ldquo;Juniper Latte&amp;rdquo; 是一个 drag queen 的名字。戒了半年的咖啡饮料我又开始喝了。Target 的礼品卡居然打了七折，明年上半年的 grocery 预算有了。 可能一半都会花在 wrap 和 sandwich 这种 togo 上。</description>
+    </item>
+    
+    <item>
+      <title>尝遍方便面 2</title>
+      <link>https://endfang.github.io/posts/instant-noodles-2/</link>
+      <pubDate>Sat, 08 Dec 2018 16:25:33 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/instant-noodles-2/</guid>
+      <description>Amazon 给我推了日清拉面。现在继续。
+Nissin Raoh, Soy Sauce 酱油拉面。 一包里面包括了一个面饼和一包酱料。 不同于其它速食面可以先加入料包一起煮，包装上说明先煮面，然后再加入酱料。 这个酱是真的咸啊。我用两块面饼加半包酱料的搭配还是觉得咸。咸味太重了，差不多掩盖了拉面本身的味道。非常适合口味特别特别重的人。 这个系列的面条比较筋道。就面条本身来说，比辛拉面还好吃。 但不会再买这个口味，很难下咽。
+Nissin Raoh, Miso 味增拉面。 一包里面包括了一个面饼和一包酱料。 这个怎么说内，味增拉面并不是很出彩。我以前吃 SAPPORO 的原味可能还好一些。不过我已经吃腻了 SPPORO，吃到恶心。 就是一般般的拉面的味道。面条也很普通。 就像只野仁人一样的普通。
+Nissin Raoh, Tonkotsu 豚骨拉面。 一包里面包括了一个面饼，一包调料粉，一包调味油。 调味油的味道很大。如果沾都手指上就会留下拉面汤的气味，用洗手液都洗不掉，要用洗洁精才能洗掉。面汤和面条有在日料店里的口感和味道了。美帝的日料店。不是天朝，也不是霓虹的日料店。很好吃。 我算是明白了。方便面想加量的话只要加面就可以了，不需要加更多的调料。这个道理我是在煮了两次之后才明白过来的。第一次因为并不是特别的饿，所以只煮了一包尝尝味道。冷夜里吃拉面，冷风从窗户外吹进来，喝下一口热汤。想象就和惬意。 第二次是为了做午餐。我还特意煎了豆腐作为配菜。我就喜欢吃豆腐，这个就是配菜。这个就是配菜。我认为这个就是配菜。煮面的时候用了两包量的面饼和调料。我吃完后去漱口了。 第三次我只用了一包的量，吃的时候像浮夸的中华一番一样，不断有“美味”两个字浮现在我的背景。
+还是豚骨拉面最美味。豚骨拉面真好吃啊。</description>
+    </item>
+    
+    <item>
+      <title>Minimax Search</title>
+      <link>https://endfang.github.io/posts/minimax-search/</link>
+      <pubDate>Sun, 02 Dec 2018 18:49:03 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/minimax-search/</guid>
+      <description>Games as search &amp;ldquo;max&amp;rdquo; and &amp;ldquo;min&amp;rdquo; two players. Max moves frist in the game. The game take turns until it&amp;rsquo;s over. Max uses search tree to determine &amp;ldquo;best&amp;rdquo; next move.
+Definitions
+ initial state: set-up defined by rules player(s): which player has the move in state s actions(s): set of legal moves in state results(s, a): transition model defines result of a move terminal_test(s): true if the game is finished; false otherwise utility(s, p): the numerical value of terminal state s for player p  win: 1, lose :-1, draw: 0    Procedure  generate the whole game tree to leaves apply utility function to leaves back-up values from leaves toward the root:  Max node computes the max of its child values Min node computes the min of its chidl values   at root: choose move leading to the child of highest value  e.</description>
+    </item>
+    
+    <item>
+      <title>Fire IV</title>
+      <link>https://endfang.github.io/posts/fire-iv/</link>
+      <pubDate>Sun, 25 Nov 2018 18:24:10 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fire-iv/</guid>
+      <description>只要脑子突然闲下来一点就会突然变成这样：
+内心也出现 BGM：Das Lied vom Meister
+这一定是武内直子胡编乱造的。 Renfield 的疯癫独唱也一定是因为耳虫效应。
+但是“欲求不满”带来好多麻烦。以游戏来打比方的话，就是内存，CPU，GPU 已经超出要求很多，但是硬盘里面已经装满了其它东西所以游戏本体反而安装不下。
+机器可以压缩数据或者存在云里面，现实中可是没有冥想盆的。
+是不是作为机器反而能活下去。
+啊好想在 XIV 中作为一个名字土土的冒险者，作为 WoL 的备用队员，召唤一只 Carbuncle 前往 Ishgard。
+17 年的时候 Shadow 就呼唤了一次。我若当时就走，是不是比现在活得更加高明一点？</description>
+    </item>
+    
+    <item>
+      <title>Five III</title>
+      <link>https://endfang.github.io/posts/five-iii/</link>
+      <pubDate>Fri, 02 Nov 2018 11:17:33 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/five-iii/</guid>
+      <description>教授写了个什么定理/公式/例子，我还在努力一边写笔记一边努力理解内容的时候，已经有同学开始举一反三和提出质疑。 别人已经开始运用教授讲的数据结构来结局实际问题，我还在写 Java 来实现这个结构。 公开处刑：”你做得真不错“。 “赞助商”给我施加“经济压力”。 XInput 不支持 macOS 所以我必须用 Windows 系统，可是我唯一的 win 是台式机。 根本不会玩扑克牌，只能从最底层理解扑克规则开始做 project。 打印机 out of order。打印机 low black catridge。打印机 out od order。打印机 low black catridge。无限循环。 “Everyone is impressed that how far we have gone, we hope we wouldn&amp;rsquo;t break out.&amp;quot; 这句话是对我说的。 发现上次洗衣导致染色了。 穿 sneaker 在上楼梯的时候一脚踩空，右脚大拇指好痛，出现淤血。 突然食欲大增，但是今日只带了 Soylent。 以上内容发生在同一天。   “积沙成塔。”
+爱欧
+ Ryan above, hear my plea. Lend me the strength that I may save Kyle from the darkest Shadow.</description>
+    </item>
+    
+    <item>
+      <title>Five II</title>
+      <link>https://endfang.github.io/posts/five-ii/</link>
+      <pubDate>Fri, 02 Nov 2018 11:17:07 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/five-ii/</guid>
+      <description>Counseling initialization failed.</description>
+    </item>
+    
+    <item>
+      <title>Sort 5 Elements in 7 Steps</title>
+      <link>https://endfang.github.io/posts/sorting-five-elements-in-seven-steps/</link>
+      <pubDate>Thu, 25 Oct 2018 23:05:18 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/sorting-five-elements-in-seven-steps/</guid>
+      <description>*A smart and interesting sorting.
+Suppose I have five elements: a, b, c, d, e. And I want to sort them in 7 steps:
+Step 1: 3 comparisons: if a &amp;gt; b: swap(a, b);
+if c &amp;gt; d: swap(c, d);
+if b &amp;gt; d: swap(b, d), swap(a, c)
+![Imgur](https://i.imgur.com/qzLVYmQ.png =200x200)
+Step 2: 2 comparisons: now I need to find the position for e in {a, b, d}:
+if (e &amp;lt; b) if (e &amp;lt; a) e a b d else a e b d else if (e &amp;lt; d) a b e d else a b d e !</description>
+    </item>
+    
+    <item>
+      <title>Omensight</title>
+      <link>https://endfang.github.io/posts/omensight/</link>
+      <pubDate>Wed, 24 Oct 2018 23:52:16 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/omensight/</guid>
+      <description>Intro Definitive Version 打了个八折，没忍住就买了。我对靠近 ACT 类型的游戏兴趣还是蛮大的。而且许多游戏网站的评分也挺高，感觉质量应该不会差到哪里去。
+剧情 大量剧透：
+开头 Witch 的解说，Pygarians 和 Rodentians 之间的战争终于到了最后阶段。女祭司 Vera 早已被谋杀。Pygarians 的皇帝Indrik 准备好要化为 Firebird 保护世界。被囚禁在帝国监狱的 Rodentians 反抗组织的头领 Ratika 准备逃狱。Ludomir 被鼓动去正面对抗 Indrik。帝国将军 Draga 正在准备最后一场战斗。到了午夜，Indrik，Ludomir，以及 Draga 被杀，Ratika 则是化身 Deathless。Voden 突破封印，世界末日。 而玩家则是扮演 Harbinger，被 Witch 引导，不断的穿越回最后一天的清晨，与不同的角色一起，找出是谁杀以及为什么杀了 Vera，并阻止 Voden 带来的末日。
+结局算是一个 BE。即使拯救了世界，Ratika 还是会变为 Deathless 杀死 Draga 成为新的统治者。追求 Voden 的士兵们还是会杀了皇帝。就算 Ludomir 活了下来，最终也会因为“醉酒”而发生一场所谓的“意外”而死。 在我个人看来，这个结局其实也算合理。整个游戏吸引人的地方在于一次又一次的穿越回去，探索不同的地区，与不同的角色一起发掘真相。但是每一次只能与一个角色一起行动，而且无法影响大局。换句话说，与 Draga 一起前往神殿就无法阻止 Ludomir 被杀；与 Ludomir 一起去找 Kladen，Ratika 还是会成为 Deathless；质问 Ratika 后一起寻找 Vera 留下的线索阻止不了 Indrik 被背叛；而与 Indrik 前往神殿，Draga 也会进攻 Rodentia。 因此，从一开始就注定了 Harbringer 只能阻止末日，不能让一切都完美结局。</description>
+    </item>
+    
+    <item>
+      <title>关于 SCH 的技能命名</title>
+      <link>https://endfang.github.io/posts/schskillnamecompare/</link>
+      <pubDate>Mon, 08 Oct 2018 17:01:50 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/schskillnamecompare/</guid>
+      <description>Scholar/SCH/学者，为 FFXIV 的一种基于 Arcanist/ACN/秘术师的职业。
+下面列出四个技能的英文名和中文名，中文名的翻译基于日文名就用中文名来比较：
+  Adloquim 鼓舞激励之策
+  Succor 士气高扬之策
+  Sacred Soil 野战治疗阵
+  Lustrate 生命活性法
+  秘术师的任务链一直在强调用 strategy/策略，分析局势，以此来获得胜利。学者也是古代城市 Nym 中海军里运用战略战术的人。从名字来看，中文版/日文版都比英文版的更加具有“学者”风范。所以为什么在 localization 的过程中不使用”method“或者”plan“之一类的单词呢？
+因为：
+ Adloquim 是拉丁语，意为“reasrruing word，word of encouragement“，也就是“鼓励的话语”的意思。 Succor 意为 “give assistance, aid to”，也就是“给予帮助”。 Lustrate 意为 ”purify by expiatory sacrefice, ceremony, or some ritual action&amp;quot;，“通过奉献牺牲或者仪式来达到净化的目的“  以上三种翻译都可以用一些古老或者简单的单词来表达相同的意思，而且也不失”学者“的感觉。 但是 Scared Soil 我想不出来有什么特别的意思。而且我认为完全可以和 WHM/白魔导士的 Asylum/庇护所 互相交换一下。因为根据效果和名字来看：
+  Sacred Soil “神圣土地“ 制造一个半球形的领域，站在内部的玩家收到的伤害减少伤害。
+  Asylum/庇护所 制造一个半球形领域，站在内部的玩家能够逐渐恢复 HP。</description>
+    </item>
+    
+    <item>
+      <title>闪亮闪亮的古剑奇谭网络版</title>
+      <link>https://endfang.github.io/posts/gujianonline/</link>
+      <pubDate>Tue, 02 Oct 2018 13:54:19 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/gujianonline/</guid>
+      <description>Intro 就是想玩一下。 现在天朝实行了实名制，网元圣唐的账号注册需要手机号码或者 ID。据称 Police 部门还会检查。但是这个邮箱注册只需要 ID 和真实姓名。随机生成了一个天朝 ID，随机取名”李渊“。每次登陆都要验证一遍这个虚拟身份。 说起来我还看过了一篇李渊 x 李世明 x 李建成的现代背景的没有下限的文。特别低俗。
+安装 下载器似乎用了 P2P，虽然这不是非法的事情，但是我心里有道坎过不去。用了 http 下载。 但是安装路径如果有中文就会 launch 失败。这个过分了。压缩包里就是中文，安装说明却没有提醒。这不就是当场劝退么？
+妙法 我就觉得妙法的衣服挺好看的，就选了这个宗门。随后游戏一个小时内就给了我一套我很不喜欢的清晖。前 14 级就有点像 XIV 4.0 之前的 THM，是个法师。可以积累上限为六个的两种“音”，然后用特别技能消耗“音”来增加伤害。Astral Fire &amp;amp; Umbral Ice 与 Fire &amp;amp; Blizzard。 任务流程非常的 linear。各种意义上的 linear。接/做/交任务都是直线形的。我可以一直往前走，不用回头。好处是特别方便玩家，坏处是我根本不知道我在哪里，完全没有熟悉地形，就跟着任务图标玩前走。
+经常出现人物突然后跳，疑似因为 latency 和 client prediction 导致的 convergence。但是为什么会有敌人会突然一个大跳就到我身边？
+有一个女声啰哩啰嗦的指导我怎么控制角色。我不想听，你给我文字解说就行。 另外不管怎么样配音都有一种在听动画片的配音的感觉。就是一种字正腔圆，没有口音，中规中矩，稍微端着，像又不像是普通地在说话的感觉。
+剧情到了后面就被配音弄烦了，blah blah blah 剑心 blah blah blah 变身反派 blah blah blah “以后多的是机会收拾他们” blah blah 我的情郎走了我好伤心 blah blah 杀杀杀 blah blah 你居然 blah blah 我忘了剧情。 能够说出”以后多的是机会收拾他们“这种话的反派就是个傻逼。斩草不除根，春风吹又生。这么简单的道理都不懂还做什么反派。看见正派受伤了怎么办？上去就一刀灭了免留祸患。看见一个突然就出名的无名小辈倒在你面前怎么办？弄死免得以后成为英雄来杀你。 剧情里面的某一个拿着长杖的 NPC，忘了是谁，特别像 XIV 中 CNJ 和 ACN 的混合体。</description>
+    </item>
+    
+    <item>
+      <title>Five I</title>
+      <link>https://endfang.github.io/posts/five-i/</link>
+      <pubDate>Sun, 23 Sep 2018 23:20:09 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/five-i/</guid>
+      <description>和人相处是如此艰难的一件事情。 人们喜欢讽刺而不是直接指出问题所在。人们喜欢绕着圈子问问题而不是直接问。为了照顾别人的感受我必须用用糖包装一些我所要说的话。为了表示礼貌我必须要说你好。可是一些人会在看见我的时候移开目光。我试图严肃的说话却被人讽刺 Your Highness。人们觉得好笑的事情我觉得并不好笑。我认为有趣的事情许多人都不感兴趣。我顺应自己的感觉抛弃食物让自己喝下 Soylent。我学着抛弃羞耻和愤怒让自己变得中立，可到头来却被认为是一个不好相处的人。对人说珍视的东西不能扔，其实却连要珍视的东西都没有。
+变得快乐是如此艰难的一件事情。 我自认为非常擅长伪装自己很开心，但可能我并不是。人类可能比我想象得更有洞察力。FFXIV 是唯一一个能让我觉得安心的地方，可那并不是我应该留下的地方。我在一年前试图进去。我做足了万全的准备，最终却临阵退宿。我当然后悔，可是我也很怕。人们说如果你很怕就说明你不想。我知道我很想。可我还是怕。
+这是我被诊断抑郁症的第三年。我一直试图用文字，音乐和对谈来摆脱阴影，因此诞生了“死前”和”兔子洞“两个系列，也出现了 Knox 和 Ryan。我知道 Knox 还会继续存在，Ryan 还会从远处呼唤。即使我一时忘了他们，他们最终总会找到我。
+今天是我又开始出现迹象，我也通过文字回顾了过去充满痛苦矛盾和重复的两个学年。这是我在大学的第五年的开始，希望今年会朝着光走进一点。
+在此开始我的第三个系列，命名为“Five”。希望能今年也能活下去。
+ 我是光，你的光，希望能永远地照亮你。—— ありいめめこ
+ </description>
+    </item>
+    
+    <item>
+      <title>4.4 的燃烧</title>
+      <link>https://endfang.github.io/posts/burn-in-4-4/</link>
+      <pubDate>Tue, 18 Sep 2018 20:45:57 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/burn-in-4-4/</guid>
+      <description>9.18 MSQ: Prelude in Violet 狂乱的前奏曲 4.4 更新了。这个标题有点意思。为什么是 Violet 而不是 Frenzy 或者 Chaos？ 凌晨四点中挣扎着爬起来，开始做早饭。这几天我开始使用铁铸锅，只要使用方法正确就可以用中小火做饭。真是一个好锅具。又准备了一壶水。不管怎么说，先填饱了肚子才能玩游戏。但是可能吃得太多了一点……玩游戏到一半就开始有点……
+剧情上 Alphinaud 失踪的消息确认，前往 The Burn 调查。之后Hien 想要效仿 Eorzea Alliance 联合其他东方国家对抗 Garlemald。Y&amp;rsquo;shtola 提出制造天空的屏障组织 Garlemald 的进攻。The Burn 也是 Azys Lla 原来所在的地方，因此这里有屏障的发生器。但是发生器需要大量的能量，Hien 根据 Azim Steep 的古老传说认定那里有 Allagan 的能量。被 Y&amp;rsquo;shtola 赐名的&amp;quot;Little Sun&amp;quot; 和 Sadu 走个过场，这两个人已经明显是 CP 了。
+接下来在国家会谈的时候 Scions 都出现了头痛并听见一个神秘的声音警告未来的灾难。Thancred，Y&amp;rsquo;shtola，和 Urianger 相继昏迷。惊慌又焦虑的 Alisaie 探望小 Ga Bu。blah blah blah …… 大量剧情。 Garlemald 的 founder 居然是一个 Ascian。原来 Ascian 可以和普通人生育吗？真正的 Zeno 不见踪影。Alphinaud 和疑似 Gaius 的男人回到营地发现 Black Rose 被使用并且杀死了所有人。Black Rose 真是一个大伏笔啊。不，算不上太大伏笔，鉴于多次在支线任务中被提到。</description>
+    </item>
+    
+    <item>
+      <title>4.1 到 4.35</title>
+      <link>https://endfang.github.io/posts/4-1-to-4-35/</link>
+      <pubDate>Mon, 10 Sep 2018 21:14:53 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/4-1-to-4-35/</guid>
+      <description>剧情 Ala Mhigo 的剧情基本上可以算是结束了。Raubahn 辞去了在 Immoral Flames 的将军职位，回归故乡 Ala Mhigo。 Yotsuyu 和 Gosetsu 也被找到。失忆的 Yotsuyu 成为了 Tsuyu。而她的哥哥 Asahi 来到了 Doma 与 Hien 谈判，希望能够用人质换回 Yotsuyu。 最终 Yotsuyu 自愿落入 Asahi 的圈套并在一块镜子和大量水晶的帮助下成为了 Tsukuyomi，在最后一刻杀死了哥哥。 4.3 的最后，玩家可以控制 Alphinaud 在 Maxima 的陪同下前往 Garlemald。飞船迫降，打败伏兵，遇见了疑似 Gaius 的猎人，一同前往 Garlemald。 还有，Alphinaud 的 Ruin III 攻击力比玩家的高，他的 Moonstone Carbuncle 虽然不能攻击但是可以提高伤害和回复量。
+新增功能 New features such as Glamour Dresser, message book, delivery customer customization, are added. Glamour Dresser allows player to convert gears into glamour.</description>
+    </item>
+    
+    <item>
+      <title>Toad in the Hole 蟾蜍在洞</title>
+      <link>https://endfang.github.io/posts/toad-in-the-hole/</link>
+      <pubDate>Mon, 10 Sep 2018 18:54:54 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/toad-in-the-hole/</guid>
+      <description>Toad in the Hole Ingridients: 1 Cup All purpose flour 1/2 teaspoon salt 1 cup milk 2 tbsp melted butter 2 eggs, beaten 1 tbsp oil (vegetable, olive, I don&amp;rsquo;t really care) any type and amount of sausage you like
+Making batter  whisk together the flour and salt in a bowl. add the milk, melted butter and eggs beat until the batter is smooth and has the consistency of whipping cream let it sit for 30 mins ~ 1 hour  Saussage  pre-heat the oven with to 430f heat oil in a skillet and brown the saussage pour batter over saussage.</description>
+    </item>
+    
+    <item>
+      <title>凯尔·方与霍格沃茨</title>
+      <link>https://endfang.github.io/posts/kyle-and-hogwarts/</link>
+      <pubDate>Sat, 08 Sep 2018 10:54:50 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/kyle-and-hogwarts/</guid>
+      <description>我们的故事开始于一个潮湿，闷热的星期二，凯尔一早醒来就发现自己睡过了头。 他顾不上洗漱，直接从破釜酒吧冲向了奥利凡德魔杖店，不断地催促奥利凡德快点拿出魔杖。等到他为自己新的冬青木魔杖付完钱后，又冲向了摩金夫人长袍专卖店。摩金夫人显然对凯尔非常不满意。她拿着皮尺一边给凯尔量尺寸，一边数落凯尔为什么不提前来。“亲爱的，你总是在最后一刻才行动，这可不是什么好习惯！”凯尔忍住想要转眼珠的冲动，一声不吭地期望她安静下来。 “你得等一会儿。”说着她就开始剪裁新袍子。凯尔在旁边着急的来回踱步。 摩金夫人见他这么焦虑，开口说：“说真的，亲爱的，不如你先穿着旧袍子吧？新袍子一旦做好我就让猫头鹰邮递给你。现在你只要……” 不等摩金夫人说完，凯尔就立刻从兜里掏出了金币，大声说着感谢地跑了出去，留下了皱着眉头的摩金夫人一个人在店里。终于，凯尔在最后一分钟赶到了九又四分之三月台。此刻列车已经开始行驶，几个还没有走进车厢内的学生帮忙接住了凯尔的箱子，而已经涨红了脸的凯尔在一片前来送行的家长们的哄笑中跳到了火车上。
+ 下午的第一堂课是保护神奇生物课，凯尔真心希望有关海格的种种故事都是假的，比如那个到处流传的关于一头鹰头马身有翼兽抓伤了一个学生的故事。不幸的是，似乎是为了要证实那些可怕的故事，海格牵来了好几头鹰头马身有翼兽。 “它们可漂亮了，是不是？”海格快乐地吼道，一边向全班同学舞动一只手。 如果光看那发亮的不同颜色的皮毛，那的确是很漂亮。可是怪兽们正在愤怒地摇晃脑袋，展开强大有力的双翼；它们似乎不乐意受到脖子上的链子的束缚。 海格向学生们解释鹰头马身有翼兽骄傲的天性，并且要求学生们对这群怪兽鞠躬。全体同学都害怕地往后退着。 ”那个拉文克劳，你先来试试！“海格指向了站在凯尔旁边的一个男生，他的脸顿时变得惨白。凯尔能听见他绝望地小声说不。 在海格的指示下，这个拉文克劳男生颤抖着走向前面对着一头栗色的怪兽，慢慢弯下腰鞠躬。那头怪兽把它大而尖的脑袋转了过来，似乎不想弯下它的膝盖。海格便让男生慢慢地往后退。但就在这时，让凯尔大为惊奇的是，那头怪兽突然弯下它有鳞的前膝，身子往下沉，明显不过是在鞠躬。
+ 天气越来越坏，子弹大的雨点噼噼啪啪地打在窗户上，好几天都没有停止。凯尔只好躲在公共休息室完成变形课的论文，麦格教授似乎打定主意不让他们放松。而学院魁地奇球队的队员们坐在离他不远的地方，他们的讨论时不时的飘到凯尔的耳朵里。 “……现在他们有了新的队长和找球手！他组织了阵容强大的班子，他们现在的作风不一样了！” 几个女队员突然傻笑了起来。 &amp;ldquo;就是那个身材高高、样子漂亮的男生吧？&amp;rdquo; “强壮少说话的那个。” 她们又开始傻笑起来。 “什么？”队长说，对于这种无忧无虑的行为不以为然。 凯尔也不明白这哪里好笑了，但是他没空理会，这份论文必须在明天下午之前完成。
+ 步行去霍格莫德的一路上很不舒服，就算凯尔穿了斗篷，围了围巾，暴露在外面的部分很快就被冻得生疼，牙齿也冷得直打颤。他怀疑自己呆在公共休息室可能会更愉快。 有两个男生和一个女生走在凯尔的前面，其中一个男生大声地喊道：“告诉你们怎么办，我们去三把扫帚喝黄油啤酒好吗？” 凯尔在心里一个劲儿地点头，风狂雪骤，他的手都快冻僵了。几分钟后，他跟着这三个学生走进了三把扫帚。 凯尔一个人拿着一杯冒着泡沫的热黄油啤酒坐了下来，他开始忍不住观察周围的客人们。 一位头发半直半卷的女士和三个学生坐在一起，她刚准备从她的皮包里拿了一根绿色的羽毛笔，却被其中一个女学生阻止了，这位女士不得不把羽毛笔放回去，表情也像喝了臭汁一样。一个长着娃娃脸的男人神情紧张地在和一群妖精说话，那群妖精都交叉着手臂，一副气势汹汹的样子。还有一位独自坐着的女生拿着一个小本子若有所思。这时，一声冷笑从旁边传来，惊得凯尔忍不住偏过头去看一眼，原来是那位和学生们坐在一起的女士，现在她表情轻蔑地在说些什么。 这趟旅行注定没什么乐趣，再待下去天气也只会越来越糟糕。于是，凯尔再一次裹紧斗篷和围巾，顺着大路往回走去。在经过猪头酒吧的时候，凯尔看见了一个两腿外八字，留着一头乱糟糟姜黄色长发的男人。
+ 每年圣诞节凯尔都会留在城堡里。不仅是因为回家的交通不是很方便，他觉得学校里更加舒服。 凯尔已经偷偷给自己变出了防水火焰，并且放在了果酱瓶子里。他把瓶子藏在身上用来取暖。现在他一边哼着赛琳娜·沃贝克的《你偷走了我的锅，但你得不到我的心》，一边走向图书馆打算完成魔咒课的作业。他在走廊的尽头转了个弯，在那里，他首先看到的是爱捉弄人的皮皮鬼在走廊上堆了一堆雪。凯尔心里一沉，被皮皮鬼缠上可不是什么好事。他立刻转过身去想要往回走，可是皮皮鬼看见了他。 “学生小鬼头。“皮皮鬼拖长声调说，他在空中高兴地翻了个跟斗，“你怎么没回家？” 凯尔加快脚步，边说着：“我……我得走了。” 一个冰凉的重物砸中了凯尔的后脑勺。凯尔感觉到有什么东西液体流在脖子上，他急忙用手摸了摸脖子和后脑勺，又看了看手，原来是雪和水。凯尔回过头，看见皮皮鬼在空中怪笑着，丢了一个雪球。凯尔见状拔腿就跑。 “小毛孩！吃我一炮！”皮皮鬼咯咯的笑着，飞在凯尔的上方，不断地扔着雪球。 “皮皮鬼！费尔奇先生克不会高兴的！“凯尔边喊边用手护住头，试图挡住飞来的雪球。可是皮皮鬼一点也不在意，他一路狂笑着用雪球把凯尔赶回了公共休息室。 直到午饭时间，凯尔才敢出去。
+ 复活节的假期并不轻松，凯尔觉得作业从来没有这么多。 “这也叫假日？考试还远着呢！他们在搞什么？”一天下午，有一个男生在公共休息室里吼道。 但是复活节假期过后，魁地奇决赛就要开始了。凯尔的学院会对上斯莱特林，若是想要赢得奖杯，必须先领先一百五十分。 等到了比赛前夕，公共休息室里的所有日常活动都停止了。就连一向不在乎魁地奇的凯尔也觉得自己无法专心做任何事。有人为了放松试图使用快乐咒语，可是做得太过火而发出了一阵歇斯底里的大笑，几个男生不得不把一起拖着他并把他关进进宿舍里等待咒语效果消退。
+ 随着六月的到来，白天变得闷热而晴朗无云，大家都只想去户外散散步，喝上一杯冰镇南瓜汁。但是他们不能这么做，因为考试临近了。晚上的公共休息室非常安静，所有人都在迫使自己的大脑努力工作。级长变得异常暴躁，谁要是破坏了纪律，她就会给谁以严厉处罚。 考试周开始了，凯尔刚刚从变形课出来，努力不去听周围的同学抱怨任务太难或者比较成绩。有一个女生大惊小怪地说她变出来的乌龟像一个甲鱼，可凯尔这已经相当不错了。学生们急急忙忙地吃过午饭，又直接回到楼上参加魔咒课考试。 第二天是保护生气神奇生物课和魔药课。海格没有给他们出难题，倒是斯内普一副幸灾乐祸的样子，看着学生们拼尽全力却还是没有调配出正确的药剂。 星期三是魔法史和草药学。星期四是黑魔法防御术，这也是凯尔的最后一堂考试。
+ 凯尔简直不敢相信这一年已经过去了。好像是在突然之间，他的衣柜空了，东西都装到了行李箱里。不许在校外使用魔法的通知单发到了手上。现在，他已经坐在霍格沃茨特快列车上，吃着比比多味豆，脱掉了巫师长袍，换上麻瓜的衣服；终于，列车停靠在了国王十字车站的九又四分之三月台上。凯尔花了很长时间才走出站台，在通过那堵被施了魔法的隔墙后，他走入了人流，回到了麻瓜们的世界中。</description>
+    </item>
+    
+    <item>
+      <title>Kyle in Universal Studio Orlando</title>
+      <link>https://endfang.github.io/posts/kyle-in-us-orlando/</link>
+      <pubDate>Thu, 06 Sep 2018 20:16:04 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/kyle-in-us-orlando/</guid>
+      <description>9.3 梦到没有及时醒来错过了 shuttle。正在我想尽办法要求退款的时候闹钟把我闹醒了。4:30 开始苦恼要不要做早餐但是万一司机到了怎么办。 然后我就等到了 5:20，同时登机后延迟四个小时。很痛苦，总觉得身体某个器官很疼又说不出是哪里，又睡不着。 抵达目的地后找前往住所的 shuttle 的时候眼看着一辆从我面前开了过去。 晚上死活睡不着。迷迷糊糊一点钟才睡着。而且特别潮湿，总是觉得自己一身汗。
+9.4 七点半，醒来得不算太晚。等我上上下下整理好自己，已经错过了八点钟的班车。下一趟是在九点钟，但是九点钟开园，我不想太晚。毕竟还有袍子和魔杖要买，太晚去就要排长队。接着 Lyft 的 GPS 带着我绕圈。司机只是跟着 GPS 走，我们都有点慌。 先去奥利凡德买魔杖，然后去摩金夫人买袍子，再来去古灵阁拿钱。作为为一个穿了袍子的人被工作人员称为“巫师”而不是麻瓜。进入古灵阁参观后和比尔一起逃出。剧情是寻找金杯被发发现可怜的游客被连累。前面的一小段过山车真是爽。用 unlimited pass 坐了不下五次。 福洛林·福斯克冰淇淋店的黄油啤酒冰激凌特别腻。作为屈指可数的几个买了袍子之一的我坐在休息凳上吃冰淇凌引来了许多人的指指点点。除了袍子我还买了T恤和毯子。就是这么奢侈。
+我真的好喜欢这件袍子啊。
+对角巷每隔一段时间就会有诗翁彼豆故事的剧场表演和塞蒂娜·沃贝克的演唱。有趣的是诗翁彼豆剧场表演并不是只会上演“三兄弟的传说”，我还看见了“好运泉”。剧场的演员们拿起玩偶，控制道具，上演巫师世界的传说故事。塞蒂娜会和她的女伴唱组合 女妖/Banshees 依次演唱《一锅火热的爱》，《孩子们，打回游走球，抛出鬼飞球》，《你用魔法勾走了我的心》和《你偷走了我的锅，但你得不到我的心》。一位男游客会被选中上台一起表演《你用魔法勾走了我的心》，站在我右边的一个男人就被选中拉上台。芙蓉所讨厌的 《你偷走了我的锅》真的很好听。另外，她的裙子真好看。
+霍格莫德依旧有 Triwizard Sipirit Rally 和 Frog Choir。Rally 中德姆斯特朗和布斯巴顿的学生们会表演节目。德姆斯特朗的男学生会用在电影中的权杖表演类似功夫的战斗，好莱坞的布斯巴顿会表演彩带舞蹈，但是奥兰多只是单纯的舞蹈。有趣的是，布斯巴顿的女学生们在表演中会像电影中一样“啊”的叹气，而德姆斯特朗的男孩会迷上女孩们想要走上前。可能是想表现“媚娃”这种感觉？ 这个叹气特别有感觉。
+有一个只是用来做展示的商店在卖仰望星空派。 中午在破釜酒吧吃了蟾蜍在洞/Toad in The Hole，名字就非常魔法。这实际上就是一道英国菜。约克夏布丁包裹着烤香肠再淋上洋葱肉汤。好吃，好吃。晚上在三把扫帚点了肉排，鸡腿和玉米。玉米是啃一整个。若是有仰望星空派还真想试一试。我总觉得除开鲱鱼罐头这一类的东西，一般来说，各国的食物总是值得一试的。撇开饮食习惯不同，不会是黑暗料理。
+在蜂蜜公爵买了三种糖果：巧克力蛙，比比多味豆和一种包含了各种糖果的紫红色糖罐。巧克力蛙拿到了罗文娜·拉文克劳的卡片。多味豆居然连八角味都做出来了。紫红色糖罐里的糖果没什么味道，觉得在吃粉。罐子挺好看的，可以用来装其他东西，具体是什么东西还没想好，可能是茶叶还是什么吧。
+大家好像都挺喜欢白种人巫师的？因为同样是穿着袍子拿着魔杖，但是会有人找白种人合影，完全无视了站在旁边的我。大热天的穿黑袍子真是特别热。这件袍子我可能除了在 US 都不会再穿了。也许万圣节会穿一次吧。这一次就是特别奢侈。
+Unlimited Pass 太棒，由于我在 Wizarding World 待了一整天，反复乘坐古灵阁和 Forbidden Journal，每次都是趾高气昂的甩着袍子走专用通道。
+我真的好喜欢这件袍子啊。
+值得一提的是我忘了给回来时超棒的 Lyft 司机一个五星好评就，所以慌忙给客服发消息。虽然不是什么大事情，但毕竟大家都不容易，我总是觉得自己能做的事情还是可以去做的。
+客服邮件回复已经是五星了，同时：
+ I know you didn&amp;rsquo;t ask for this, but because of your awesomeness, I have added a ride credit to your account.</description>
+    </item>
+    
+    <item>
+      <title>八月下旬</title>
+      <link>https://endfang.github.io/posts/august-the-second-half/</link>
+      <pubDate>Sat, 01 Sep 2018 17:31:18 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/august-the-second-half/</guid>
+      <description>Overview 8.17 还在倒时差。8.20 凌晨醒来发现感冒发售。接下来的一周我一直多穿着一件夹克衫。 《七月记》也一直发不出来，然后电脑用不了，但是 Dropbox 一直都存着备份。在新的系统上我重新用 Hexo 来了一遍。 原来问题就是我忘了把 git branch 设为 master 了。 接下来，Eras 的设定资料 2.0 全部随着电脑的故障不翼而飞。 总而言之，八月下半旬有点混乱，而且我记不得中间发生了什么事情。
+博客 2.0 先这样，没有什么特别想个性化的地方。连 About 也先放在一边。想让我多写一点东西再说。
+奶茶 自从我喝了茶颜悦色以后我就对奶茶特别感兴趣。 红茶加豆奶其实就挺好喝的，也许我还可以试一下抹茶粉。 特意买了一个水罐用来装茶。 还有就是，自从感冒之后，我每天的饮水量增加了很多。
+LUSH 是 Lush 不是 Rush。一个手工制的化妆品品牌。在天朝比较有名的就是被称作“小红帽”的洗发皂 New。 Lush 的店铺并没有像想象中那么香气四溢让人窒息，所有产品的气味必须要靠近才能闻到。我除了 New 以外还多买了一块 Respect Your Elder，一块紫色的接骨木花肥皂。味道比较浓，我拆开后放在浴室里，10 min 后整个浴室都是这个味道。 大概是店铺的通风一流，所以并没有很浓的香气。 真的很好闻。 其它产品超级贵，没敢买。
+Watch！ 今年生日的时候意外收到了一小笔钱。有点想买一块 Apple Watch。 并没有买，因为那些功能我实在用不到。 但是最近又有了第四代的新闻…… 又有点想买了。
+Orlando 这回是真的没有忍住。在开学之前让我再去一次吧。 我只玩两天。而且以前写的 Kyle in Hogwarts 找不到了，这回我再写一次。安静一点。这一次据说又会下大雨。 雨水真爱我。</description>
+    </item>
+    
+    <item>
+      <title>七月记</title>
+      <link>https://endfang.github.io/posts/julysdiary/</link>
+      <pubDate>Fri, 10 Aug 2018 14:07:21 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/julysdiary/</guid>
+      <description>海南航空的飞机上的座椅用了和它logo一样的红色。闹心。但是关灯了后就看不出颜色。 有一个小孩子在后半程哭个不停。 我让指环王的电影一直播放，但是我没有带耳机。而是用手机里的音乐。 每一次到公共场合都让我意识到我有多讨厌和人接触。
+现在我最不想听见的就是我家人的声音。尤其是我父母的。
+他们从来都不笑。
+我现在最想听见的声音是 FFXIV 中 Alphinaud 的或者任何一个教授讲课的声音。
+我愿意放弃我这一生所有的联系换取最好的运气和财富。我放弃。我不要了。我不要你们了。纵使煎熬和疼痛，我也不要了。
+不过是喜欢宅T和长发就被父母骂神经。这是我不想回家的理由之一。总有一天我会有一个龙纹身并且戴着龙耳钉。
+不过是很安静而且留着长发就被说是女人。这是我不想回家的理由之一。总有一天我会出柜，到时候我不管你们怎么想。
+  这里的空气非常潮湿，温度也高。让我觉得非常的热。 我和阿火约定好要在六点钟起床。我在3点钟左右就起床了。
+无印良品的草莓巧克力真不怎么样，巧克力太甜了，草莓干的味道彻底被掩盖。抹茶棉花糖很好吃。
+  我五点钟就醒来。
+  “你们出去玩我出钱！” “什么？去上海？太远了。就在附近玩吧。” “哎呀？过山车？海盗船？有点危险呀。别坐了吧。” “你们别老呆在家里呀。”
+麻痹。 这是我不愿回来的原因之一。总有一天我会带着我喜欢的人去很远的地方。谁也不告诉。
+  迪士尼和环球影城天下第一。
+  mbp 出新款了。想升级一下。
+  被爆了发热和重启的问题，再观望一下。
+  我很讨厌我粑粑，他是个莫名其妙的人，总是莫名其妙的就生气，所以我尽量和他少说话。 我也不喜欢我麻麻，她是一个非常爱管闲事的人。什么都要说一嘴，再小的事情都要说一嘴。而且非常没素质，喜欢乱丢垃圾，怎么也说不听。 还有的就是我怨恨当初自己为什么要活下来。
+  他们又开始了。什么事情都要带一个高帽子。
+  还人生不可错过的节点，我呸。
+  真他妈恶心。
+  我还是挺希望他们留下来。阿火，獠牙，还有小神。 这个月我和他们过得最好。他们都是很有趣的人。阿火总是和小神讨论追星，刷微博，看抖音。小牙被困在家里自习，只被放出来了两天，他很喜欢刺激。 我要是死了。他们要是觉得伤心。我就觉得还是没有太大的遗憾。
+  J 回来了。 大概快两年没见到他了。还是一年来着？我记不大清楚了。依旧是细胳膊细腿儿。脸上依旧那么千疮百孔的样子。毕竟是亲自上阵在指挥。 他说他还没有想好自己要做什么。
+  我当初肯定是脑子抽了才选的晚上十点的飞机。脑子抽了才选的和他们一起下来。我就应该和阿火他们玩到前天才回家，昨天到家剪发，今天早上的飞机。</description>
+    </item>
+    
+    <item>
+      <title>友情设定：溪谷恩</title>
+      <link>https://endfang.github.io/posts/siguon-design/</link>
+      <pubDate>Wed, 08 Aug 2018 11:11:40 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/siguon-design/</guid>
+      <description>Intro 溪谷恩是在和 Y 闲扯后遐想出来的 Boss。
+最初的灵感来自 “You! You! Delay! ” 这个由于没有按时出发而脑洞出来的 delay 技能。
+ 技能名：You! You! Delay!
+效果：指定目标无法按计划出发。比如即使提早到了机场也会因为证件不合格而被机场人员质疑，最终为了保险只能离开重新办理证件。
+ 溪谷恩的初版设定是能控制时间的有着“骚气外形”的大 boss。背景乐“诡异暗黑”或者“轻灵哀婉”。战斗结束后还掉落会唱战斗 BGM 的发条小鸟和“彩蛋物品”。特定情况下还会出来一个“支线用来补充背景设定”。“小技能减速，大技能是延长CD”。
+引号里的内容是 Y 自己要求的。
+Lore 的部分是我用来写 Era 的第二版背景设定。Game 则是脑洞出来的初版游戏设计。
+Lore Siguon, the Lady of Bond, the Mysterious Ribbon
+溪谷恩，纽带女士，神秘缎带
+溪谷恩是代表万物联系的女神，能看透所有人事物的前后联系和因果。最复杂的问题在溪谷恩的面前也能被一一解开。她能修复破裂的感情，维护人们的尊严，也能挑拨最亲密的爱人，令他们老死不相往来。她的信徒认为女神的祝福会让他们生活在平静中，避免无谓的争端。惹怒女神则会使得万事不顺，一点小小的摩擦就会导致大麻烦。
+由于其特殊的神力，溪谷恩能知晓许多她并不愿意知道的事情，因此她不会轻易动用力量。
+纹章是一条代表连接和因果的缎带。
+在众神纪元的时候，溪谷恩是抵达“下层世界”的神祗之一，但是她并没有与“下层世界”的居民结合留下任何后代。
+戮神战役开始后，她首先看透了白铁盟誓和灾祸神之间的奇怪纽带，随后提醒了银狼神和主神。
+战役结束后，溪谷恩参与了神对“下层世界”的审判。由于其看透万物联系的力量，是一位重要的证人。
+Game 以下为参考 FF14 制作出来的游戏内技能：
+前因后果 Cause and Effect 点名两个 DPS，分别获得 Cause/前因 和 Effect/后果 两个不同的 debuff 并且开始倒数。两位玩家同时被缎带束缚无法自由移动但是可以攻击。必须在 buff 倒数内先打破 Cause 的缎带束缚才能解除 Effect 的缎带束缚。否则 Cause 和 Effect 会依次爆炸造成中等 AoE 伤害。</description>
+    </item>
+    
+    <item>
+      <title>魔法世界</title>
+      <link>https://endfang.github.io/posts/hogwarts/</link>
+      <pubDate>Mon, 25 Jun 2018 17:33:20 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/hogwarts/</guid>
+      <description>第二次去了好莱坞的环球影城。这一次新添加了魔法世界。我认为并没有奥兰多的魔法世界有趣。
+和奥兰多的区别在于：
+好莱坞的魔法世界并没有像奥兰多一样复制出对角巷和翻倒巷，而是将霍格莫德，对角巷，还有霍格沃茨混合在了一起。 在奥兰多可以从九又四分之三月台搭火车进入霍格沃茨，中途看见角色互动和哈利击退摄魂怪；也可以从对角巷进入，踏上对角巷的那一刻，我就知道我在魔法世界中。然后在里面进入翻倒巷和霍格莫德。
+好莱坞则是从一个半霍格莫德半多角巷的地方进入，从建筑上的积雪装饰可以看出这是霍格莫德，因为小说和电影中霍格莫德的描述大多是雪天，但是某些多角巷的商店也在这里，比如奥利凡德魔杖店还有古灵阁。在昏暗的小房间里，奥利凡德会随机挑选一个小朋友让ta挑选魔杖，最后会像电影中的哈利一样，有一束灯光落在这位小朋友的身上。这是整个魔法世界最接近小说中世界的时刻。能够施展魔法的地点也有轻微区别。
+古灵阁就是一个ATM提款机，没有大堂也没有会喷火的龙。书店橱窗中有吉罗德洛哈特的照片。
+我是真想买斯莱特林的袍子和一根魔杖啊。但是想了想自己可能只会穿这一次就作罢。最后买了一顶斯莱特林棒球帽，赫奇帕奇套头衫，还有一件活点地图T恤。被里面的工作人员看到我这么穿的评论是“Identity Crisis”。差一点就买了一套巫师棋。
+在城堡内排队可以坐 3-D Ride。有一位工作人员真像电影里的霍琦夫人。城堡内的装饰有互相争吵的四巨头画像，催促我们快点走的胖妇人画像，驼背的老女巫雕像，校长办公室以及门口的老鹰雕像，黑魔法防御术教室，厄里斯魔镜，还有分院帽。Ride 的剧情都是一样的，赫敏用魔法让箱子飞起来载着乘客通过魔法隧道进入城堡内部。哈利和罗恩带领乘客去魁地奇球场，途中遭遇火龙，大蜘蛛，打人柳。在球场上罗恩依旧没有守住球。摄魂怪突然来袭，将乘客和哈利卷入了斯莱特林的密室。之后我们从地下逃脱，回到大礼堂，一群人欢送乘客通过魔法隧道返回。我坐了三次，真是非常好玩。
+从中午 12 点开始每个小时都有街头表演。有学生与蛙的阿卡贝拉合唱，和三强争霸的表演（奥兰多还有塞蒂娜沃贝克的演唱：一锅火热的爱，和三兄弟传说的故事表演）。合唱学生包括了四个学院的学生以及一个格兰芬多指挥，让我很惊讶的是他们唱了 Do the Hippogriff(第四部电影中圣诞舞会的流行曲目)。拉文克劳男生和斯莱特林女生一直在抢主唱位置，两人之间充斥着各种甩白眼抢高音做小动作。
+黄油啤酒和南瓜汁都很甜腻。三把扫帚吃了中饭和晚饭：鱼和薯条，芝士吐司。芝士吐司里面加了一块鸡肉和一些培根。两次都意外吃撑。
+等到晚上看到分院仪式的灯光秀。四个学院依次被投影在城堡上，墙壁打开，展示出里面的结构，再关上，留下一片星光。看到一半我就哭了。以深蓝天空为背景，投影下的霍格沃茨城堡不再那么真实，反而变得像是画片一样。那真的是很漂亮很魔法的景象。</description>
+    </item>
+    
+    <item>
+      <title>Three.js - shaderMaterial and vertex/fragment shaders</title>
+      <link>https://endfang.github.io/posts/threejs-shader/</link>
+      <pubDate>Wed, 13 Jun 2018 21:24:31 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/threejs-shader/</guid>
+      <description>A vertex shader:
+//WebGL Vertex Shader  uniform mat4 uMVMatrix; // Model-view matrix  uniform mat4 uPMatrix; // Projection matrix  uniform mat4 uNMatrix; // Normal matrix  attribute vec3 aVertexPosition; // Vertex position in object space  attribute vec3 aVertexNormal; // Vertex normal in object space  varying vec3 vPosition; // Vertex position (camera space)  varying vec3 vNormal; // Vertex normal (camera space)  void main(void) { vec4 camSpacePosition = uMVMatrix * vec4(aVertexPosition, 1.</description>
+    </item>
+    
+    <item>
+      <title>RWBY - Linear Level Design And Redundant Rank System</title>
+      <link>https://endfang.github.io/posts/rwby-linear-level-design-and-redundant-rank/</link>
+      <pubDate>Mon, 04 Jun 2018 23:26:01 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rwby-linear-level-design-and-redundant-rank/</guid>
+      <description>RWBY: Grimm Eclipse(RWBY) is a multiplayer online action game features the online anime RWBY. The game consists of different maps and combat setting. It has single-player or multiplayer mode. Both modes share the same level and combat system. There are four basic characters are available to control. Players need to defeat waves of enemies on a map to win. A scoreboard will be displayed to tell player’s performance when players finish a map, such as teamwork, attack, or assist.</description>
+    </item>
+    
+    <item>
+      <title>Final Fantasy XIV - Old Game Content Recycle and Encouragement</title>
+      <link>https://endfang.github.io/posts/gamingentry7/</link>
+      <pubDate>Thu, 24 May 2018 16:08:49 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/gamingentry7/</guid>
+      <description>Final Fantasy XIV Final Fantasy XIV(FFXIV) is an MMORPG. Players explores the story and the world by controlling their character. The game is full of multi-player combat content, such as 4-men dungeon, 48-men PvP, and 144 men instance map. Except for combat, FFXIV also provides crafting and gathering abilities. This case study, however, only focus on combat game content.
+The Problem FFXIV is updated expansion. Each expansion will last around two years and consists of at least five patches updated periodically.</description>
+    </item>
+    
+    <item>
+      <title>Derivative</title>
+      <link>https://endfang.github.io/posts/recall-derivative/</link>
+      <pubDate>Thu, 17 May 2018 17:20:53 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/recall-derivative/</guid>
+      <description>The First Derivative The first derivative is the slop of the tangent line to the function at point x. It tells if the function is increasing or decreasing.
+For example:
+$f(x) = 3x^3 - 6x^2 + 2x -1$
+$\frac{df}{dx} = 9x^2 - 12x + 2$
+$x=0$, $\frac{df}{dx}(0) = 2$, so the function is increasing at x = 0.
+$x = 1$, $\frac{df}{dx}(1) = 9 - 12 + 2 = -1$, so the function is decreasing at x = 1.</description>
+    </item>
+    
+    <item>
+      <title>Sphere Coordinates and Trigonometry</title>
+      <link>https://endfang.github.io/posts/recall-sphere-coordinates/</link>
+      <pubDate>Sun, 13 May 2018 12:24:46 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/recall-sphere-coordinates/</guid>
+      <description>Sphere in 3-D three parameters: (r, θ, φ) $x = r \cdot sin(φ) cos(θ)$ $y = r \cdot sin(φ) sin(θ)$ $z = r \cdot cos(θ)$
+Trigonometry $\cos(θ) = \frac{x}{\sqrt{x^{2} + y^{2}}}$ $\sin(θ) = \frac{y}{\sqrt{x^{2} + y^{2}}}$ $\tan(θ) = \frac{y}{x}$
+arcsin/arccos/arctan is the inverse. e.g. $\tan(45^{\circ}) = 1$ $\arctan(1) = 45^{\circ}$</description>
+    </item>
+    
+    <item>
+      <title>Verb Tense in English</title>
+      <link>https://endfang.github.io/posts/recall2/</link>
+      <pubDate>Wed, 02 May 2018 12:39:12 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/recall2/</guid>
+      <description>Each sentence takes a place in a specific moment, and aspects tell us the status of the action at that moment
+Past Continuous/Progressive “We were sleeping when the sea creature attacked.”
+Perfect “We had departed from Nantucket.”
+Perfect Progressive “We had been sailing three weeks.”
+Simple “We went to search a sea creature.” “Sea creature attacked us.”
+ Present Continuous/Progressive “We’re preparing for their next mission.”
+Perfect “We have built a special submarine for the search mission.</description>
+    </item>
+    
+    <item>
+      <title>Recall I</title>
+      <link>https://endfang.github.io/posts/recall1/</link>
+      <pubDate>Thu, 26 Apr 2018 13:03:56 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/recall1/</guid>
+      <description>line in 3-D Define $\vec r_0$ and $\vec r$ are position vectors of $P_0$ and $P$, and $\vec a$ represents $\vec{P_0P}$.
+if $\vec v$ is parallel to $\vec a$, then: $\vec{r} = \vec{r_0} + \vec{a}$ $\vec{a} = t\vec{v}$ $\vec{r} = \vec{r_0} + t\vec{v}$
+in othe words, $(x_r, y_r, z_r) = (x_{r_0}, y_{r_0}, z_{r_0}) + t \cdot (x_v, y_v, z_v)$
+sphere the sphere&amp;rsquo;s center point is $(x_0, y_0, z_0)$ radius = $r$ all point on surface: $(x, y, z)$ $(x - x_0)^{2} + (y - y_0)^{2} + (z - z_0)^{2} = r^2$</description>
+    </item>
+    
+    <item>
+      <title>Entry 6</title>
+      <link>https://endfang.github.io/posts/gamingentry6/</link>
+      <pubDate>Sat, 21 Apr 2018 23:14:22 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/gamingentry6/</guid>
+      <description>I had several minions earned from sending out retainers and Eureka NM fates. They only worth 1000 gils on Market Board, so I decided to give them to a random player. I began with asking if the player want minions by sending /tell. It turned out that players all shunned away. Fine, I picked a random player and began with trade. I gave all minions away in one shot.
+I’ve been thinking changing my main.</description>
+    </item>
+    
+    <item>
+      <title>尝遍方便面</title>
+      <link>https://endfang.github.io/posts/instant-noddles/</link>
+      <pubDate>Wed, 18 Apr 2018 14:46:22 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/instant-noddles/</guid>
+      <description>逛 Target 的时候在 Asian 区域发现了很多方便面。 方便面，我爱吃。决定尝遍这个区域。 一开始买了优惠的 pack 类型，尝到了一些不怎么喜欢的口味后认为还是两包两包的买更好，日清的杯面除外。
+Maruchan，chicken falvor 每一包面包括了一包调料和一块面饼。对于方便面，我一般是一次煮两包吃撑。这一种两包的分量比较大，需要在碗的下面放一个盘子来防治汤水溢出溅在桌子上。只有比普通小碗大那么两三厘米的碗没办法。 细面条，鸡汤味，煮的时候一开始味道有点冲。加了鸡蛋和番茄酱调味。有一点咸，但在我的可接受范围内。
+日清杯面， chicken flavor 请看日清杯面的大型广告：Final Fantasy XV。现在是在做 Dissidia NT 的活动。 小小的一杯，份量还行。每一杯包括了面饼和已经撒好的调料。只要加热水就可以。我额外加了一个蛋。 细面条，鸡汤味。无论是泡还是吃的时候，味道都很寡淡。里面有我喜欢的玉米粒。
+SAPPORO ICHIBAN，original flavor 一包 100 g，包括了一块面饼和一包调料粉。 煮面加入调料粉的时候并没有味道。香味是慢慢出来的。细面条，汤的味道比较浓厚。不咸不淡刚刚好。 这是目前为止最好吃的一款。
+SAPPORO ICHIBAN, Shio Ramen 同一个牌子，谷歌说这是盐味拉面。 一包 100 g，包括了一块面饼，一包调料粉，一包白芝麻。白芝麻细细咀嚼是真香啊。 比起原味款味道要咸一点，依旧是比较浓厚的味道。 超市里只有 5 包装的……
+SAPPORO ICHIBAN, Beef flavor 这一次是牛肉味。 一包 100 g，包括了一块面饼和一包调料粉。 依旧是咸度适中，味道浓厚。但很奇怪的是汤水中有小颗粒，我才是超级迷你的牛肉粒吧。严重影响口感。这个牌子最难吃的一种。 说起来，康师傅的红烧牛肉也是这样。</description>
+    </item>
+    
+    <item>
+      <title>Color Channel 颜色通道</title>
+      <link>https://endfang.github.io/posts/color-channel/</link>
+      <pubDate>Thu, 12 Apr 2018 17:47:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/color-channel/</guid>
+      <description>颜色通道(color channel)不能光用类比三原色的方法来理解，还需要理解灰度值(gray scale)。
+ 数字图像的本质是矩阵。
+ 每个矩阵内的元素可以看作是一个像素，每个元素都有关于 BGR 三种颜色的灰度值，而灰度值表示的是颜色的“深浅/强弱/明亮”。灰度值越高，颜色越深/强/暗，反之则是越浅/弱/亮。
+如果一个像素的 BGR 的灰度是 [100, 40, 35]。那么这就表示，这个像素的蓝色通道的灰度值是100，绿色的通道的灰度值是40，红色的则是35。这些颜色混合在一起就变成了这个像素的颜色。
+ P1.d 的题目要求的是：
+ Modify the above code snipet to replace the green with blue, red with green, and blue with red channels.
+ 也就是： green -&amp;gt; blue red -&amp;gt; green blue -&amp;gt; red
+第一次解法：
+newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[0] = r; newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[1] = b; newColor.at&amp;lt;Vec3b&amp;gt;(i, j)[2] = g; 实际上是： red -&amp;gt; blue blue -&amp;gt; green green -&amp;gt; red</description>
+    </item>
+    
+    <item>
+      <title>兔子洞 VIII</title>
+      <link>https://endfang.github.io/posts/rabbit-hole-8/</link>
+      <pubDate>Mon, 02 Apr 2018 11:15:58 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rabbit-hole-8/</guid>
+      <description>花田复活。时间飞逝。
+ 我都说了…… 你那时候更本就没有说话。 你们都没说话。 你想怪我们？</description>
+    </item>
+    
+    <item>
+      <title>Entry 5</title>
+      <link>https://endfang.github.io/posts/entry-5/</link>
+      <pubDate>Sun, 01 Apr 2018 22:18:20 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/entry-5/</guid>
+      <description>FFXV PC Demo Obviously, many player don’t like this port because of graphics. I honestly can’t tell the difference between different graphic settings except the brightness and shadow. There isn’t much to talk about the demo. It’s simply an opportunity for pc players to test the performance.
+I don’t why, but I’m not really into buying the game after I played the demo. And funny story: Origin provides the full content in tis demo except .</description>
+    </item>
+    
+    <item>
+      <title>兔子洞 VII</title>
+      <link>https://endfang.github.io/posts/rabbit-hole-7/</link>
+      <pubDate>Mon, 12 Mar 2018 22:39:27 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rabbit-hole-7/</guid>
+      <description>别丢下我啊。</description>
+    </item>
+    
+    <item>
+      <title>兔子洞 VI</title>
+      <link>https://endfang.github.io/posts/rabbit-hole-6/</link>
+      <pubDate>Sun, 04 Mar 2018 15:47:47 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rabbit-hole-6/</guid>
+      <description>我看这回事真的完蛋了。没了我 Kyle 就彻底失去方向了。 这可不一定，你看他刚刚不是在写代码么？ 这不一样，我们知道在结束这个 Quarter 之后会发生什么事情。 好吧，你说对了。 他又走神了。 连一句话都说不完整了。能不能撑过今年都是个问题。 我打赌不能。 你用什么打赌？
+ 当我发现离开了 XIV 后只能盼着 XV 的时候，日子一天比一天黑暗。因为 XV 后面就没有了。因为我并没有盼着其它。因为我终于要被击败了。
+ 他打算延期了。 迟早的事情。 你在发言之前会想好 identity 吗？ 你是说确认 identity ？ 同一件事。 不会。
+ Liz 还是没有发短信回来。
+ 结果还是因为课程时间冲突要多读三个学季。原本以为只有两个。
+ 你看了今天的 XV 新闻了吗？ 看了，我决定要买了。 你看了 Comrade 的游戏体验视频也决定买？看上去一点意思也没有。 你懂什么。反正 Win Edition 包括了 Season Pass。新的 Content 总是能够等来的。 你确定你可以等到？ ……不确定了。 那你还玩 XIV 吗？ 看 Kyle 怎么想，反正决定权在他。 你不是一直说决定权在你吗？ 不是……这……都是被你影响了。我现在重申，玩 XIV 的是我和 Kyle，但是大部分时间都是我在玩。而购买和订阅的权利属于 Kyle，如果 Kyle 决定停止订阅，那么我就无法继续体验游戏。换句话说，我负责享受，他负责 access。 胡说八道。</description>
+    </item>
+    
+    <item>
+      <title>Entry 4</title>
+      <link>https://endfang.github.io/posts/entry4/</link>
+      <pubDate>Thu, 22 Feb 2018 16:43:12 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/entry4/</guid>
+      <description>I’ve been digging up XIV’s music cover, here is what I found.
+I&amp;rsquo;ve been thinking add a playlist reference in this site, but haven&amp;rsquo;t come up with any idea.
+{% raw %}
+{% raw %}
+{% raw %}
+{% raw %}
+{% raw %}</description>
+    </item>
+    
+    <item>
+      <title>兔子洞 V</title>
+      <link>https://endfang.github.io/posts/rabbit-hole-5/</link>
+      <pubDate>Mon, 19 Feb 2018 12:20:17 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rabbit-hole-5/</guid>
+      <description>跑的飞快的。 有三个 RSS 订阅的未读项目累计到了 200+。
+ 网易云一天到晚给我推荐小黄曲，因为我收藏了‘威风堂堂’和‘Mind Fuck’。但是我也收藏了 “Zu Ende”, “, “Beauty’s Wicked Wile”, “Rock and Roll Records”, “A.I.”, “The Lumen Sage”, “我在人民广场吃炸鸡“，”恋歌宣誓“，”50 Ways to Say Goodbye” 这些曲子的。无论我怎么收藏新的歌曲，小黄曲的比例总是很大。由此可见网易云的算法有问题。 一脸的我见犹怜。 病句。 NameCheap 从一月份就开始给我发邮件提醒我域名过期。根本就没用过，反正是免费的。 带耳机挺疼的。 不戴怎么活？ 还挺冷的。 我觉得今晚真的挺冷的。 今天 Knox 和 Ryan 同时说了 “No”。真是少见。 不少见。你忘了我们思考的方式是一样的。 不一样。 有点怪吧，为什么一样的思考方式带来不同的结果？ 结果本来应该一样。但是我们经历的完全不同。 应该说这是蝴蝶效应吗？ 蝴蝶效应不是这么用的。 他又放弃思考了。 你能少用一点“了”和“的”吗？ 不能！ 你怎么老唱反调呢？ 那你能少用一点“呢”吗？ 我从不用“呢“。 我没说你。 他说的是我。 不要吵架。 他又开始了。他又开始了。 我们的 Fist 非常相像。 到底是谁的观点？ 我的。 不对，是 Kyle 的。是我的。 是 Ryan 的。 先说说 Fist 是什么行吗？ 你刚才差点自说自话。 闭嘴。</description>
+    </item>
+    
+    <item>
+      <title>Entry 3</title>
+      <link>https://endfang.github.io/posts/entry3/</link>
+      <pubDate>Mon, 12 Feb 2018 09:34:46 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/entry3/</guid>
+      <description>All about FFXIV Patch 4.2.
+Glamour Dresser Players can only access glamour dresser in the inn room. This new glamour system is divided into two parts: dresser and plate. By consuming a Glamour Prism, players can add certain gears to the dresser. The plate is where players can edit 10 pre-made glamours sets. After applying the glamour set, every wearing gear will be glamoured to the every gear set. In other words, when I switch to SMN, some parts of the glamour set will not work if these parts are other role-only/job-only gears.</description>
+    </item>
+    
+    <item>
+      <title>兔子洞 IV</title>
+      <link>https://endfang.github.io/posts/rabbit-hole-4/</link>
+      <pubDate>Wed, 07 Feb 2018 20:10:24 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rabbit-hole-4/</guid>
+      <description>你就特别擅长安慰 Kyle。我还没有试过，但我觉得凭我的脾气，肯定只能煽风点火。 你的坏脾气大家都不知道，但是我觉得 Kyle 不会被你煽动，到时候动手的还是你。但我从没见过你出手啊？ 我的坏脾气只能藏着掖着，Kyle 在外面撑着，到时候吃亏的都是他。你倒好了，做什么大家都不会怪你，但也没见你真的做过啊？ 我出现过一段时间，那时候我还是 Kyle。Lisa 教授取的名，但是 Kyle 没有在意。现在才是 Ryan。你又是什么时候出现的？ 大概是 2016 年的春季或者夏季。那时候我也是 Kyle。后来 Kyle 曾经对 Jessica 提起过我，Jessica 对我还挺有兴趣，不过后来断了联系。 我从来没有遇见过 Jessica，她是个怎样的人？ 会在 Kyle 思考的时候露出不耐烦的表情，所以 Kyle 才断了联系。 那她一点也不称职。 她称职，但我猜谁也受不了 Kyle 需要长时间的思考才能回答问题。 你这么说有点过分。毕竟我们用同样的方法思考。 你今天怎么没出现救场？当时我都没感觉，毕竟那时候不能发脾气。 我不能出来，一出来就露馅儿了。 得了吧，一开始的时候你就出来显摆了。你敢说那不是你？ 那是 Kyle 自己。 不可能。 就是如此。 你是想说我们没有能力做出动作？得了吧，我想起来了，你刚出来那会儿就是一个劲儿的说话，都被人吐槽了。 那也是 Kyle 自己做的。我没做。Knox 你不能什么事情都赖在别人身上。你想砸东西的时候也是 Kyle 阻止了你。 得了吧，当时搞得我们两个都疼得不行。 Jessica 还表扬你来着？ 那是表扬的 Kyle。Jessica 不知道我们。你看，总是 Kyle 在外面撑着。我也想碰外面的世界。 等你真的碰到了，一切都完了。 那你说，要是 Shadow 真的出现了，我们会怎么样？ 彻底完蛋。 Kyle 总是找 Shadow 和你。我倒是成为最讨人嫌的了。 得了吧，Kyle 总是找你玩儿。 但他总是和你说话。 我倒是挺喜欢你的。 你现在是谁？ 我不知道，一下子就模糊了。我猜你也不知道你是谁了。 说真的，我们究竟存不存在呢？如果这是发生在一瞬间的幻觉呢？ 这种时候只能继续对话，我觉得我们很快就可以分辨出来谁是谁。 哈，刚才他打死了一只蚊子。 没有用免水洗手液。才二月份，加州就有蚊子了？ 你看，你刚提到免水洗手液，他就想到了 Tyler。Tyler 洗完手后都要用免水洗手液再擦一遍手。 Tyler 的样子倒是不怎么好看，一脸的痘痘。 我看你是 Knox，我才是 Ryan。Knox 不会夸人好看。 胡说，Knox 也会夸人，只是 Ryan 经常夸人。 那你举个例子？ Knox 夸过一个 T，Ryan 太温柔天天说好话。简直就是造神。 那你现在也是在夸 Ryan，所以你是 Ryan？ Ryan 不会自己夸自己。你这种简化的三段论要不得。 Ryan 聪明，所以你是 Ryan。Knox 不会说三段论这种话。 不，我觉得我们还是没有分清楚。继续。 那我们说什么？ 就说说你是怎么出现的吧？也许你说出来了我们就知道了。 不可能吧…… 那我是怎么出现的？我连我怎么出现的也忘了。 那就说说你曾经玩过什么游戏吧。 提起游戏我想起来了，Ryan 不会说 T。谁说了 T 谁就是 Knox。你现在还记得是谁说了 T 吗？ 我忘了。 我也忘了。 过去所发生的一切都重叠在一起，我分不出来了。 这算是好事吗？ 我不知道。 你是 Knox，Ryan 不会说“不知道”。 错了，Ryan 从不自夸，你是 Knox。 得了，大家都不想做 Knox。 谁说的，我就想做。 那你做呗。 可是我们不能弄混了。现在这种混沌状态，最好分清楚。 免得将来出现乱子。 你为什么会接着我的话说？ 等会儿，Kyle 刚才出现了。 不对，那是一瞬间的事情，也许不是 Kyle。Kyle 正忙着打字。 Young 和 Kyle 说话了。你猜是谁和他说的话？ 当然是 Kyle了。 明白了吧？你是 Ryan。 没错，你说的很对。我是 Ryan，你是 Knox。 真是意外的发展。我觉得还是需要外界因素的介入。 不对！Knox 讨厌外界因素。 完了，混沌状态可能又要回来了。我们还是先停下来，我觉得这样下去不会有结果的。 我想继续说话。 等会儿…… 现在我又忘了谁是谁。</description>
+    </item>
+    
+    <item>
+      <title>兔子洞 III</title>
+      <link>https://endfang.github.io/posts/rabbit-hole-3/</link>
+      <pubDate>Wed, 07 Feb 2018 09:10:45 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rabbit-hole-3/</guid>
+      <description>梦见自己找了一个脾气暴躁还喜欢给我纸币的男朋友。我在教室里做作业，他就跑过来硬是要拉我走，也不知道去哪里。我说不行，先让我把作业做完。他脾气就上来了和我大吵一架，最后被我气走了。等教授来上课的时候我发现我的笔记本里夹了一张五元纸币。这种道歉方法我从来没有见过。我不要。就没理他。纸币被风吹到了地上，又吹到了他的脚边。他也没理。最后教授发现了钱，就说了一句“这是谁的钱？” 他就急急忙忙捡了起来。醒来后我发现睡过头了预定的时间，着急忙慌就起床刷牙穿衣。
+ Ryan 说了几句话我就不慌了。真是个神奇的人。
+ 昨天真是差点要死。我又开始做奇怪的梦：和所有人吵架，吵得特别凶，每次都是我赢。最后把对手气哭了。要么就是打人。尔湾（梦中）嘴炮李私昼。 脖子疼。总觉得忘了做什么事情。 要我说就是要自己做一个“抱抱机”，或者干脆变成机器人得了。当人多难受。 我把 Ryan 忘在某个地方，找不回来。 Ryan 不重要，我才重要。 你忘了 Ryan。Lisa 先说的。 不是。 那么你是谁？ Knox。脾气差的那个。Ryan 是好脾气又聪明的那个。 Fang 和 Ryan 不就是同一个吗？ Ryan 不在，你忘了他。到底是什么时候开始出现的我也忘了，我都忘了谁是谁。当盾牌的是 Kyle。你忘了那次我本来该走的，Kyle 拉回来又替我玩了一会儿。之前都是我。 可是我和 Ryan 说过话。 我怎么知道谁和谁说过话？你又是谁？
+ 情人节又要来了。XIV 同步到了 Valentino’s Day，还必须得两个人一起进副本。SE 在这种事情上真是特别讨厌。今天太阳又出来了， 一照到阳光我就觉得我要死了。
+ 看悲剧小说看到在心里骂了一句“我勒个擦。” 还没缓过来。 3 页论文还没写。要死。
+ 写完了，2 页。
+ Ryan 昨天从上午就回来了，又送我回家，半路又跑没影了。 难道你还想 Ryan 鬼压床？ 不如 Knox 鬼压床。 Knox 和 Ryan 鬼压床。</description>
+    </item>
+    
+    <item>
+      <title>Entry 2</title>
+      <link>https://endfang.github.io/posts/entry2/</link>
+      <pubDate>Sun, 28 Jan 2018 20:39:24 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/entry2/</guid>
+      <description>去了 GGJ，和一群不认识的人在 48 小时内创作游戏。今年主题是 “Transmission”。
+Arden 负责背景乐和音效。他拿出了一个接口和话筒，录制了敲击键盘和说话声，然后做成了合成乐。善用 Logic。我特别喜欢他制作的 7 个敲击键盘的声音。我把这七个声音随机播放，再写了一个自动打字的效果，做成了打字机或者 terminal 的样子。Howard 又加上了一个闪烁的光标特效。Mekin 说他觉得最终效果很有意思。
+Tyler 教了我如何用 LoadAll 和 按钮自带的 OnClick()。好机智啊。
+public AudioSource mySource; public AudioClips myClips; void Awake () { Text txt; mySource = GetComponent&amp;lt;AudioSource&amp;gt;(); myClips = Resources.LoadAll&amp;lt;AudioClip&amp;gt;(&amp;#34;the_path&amp;#34;); } Mekin 提出了以博弈论为基础做一个文字冒险的生存游戏。同时他也负责 3D 建模。他做了一台飞船上的电脑。Tyler 与 Howard 配合做了一个特别酷炫的屏幕放大特效，又在屏幕背后的宇宙中做了星光。
+Eddy 也有一部分美工，但是他大部分时间都在管理创作进程。在最后一个小时内他完成了初始画面的背景图。Arden 三次发现了单词拼写错误，他就改了三次。
+Kyle 依据 Mekin 的主意写出 15 页的剧本，由 Tyler 订正后写了模板导入 Unity3D。 原本的计划是制作一个网络匹配后的冒险游戏，但是我们并没有办法在第二天中午之前想出网络连接的程序，只能做成一个单一客户端。Mekin 总是建议我们使用 TCP，实际上我们也这么做了，可是要控制的变量超出了我们的能力。
+最可怕的是在最后一小时发现了一个严重 bug，不得已只能去掉了光标效果才能让游戏运行。
+特别有意思的是，Kyle 在最后一小时拉上了 Mekin 和 Arden，三人一起又做了一个超级简单的射击游戏“One Shot”。在展览上意外获得好评。Arden 制作的洗脑循环 “one shot” 十分魔性，每次听到我都特别想笑。</description>
+    </item>
+    
+    <item>
+      <title>兔子洞 II</title>
+      <link>https://endfang.github.io/posts/rabbit-hole-2/</link>
+      <pubDate>Mon, 22 Jan 2018 14:55:02 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rabbit-hole-2/</guid>
+      <description>Liz 没有回短信。我不敢去所有的 center。我说不出话来。粑粑上一次说了想要看我的网站，我不能给他看就谎称自己制作出来了网站但是没有内容所以就放弃了。我不能给他们看。我能给谁看？Liz 和 Jessica 都看不懂。我该给谁看？
+“月亮弯弯，康定溜溜的城哟～”
+李青枝和李寒江的故事被我亲手毁了。全部推翻重来。我总觉得这是一个特别烦躁的事情。我写了一点，删掉。再写一点，删掉。究竟要学习多少门语言才能听懂我想听懂的事情。我要说什么语言才能够说出我想说的事情。我好羡慕许多奇幻作品的龙，长久的年月让他们陷入沉眠，让他们不再在意时间。
+前一段时间在模模糊糊中听见有人在房间里收拾东西，我还听见了流水声。Andrews 那个时候还没有回来，那会是谁。
+ 机核文章转 PDF，PDF 转 EPUB，EPUB 转 Kindle。现在我每次输入一个标点符号，都会空一格。但是中文输入法的全形字符已经占了两个格子。太丑了。真丑。不丑。机核的图片加载总是特别特别慢。我没有找到机核的网站反馈地点。我连说话都不会了。 昨天我又做了一个梦，好像是有人要把我关起来，不准我离开。这个人我之前肯定也梦见过。梦境也有连载的。要我说这个人肯定不一般，我总觉得这是一个非常重要的人。这个人总是在我的梦里捣乱，让我在半夜醒来。醒来后虽然觉得昏昏沉沉不舒服，却还是能够安稳的继续睡下去。要是那天我能够记清楚这个人的相貌，我就把他画下来好了。然后贴在墙上。还是不贴了，让人看见多不好。
+ Scrivener 3 的一个功能就是设定目标字数然后显示进程。为什么人们写小说会需要设定字数？不应该是质量高于数……我想起来了，Scrivener 的还可以用来写论文。 我勒个擦，Andrews 现在拿着一个茶包在淌水玩。将茶包提出茶水，又放回去。来回数次。他放多了谁，为了不让水溢出来，便没有把杯子举起来，而是低头像小鸟一样靠近杯口吸水喝。
+ 一旦我进入厨房，原本聊得热火朝天的 Andres 和 Steve 就马上闭嘴了。然后我走进卧室，两人又叽叽喳喳。这两个人究竟是怎么回事？我又想起来了，虽然评论蓝色的餐具让人没有食欲，但我用了一个蓝色的大碗差不多三年。真棒。 美妆博主贾宝玉，红楼嘴炮王麝月。 你不和我说话。我就不帮你找 PDF。就不帮。就不帮。你让和你说话的人帮忙好了。 就算是幻觉也好。和我说句话吧。 我不想听。我不想说话。说话太麻烦了。摄神取念才是最好的交流方法。 你和我说说话吧。 我不想说。太麻烦了。一个人待着挺好。 求你了。 不说。 太疼了。 你真矫情。 不疼不疼。 不说。 没事。
+ 这一周每天都会出现胸口疼。疼了这么久也没习惯。
+ 昨晚是真的疼。
+ 我发觉规律了：睡觉之前心疼。睡着了不疼。看小说看到一半容易疼，看完了疼到死。做作业和上课就不疼。刷牙的时候不疼。坐在电脑前疼，但是坐在图书馆的电脑前不疼。 我昨晚梦见回老家了，到处都是僵尸。我躲在一个小路里面用黑毯子裹紧自己假装自己是黑夜。但是等我透不过气拉开毯子，生后一个漂亮的长发女僵尸说：”找到你了。“吓得我赶紧跑，然后开始一路流浪到不知道什么地方…… 那是画皮吧？</description>
+    </item>
+    
+    <item>
+      <title>Entry 1</title>
+      <link>https://endfang.github.io/posts/game_journal_entry_1/</link>
+      <pubDate>Wed, 17 Jan 2018 11:26:44 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/game_journal_entry_1/</guid>
+      <description>游戏设定的背后 月亮是魔女题材的一个重点。几天看机核文章讨论了 《猎天使魔女》中的魔女形象溯源。一条评论说神谷英树没想那么多。我不同意。魔女这个概念从诞生那一刻开始就已经开始利文化沉淀，从魔鬼理论，魔鬼契约，魔鬼印记，到魔女审判，《女巫之锤》和猎巫运动。这些历史与文化都和魔女紧紧联系在一起。也许神谷英树没有做非常深度的调查研究，但是当他创造了 Bayonetta 的时候，这些背景都会或多或少的随着“魔女”融入进了游戏中。 当我看到“抹茶”，我会首先想到“绿色”，“甜点”，“日本”。稍微走远一点，“茶杯“，”茶道“，”苦涩”。再远一点，“中日文化“，”文化输出“，”唐朝“，”陶瓷烧制“。最先看到的是表象，往后走才是背景和溯源。
+FFXIV: Mentor Roulette Mentor will party with new/veteran players to complete old content. To give incentive to mentors to run roulette, Dragon Monocle and Astrope will be rewarded to mentors after 2000. The only problem is that many mentors do NOT want to play old content, and the huge effort for the reward is tedious and tiring. I’ve seen many mentors queued roulette as a DPS and quit/dc once they are in a 4-man dungeon, Ex, or 24-men raid.</description>
+    </item>
+    
+    <item>
+      <title>兔子洞 I</title>
+      <link>https://endfang.github.io/posts/rabbit-hole-1/</link>
+      <pubDate>Thu, 04 Jan 2018 19:08:40 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rabbit-hole-1/</guid>
+      <description>时差一直没倒过来。凌晨4点才有睡意，下午2点才能醒。 今日上午 9:46 醒来，眼疼，头重，要死。翻了一会儿手机发现小半年没更新的某个博客突然更新了。挑了一篇文章开始阅读，又睡着了。
+开始鬼压床。我能感到阳光穿过百叶窗照在我的脸上，周围也十分昏暗。我努力想动动身体，动不了，和石化了一样。我没被石化过，但我猜就是这种感觉。我模模糊糊地意识到这是鬼压床，但我不知道这是在做梦还是真的清醒。房门口的右上角出现了一张白色的模糊的脸，像是个男人的脸。他在嘲笑我，然后化成雾气消失了。右边好像有许多黑色的人影在动来动去。这肯定是个梦，我这样想着，然后又尝试动了动身体。右边的黑色人影突然就化成了黑色的雾气和刚才化成雾气的白色人脸融合在一起，整个世界旋转起来变成了一个漩涡。我还是动不了。
+梦境开始。有一架自动扶梯。有一个很重要的人，但我忘了那是谁。可能从楼顶上跳了下去。在高速公路上。走在很多人的街上。可能拿了一张传单。可能坐在了烧烤摊旁边。可能掉了下去，不我没掉下去。发生了一件不应该忘记的事情，可我还是忘记了。特别疼，应该不疼。大脑在发出奇怪的声音，就像有七八台机器在我脑袋里用运行时发出的嗡嗡声唱歌。真的有一个很重要的人，就在我眼前，我忘记是谁了。嗡嗡声在不知道什么时候断了。刚才我脑中闪回了一个片段，但我没抓住它。剩余的我全忘了。
+醒来时又是下午了。这真是一个奇妙的梦。最近总是梦见一些容易忘记的事情，醒来后又有那是一些很重要的事情的感觉。
+昨天后半夜好像有人敲门，是新来的韩国室友吧，我躺在床上懒得动，假装睡着了。敲了两次，每次三下。如果敲了三次，可能是 Sheldon 来了。
+韩国室友 YoungSuk，或者 Young，长的高挑，皮肤好，竹竿。左边眉毛上有一块小小的圆形疤痕。黑色的短直发。眼睛小小的，符合人们对韩国人的刻板印象。英语说的不是特别流利。他第一次看见他的时候，他穿了一件蓝色的长袖衬衫，里面有一间白色的T恤，下半身只穿了一件内裤。我给了他一块蓝莓司康饼，告诉了他在哪里倒垃圾。他买了一打瓶装水放在了冰箱里。他看上去很可爱。韩国人是不是都挺可爱的？这是不是刻板印象。
+可爱究竟是什么意思？当美国人说&amp;quot;cute&amp;quot;的时候，有时候是说“帅气”，有时候就是说”可爱。handsome 和 adorable 的区别。美丽我懂，和漂亮是近义词。维密超模是漂亮和美丽，金发小哥是可爱。傻猫视频里的猫也可爱。小狗也可爱。J 和 悠悠是小巧玲珑。Andres 是英俊。Steve 是讨人嫌。唐洋是可爱，不对，唐洋没到可爱的程度。应该到了。
+又有一个梦境的闪回，我走在街别的小吃摊附近。
+伯爵爱说俏皮话。冷少爷则是故作高冷的公子哥。小D是……是……好像是……挺可爱吧。拉拉是污妖王。那么可爱究竟是什么意思？
+我知道“忠诚/感激”和“爱/感动”的区别是：”我愿意为你死“和”我愿意把自己一生交给你“。可爱究竟是什么意思？黛玉不可爱，黛玉是敏感脆弱的作作小才女。宝钗也不可爱，宝钗是落于世俗的心机小才女。湘云是可爱。宝玉是疯魔。悟空不可爱。八戒也不可爱。佛罗多也不可爱。Y&amp;rsquo;shtola 不可爱。Krile 是可爱。不对不对，Krile 一脸不怀好意。拉拉肥们是邪恶。Sherlock 和 Watson 也不可爱。Knox Whitetime 挺可爱的，毕竟自己捏出来的。iPhone 5，5S，7 挺可爱的。不对不对，7 不可爱。Liz 也不算可爱。斯皮尔伯格也算可爱吧，我只看过对他的采访。 金发小哥，唐洋，小D，湘云，Knox Whitetime，5，5S，斯皮尔伯格的共同点是什么？我脑子笨，想不出来。金发小哥是靠第一直觉来决定。我和唐洋说过话。小D我说不出来。湘云不可爱怕是脑子里发了霉。完全没有共同点。Cereza 也挺可爱的。 不对不对，这样钻进了牛角尖。漂亮和美丽的事物让我觉得欣赏，但我用不着去珍惜。可爱的事物让我身体变轻，想要据为己有。不对不对，这样小D也不可爱了。小D的确不可爱。唐洋也不可爱。湘云也不可爱了。湘云和斯皮尔伯格是很有人格魅力。Young 也不可爱，Young 是……是……就那样吧，是一个路人。 可爱的事物应该是让人觉得眼前一亮。Haurchefant 算一个。Haurchefant 死了我觉得很可惜很不舍。不对不对。Haurchefant 属于 Bromance。这是一种位于 love 和 friendship 之间的恒定感情。用日剧里的话来说就是“友达以上，恋爱不能”。同理还有 Womance。如果我养了一只狗，算是 Dogmance 吗？和猫谈恋爱是不是更好一点，但是猫太独立了，指不定哪一天就离家出走再也不回来了。养只兔子关在笼子里岂不美哉。金鱼容易死。兔子吃萝卜。兔子急了会咬人。白萝卜好吃。白萝卜就是大根。白萝卜是真好吃。红萝卜就不好吃了，除非是咖喱里面的。不对不对，Dogmance不能算是恋爱。也不能猫谈恋爱。但是和 OS 就可以。就等超级 AI 统治地球毁灭世界。和 OS 谈恋爱能否调参数，如果是像 Her 中的 Samantha 一样， 我是不能够自己调整的。等会儿，如果超级 AI 把我给杀了，将我的意识数据化，让我成为它的一部分，这样 OS/AI 就可以调整我的数据了。这样还算是恋爱吗？如何才能够量化人的情感？人的意识就是大脑中的电流刺激，缸中脑设想了完美模拟以及混肴现实的实验。如果能够用人工智能模拟出来岂不美哉。我的思想也能够复制，但这只能算是复制粘贴后的重复。不对不对，还是要靠人脑才行。可是人脑太复杂了，连感情也无法量化。 说回来，可爱究竟是什么。</description>
+    </item>
+    
+    <item>
+      <title>八日记</title>
+      <link>https://endfang.github.io/posts/8days/</link>
+      <pubDate>Thu, 28 Dec 2017 10:41:08 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/8days/</guid>
+      <description>Day 1 昨晚 22:24 被暖气热醒。做了奇怪的梦，梦见了谢振国老师在高中教室里教数学，还发起了脾气。 早晨吃了一块饼干。忘了拿颈枕。按时到了机场，换了一次座位。 粑粑让我提前告知回美国的时间好订机票。要我说的话，还是东方航空比较好。我觉得他好像察觉我在放假安排这件事上是个大忽悠了。 星巴克好多人排队。 我骗麻麻说 1.1 开学。实际上 1.8 才上课。 我看不进书。
+电子地图显示我刚刚飞过了硫磺岛。冲绳就在旁边。 有点想去日本。如果当初去了日本的话我现在又是怎样？ 看了三部电影，总共约6小时，睡了大约2-3小时。我想玩 FFXV。 虽然不到24小时，感觉在飞机上过了两天。 飞机到底是怎么排出蓝冰的？ 镜子中的我的眼睛倒影出了我，我看见了我的棕色瞳孔收缩。
+我在飞机上看完了《深夜小狗神秘事件》，出轨的人还是分手了。数学可真有意思。数学和语文很重要。
+Day 2 机场过夜。好饿。食物好贵。 打了个盹到半夜，整个大厅空了。航班列表上我的航班也刷新出来了。原来我不是在这一个大厅。跟着路标走，一路上人越来越多，觉得不那么害怕。为什么要在机场过夜的时候听恐怖故事播客？
+我喜欢麦当劳。收银小哥说：“人民币收五十，一百。” 意思是人民币只收五十或者一百。我听成了“人民币收五十一”。以为人民币兑换后要收五十一。鱼柳堡好吃。冰茶比可乐好喝。 现在凌晨两点。
+J 不回国。我羡慕他不放长假，他羡慕我放长假。
+半夜机场好冷。Wi-Fi 也突然不灵光。不会有人在 hack 我的电脑和手机吧？
+4:46。睡了大概二十多分钟，我肯定做了一个特别美妙的梦。可我不记得了。我隐约觉得什么很好的事情发生在梦里了。 餐厅的人又渐渐多了起来，应该是有一个航班抵达。 头发好油啊。洗了下刘海。
+在麦当劳排队买早餐时，一个金发小男孩儿站在我前面，他的苏格兰口音收银员听不懂，叫来了另一个收银员帮忙。 Wi-Fi终于能用。长沙的天气是：very unhealthy air quality.
+头发还是太油了得戴上帽子。 登机口排队排到了厕所门口。
+我不想回国。一点也不想。 我想玩FFXV。我想喝橙汁。我想吃卤肉饭。我想把显示器摔了。我不要机械键盘了。 共享单车一排排，颜色整齐划一。到处都是乱变道司机。到处都是人。到处都是可怕的东西。 旁边有一辆车的都落灰了，我不知道雾霾天气中的灰尘会落下多少，不知道怎么推断这辆车停在这里有多久了。我不喜欢汽车。我不喜欢飞机。人类为什么要出门？人类为什么要活着？ 李青枝和李寒江的故事还没写完。 我想把头发染成酒红色。一半蓝色一半白色。琥珀色。我亲爱的精灵私生子的头发的颜色。 我要死了。我要怎么活过剩余的五天。 所有人都走了。就像大观园散了。 为什么要说话。为什么科学家还没发明超级AI让其占领全世界？人类应该灭亡才对。世界末日快点来。外星人为什么不发射星际大炮把地球毁了？我乘坐的航班为什么没有爆炸？阳光太刺眼，我要死了。为什么还不下雨？
+我好想摔东西。 对不起我可能要食言了。
+我想嗦粉。吃炸酱面。
+我刚注意到手机里的时差调整后，日历里的项目也都跟着前进了一天。
+理发师评论我对头发的态度是“洒脱不羁”。一刀下去，一半的头发就没有了。一地的头发，留了一年，有这么多，如果我当初染白了头发，会不会想一地的的小雪堆。我很喜欢这个理发师。我的头皮出油比较多。
+Day 3 昨天理发师吹出来的超低配短发约翰尼德普造型没啦。现在变成了低配灰者洋葱头。 从昨晚七点睡到今天早上6:45。 楼下有小哥在慢跑，从高处往下看挺英俊的。 去年买的大衣穿上去还能看。从镜子里看的话，去掉头，拉长升高就是低配卷福。 楼下的小哥跑到第二圈了。 楼下的树这么多年还是活着，既然没有被铲掉。昨天粑粑说阳台上放着的那一盆植物是小榕树。我的印象里榕树都是参天巨大。 冬天挺好的，阳台左边可以看见学校。现在 7:45 没有人，这么晚该算迟到了。 不知道对面住的那个小哥还住在那里没？我记得他和他的妻子以前在粑粑到公司上班。还帮我重装了一次电脑。我当时把“360”念成了“三百六”。 我站了多久了？可是好想回宿舍。</description>
+    </item>
+    
+    <item>
+      <title>2018 贪玩列表</title>
+      <link>https://endfang.github.io/posts/play-in-2018/</link>
+      <pubDate>Fri, 15 Dec 2017 15:08:49 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/play-in-2018/</guid>
+      <description>Bayonetta 3 白金与任天堂宣布了 Bayonetta 3。Nintendo Switch 独占。1+2 Switch 版会在 18 年二月份放出。
+有一个 53s 预告片： {% raw %}
+贝姐以一代形象出现被一个紫色影子打得头破血流毫无还手之力。最后甚至被分解了。最后紫色的安伯拉魔法阵上也出现了裂缝：3。
+究竟要不要买一个 Switch 呢？
+Final Fantasy XV Windows/Pocket 垃圾游戏连 Windows 平台和手机平台也要出。怎么不出一个 Switch 版的？ Windows 版本还和 NVIDIA 合作提供优化，我用的是 AMD 显卡。 垃圾游戏。迟早要玩。
+Devil May Cry 5 虽然有漏出，但是没有正式宣布。 漏出上表示是 PS Exclusive。 没有 PS 就是不行。
+Final Fantasy XIV Fan Festival 新一轮的 Fanfest 在 2018 年底开始。上一次我就错过了，好东西全都没拿到。那个 Tomestone 的 U盘可真酷。还有现场的 I Beat 系列 T恤。 这一次，看运气吧。谁知道我能不能活到明年年底。
+等待打折 Okami Gorogoa Assassin&amp;rsquo;s Creed: Origins</description>
+    </item>
+    
+    <item>
+      <title>轮流装病的故事</title>
+      <link>https://endfang.github.io/posts/my_own_sickness/</link>
+      <pubDate>Wed, 13 Dec 2017 10:49:45 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/my_own_sickness/</guid>
+      <description>怀旧情绪严重。
+评论区：武林外传简直是轮流装病的故事.
+一想很有道理。
+最开始是小郭装病，第二回就为了逃避工作假装伤风，肺痨，甚至半身不遂。可惜没捞到什么好处，被小贝用开水试探烫了一脚的水泡，又被老白”治“得肝疼。
+然后是秀才。秀才这个有点勉强，算不上是真的装病。在第七回，秀才为了向小郭讨回二钱银子，不断的接近暗示，却被小郭误会被打得头破血流，而且连他娘留给儿媳妇的簪子也被抢了。为了讨回簪子秀才一个劲儿地嚎叫哭惨，小郭受不了只能向掌柜的买回簪子。而在讨价还价的过程中，只要小郭停下来秀才就开始假哭。
+接下来是第十九回，小郭为了去找小六被老白打了一拳，顶着乌眼青装病去医馆，实则去找小六。
+再接下来就是钱夫人了！第二十八回中，小贝为帮客栈的忙采了凤尾菌。但是没人认出来这蘑菇有毒就稀里糊涂得做成了小鸡炖蘑菇。钱夫人认出后故意喝下鸡汤，命令老钱在自己昏迷的时候乘机敲诈客栈。不过老钱最后还是男人了一回，翻身当家作主人，把客栈还了回去。
+第三十八回，小贝和掌柜的打赌要在三天内赚三两银子。老白在这一集特别可怜，先是为了躲避说书而故意用烟熏倒了嗓子，然后又在表演才艺”惊涛掌碎大石“的时候被铁钉戳。最后为了帮掌柜把小贝赚的一两八钱拿到手，假装受伤哭惨求医药费：”有这样的掌柜吗？有这样的掌柜吗？“
+终于轮到了掌柜，在第三十四回，白三娘误以为掌柜的不清白，便故意虐待她。掌柜不堪重负累倒。醒来后又装昏倒。小郭特别浮夸地哭喊：”掌柜的！你是活活给累晕的呀！“
+第四十五回中，老白逃狱后又发现自己的免罪金牌上赫然写着：逃狱者罪无可赦。老邢也在此时来到了客栈，老白慌忙躲进了厨房。老邢想进厨房吃点东西，掌柜便先后假装脚崴了和鸡爪疯支开了老邢。
+小贝也为了逃学而在第四十七回假装肚子疼。实际上她是在半夜被小郭推醒，误以为天亮了。
+包大仁在第五十三回来到客栈，此后就是一轮又一轮的装病。
+第五十三回到第五十六回中，众人曾一起假装被下蒙汗药哄骗包大仁离开。为了哄骗殷十三又一起被点穴假装吃了丹顶红死亡。
+在第五十七回包大仁离开后，曹公公下台。大嘴想借机庆祝回家，掌柜的不允许，他就装疯，把鸡蛋当成儿子庆喜。众人一开始不信，但是眼看大嘴越来越疯，不得不让小六用枷锁拷起了大嘴。大嘴不得已说了实话。
+表面上是为了证明大嘴没疯，实则是没事找事的小六要求做变态测试题。为了套出答案和缠住小六，无双假装脚崴了。
+很快大嘴就在情急之下当场供出了提供答案的老白。小六为此和无双大吵一架，也没有解开枷锁。为了解开枷锁，大嘴和众人试了各种方法，包括铁锤，铁丝，和热胀冷缩原理。最后被淋了一身冷水。大嘴很快就又不长记性地开始假装要死了。
+大嘴装疯这个事件后紧接南宫残花的素食主义宣传，这也导致了最严重的一次装病。
+在第五十九回，为了吓跑南宫，掌柜的假装被柱子撞到头而晕倒。没想到的是老白却在此刻真情流露，对着“昏迷的”掌柜说了好多甜言蜜语，哀求她快点醒来。从没听过听过甜言蜜语的掌柜就索性假装到底。无论是针扎还是唢呐都无法让她醒来，直到被喂下了千年人参汤。 这下可好，上火的掌柜开始了”大跃进“，最终也导致了和老白分手以及后面一系列的事件。
+而在第六十四回，老白和掌柜的和好时，他发了毒誓表示再也不骗掌柜的。下一回就立马假装脑震荡支使众人做这做那。最后却被众人靠假装失忆而戏耍了一番。
+柳星雨为了盗圣的宝藏谎称要嫁给大嘴。众人先是撮合两人，发现真相后就将计就计，一起在第七十四回假装被下了迷魂散。
+最后一次装病，是在最后一回。凌腾云为了击败老白打算了杀青散把众人迷倒。没想到众人早已看出，为了套话，便也假装晕倒。</description>
+    </item>
+    
+    <item>
+      <title>从 Soylent 到杰克苏</title>
+      <link>https://endfang.github.io/posts/fromsoylenttojacksue/</link>
+      <pubDate>Sun, 26 Nov 2017 17:30:09 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/fromsoylenttojacksue/</guid>
+      <description>Before 在感恩节放假之前，我就已经预见了我不会出门，不会抢购，宅在家里的景象。因此提前预购了四箱 Soylent 作为下一个月的食物。 Cafe 系列添加了咖啡因和茶氨酸，作为早餐。Soylent 系列作为晚餐。家里还有剩余的食材，每天做一顿午饭不成问题。
+Drink Soylent 已经推出了各种各样的口味。Cacao 和 Vanilla 的最好喝，Original 和 Coffiest 次之，最难喝的是 Chai。
+每一瓶可以满足每日所需营养的 20%。 喝完之后的感受就是觉得嘴里没味。肚子是饱了，可是总觉得缺点什么。我并不执着于美食，所以可能是缺少了 “进食” 这个动作？
+Eat 家里的豆腐还挺多。便试做了“二十四桥明月夜”的变体版：培根蒸豆腐。第一次尝试：培根出油太多导致豆腐特别油腻。 但是豆腐怎么做都好吃，直接蘸着酱油也好吃。我就喜欢吃豆腐。此处故意双关。我还喜欢吃菠萝披萨，绝对不会有人抢。 剩饭可以做成炒饭。我喜欢炒饭。此处依旧故意双关。从 “侠·饭” 第一集就学到了沙丁鱼罐头的妙用，因此把平常用的植物油换成了罐头里的油。真好吃。配上豆腐也好吃。 从 ”基本演绎法“ 中学到了福尔摩斯的炒鸡蛋。四个蛋加上一点点奶油，还有糖和盐。Amanda 和韩尚宫娘娘说得很对，味道之间会互相调和，加一点点盐可以使得糖的甜味更明显。撒一点点黑胡椒也很好吃。
+Play 狂战传说打折，买了下来。感想是：我再也不会玩传说系列了。 人物塑造得过分中二。“纯洁小花被背叛后化身反社会分子然后与一群偏执狂拯救世界”。 传说系列的一个特点就是会蹦出各种各样的对话，包括对目前剧情的看法，人物之间的互动，以及为未来剧情埋下伏笔。但是大部分都是冗长而且繁琐。我又不是来看小说的，可能我不再喜欢 RPG 了吧。 非常频繁的跑稍微复杂了点的地图。这个是很麻烦的。
+我发现了我的身体会自动判定一个游戏是否好玩：凡是我喜欢的游戏，我通常都可以坚持一两个小时，比如 FFXIV，FFXV，Bayoneta，DmC，Elder Scroll，Neverwinter，Dragon Age，Salt and Sanctuary。我并不喜欢 FFXV，我是 FFXV黑。凡是我不怎么喜欢的，半个小时内就会觉得头晕，比如 Witcher，ToS，ToB，Dragon Dogma。
+Read 发现了一本 BL 小说。《说好要杀死我的人都爱上了我》。 一看名字就是杰克苏的甜文。我比较喜欢刀子。他人怀糖罐，我有笔如刀。 内容可以概括为”霸道总裁爱上我“ x4 以及”撸猫才是正经事“。
+After 荒废了时光。漫画和游戏世界真有趣。 豆腐真好吃，未来一年可能会吃很多豆腐。</description>
+    </item>
+    
+    <item>
+      <title>Hum Alone In 4.1</title>
+      <link>https://endfang.github.io/posts/humalonein4-1/</link>
+      <pubDate>Mon, 06 Nov 2017 10:43:26 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/humalonein4-1/</guid>
+      <description>QoL Change  Auto transport after quests. Now the player will be automatically transported to the place where the cutscene ends. The default button of Expert Delivery is YES. Venture and Best Tribe Toke are added to Currency Menu. This change expanded inventory capacity. Bahamut-size can adjusted to small, medium, and large by using a command. New commands are added into the system, including master volume, bgm, sound effect, etc.  Ruin Master The new Ruin traits made SMN become a mobile cannon.</description>
+    </item>
+    
+    <item>
+      <title>手帐与键盘</title>
+      <link>https://endfang.github.io/posts/diaryandkeyboard/</link>
+      <pubDate>Fri, 27 Oct 2017 13:26:10 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/diaryandkeyboard/</guid>
+      <description>教授要求的 Gaming Journal 好麻烦啊…… 还剪贴簿，已经看见有人在做手帐了。
+第一次知道“手帐”这个概念是在 iOS 7 即将发布之前，是在一个叫做“乐活良品”的电子杂志上看到的。有一期的一篇文章特别详细的讲述了如何用一本笔记本做规划。当时的我刚刚进入一种”我的未来无限光明“的状态，因此读完那篇文章后我的内心掀起了巨浪。热爱生活，努力生活，这是当时的我所憧憬的。马上就跑到了附近的文具店精挑细选了一本小本子，按照文章上的步骤，规划了未来两周要做的事情。 不到一周后我就放弃了。要到处带着一本小本子和一支笔很麻烦。我又总是忘记手帐的存在，经常突然才想起来，翻出小本子后划掉已经完成的任务。这个小本子反而成了一个累赘。 另外我的字迹好丑。
+13 年年底拿到 MacBook Pro，下载了号称第二大脑的 Evernote。从此成为了重度用户。好像是从那个时候开始，“生产力”变成了一个特别重要的词语。每个人都在强调“生产力”的重要性，番茄钟，四象限法则，还有其它的帮助“生产力”的理论/思考/工具瞬间充斥在我的生活中。而我一直用 Evernote 作日程规划。真的非常有用。而且 Evernote 是我以前每天都要用到的软件，每次打开都会看到被 pin 在最顶上的一周计划与当日任务表。完成一项，check。到了周末就开始总结做接下来的表格。 直到 Evernote 宣布免费版只能够支持两部设备的同步。（不知道为什么，在打出“同步“两个字的时候脑海里首先出现的是 synch，然后是 synchronization，再然后是”平衡“，又想了一会儿才出现”同步“。前面两个词我还能理解，“平衡”是怎么来的？）我才不需要只能够同步两台设备的软件。我也不打算付钱升级为会员，因为那些会员功能对我来熟毫无用处。于是我马上丢弃了 Evernote。日程规划也变成了手写的小纸条，每天一张，藏在带拉链的衣服口袋里。再后来干脆放弃了。
+但是没有日程规划后，生活变得一团糟，忘记很多事情要做。17 年上半年听说了 Bullet Journal 的概念。我在看完作者的视频后，认为这是一个非常有用的技巧。又去买了一本小本子。结果当然是一样的，我讨厌总是翻出小本子来划掉已经完成的任务。字迹也是真丑。 有试过 To-Do 类型的软件，但都不符合我的要求，要么是单一平台，要么是用户体验不咋地。但经常听说 Omni 系列。这个系列的每一个软件的价格和评价都特别高。走投无路的我试用了 OmniFocus。用法比较复杂，不如其他 To-Do 类型的软件简单，iOS 版本还有另外付费。但是总体来说用起来还是意外顺畅。用学生价买下了 macOS 版，一直用到今天。（我也不知道我是怎么想的，可能是因为我的大脑构造和别人不同。希望母星快点派飞船来接我回去，重新成为 life battery，过上梦一般的生活。）
+我认为我所喜欢的是作规划和日程管理。手帐的漂亮外表虽然很是吸引人，但是并不是我想要的。比起沙沙的书写声，敲击键盘更让我有干劲。 但我不喜欢很多人故意用键盘发出来的啪啪声，太吵了。</description>
+    </item>
+    
+    <item>
+      <title>4.0 之后，4.1 之前</title>
+      <link>https://endfang.github.io/posts/incrimsoniended/</link>
+      <pubDate>Sun, 08 Oct 2017 12:45:59 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/incrimsoniended/</guid>
+      <description>还有几天就升 4.1。惯例写总结。
+单手挡住了所有玩家的 Raubahn 4.0 Early Access 刚好在我结束最后一个 Final 的晚上进行升级。也就是说考完试第二天 4.0 的服务器也会上线。特意在考后买了鸡肉卷，橙汁，还有大桶水。两天两夜的游戏马拉松准备完毕。那天服用了褪黑素后八点就睡了。凌晨两三点手机闹铃一响我就蹦下床，一边登陆服务器一边刷牙洗脸。
+Alphy 又开始忽悠我去拯救 Ala Mhigo 了。我并不想去，Alphy 说对我很失望。我还能怎么办。 整个游戏体验非常顺利。但是 chat log 蹦出来一条公告，大意是：duty finder 现在出了 bug，所以无法下副本，连 instance 也无法进入。当时我并不在意，认为这只是一个小错误，何况距离副本还远着呢。但是任务 Best Served with Cold Steel 的 solo duty 就把我拦下了。其它玩家也被拦下了。不管怎么做，系统永远都会跳出一个提示： A system error occurred during event movement. 很快这个任务点就出现了一条队伍，却并没有解决问题。chat log 充斥着不耐烦的抱怨，劝服其他人排队的安慰，还有一个非常特别的 “queue log”。reddit 上也开始出现 “Raubahn EX Guide” 或者 “I’m very disappointed” 的帖子。一直等到太阳升起，这个 bug 还是没有被修复。此时更多的玩家来到了这里，原本就在等待的人的火气也变得很高了。反正我是在太阳升起后就去睡觉了，原本的马拉松也推迟。
+差不多快一周后， SE 发声明说这是 DDoS 攻击。
+ How very convenient. Y’shtola
+ bots 遍地走的 PVP 剧情推进不了我去升级，毕竟 PVP 现在也给 XP 了。而且 PVP 也独立于 PVE，技能和能力大幅减少，所有 stats 全部重设。这个设定挺聪明的。PVP 独立后就可以放开束缚随意修正，因为不用担心会影响到 PVE。</description>
+    </item>
+    
+    <item>
+      <title>连新手教程都输了的炉石体验</title>
+      <link>https://endfang.github.io/posts/failedhearthstone/</link>
+      <pubDate>Fri, 29 Sep 2017 21:35:14 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/failedhearthstone/</guid>
+      <description>三周后教授会讲炉石。从没玩过的我请教了一下黑塔众，他们给了我一堆没什么用处的评论：
+ 互相用卡牌打脸，谁死谁就输。 by 伯爵
+  低配万智牌。 充斥着欺负墙猎的老司机和被老司机欺负的墙猎。 by 古然
+ 下载安装一直在失败，可能和我刚刚升级了 iOS 11 有关？第四次安装成功，打开就闪退。可能是真的是上天在暗示我与这个游戏无缘吧。 一开始的新手教程死了两次。第一次我没注意到要攻击对方英雄才能赢，而且我攻击怪兽制造的伤害是相互的，我却一直在攻击对方的怪兽，对方反倒给了我一个火球。第二次是因为那只大熊猫躲起来了我攻击不到，又受到轮番轰炸。一直被黑塔众嘲笑：
+ 哈哈哈哈哈，新手教程不是稳赢么？ by 古然
+  “这个缝合怪是用连游学者周卓都打不过的冒险者拼凑而成的。” by 西格
+ 还一直有人想推销帐号给我：
+ 要号么？ by 号贩子 古然
+  要号么？你可以去淘宝 一个2000g初始号一块钱。 by 秃子 六页
+ 真是谢谢你们了。
+My Collection 功能可以整理卡组，没去用，因为：“我怎么知道要加入哪张卡要丢掉哪张卡？”
+完成了新手教程之后正式开始游戏。先给了我一个每日任务：完成 5 次训练。还可以通过在训练中打败对手解锁相应的新的英雄。毕竟连新手教程我都输了，就按照系统给出的建议选择了 Paladin。 这一次还行，Paladin 一直在召唤 1 血 的 minions。我用了一张“给予所有敌人 1 伤害的卡就清场了。那感觉就像是刚刚把屋子打扫了一遍一样，特别爽快。
+又尝试了 Priest 和 Druid。我觉得 Priest 的衣服配色不怎么好看，一直召唤盾牌，召唤了一个像炎魔一样的怪兽，攻击特别高。Druid 的绿色胡子挺帅的，从头输到尾，就赢了一次。
+真的，一直在输，差点没有撑过 5 次训练模式。不高兴。不玩了。反正已经弄清楚这是什么样的游戏了。</description>
+    </item>
+    
+    <item>
+      <title>抹茶&#43;红豆卷和鸡尾酒</title>
+      <link>https://endfang.github.io/posts/greenteacakerollandcocktail/</link>
+      <pubDate>Tue, 26 Sep 2017 15:24:28 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/greenteacakerollandcocktail/</guid>
+      <description>Amanda 可能是抹茶控，有关抹茶的美食还是蛮多的，比如 抹茶红豆蛋糕卷和抹茶鸡尾酒。
+准备做红豆蜜的时候才想到到要先泡软红豆。蛋糕卷只能等明天了。
+那就先做鸡尾酒吧。以为买了朗姆酒，结果拿的是伏特加。真是笨死了。但瓶子已经开了也不能退，就只能这么弄。伏特加一开瓶就一股浓烈的酒精味。我非常好奇烈酒尝起来是什么感觉，就小口抿了一点儿。好像有一股火热的东西在我的口腔燃烧，然后顺着食管一直烧到我的胃里。然后我去漱口了。 新买的迷你搅拌器还挺好用。专门为抹茶粉买的。还行吧。 我只有马克杯，也没有冰块，就放冰箱里冰了一会儿，看上去特别不洋气。味道尝起来酸甜苦都有，很有层次感。
+第二日做蛋糕卷。 红豆煮了一会儿，软了。又过了一会儿，水烧干了。加入砂糖和盐做成了红豆蜜。吃着还行吧。还行。放凉了就变硬了。 做抹茶戚风蛋糕用了新买的便宜抹茶粉，买了一大罐。但是用起来容易起疙瘩，而且颜色不好看。便宜没好货。似乎特别容易吸水？内心充满悔恨。把烤盘放进烤箱的那一刹那我就觉得失败了。 结果是： 这个戚风蛋糕根本卷不起来，硬生生变成了三明治一样的东西。 还行吧，就是红豆不够软。奶油放多了很腻。 一周之后我再试试，现在完全不想碰奶油</description>
+    </item>
+    
+    <item>
+      <title>抹茶慕斯蛋糕</title>
+      <link>https://endfang.github.io/posts/greenteamoussecake/</link>
+      <pubDate>Sun, 17 Sep 2017 15:32:22 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/greenteamoussecake/</guid>
+      <description>甜点好吃。抹茶也好吃。 地址：渐变抹茶慕斯蛋糕 by Amanda
+第一次尝试的时候忘了软化奶油块，奶油也没有打发，所以慕斯糊彻底毁了。只剩下了抹茶戚风蛋糕底。 “蛋糕尝着还行，但是特别特别甜。下次少加点糖吧。” 两个小时后。 “受不了，太甜了，喉咙还是发腻。”
+第二次的时候前面都很好。倒慕斯糊的时候错了顺序，手一抖就…… 变成这样了。 其实还行吧。也挺好吃的。 但是不觉得像作者形容的那样：
+ 吃起来轻盈而且不腻。
+ 第三次真是完美之作。放在急冻室 4 个小时后又放在了保险室。真是松软可口，入口即化。我就会这几个关于食物的形容词，要再说也没了。 三次都是一个人吃完了。
+下次试试面包吧。</description>
+    </item>
+    
+    <item>
+      <title>红楼梦桌游</title>
+      <link>https://endfang.github.io/posts/dreamofredchamberboardgame/</link>
+      <pubDate>Sat, 01 Apr 2017 12:45:49 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/dreamofredchamberboardgame/</guid>
+      <description>和友人脑洞了一个红楼梦桌游。
+ “角色是贾宝玉，掷骰子，遇见刘姥姥，发生「雪夜抽柴」事件，下一回合丢失一两银子，打发茗烟找庙，无法行动因为要等待茗烟回来。”
+“茗烟属于丫鬟书童，主要角色都有。可以打发出去做事。”
+“遇见薛蟠，唱个曲儿，行个令。”
+“遇见贾政，背个书。”
+“背不出会被打，然后无法行动五回合。如果有贾母，则发生「看有谁来许你打！」事件，然后跳过被打。”
+“遇见秦钟，咳咳咳……”
+“遇见赵姨娘和贾环，掷骰子发生「魇魔法」和「打翻蜡烛」事件。必须掷骰子等待一僧一道来解咒。”
+“凤姐在场会被连累然后双倍伤害。”
+“遇见黛玉会无缘无故罚你点什么，无解！”
+“女眷遇见外男要进一格！”
+“前面剧情按前八十回走，后面就各自发挥。”
+“没有完美结局！”
+“不能发行电子版，只有纸质版！设计一堆道具卡，人物卡，事件卡，各种各样的卡，然后加上表格做计算。玩的时候回涂抹表格撕掉卡片，所以只能玩一次！”
+“感觉是个idea，可以出去创业了！”
+“还要搞众筹，筹到钱了之后假装在微博上更新进度。然后把钱拿去理财。过几年说项目失败了要还钱。但是不见得所有人都记得！所以我们赚了！”
+ </description>
+    </item>
+    
+    <item>
+      <title>Windows 10</title>
+      <link>https://endfang.github.io/posts/ihatewindows10/</link>
+      <pubDate>Sat, 11 Feb 2017 21:10:27 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ihatewindows10/</guid>
+      <description>Part 1:
+  windows 10 slows
+  microsoft media creation tool: failed
+  iso image provided by school + rufus + reinstall: failed
+  install ubuntu: succeed
+  delete $WINDOWS. ~BT: failed
+  Disk Clean Up: failed
+  Legacy Boot: failed
+  eagleget downloading new iso: failed
+  Part 2:
+  Amazon new order: succeed
+  download official iso: succeed</description>
+    </item>
+    
+    <item>
+      <title>低于期望的FFXV</title>
+      <link>https://endfang.github.io/posts/disappointmenttoffxiv/</link>
+      <pubDate>Sat, 10 Dec 2016 19:38:17 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/disappointmenttoffxiv/</guid>
+      <description>Update 1:
+虽然各大游戏评论网站都给出了高分。我觉得大概是 6/10。
+十年做出了这个？我竟然专门买了 Deluxe 和 PS4？
+优点都被别人说遍了。
+说说不足的地方才有意思。
+  Chapter 13 是游戏中最失败的地方。整个章节就是开启这个，通往那里，然后重复，重复到要吐。时不时还有倒在地上的士兵抓住你。没见过这么恶心的设计。Boss 战是打败 Ravus。如何打败呢？没有一点技巧就是四人群殴。
+  Ravus 这个角色的设计也是莫名其妙。作为女主角 Lunafreya 的哥哥以及一名大将，游戏中首次出场给我的印象和鬼泣中 Kyrie 的哥哥 Credo 是一样的。几个章节后走了一个过场，在回忆中出现过一次，然后我就发现他死了！中间究竟发生了没有解释。
+  Noctis 被吸入水晶中和 Bahamut 对话后回到现实。发现已经到了 10 年后。为什么要安排这个？除了为故事增加了一点点黑暗以外没有其它作用。而且其它角色对于 Notics 回归的反应也很不合情理，每个人就像“hey buddy you are back. hurry up, we gotta things to do. oh it’s nice to see you again by the way.” 而游戏结束之后却强制煽情了一波。入不了戏。
+  战斗系统有点意思但是并不有趣。丢药瓶给队友，攒槽发动 techniques。差不多就是这样。魔法敌我不分，特别容易伤及队友，不过可以用 Regroup 弥补。仅仅是按着 O 键就可以不停的攻击，游戏性很低。召唤非常随机，这点很特别，但是也很烦，经常是打到一半突然就能召唤，然后按住 L2 不放，敌人直接朝你冲了过来！啪！飞出五米远。
+  剧情断裂。每个章节开始之前的加载画面都会有一小段的文字作为剧情补充，但是没有一点点帮助啊！为什么 Ravus 死了？为什么 Ardyn 会一开始帮助 Noctis？Niflhem 入侵了 Insomnia 后做了什么？Niflhem 为什么突然就从剧情中消失？我打完整个游戏还是没弄懂发生了什么，又看了一会儿 fandom 才了解。</description>
+    </item>
+    
+    <item>
+      <title>现代医学与碰运气</title>
+      <link>https://endfang.github.io/posts/traditionalchinesemedicinesucks/</link>
+      <pubDate>Fri, 09 Sep 2016 13:01:51 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/traditionalchinesemedicinesucks/</guid>
+      <description>因为说了中医不科学被骂了。
+就要说就要说就要说！(｀^´ )！
+首先我认为只有现代医学和碰运气这两种治疗方法。
+现代医学中，药品的有效成分如何在人体内发生化学作用以及副作用都可以被解释清楚。药品在上市之前也会被严格测试很多次。
+当然有些中药肯定有用。如果它们的作用机理也能够被解释清楚，那么便可以将有效成分做成药片，也就是现代药。这不是什么“西医”，不过是脱去了传统的“外衣”的药。
+中药如果可以这么严谨的发展，那就非常棒了。
+中医基于大量的经验，千百年来的药方治好了那么多人的病痛，这是事实。但是不科学，因为不严谨。我们不知道为什么这些中药能够治病，喝下汤药后人体内究竟发生了什么。
+那些所谓的个人经验“我七大姑八大姨得了什么病是中医治好的”，这只是个例。有多少人得了同样的病是靠着同样的中医药方治好的？有多少人得了同样的病吃了同样的中医药方却失败了？没有具体数据这就是空谈。
+科学是可以复制结果的。我做了A动作，得到了B结果。而且我们知道是 A 导致了 C， C 导致了 D，最终 D 导致了 B。你做了A动作，也会得到B结果。任何人做了A动作，都会得到B结果。而且都是因为 A C D B 的因果链，这才是科学。
+而碰运气，就是拒绝能够被解释清楚的药物，选择没有被严谨证实的方法治病。
+祝你好运。</description>
+    </item>
+    
+    <item>
+      <title>2016.08.31</title>
+      <link>https://endfang.github.io/posts/20160831/</link>
+      <pubDate>Wed, 31 Aug 2016 21:09:07 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/20160831/</guid>
+      <description>  新浪微博上的狗头表情，猫头表情看着就让人血压升高。
+  丧失了语言能力的“666”以及相关用法都让人恶心。
+  表情包斗图让对话根本进行不下去。对方发来任何表情我都有拉黑的冲动。
+  永远第一时间用上最新“xx狗”头衔的人就是互联网上的食腐动物。
+  </description>
+    </item>
+    
+    <item>
+      <title>黑塔编年史</title>
+      <link>https://endfang.github.io/posts/blackchronicle/</link>
+      <pubDate>Mon, 04 May 2015 13:02:00 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/blackchronicle/</guid>
+      <description>混沌年代，众神年代，和冒险年代都是我从电子海洋中打捞回来的遗产。
+混沌年代 老实说我很难相信一个网络团体可以持续很长时间。因为网络的虚拟性以及匿名性让人们可以随意交流。通过即时通讯工具聊天，今天我和你说了几句话，可能明天我就不再搭理你了。但谁能想到我通过描写黑塔这个网络团体，让我的论文拿了一个A呢？ 初次到黑塔的时候是主动加了塔主的第一个黑塔巫师阵营，还不是血B吧的群组。后来为了显得 professinal 一点（原谅我不会用正确的中文词语），重新建了一个血B吧的群组，就是现在的主塔。当时划分党派还很严重（现在一样严重），也没有像现在这么重视DND，人们总是潜水，很少有人发言。塔主当时的两个帖子：咒语帖和语C帖非常的受欢迎。依靠这两个帖子的宣传，才陆续有人加入进来。本人还和没成为绅士的黑刃聊了一夜，准确的说是他聊了一夜，我因为时差的关系处于白天。 随后六页，秦，以及其他几个人加入进来，话题逐渐从聊天打屁升华到科技理论。他们聊了很多很多化学物理我完全不懂的事情，秦还写了一个化学中二帖。后来还被人挖了出来。 笑，冷漠，暮雪，雷吉，晚亡，牛奶，D，sono，雪崩，伯爵，古然，还有好多其他人也渐渐的进入群组。我却因为时差的关系很少发言和查看信息。中间这段时间我的确不太确定发生了什么事情。只是模模糊糊记得一点，和听别人说起过。比如晚亡把很多人惹恼了，比如第一座分塔被拆了，比如很多人都吵过架然后气得退群。 对了，伯爵曾经建立过一个巫师讲谈社，一个昙花一现的群组。解散原因是什么不记得了。 曾经有一段时间因为名额限制，塔主还苦恼如何加入新成员。我指出提高群组等级便可以，于是少数几个成员开始每天都冒泡发言。那两周我疯狂使用冒泡术并且在血B吧水经验。那句“我就看看，不说话”就是从那时候开始的。相信很多人都烦透了我只回复一句“我就看看，不说话。” 后来有一段时间黑塔写文风浓厚，很多人开始写故事，伯爵丢出了“戏仿现实”的活动，呼吁大家写文画图。暮雪的无底大坑就是这个时候开始挖的，同时还有其他同袍也在挖。这些坑到现在也没有被填上。我曾经想过写一个短篇，可是烂尾的结局让我改了很多次最终不了了之。 黑塔的关系也很乱。莫名其妙出现的新闻部有一个任务就是理清大家的关系。只是随着大家的扯淡，关系越来越乱。比如说，有一次笑因为说了“既然对我家雪坑心怀不轨！”而被白咒揶揄，雪坑试图用千年杀对准白咒，可是小茜不小心中途插了一脚成为了受害者。总而言之就是关系越来越乱了。连婚礼都有过三场。第一场西茜和西格的我全程参与，极黑之塔吧是前台，群组是后台。当时后台一片混乱。两个地方的节奏完全没有跟上，导致前台已经交换戒指了后台还在找伴郎伴娘的演讲词。 我对网络文学不是很了解，但是一直觉得牛奶写的小幕很棒。虽然中途离开了，但她也是黑塔历史上很重要的一笔。
+众神年代 随着大家对DND的了解和伯爵的加入，对DND有了更多的认识。最终导致了现在的局面，新人很难加入进来了。因为都很喜欢讨论DND，新人们又基本上都是零知识，因此大部分新人都很难过意志检定，最终都潜入水中成为了死尸。sigh。不过还是有很多坚强的新人们挺了过来，虽然不经常发言，但是不会永远沉默。白咒为你们点一个赞！ 另一方面，随着我将伯爵推上封神之路，让他成为 黑手之王，有几位同袍也一跃而上，最终出现了黑塔三神：黑手之王伯爵，毒舌(口活)之神古然（娜拉），以及冷漠之神冷漠。 如今冷漠因为学业暂时离开了，伯爵接手了分塔。黑塔还没有完结。我们因为血族Bloodline或者DND聚集在一起。过去的一年大家吵过闹过笑过，依旧很开心。我们等待冷漠的回归，以及期盼更多的人加入。这个时代还在继续。
+冒险年代 众神已经消失在历史中，大迁徙开始，冒险者踏上了新大陆。 血族Bloodline 的停更标志着众神时代的正式结束。贴吧群组已经没有新的话题。同袍们转移到了企鹅的阵地。 大部分核心成员还是留下来了，但是新人这个物种估计已经绝迹。 曾经有一个疑似严重中二病晚期的新人加入进来后将自己放在了至高的位置，居高临下的看着大家，说着一些十分奇怪的语言。被我调戏了一番。最终自己退群了。 一部分人开始跑团，一部分人浪费青春，一部分人也不知道在干什么。简而言之，同袍们相继走出了黑塔，走向了不同的道路，也许有交错，也许完全不同。 黑塔依旧矗立，只是繁荣不再。
+冒险年代（2） 黑塔还在，我真的很开心很开心。年初的时候出现了一个接文活动。我仔细看了看你们写的文章，感觉又回到了以前的混沌年代。这么说太感性了，可是我真的很怀念那段时光。 前几天有个小新人进来，依旧没有过意志检定。想当初从贴吧群组开始，每个人都是很有礼貌说话，谁知如今都一个个竟是出口就是各种调笑。真真是让人想笑。 血族没有更新的日子里，黑塔还能存活这么久，感觉这是一个很不一般的团体。 我不知道 IO 会不会继续画血族，但是我好希望黑塔中的这群人不要离开。 说到底我还是一个很感性但文笔却不好的人，有很多话想对你们说的话，一碰到键盘却又不知道从何开始，乃至最后脑子也宕机了，也不知道写些什么才好。</description>
+    </item>
+    
+    <item>
+      <title>夜莺的眼泪</title>
+      <link>https://endfang.github.io/posts/nightingalestear/</link>
+      <pubDate>Wed, 19 Mar 2014 12:21:40 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/nightingalestear/</guid>
+      <description>想要靠着歌声征服一切的夜莺飞到了皇帝的御花园，展现了它绝妙的歌声。 而这美妙的歌声并不能打动同样心高气傲的皇帝的冰冷之心。 同样想要获得一切的皇帝企图获得高傲的夜莺的眼泪。 这场持久的拉锯战让双方都精疲力竭。所有人都留着眼泪，猜测着到底是那一方会获得胜利。 预感不妙的皇帝求助了死神。 在死神的帮助下，夜莺的生命开始走向尽头。 听见死神脚步的夜莺感到无比的绝望，于是为自己唱了最后一首歌却并未哭泣。 皇帝听到这歌声却流下了他的眼泪。 被绝望的歌声感动到的皇帝哀求死神不要带走这个世界上最美妙的声音。 于是死神拿走了皇帝和夜莺的灵魂。 并且将夜莺的身体化成了机械。 日复一日的发出最美妙的声音。</description>
+    </item>
+    
+    <item>
+      <title>Unity Physically Based Render</title>
+      <link>https://endfang.github.io/posts/unity-pbr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-pbr/</guid>
+      <description>Lambertian and Blinn-Phong Lambertian Model Lambertian model is based on lambertian reflectance, is the property that defines an ideal &amp;ldquo;matte&amp;rdquo; or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.
+Shader &amp;#34;Custom/LambertianShader&amp;#34; { Properties { _MainTex (&amp;#34;Texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} } SubShader { Tags { &amp;#34;RenderType&amp;#34;=&amp;#34;Opaque&amp;#34; } LOD 200 CGPROGRAM #pragma surface surf SimpleLambert struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf (Input IN, inout SurfaceOutput o) { o.</description>
+    </item>
+    
+    <item>
+      <title>Unity Surface Shader</title>
+      <link>https://endfang.github.io/posts/unity-surface-shader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-surface-shader/</guid>
+      <description>Shader &amp;#34;Example/Diffuse Simple&amp;#34; { SubShader { Tags { &amp;#34;RenderType&amp;#34; = &amp;#34;Opaque&amp;#34; } CGPROGRAM #pragma surface surf Lambert struct Input { float4 color : COLOR; }; void surf (Input IN, inout SurfaceOutput o) { o.Albedo = 1; // 1 = (1,1,1,1) = white } ENDCG } Fallback &amp;#34;Diffuse&amp;#34; } #pragma surface surf Lambert specify the shader is surface and use Lambertian Lighting Model.
+SurfaceOutput has several properties to determine the final aspect of a material.</description>
+    </item>
+    
+  </channel>
+</rss>

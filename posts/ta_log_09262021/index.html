@@ -1,0 +1,345 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>TA Log 09262021 | After1995</title>
+<meta name=keywords content="shader,unity">
+<meta name=description content="C# It&rsquo;s a good practice to save game setting data to binary files.
+To save:
+FileStream dataStream = new FileStream( dataPath, FileMode.Create); BinaryFormatter converter = new BinaryFormatter(); converter.Serialize(dataStream, toSave); dataStream.Close(); To open/load:
+FileStream dataStream = new FileStream(dataPath, FileMode.Open); BinaryFormatter converter = new BinaryFormatter(); DataClass data = converter.Deserialize(dataStream) as DataClass; We can use it outside game too. For example, dynamic bone&rsquo;s parameter settings will lost once the model is updated, because people usually replace the whole prefab.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/ta_log_09262021/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="TA Log 09262021">
+<meta property="og:description" content="C# It&rsquo;s a good practice to save game setting data to binary files.
+To save:
+FileStream dataStream = new FileStream( dataPath, FileMode.Create); BinaryFormatter converter = new BinaryFormatter(); converter.Serialize(dataStream, toSave); dataStream.Close(); To open/load:
+FileStream dataStream = new FileStream(dataPath, FileMode.Open); BinaryFormatter converter = new BinaryFormatter(); DataClass data = converter.Deserialize(dataStream) as DataClass; We can use it outside game too. For example, dynamic bone&rsquo;s parameter settings will lost once the model is updated, because people usually replace the whole prefab.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/ta_log_09262021/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-09-26T23:55:47+08:00">
+<meta property="article:modified_time" content="2021-09-26T23:55:47+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="TA Log 09262021">
+<meta name=twitter:description content="C# It&rsquo;s a good practice to save game setting data to binary files.
+To save:
+FileStream dataStream = new FileStream( dataPath, FileMode.Create); BinaryFormatter converter = new BinaryFormatter(); converter.Serialize(dataStream, toSave); dataStream.Close(); To open/load:
+FileStream dataStream = new FileStream(dataPath, FileMode.Open); BinaryFormatter converter = new BinaryFormatter(); DataClass data = converter.Deserialize(dataStream) as DataClass; We can use it outside game too. For example, dynamic bone&rsquo;s parameter settings will lost once the model is updated, because people usually replace the whole prefab.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"TA Log 09262021","item":"https://endfang.github.io/posts/ta_log_09262021/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"TA Log 09262021","name":"TA Log 09262021","description":"C# It\u0026rsquo;s a good practice to save game setting data to binary files.\nTo save:\nFileStream dataStream = new FileStream( dataPath, FileMode.Create); BinaryFormatter converter = new BinaryFormatter(); converter.Serialize(dataStream, toSave); dataStream.Close(); To open/load:\nFileStream dataStream = new FileStream(dataPath, FileMode.Open); BinaryFormatter converter = new BinaryFormatter(); DataClass data = converter.Deserialize(dataStream) as DataClass; We can use it outside game too. For example, dynamic bone\u0026rsquo;s parameter settings will lost once the model is updated, because people usually replace the whole prefab.","keywords":["shader","unity"],"articleBody":"C# It’s a good practice to save game setting data to binary files.\nTo save:\nFileStream dataStream = new FileStream( dataPath, FileMode.Create); BinaryFormatter converter = new BinaryFormatter(); converter.Serialize(dataStream, toSave); dataStream.Close(); To open/load:\nFileStream dataStream = new FileStream(dataPath, FileMode.Open); BinaryFormatter converter = new BinaryFormatter(); DataClass data = converter.Deserialize(dataStream) as DataClass; We can use it outside game too. For example, dynamic bone’s parameter settings will lost once the model is updated, because people usually replace the whole prefab. If the model’s bones are unchanged or mostly unchanged, we can save the Dynamic Bone’s parameters as binary files, and load it back to the new model.\nProjection Math GDC: https://www.youtube.com/watch?v=RdN06E6Xn9E\u0026t=2153s\nCat Like Coding: https://catlikecoding.com/unity/tutorials/rendering/part-15/\nPosition From Depth: https://mynameismjp.wordpress.com/2010/09/05/position-from-depth-3/\nSSAO Tutorial: https://john-chapman-graphics.blogspot.com/2013/01/ssao-tutorial.html\nModel View Projection: https://jsantell.com/model-view-projection/\nIn the projection math, we often need to calculate the view ray: when we transform the vertex position to the view space, the z component is the depth and the camera is located in (0,0,0). After we divide the view space position by the z component, we will have a direction from camera to the vertex.\nIteration 1:\n//vertex vec3 viewPos = mul(modelView, objectPos); OUT.viewRay = viewPos / viewPos.z; //fragment vec3 viewPos = IN.viewRay * depth; vec3 decalPos = mul(vec4(viewPos, 1.0), _ViewToObject) Iteration 2:\n// vertex vec3 viewPos = mul(modelView, objectPos); vec3 viewRay = viewPos/viewPos.z; OUT.worldRay = mul( (mat3)_ViewToWrold, viewRay); // fragment vec3 worldPos = IN.worldRay * depth + _WorldSpaceViewPos; vec3 decalPos = mul(_WorldToObject, vec4(worldPos, 1.0)); Iteration 3:\n// vertex vec3 viewPos = mul(modelView, objectPos); vec3 viewRay = viewPos / viewPos.z; OUT.objectRay = mul((mat3)_ViewToObject, viewRay); // fragment vec3 decalPos = IN.objectRay * depth + _ObjectSpaceViewPos; Depth  Built-in to URP: https://teodutra.com/unity/shaders/urp/graphics/2020/05/18/From-Built-in-to-URP/#summary COMPUTE_EYEDEPTH: https://light11.hatenadiary.com/entry/2019/12/18/010038 DEPTH: https://zhuanlan.zhihu.com/p/92315967 depth texture in OpenGL and DirectX: https://forum.unity.com/threads/rendering-depths-into-render-textures-in-both-opengl-and-direct3d.493088/ cyan: https://www.cyanilux.com/tutorials/depth/ depth preicison visualized: https://developer.nvidia.com/content/depth-precision-visualized NDC Space: https://forum.unity.com/threads/confused-on-ndc-space.1024414/  Eye depth\nVertex shader converts the vertex position from object space to world space via model matrix. Then to view space via view matrix. In the view space, the camera is at the origin. Therefore, the z component of position in view space is the distance between the vertex and the camera. This is the Eye Depth. The range of this depth is the same across all the platform.\n// vertex float3 positionWS = TransformObjectToWorld(input.positionOS.xyz) float3 positionVS = TransformWorldToView(positionWS); // fragment float depth = -input.positionVS.z; Scene Depth\nThis is from the depth texture. Linear01 is a remapped version of Eye Depth by dividing by the far plane value. It is still 0 at the camera position, but 1 is the far plane.\nShader then converts the view space to clip space via projection matrix. Clip space usually needs perspective projection, which outputs the Eye Depth as the w component. For orthographic projection, the w component is 1. After the vertex shader, the clip space position is remapped (compute screen position) and divided by it’s W component (perspective division). This gives the Normalized Device Coordinates (NDC). The screen position where the XY axis ranges from (0,0) in the bottom left corner and (1,1) in the top right.\nAfter the projection, the depth is not linear anymore in the view space. This is the value ends up in the depth buffer and Depth Texture. (Raw Scene Depth).\nNDC has the same range for x component: [L, R] to [-1, 1], y component: [B, T] to [-1, 1]\nThe range of the NDC.z, or Z Buffer depth, is also the same for both projections, but varies depending on the platform: (https://docs.unity3d.com/Manual/SL-PlatformDifferences.html)\n Direct3D is from 1 (near) to 0 (far): Direct3D, Metal, consols OpenGL is from -1 (near) to 1 (far): OpenGL, OpenGL ES  Non-linear\nNon-linear is better for precision (https://developer.nvidia.com/content/depth-precision-visualized),\nDepth Buffer vs. Depth Texture\nDepth buffer ensures that objects closer to the camera will be on-top of objects that are further away. Opaque geometry usually writes to the buffer. The opaque geometry renders front-to-back, so objects that are closer to the camera are drawn first, and color and depth buffer are written first too. The further away objects tests against the values in the buffer based on ZTest. Transparent Geometry (usually) doesn’t write depth and renders back-to-front to have correct alpha blending. The objects are sorted by how close their origin is to the camera so it might change when the camera moves.\nURP copies the depth buffer of opaque queue and stores them to Depth Texture. This allows transparent shader to interact with opaque objects (intersection). Transparent objects don’t appear on Depth Texture because depth values are copied before transparent queue. A Depth Prepass is used when the copy does not work.\nDepth in Shader\nFragment shader usually controls their depth from the mesh, based on the interpolated values between vertex and fragment shader. SV_Depth can overwrite the semantics.\nstruct FragOut { half4 color: SV_Target; float depth : SV_Depth; } half4 frag(Varyings input) : SV_Target { FragOut output; output.color = color; output.depth = depth; return output; } However, using SV_Depth turns off early-Z. Early-Z tests against the depth buffer early and discard the fragment that failed the test. Howerver, fragment shader with SV_Depth has to run the fragment first to have the depth value. Using Alpha Clipping or discard also turns off early-Z. A value has to be written to the depth buffer if the test passes (if ZWrite is on). Discard the fragment might lead to incorrect depth buffer.\nOpaque shader that uses SV_Depth should also apparently be rendered after other opaque objects during the AlphaTest queue.\nOrthographic projection output a linear depth where 0 is the new plane and 1 is the far plane. And take the reversed z into account in other platforms.\nfloat depth = 1; #if UNITY_REVERSED_Z depth = 1 - depth; #endif  output.depth = depth; Perspective projection outputs to a non-linear value.\nfloat nearPlaneDepth = Linear01Depth(0, _ZBufferParams) float farPlaneDepth = Linear01Depth(1, _ZBufferParams) float nonLinear = EyeDepthToNonLinear(eyeDepth / farPlane, _ZBufferParams Conservative Depth Output SV_DepthGreaterEqual allows output depth as long as the value it is set to is greater than or equal to the value determined during rasterisation. Otherwise, it will be clamped to the same value the rasteriser uses. SV_DepthLessEqual is the opposite, where the value set must be less than or equal to the value determined during rasterisation.\nSampling Depth Texture In URP, SampleSceneDepth returns the raw depth (Non-linear).\n//vertex float4 positionCS = TransformObjectToHClip(input.positionOS.xyz); output.positionCS = positionCS; output.screenPos = ComputeScreenPos(positionCS); //fragment float sceneRawDepth = SampleSceneDepth(input.screenPos.xy / input.screenPos.w); float sceneEyeDepth = LinearEyeDepth(rawDepth, _ZBufferParams); float sceneLinearDepth = Linear01Depth(rawDepth, _ZBufferParams);  Why divide screenPos.xy by w component in fragment shader?  ComputeScreenPos only remap [-w, w] to [0, w], it doesn’t divide it by w (perspective division). Division in vertex shader will cause warping.  https://forum.unity.com/threads/what-does-the-function-computescreenpos-in-unitycg-cginc-do.294470/ https://forum.unity.com/threads/w-component-of-in-screenpos.242314/     LinearEyeDepth vs. Linear01Depth  LinearEyeDepth converts the raw depth to linear value. If the object is 1 unit away from the camera’s pivot, then the value is 1. Linear01Depth converts the raw depth to linear value too, but it the value ranges in [0, 1]. Changing the camera’s far plane distance will affect the value.    Fog  Built-in to URP: https://teodutra.com/unity/shaders/urp/graphics/2020/05/18/From-Built-in-to-URP/#summary  Soft Particles Built-in has the “Soft Particles” option to control if the particle fades out near intersections with other scene geometry. It’s more resource intensive and only works on the platform supporting depth texture and using deferred shading.\nFrame Animation In Shader The key is to locate the correct uv.\n// we need the amount of key frames of horizontal and vertical in the frame texture float _HorizontalAmount; float _VerticalAmount; float _TimeSpeed; // we use Time (as a whole number) to find out which key frame we should use float time = floor(_Time.y * _TimeSpeed); float row = floor( time / _HorizontalAmount ); float col = time - row * _HorizontalAmount; // Then we calculate the correct uv // first we divide the uv by horizontal and vertical amount // then we off set the uv by col and row // it worth to mention that Unity's vertical direction in the texture is from bottom to top, while frame sequence is from top to bottom // that's why we need to subtract float2 uv = float2 (input.uv.x / _HorizontalAmount, input.uv.y / _VerticalAmount); uv.x += col / _HorizontalAmount; uv.y -= row / _VerticalAmount; Dithering \u0026 Dithered Transparency bglous: https://forum.unity.com/threads/depth-of-field-issues-with-transparent-render-queue.1041292/\ndithereing: https://www.ronja-tutorials.com/post/042-dithering/\nTemporal dithering: quickly render opaque surface alpha tested in patterns over every frame. Temporal anti-aliasing ends up blurring this into something looks like transparent.\n","wordCount":"1381","inLanguage":"en","datePublished":"2021-09-26T23:55:47+08:00","dateModified":"2021-09-26T23:55:47+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/ta_log_09262021/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+TA Log 09262021
+</h1>
+<div class=post-meta>September 26, 2021&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#c aria-label=C#>C#</a></li>
+<li>
+<a href=#projection-math aria-label="Projection Math">Projection Math</a></li>
+<li>
+<a href=#depth aria-label=Depth>Depth</a><ul>
+<li>
+<a href=#conservative-depth-output aria-label="Conservative Depth Output">Conservative Depth Output</a></li>
+<li>
+<a href=#sampling-depth-texture aria-label="Sampling Depth Texture">Sampling Depth Texture</a></li></ul>
+</li>
+<li>
+<a href=#fog aria-label=Fog>Fog</a></li>
+<li>
+<a href=#soft-particles aria-label="Soft Particles">Soft Particles</a></li>
+<li>
+<a href=#frame-animation-in-shader aria-label="Frame Animation In Shader">Frame Animation In Shader</a></li>
+<li>
+<a href=#dithering--dithered-transparency aria-label="Dithering &amp;amp; Dithered Transparency">Dithering & Dithered Transparency</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=c>C#<a hidden class=anchor aria-hidden=true href=#c>#</a></h1>
+<p>It&rsquo;s a good practice to save game setting data to binary files.</p>
+<p>To save:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp>FileStream dataStream = <span style=color:#66d9ef>new</span> FileStream( dataPath, FileMode.Create);
+BinaryFormatter converter = <span style=color:#66d9ef>new</span> BinaryFormatter();
+converter.Serialize(dataStream, toSave);
+dataStream.Close();
+</code></pre></div><p>To open/load:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp>FileStream dataStream = <span style=color:#66d9ef>new</span> FileStream(dataPath, FileMode.Open);
+BinaryFormatter converter = <span style=color:#66d9ef>new</span> BinaryFormatter();
+DataClass data = converter.Deserialize(dataStream) <span style=color:#66d9ef>as</span> DataClass;
+</code></pre></div><p>We can use it outside game too. For example, dynamic bone&rsquo;s parameter settings will lost once the model is updated, because people usually replace the whole prefab.
+If the model&rsquo;s bones are unchanged or mostly unchanged, we can save the Dynamic Bone&rsquo;s parameters as binary files, and load it back to the new model.</p>
+<h1 id=projection-math>Projection Math<a hidden class=anchor aria-hidden=true href=#projection-math>#</a></h1>
+<p>GDC: <a href="https://www.youtube.com/watch?v=RdN06E6Xn9E&t=2153s">https://www.youtube.com/watch?v=RdN06E6Xn9E&t=2153s</a></p>
+<p>Cat Like Coding: <a href=https://catlikecoding.com/unity/tutorials/rendering/part-15/>https://catlikecoding.com/unity/tutorials/rendering/part-15/</a></p>
+<p>Position From Depth: <a href=https://mynameismjp.wordpress.com/2010/09/05/position-from-depth-3/>https://mynameismjp.wordpress.com/2010/09/05/position-from-depth-3/</a></p>
+<p>SSAO Tutorial: <a href=https://john-chapman-graphics.blogspot.com/2013/01/ssao-tutorial.html>https://john-chapman-graphics.blogspot.com/2013/01/ssao-tutorial.html</a></p>
+<p>Model View Projection: <a href=https://jsantell.com/model-view-projection/>https://jsantell.com/model-view-projection/</a></p>
+<p>In the projection math, we often need to calculate the view ray: when we transform the vertex position to the view space, the z component is the depth and the camera is located in (0,0,0). After we divide the view space position by the z component, we will have a direction from camera to the vertex.</p>
+<p>Iteration 1:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#75715e>//vertex
+</span><span style=color:#75715e></span>vec3 viewPos = mul(modelView, objectPos);
+OUT.viewRay = viewPos / viewPos.z;
+
+<span style=color:#75715e>//fragment
+</span><span style=color:#75715e></span>vec3 viewPos = IN.viewRay * depth;
+vec3 decalPos = mul(vec4(viewPos, <span style=color:#ae81ff>1.0</span>), <span style=color:#ae81ff>_</span>ViewToObject)
+</code></pre></div><p>Iteration 2:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#75715e>// vertex
+</span><span style=color:#75715e></span>vec3 viewPos = mul(modelView, objectPos);
+vec3 viewRay = viewPos/viewPos.z;
+OUT.worldRay = mul( (mat3)<span style=color:#ae81ff>_</span>ViewToWrold, viewRay);
+
+<span style=color:#75715e>// fragment
+</span><span style=color:#75715e></span>vec3 worldPos = IN.worldRay * depth + <span style=color:#ae81ff>_</span>WorldSpaceViewPos;
+vec3 decalPos = mul(<span style=color:#ae81ff>_</span>WorldToObject, vec4(worldPos, <span style=color:#ae81ff>1.0</span>));
+</code></pre></div><p>Iteration 3:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#75715e>// vertex
+</span><span style=color:#75715e></span>vec3 viewPos = mul(modelView, objectPos);
+vec3 viewRay = viewPos / viewPos.z;
+OUT.objectRay = mul((mat3)<span style=color:#ae81ff>_</span>ViewToObject, viewRay);
+
+<span style=color:#75715e>// fragment
+</span><span style=color:#75715e></span>vec3 decalPos = IN.objectRay * depth + <span style=color:#ae81ff>_</span>ObjectSpaceViewPos;
+</code></pre></div><h1 id=depth>Depth<a hidden class=anchor aria-hidden=true href=#depth>#</a></h1>
+<ol>
+<li>Built-in to URP: <a href=https://teodutra.com/unity/shaders/urp/graphics/2020/05/18/From-Built-in-to-URP/#summary>https://teodutra.com/unity/shaders/urp/graphics/2020/05/18/From-Built-in-to-URP/#summary</a></li>
+<li>COMPUTE_EYEDEPTH: <a href=https://light11.hatenadiary.com/entry/2019/12/18/010038>https://light11.hatenadiary.com/entry/2019/12/18/010038</a></li>
+<li>DEPTH: <a href=https://zhuanlan.zhihu.com/p/92315967>https://zhuanlan.zhihu.com/p/92315967</a></li>
+<li>depth texture in OpenGL and DirectX: <a href=https://forum.unity.com/threads/rendering-depths-into-render-textures-in-both-opengl-and-direct3d.493088/>https://forum.unity.com/threads/rendering-depths-into-render-textures-in-both-opengl-and-direct3d.493088/</a></li>
+<li>cyan: <a href=https://www.cyanilux.com/tutorials/depth/>https://www.cyanilux.com/tutorials/depth/</a></li>
+<li>depth preicison visualized: <a href=https://developer.nvidia.com/content/depth-precision-visualized>https://developer.nvidia.com/content/depth-precision-visualized</a></li>
+<li>NDC Space: <a href=https://forum.unity.com/threads/confused-on-ndc-space.1024414/>https://forum.unity.com/threads/confused-on-ndc-space.1024414/</a></li>
+</ol>
+<p><strong>Eye depth</strong></p>
+<p>Vertex shader converts the vertex position from object space to world space via model matrix. Then to view space via view matrix. In the view space, the camera is at the origin. Therefore, the z component of position in view space is the distance between the vertex and the camera. This is the <strong>Eye Depth.</strong> The range of this depth is the same across all the platform.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#75715e>// vertex
+</span><span style=color:#75715e></span>float3 positionWS = TransformObjectToWorld(input.positionOS.xyz)
+float3 positionVS = TransformWorldToView(positionWS);
+
+<span style=color:#75715e>// fragment
+</span><span style=color:#75715e></span><span style=color:#66d9ef>float</span> depth = -input.positionVS.z;
+</code></pre></div><p><strong>Scene Depth</strong></p>
+<p>This is from the depth texture.
+Linear01 is a remapped version of Eye Depth by dividing by the far plane value. It is still 0 at the camera position, but 1 is the far plane.</p>
+<p>Shader then converts the view space to clip space via projection matrix. Clip space usually needs perspective projection, which outputs the Eye Depth as the w component. For orthographic projection, the w component is 1. After the vertex shader, the clip space position is remapped (compute screen position) and divided by it&rsquo;s W component (perspective division).
+This gives the Normalized Device Coordinates (NDC). The screen position where the XY axis ranges from (0,0) in the bottom left corner and (1,1) in the top right.</p>
+<p>After the projection, the depth is not linear anymore in the view space. This is the value ends up in the depth buffer and Depth Texture. (Raw Scene Depth).</p>
+<p>NDC has the same range for x component: [L, R] to [-1, 1], y component: [B, T] to [-1, 1]</p>
+<p>The range of the NDC.z, or Z Buffer depth, is also the same for both projections, but varies depending on the platform: (<a href=https://docs.unity3d.com/Manual/SL-PlatformDifferences.html>https://docs.unity3d.com/Manual/SL-PlatformDifferences.html</a>)</p>
+<ul>
+<li>Direct3D is from 1 (near) to 0 (far): Direct3D, Metal, consols</li>
+<li>OpenGL is from -1 (near) to 1 (far): OpenGL, OpenGL ES</li>
+</ul>
+<p><strong>Non-linear</strong></p>
+<p>Non-linear is better for precision (<a href=https://developer.nvidia.com/content/depth-precision-visualized>https://developer.nvidia.com/content/depth-precision-visualized</a>),</p>
+<p><strong>Depth Buffer vs. Depth Texture</strong></p>
+<p>Depth buffer ensures that objects closer to the camera will be on-top of objects that are further away. Opaque geometry usually writes to the buffer. The opaque geometry renders front-to-back, so objects that are closer to the camera are drawn first, and color and depth buffer are written first too. The further away objects tests against the values in the buffer based on ZTest.
+Transparent Geometry (usually) doesn&rsquo;t write depth and renders back-to-front to have correct alpha blending. The objects are sorted by <strong>how close their origin is to the camera</strong> so it might change when the camera moves.</p>
+<p>URP copies the depth buffer of opaque queue and stores them to <strong>Depth Texture</strong>. This allows transparent shader to interact with opaque objects (intersection). Transparent objects don&rsquo;t appear on Depth Texture because depth values are copied before transparent queue. A Depth Prepass is used when the copy does not work.</p>
+<p><strong>Depth in Shader</strong></p>
+<p>Fragment shader usually controls their depth from the mesh, based on the interpolated values between vertex and fragment shader. SV_Depth can overwrite the semantics.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>FragOut</span>
+{
+	half4 color: SV_Target;
+	<span style=color:#66d9ef>float</span> depth : SV_Depth;
+}
+
+half4 frag(Varyings input) : SV_Target
+{
+
+	FragOut output;
+	output.color = color;
+	output.depth = depth;
+	<span style=color:#66d9ef>return</span> output;
+}
+</code></pre></div><p>However, using SV_Depth turns off early-Z. Early-Z tests against the depth buffer early and discard the fragment that failed the test. Howerver, fragment shader with SV_Depth has to run the fragment first to have the depth value.
+Using Alpha Clipping or <code>discard</code> also turns off early-Z. A value has to be written to the depth buffer if the test passes (if ZWrite is on). Discard the fragment might lead to incorrect depth buffer.</p>
+<p>Opaque shader that uses SV_Depth should also apparently be rendered after other opaque objects during the AlphaTest queue.</p>
+<p>Orthographic projection output a linear depth where 0 is the new plane and 1 is the far plane. And take the reversed z into account in other platforms.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>float</span> depth = <span style=color:#ae81ff>1</span>;
+
+<span style=color:#75715e>#if UNITY_REVERSED_Z
+</span><span style=color:#75715e></span>depth = <span style=color:#ae81ff>1</span> - depth;
+<span style=color:#75715e>#endif
+</span><span style=color:#75715e></span>
+output.depth = depth;
+</code></pre></div><p>Perspective projection outputs to a non-linear value.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>float</span> nearPlaneDepth = Linear01Depth(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>_</span>ZBufferParams)
+<span style=color:#66d9ef>float</span> farPlaneDepth = Linear01Depth(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>_</span>ZBufferParams)
+
+<span style=color:#66d9ef>float</span> nonLinear = EyeDepthToNonLinear(eyeDepth / farPlane, <span style=color:#ae81ff>_</span>ZBufferParams
+</code></pre></div><h2 id=conservative-depth-output>Conservative Depth Output<a hidden class=anchor aria-hidden=true href=#conservative-depth-output>#</a></h2>
+<p>SV_DepthGreaterEqual allows output depth as long as the value it is set to is greater than or equal to the value determined during rasterisation. Otherwise, it will be clamped to the same value the rasteriser uses.
+SV_DepthLessEqual is the opposite, where the value set must be less than or equal to the value determined during rasterisation.</p>
+<h2 id=sampling-depth-texture>Sampling Depth Texture<a hidden class=anchor aria-hidden=true href=#sampling-depth-texture>#</a></h2>
+<p>In URP, <code>SampleSceneDepth</code> returns the raw depth (Non-linear).</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#75715e>//vertex
+</span><span style=color:#75715e></span>float4 positionCS = TransformObjectToHClip(input.positionOS.xyz);
+output.positionCS = positionCS;
+output.screenPos = ComputeScreenPos(positionCS);
+
+<span style=color:#75715e>//fragment
+</span><span style=color:#75715e></span><span style=color:#66d9ef>float</span> sceneRawDepth = SampleSceneDepth(input.screenPos.xy / input.screenPos.w);
+<span style=color:#66d9ef>float</span> sceneEyeDepth = LinearEyeDepth(rawDepth, <span style=color:#ae81ff>_</span>ZBufferParams);
+<span style=color:#66d9ef>float</span> sceneLinearDepth = Linear01Depth(rawDepth, <span style=color:#ae81ff>_</span>ZBufferParams);
+</code></pre></div><ul>
+<li>Why divide <code>screenPos.xy</code> by w component in fragment shader?
+<ul>
+<li><code>ComputeScreenPos</code> only remap [-w, w] to [0, w], it doesn&rsquo;t divide it by w (perspective division).</li>
+<li>Division in vertex shader will cause warping.
+<ul>
+<li><a href=https://forum.unity.com/threads/what-does-the-function-computescreenpos-in-unitycg-cginc-do.294470/>https://forum.unity.com/threads/what-does-the-function-computescreenpos-in-unitycg-cginc-do.294470/</a></li>
+<li><a href=https://forum.unity.com/threads/w-component-of-in-screenpos.242314/>https://forum.unity.com/threads/w-component-of-in-screenpos.242314/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LinearEyeDepth vs. Linear01Depth
+<ul>
+<li><code>LinearEyeDepth</code> converts the raw depth to linear value. If the object is 1 unit away from the camera&rsquo;s pivot, then the value is 1.</li>
+<li><code>Linear01Depth</code> converts the raw depth to linear value too, but it the value ranges in [0, 1]. Changing the camera&rsquo;s far plane distance will affect the value.</li>
+</ul>
+</li>
+</ul>
+<h1 id=fog>Fog<a hidden class=anchor aria-hidden=true href=#fog>#</a></h1>
+<ol>
+<li>Built-in to URP: <a href=https://teodutra.com/unity/shaders/urp/graphics/2020/05/18/From-Built-in-to-URP/#summary>https://teodutra.com/unity/shaders/urp/graphics/2020/05/18/From-Built-in-to-URP/#summary</a></li>
+</ol>
+<h1 id=soft-particles>Soft Particles<a hidden class=anchor aria-hidden=true href=#soft-particles>#</a></h1>
+<p>Built-in has the &ldquo;Soft Particles&rdquo; option to control if the particle fades out near intersections with other scene geometry. It&rsquo;s more resource intensive and only works on the platform supporting depth texture and using deferred shading.</p>
+<h1 id=frame-animation-in-shader>Frame Animation In Shader<a hidden class=anchor aria-hidden=true href=#frame-animation-in-shader>#</a></h1>
+<p>The key is to locate the correct uv.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#75715e>// we need the amount of key frames of horizontal and vertical in the frame texture
+</span><span style=color:#75715e></span><span style=color:#66d9ef>float</span> <span style=color:#ae81ff>_</span>HorizontalAmount;
+<span style=color:#66d9ef>float</span> <span style=color:#ae81ff>_</span>VerticalAmount;
+<span style=color:#66d9ef>float</span> <span style=color:#ae81ff>_</span>TimeSpeed;
+
+<span style=color:#75715e>// we use Time (as a whole number) to find out which key frame we should use
+</span><span style=color:#75715e></span><span style=color:#66d9ef>float</span> time = floor(<span style=color:#ae81ff>_</span>Time.y * <span style=color:#ae81ff>_</span>TimeSpeed);
+<span style=color:#66d9ef>float</span> row = floor( time / <span style=color:#ae81ff>_</span>HorizontalAmount );
+<span style=color:#66d9ef>float</span> col = time - row * <span style=color:#ae81ff>_</span>HorizontalAmount;
+
+<span style=color:#75715e>// Then we calculate the correct uv
+</span><span style=color:#75715e>// first we divide the uv by horizontal and vertical amount
+</span><span style=color:#75715e>// then we off set the uv by col and row
+</span><span style=color:#75715e>// it worth to mention that Unity&#39;s vertical direction in the texture is from bottom to top, while frame sequence is from top to bottom
+</span><span style=color:#75715e>// that&#39;s why we need to subtract
+</span><span style=color:#75715e></span>float2 uv = float2 (input.uv.x / <span style=color:#ae81ff>_</span>HorizontalAmount, input.uv.y / <span style=color:#ae81ff>_</span>VerticalAmount);
+uv.x += col / <span style=color:#ae81ff>_</span>HorizontalAmount;
+uv.y -= row / <span style=color:#ae81ff>_</span>VerticalAmount;
+</code></pre></div><h1 id=dithering--dithered-transparency>Dithering & Dithered Transparency<a hidden class=anchor aria-hidden=true href=#dithering--dithered-transparency>#</a></h1>
+<p>bglous: <a href=https://forum.unity.com/threads/depth-of-field-issues-with-transparent-render-queue.1041292/>https://forum.unity.com/threads/depth-of-field-issues-with-transparent-render-queue.1041292/</a></p>
+<p>dithereing: <a href=https://www.ronja-tutorials.com/post/042-dithering/>https://www.ronja-tutorials.com/post/042-dithering/</a></p>
+<p>Temporal dithering: quickly render opaque surface alpha tested in patterns over every frame. Temporal anti-aliasing ends up blurring this into something looks like transparent.</p>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/shader/>Shader</a></li>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/ta_log_10182021/>
+<span class=title>« Prev Page</span>
+<br>
+<span>TA Log 10182021</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/ta_log_09222021/>
+<span class=title>Next Page »</span>
+<br>
+<span>TA Log 09222021</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Shader on After1995</title>
+    <link>https://endfang.github.io/tags/shader/</link>
+    <description>Recent content in Shader on After1995</description>
+    <image>
+      <url>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 17 Jan 2022 00:07:40 +0800</lastBuildDate><atom:link href="https://endfang.github.io/tags/shader/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TA Log 01102022</title>
+      <link>https://endfang.github.io/posts/ta_log_01102022/</link>
+      <pubDate>Mon, 17 Jan 2022 00:07:40 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_01102022/</guid>
+      <description>Vertex Animation Vertex offset achieves the wind animation of tree leaves. By specifying the vertex color, vertex shader can use lerp to filter the animation on a certain part of the mesh. For example, only leaves will wave by painting all leaves’ color red.
+URP Sample Texture
+https://forum.unity.com/threads/writing-shaders-urp-texture2d-sampler.1000782/
+TEXTURE2D()translates the texture to the target API’s native type. GLES2 is sampler2D and others are Texture2D.
+Maintenance pow() vs. sqrt()
+After compile pow(a, b) in shader, the code will become exp2(log2(a) * b )</description>
+    </item>
+    
+    <item>
+      <title>TA Log 12202021</title>
+      <link>https://endfang.github.io/posts/ta_log_12202021/</link>
+      <pubDate>Mon, 20 Dec 2021 00:06:11 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_12202021/</guid>
+      <description>SRP Batcher + OpenGL bug:
+https://forum.unity.com/threads/srp-batcher-does-not-work-with-opengles3.1095937/
+Shadow Cascade
+Unity Doc: https://docs.unity3d.com/Manual/shadow-cascades.html Cat Like Coding: https://catlikecoding.com/unity/tutorials/scriptable-render-pipeline/directional-shadows/
+Shadow map pixels close to the Camera look enlarged and chunky to those farther away. Unity solves this problem by splitting the frustum area int otwo zones based on the distance from the camera, and use two separate shadow map. The resolution of each map is staged reduced.
+It also increased Drawcall: https://forum.unity.com/threads/unity-draw-5-4-introducing-more-draw-calls.426185/
+Outline https://alexanderameye.github.io/notes/rendering-outlines/</description>
+    </item>
+    
+    <item>
+      <title>TA Log 12132021</title>
+      <link>https://endfang.github.io/posts/ta_log_12132021/</link>
+      <pubDate>Mon, 13 Dec 2021 00:05:07 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_12132021/</guid>
+      <description>Unity URP _MainLightShadowParams
+ x: shadowStrength y: 1.0 = soft shadow, 0.0 = otherwise z: 1/ fade distance w: 1- start fade  Anti-Aliasing What is AA: https://www.youtube.com/watch?v=hqi0114mwtY
+How to do AA? There’re two types of AA. One is to increase the sample rate, that means to render the scene in a higher resolution and sample down it to the target resolution to smooth the line. Two is to blur the edge or contrast, known as Post AA or Post Processing .</description>
+    </item>
+    
+    <item>
+      <title>TA Log 11292021</title>
+      <link>https://endfang.github.io/posts/ta_log_11292021/</link>
+      <pubDate>Mon, 29 Nov 2021 00:03:01 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_11292021/</guid>
+      <description>Compute Shader It transfers some computation from CPU to GPU by HLSL code. Hence the name has &amp;ldquo;compute&amp;rdquo; and &amp;ldquo;shader&amp;rdquo;.
+References:
+ Getting Started with Compute Shaders in Unity: https://www.youtube.com/watch?v=BrZ4pWwkpto Coding Adventure: Compute Shaders: https://www.youtube.com/watch?v=9RHGLZLUuwc&amp;amp;list=LL2T54R7-vJmcMBzcaTL_oBw GPU Ray Tracing in Unity: http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/  Unity Documentation: https://docs.unity3d.com/Manual/class-ComputeShader.html
+Compute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:
+ Android: OpenGL ES 3.1, iOS: Metal  Compute Shader Assets</description>
+    </item>
+    
+    <item>
+      <title>TA Log 11082021</title>
+      <link>https://endfang.github.io/posts/ta_log_11082021/</link>
+      <pubDate>Mon, 08 Nov 2021 00:01:24 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_11082021/</guid>
+      <description>Blom like an artist:
+Bloom Like an Artist
+Circular Progress Bar https://bgolus.medium.com/progressing-in-circles-13452434fdb9
+ATan vs. ATan2 $$ \tan{\alpha} = \frac{\sin{\alpha}}{\cos{\alpha}} $$
+and we have
+Quadrant Angle sin cos tan ------------------------------------------------- I 0 &amp;lt; α &amp;lt; π/2 + + + II π/2 &amp;lt; α &amp;lt; π + - - III π &amp;lt; α &amp;lt; 3π/2 - - + IV 3π/2 &amp;lt; α &amp;lt; 2π - + - Only knowing tangent doesn&amp;rsquo;t give exact quadrant, so we need atan2().</description>
+    </item>
+    
+    <item>
+      <title>TA Log 11012021</title>
+      <link>https://endfang.github.io/posts/ta_log_11012021/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:24 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_11012021/</guid>
+      <description>Unity Lighting System Direct light is light that is emitted, hits a surface and is then reflected directly into a sensor. Indirect light is all other light that is ultimately reflected into a sensor, including sky light.
+Reali-time lighting is calculated at runtime, while baked lighting is calculated in advance and is saved as lighting data.
+Unity: Render Feature Blit https://forum.unity.com/threads/apply-effect-to-objects-on-specific-layer-using-stencil-solved.841150/
+https://forum.unity.com/threads/has-anyone-ever-gotten-a-stencil-buffer-to-copy-with-commandbuffer-blit.432503/
+In URP&amp;rsquo;s custom render feature pass, Blit doesn&amp;rsquo;t pass the depth/stencil when blitting a color texture.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 10182021</title>
+      <link>https://endfang.github.io/posts/ta_log_10182021/</link>
+      <pubDate>Thu, 21 Oct 2021 23:58:45 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_10182021/</guid>
+      <description>Sprite Billboard https://www.reddit.com/r/Unity3D/comments/ahqbod/a_billboard_sprite_shader_in_only_one_axis/
+To make the sprite look at the camera all the time (billboard)_
+ View space is a rotated version of world space with the xy plane parallel to the view plane. It&amp;rsquo;s intuitive to make the billboard in here. First we transform the origin in the view coordinates and then  float4 newVertex = mul(UNITY_MATRIX_P, mul(UNITY_MATRIX_MV, float4(0.0, 0.0, 0.0, 1.0)) + float4(input.vertex.x, input.vertex.y, 0.0, 1.0));  We can also cancel out the rotation before the model matrix and then apply the view matrix.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 09262021</title>
+      <link>https://endfang.github.io/posts/ta_log_09262021/</link>
+      <pubDate>Sun, 26 Sep 2021 23:55:47 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_09262021/</guid>
+      <description>C# It&amp;rsquo;s a good practice to save game setting data to binary files.
+To save:
+FileStream dataStream = new FileStream( dataPath, FileMode.Create); BinaryFormatter converter = new BinaryFormatter(); converter.Serialize(dataStream, toSave); dataStream.Close(); To open/load:
+FileStream dataStream = new FileStream(dataPath, FileMode.Open); BinaryFormatter converter = new BinaryFormatter(); DataClass data = converter.Deserialize(dataStream) as DataClass; We can use it outside game too. For example, dynamic bone&amp;rsquo;s parameter settings will lost once the model is updated, because people usually replace the whole prefab.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 09222021</title>
+      <link>https://endfang.github.io/posts/ta_log_09222021/</link>
+      <pubDate>Wed, 22 Sep 2021 14:50:30 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_09222021/</guid>
+      <description>RGB to Grayscale dot(color.rgb, float3(0.298999995, 0.587000012, 0.114)); It&amp;rsquo;s a convenient way to write rather than multiply and add up every channel.
+Tangent, Normal, Bitangent Tangent is the U of the UV for both OpenGL and DirectX. Left to right, 0.0 to 1.0. The binormal is the V of the UV. OpenGL is bottom to top, and DirectX is top to bottom. Unity is +Y, OpenGL standard. Unreal is -Y, DirectX standard.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 09062021</title>
+      <link>https://endfang.github.io/posts/ta_log_09062021/</link>
+      <pubDate>Mon, 06 Sep 2021 14:48:48 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_09062021/</guid>
+      <description>Shader Animation The usual method of making shader animation is to use time parameter and sin wave function. It&amp;rsquo;s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 08302021</title>
+      <link>https://endfang.github.io/posts/ta_log_08302021/</link>
+      <pubDate>Mon, 30 Aug 2021 14:47:26 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_08302021/</guid>
+      <description>Collections  UV distortion: https://twitter.com/Fakirgnome/status/1120421374571495426 Easy PS techniques to create distance field texture: https://twitter.com/Ed_dV/status/1415156393959518209 easing demonstration: https://easings.net/  URP SurfaceInput.hlsl Declartion:
+ BaseMap BumpMap / NormalMap EmissionMap  Helpers:
+ Alpha() sample albedo and alpha sample normal sample emission  There&amp;rsquo;s a problem in URP&amp;rsquo;s hlsl files. They are all tight together to build the URP shader, not SRP. This reminds me that URP is an example of SRP. It&amp;rsquo;s better to have my own helper library.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 08162021</title>
+      <link>https://endfang.github.io/posts/ta_log_08162021/</link>
+      <pubDate>Mon, 16 Aug 2021 14:46:11 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_08162021/</guid>
+      <description>Fog Linear Fog
+c = fog coordinates,
+S, E = start and end
+$$f = \frac{E - c}{ E - S}$$
+Exponential Fog
+d = fog density
+$$f = \frac{1}{2^{cd}} = 2^{-cd}$$
+Exponential Squared Fog
+$$f = \frac{1}{2^{cd^2}} = 2^{- (cd)^2}$$</description>
+    </item>
+    
+    <item>
+      <title>TA Log 08092021</title>
+      <link>https://endfang.github.io/posts/ta_log_08092021/</link>
+      <pubDate>Mon, 09 Aug 2021 14:44:52 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_08092021/</guid>
+      <description>Light URP has only one main light. It must be the directional light. If it is not set in the Sun Source, then the brightest directional light is the main light. Test it with the light direction.
+half4 color = half4(_MainLightPosition.xyz, 1.0); Stencil Manual: https://docs.unity3d.com/Manual/SL-Stencil.html YouTube: https://www.youtube.com/watch?v=-NB2TR8IjE8
+The stencil buffer stores an 8-bit integer value for each pixel in the frame buffer. Stencil test happens before executing the fragment shader. It will compare the value with the reference value.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 08022021</title>
+      <link>https://endfang.github.io/posts/ta_log_08022021/</link>
+      <pubDate>Mon, 02 Aug 2021 14:43:41 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_08022021/</guid>
+      <description>Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/
+A common way to blend textures is the alpha blending.
+$$C_{result} = C_{source} \cdot F_{source} + C_{destination} \cdot F_{destination} \ F_{source} + F_{destination} = 1$$
+Another way is to do linear interpolation. We can linearly interpolate the result color between two textures.
+$$\frac{y-h_{0}}{x - x_{0}} = \frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$
+$$y = \frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$
+The third way is to use the height map to determine the blend of two textures.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 07262021</title>
+      <link>https://endfang.github.io/posts/ta_log_07262021/</link>
+      <pubDate>Mon, 26 Jul 2021 14:39:52 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_07262021/</guid>
+      <description>Render Texture OnRenderImage is an event function called after a Camera has finished rendering. It allows us to modify the Camera&amp;rsquo;s final image. Built-in: calls it on the same GameObject as an enabled Camera component. SRP: use ScriptableRenderPass instead.
+GetTemporary and ReleaseTemporary GetTemporary will return a RT for temporary calculations. Release it using ReleaseTemporary as soon as we&amp;rsquo;re done with it. Unity keeps an internal RT pool, so calling GetTemporary might return a created one if the size and the format are the same.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 07192021</title>
+      <link>https://endfang.github.io/posts/ta_log_07192021/</link>
+      <pubDate>Mon, 19 Jul 2021 14:38:31 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_07192021/</guid>
+      <description>Shader Shader.SetGlobalVector(int nameID, Vector4 value)` Sets a global vector proper. Shader will use the global property if it is not defined in Properties block. example: `_LightDirection` in `ShadowCasterPass.hlsl ZTest Always sets NO depth testing. The geometry is drawn regardless of distance.
+Texels vs. Pixels Texels are the elements of a texture. While pixel is the element of an image. When we zoom in a 3D model, we may see 1 texel presented by many pixels.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 07122021</title>
+      <link>https://endfang.github.io/posts/ta_log_07122021/</link>
+      <pubDate>Mon, 12 Jul 2021 01:40:30 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_07122021/</guid>
+      <description>hlsl float frac(float v) { return v - floor(v); } fmod(x, y) returns the floating-point remainder of the x parameter divided by the y parameter
+float remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x); } float fresnelEffect(float3 normal, float3 viewDir, float power) { return pow(1.0 - saturate(dot(normalize(normal), normalize(viewDir))), power) } Shader Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another.</description>
+    </item>
+    
+    <item>
+      <title>Mali Offline Compiler</title>
+      <link>https://endfang.github.io/posts/malioffline/</link>
+      <pubDate>Sat, 29 May 2021 01:34:25 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/malioffline/</guid>
+      <description>Valhall uses index-driven vertex shading to compiles vertex shaders into two binaries: Position Shader and Varying Shader.
+Position Shader computes only position and is executed for every indexed vertex. Varying Shader computes the remaining non-position attribute outputs. It&amp;rsquo;s only executed for vertices that are part of a visible primitive that survives culling.
+ Work Registers Uniform Registers Stack spilling: how much memory is stacked because variables spilled  spill: when there are not enough registers to keep the variables, some of them may be moved to and from RAM.</description>
+    </item>
+    
+    <item>
+      <title>Tree And Wind Shader</title>
+      <link>https://endfang.github.io/posts/unity-tree-and-wind/</link>
+      <pubDate>Fri, 23 Oct 2020 11:26:50 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-tree-and-wind/</guid>
+      <description>Vertex Color, Alpha and Shadow Surface shader is actually a vertex and fragment shader too, so theoretically the vertex data is accessible in surface shader too by using SEMANTICS or common state vert
+struct v2f { half4 color : COLOR; }; As for the Alpha Texture, we can decide the color based on the UV mapping in vertex function
+fixed4 frag (v2f i) : COLOR0 { ... fixed alpha = tex2D (_AlphaTex, i.</description>
+    </item>
+    
+    <item>
+      <title>Unity Render Pipeline</title>
+      <link>https://endfang.github.io/posts/unity-render-pipeline/</link>
+      <pubDate>Sat, 30 May 2020 11:07:27 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-render-pipeline/</guid>
+      <description>RP is a series of operations that take the contents of a Scene and displays them on a screen. At a high level, these operations are Culling, Rendering, and Post-Processing. It&amp;rsquo;s difficult to switch from one to another RP because the shader outputs varies and might not have the same feature. We can custom shaders in different piplelines, but the ultimate effect may be different. Unity has Built-In, Universal, and High Definition and Scriptable RP.</description>
+    </item>
+    
+    <item>
+      <title>Guide Mask Shader</title>
+      <link>https://endfang.github.io/posts/guide-mask/</link>
+      <pubDate>Thu, 07 May 2020 11:58:35 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/guide-mask/</guid>
+      <description>Shader &amp;#34;UI/GuideMask&amp;#34; { Properties { [PreRendererData] _MainTex (&amp;#34;Sprite Texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} _Color (&amp;#34;tint&amp;#34;, Color) = (1,1,1,1) _StencilComp (&amp;#34;Stencil Comparison&amp;#34;, Float) = 8 _Stencil (&amp;#34;Stencil ID&amp;#34;, Float) = 0 _StencilOp (&amp;#34;Stencil Operation&amp;#34;, Float) = 0 _StencilWritemask(&amp;#34;Stencil Write Mask&amp;#34;, Float ) = 255 _StencilReadMask(&amp;#34;Stencil Read Mask&amp;#34;, Float) = 255 _ColorMask(&amp;#34;Color Mask&amp;#34;, Float) = 15 [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip (&amp;#34;Use Alpha Clip&amp;#34;, Float) = 0 _Center(&amp;#34;Center&amp;#34;, vector) = (0, 0, 0, 0) _Slider(&amp;#34;Slider&amp;#34;, Range(0, 1500)) = 1500 } SubShader { Tags { &amp;#34;RenderType&amp;#34;=&amp;#34;Opaque&amp;#34; &amp;#34;IgnoreProjector&amp;#34; = &amp;#34;True&amp;#34; &amp;#34;RenderType&amp;#34; = &amp;#34;Transparent&amp;#34; &amp;#34;PreviewType&amp;#34; = &amp;#34;Plane&amp;#34; &amp;#34;CanUseSpriteAtlas&amp;#34; = &amp;#34;True&amp;#34; } Stencil { Ref [_Stencil] Comp [_StencilComp] Pass [_StencilOp] ReadMask [_StencilReadmask] Writemask [_StencilWriteMask] } Cull Off Lighting Off ZWrite Off ZTest [unit_GUIZTestMode] Blend SrcAlpha OneMinusSrcAlpha ColorMask [_ColorMask] Pass { Name &amp;#34;Default&amp;#34; CGPROGRAM #pragma vertex vert #pragma fragment frag #pragma target 2.</description>
+    </item>
+    
+    <item>
+      <title>Unity Vertex And Fragment Shader</title>
+      <link>https://endfang.github.io/posts/unity-vertex-and-fragment/</link>
+      <pubDate>Sat, 30 Nov 2019 11:03:52 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-vertex-and-fragment/</guid>
+      <description>Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There&amp;rsquo;s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.
+*Surface shader is actually compiled to vert/frag shader.
+Shader &amp;#34;Unlit/SolidColor&amp;#34; { SubShader { Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag struct vertInput { float4 pos : POSITION; }; struct vertOuput { float4 pos : SV_POSITION; }; vertOuput vert(vertInput input) { vertOuput o; o.</description>
+    </item>
+    
+    <item>
+      <title>Unity Shader Overview</title>
+      <link>https://endfang.github.io/posts/unity-shader-overview/</link>
+      <pubDate>Sat, 30 Nov 2019 10:59:20 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-shader-overview/</guid>
+      <description>Thanks to these posts and blogs: Michael Sanders Catike Coding Alan Zucconi
+Unity has 3 types of shader: surface shader, fragment and vertex shader, and the obsolete fixed function shader. They all have the same anatomy.
+Catlike Coding
+Shader &amp;#34;MyShader&amp;#34; { Properties { // The properties of your shaders // - textures // - colours // - parameters // ... _MyTexture (&amp;#34;My texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} _MyNormalMap (&amp;#34;My normal map&amp;#34;, 2D) = &amp;#34;bump&amp;#34; {} // Grey _MyInt (&amp;#34;My integer&amp;#34;, Int) = 2 _MyFloat (&amp;#34;My float&amp;#34;, Float) = 1.</description>
+    </item>
+    
+    <item>
+      <title>Shader Basic</title>
+      <link>https://endfang.github.io/posts/shader-basic/</link>
+      <pubDate>Mon, 23 Sep 2019 18:35:07 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/shader-basic/</guid>
+      <description>Basics  shader language has a single main that returns color at the end final pixel color is assigned to gl_FragColor C-flavored language has built in variable, function, type preprocessor macros (pre-compiled)  #define global variable #ifdef and #endif   lower precision → faster rendering, less quality  precision medium float precision lowp float precision highp float   GLSL specs doesn&amp;rsquo;t guarantee auto-cast  vec4(1, 0, 0, 1) will raise error, because it&amp;rsquo;s not float   multiple ways of constructing vec4  vec4 color = vec4(vec3(1.</description>
+    </item>
+    
+    <item>
+      <title>Rotation Matrix</title>
+      <link>https://endfang.github.io/posts/rotation-matrix/</link>
+      <pubDate>Tue, 14 May 2019 18:19:27 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/rotation-matrix/</guid>
+      <description>$P = (x, y) = (1, 0)$	$P&#39; = (x&#39;, y&#39; )$
+$\cos{\theta} = \frac{x&#39;}{x}$ $\sin{\theta} = \frac{y&#39;}{x}$
+therefore:
+$x&#39; = \cos{\theta} \cdot x$	$y&#39; = \sin{\theta} \cdot x$
+similarly:
+$Q = (x, y) = (0, 1)$ $ Q&#39; = (x&#39;, y&#39; )$
+$\cos{\theta} = \frac{y&#39;}{y}$ $\sin{\theta} = \frac{-x&#39;}{y}$
+therefore:
+$x&#39; = -\sin{\theta} \cdot y$ $y&#39; = \cos{\theta} \cdot y$
+add them together:
+$\begin{bmatrix} \cos{\theta} &amp;amp; -\sin{\theta} \\
+\sin{\theta} &amp;amp; \cos{\theta} \\</description>
+    </item>
+    
+    <item>
+      <title>Dot Product</title>
+      <link>https://endfang.github.io/posts/dot-product/</link>
+      <pubDate>Sun, 27 Jan 2019 16:39:43 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/dot-product/</guid>
+      <description>Reference: &amp;ldquo;Dot products and duality | Essence of linear algebra, chapter 9&amp;rdquo;, 3Blue1Brown
+Algebra example:
+$\begin{bmatrix} 1 &amp;amp; 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \ 4 \end{bmatrix} = 1 \cdot 3 + 2 \cdot 4$
+Gemoetrically:
+![projection](https://i.imgur.com/HYJeePM.png =150x150)
+The dot product of v and u = (length of projection of v onto u)(length of u)
+Order and Symmetry Order doesn&amp;rsquo;t matter. (Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)</description>
+    </item>
+    
+    <item>
+      <title>Unity Physically Based Render</title>
+      <link>https://endfang.github.io/posts/unity-pbr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://endfang.github.io/posts/unity-pbr/</guid>
+      <description>Lambertian and Blinn-Phong Lambertian Model Lambertian model is based on lambertian reflectance, is the property that defines an ideal &amp;ldquo;matte&amp;rdquo; or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.
+Shader &amp;#34;Custom/LambertianShader&amp;#34; { Properties { _MainTex (&amp;#34;Texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} } SubShader { Tags { &amp;#34;RenderType&amp;#34;=&amp;#34;Opaque&amp;#34; } LOD 200 CGPROGRAM #pragma surface surf SimpleLambert struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf (Input IN, inout SurfaceOutput o) { o.</description>
+    </item>
+    
+  </channel>
+</rss>

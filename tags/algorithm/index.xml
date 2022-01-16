@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>algorithm on After1995</title>
+    <link>https://endfang.github.io/tags/algorithm/</link>
+    <description>Recent content in algorithm on After1995</description>
+    <image>
+      <url>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 02 Dec 2018 18:49:03 +0800</lastBuildDate><atom:link href="https://endfang.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Minimax Search</title>
+      <link>https://endfang.github.io/posts/minimax-search/</link>
+      <pubDate>Sun, 02 Dec 2018 18:49:03 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/minimax-search/</guid>
+      <description>Games as search &amp;ldquo;max&amp;rdquo; and &amp;ldquo;min&amp;rdquo; two players. Max moves frist in the game. The game take turns until it&amp;rsquo;s over. Max uses search tree to determine &amp;ldquo;best&amp;rdquo; next move.
+Definitions
+ initial state: set-up defined by rules player(s): which player has the move in state s actions(s): set of legal moves in state results(s, a): transition model defines result of a move terminal_test(s): true if the game is finished; false otherwise utility(s, p): the numerical value of terminal state s for player p  win: 1, lose :-1, draw: 0    Procedure  generate the whole game tree to leaves apply utility function to leaves back-up values from leaves toward the root:  Max node computes the max of its child values Min node computes the min of its chidl values   at root: choose move leading to the child of highest value  e.</description>
+    </item>
+    
+    <item>
+      <title>Sort 5 Elements in 7 Steps</title>
+      <link>https://endfang.github.io/posts/sorting-five-elements-in-seven-steps/</link>
+      <pubDate>Thu, 25 Oct 2018 23:05:18 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/sorting-five-elements-in-seven-steps/</guid>
+      <description>*A smart and interesting sorting.
+Suppose I have five elements: a, b, c, d, e. And I want to sort them in 7 steps:
+Step 1: 3 comparisons: if a &amp;gt; b: swap(a, b);
+if c &amp;gt; d: swap(c, d);
+if b &amp;gt; d: swap(b, d), swap(a, c)
+![Imgur](https://i.imgur.com/qzLVYmQ.png =200x200)
+Step 2: 2 comparisons: now I need to find the position for e in {a, b, d}:
+if (e &amp;lt; b) if (e &amp;lt; a) e a b d else a e b d else if (e &amp;lt; d) a b e d else a b d e !</description>
+    </item>
+    
+  </channel>
+</rss>
