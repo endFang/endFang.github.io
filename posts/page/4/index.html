@@ -82,6 +82,36 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>TA Log 08092021
+</h2>
+</header>
+<section class=entry-content>
+<p>Light URP has only one main light. It must be the directional light. If it is not set in the Sun Source, then the brightest directional light is the main light. Test it with the light direction.
+half4 color = half4(_MainLightPosition.xyz, 1.0); Stencil Manual: https://docs.unity3d.com/Manual/SL-Stencil.html YouTube: https://www.youtube.com/watch?v=-NB2TR8IjE8
+The stencil buffer stores an 8-bit integer value for each pixel in the frame buffer. Stencil test happens before executing the fragment shader. It will compare the value with the reference value....</p>
+</section>
+<footer class=entry-footer>August 9, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 08092021" href=https://endfang.github.io/posts/ta_log_08092021/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>TA Log 08022021
+</h2>
+</header>
+<section class=entry-content>
+<p>Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/
+A common way to blend textures is the alpha blending.
+$$C_{result} = C_{source} \cdot F_{source} + C_{destination} \cdot F_{destination} \ F_{source} + F_{destination} = 1$$
+Another way is to do linear interpolation. We can linearly interpolate the result color between two textures.
+$$\frac{y-h_{0}}{x - x_{0}} = \frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$
+$$y = \frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$
+The third way is to use the height map to determine the blend of two textures....</p>
+</section>
+<footer class=entry-footer>August 2, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 08022021" href=https://endfang.github.io/posts/ta_log_08022021/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>TA Log 07262021
 </h2>
 </header>
@@ -115,30 +145,6 @@ float remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (
 </section>
 <footer class=entry-footer>July 12, 2021&nbsp;·&nbsp;Kyle Fang</footer>
 <a class=entry-link aria-label="post link to TA Log 07122021" href=https://endfang.github.io/posts/ta_log_07122021/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Patch 5.5 Full Moon
-</h2>
-</header>
-<section class=entry-content>
-<p>Intro I resigned and I have one week’s free time, so here it goes the gaming marathon. I had to change my glamours and hairstyle because they were ugly. I would never start a MSQ without getting well dressed.
-MSQ After Zeno killed the previous emperor, he and Fandaniel formed a fraction " Telophoroi" and joined the civil war. However, crown prince had no intention on controlling the empire. Most of the soldiers were tempered by the Lunar Primals....</p>
-</section>
-<footer class=entry-footer>June 10, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Patch 5.5 Full Moon" href=https://endfang.github.io/posts/5-5-full-moon/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Frowned II
-</h2>
-</header>
-<section class=entry-content>
-<p>That was March. I was suffering from the poor project management and designer’s whimsical feature requirements. I started sending resumes and taking interviews and really got one position before the Qingming break. It was the best decision I made in Daydream Games. Now I don’t need to deal with the tightened project timeline and other nonsense.
-It disappointed me that this game company did not want a technical artist but a cheap labor....</p>
-</section>
-<footer class=entry-footer>June 9, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Frowned II" href=https://endfang.github.io/posts/frowned-ii/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

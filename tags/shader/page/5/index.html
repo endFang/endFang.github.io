@@ -81,6 +81,17 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>Unity Render Pipeline
+</h2>
+</header>
+<section class=entry-content>
+<p>RP is a series of operations that take the contents of a Scene and displays them on a screen. At a high level, these operations are Culling, Rendering, and Post-Processing. It’s difficult to switch from one to another RP because the shader outputs varies and might not have the same feature. We can custom shaders in different piplelines, but the ultimate effect may be different. Unity has Built-In, Universal, and High Definition and Scriptable RP....</p>
+</section>
+<footer class=entry-footer>May 30, 2020&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Unity Render Pipeline" href=https://endfang.github.io/posts/unity-render-pipeline/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>Guide Mask Shader
 </h2>
 </header>
@@ -127,28 +138,6 @@ Shader "MyShader" { Properties { // The properties of your shaders // - textures
 </section>
 <footer class=entry-footer>September 23, 2019&nbsp;·&nbsp;Kyle Fang</footer>
 <a class=entry-link aria-label="post link to Shader Basic" href=https://endfang.github.io/posts/shader-basic/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Rotation Matrix
-</h2>
-</header>
-<section class=entry-content>
-<p>$P = (x, y) = (1, 0)$ $P' = (x', y' )$
-$\cos{\theta} = \frac{x'}{x}$ $\sin{\theta} = \frac{y'}{x}$
-therefore:
-$x' = \cos{\theta} \cdot x$ $y' = \sin{\theta} \cdot x$
-similarly:
-$Q = (x, y) = (0, 1)$ $ Q' = (x', y' )$
-$\cos{\theta} = \frac{y'}{y}$ $\sin{\theta} = \frac{-x'}{y}$
-therefore:
-$x' = -\sin{\theta} \cdot y$ $y' = \cos{\theta} \cdot y$
-add them together:
-$\begin{bmatrix} \cos{\theta} & -\sin{\theta} \\
-\sin{\theta} & \cos{\theta} \\...</p>
-</section>
-<footer class=entry-footer>May 14, 2019&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Rotation Matrix" href=https://endfang.github.io/posts/rotation-matrix/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

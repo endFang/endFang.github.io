@@ -81,6 +81,18 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>TA Log 07262021
+</h2>
+</header>
+<section class=entry-content>
+<p>Render Texture OnRenderImage is an event function called after a Camera has finished rendering. It allows us to modify the Camera’s final image. Built-in: calls it on the same GameObject as an enabled Camera component. SRP: use ScriptableRenderPass instead.
+GetTemporary and ReleaseTemporary GetTemporary will return a RT for temporary calculations. Release it using ReleaseTemporary as soon as we’re done with it. Unity keeps an internal RT pool, so calling GetTemporary might return a created one if the size and the format are the same....</p>
+</section>
+<footer class=entry-footer>July 26, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 07262021" href=https://endfang.github.io/posts/ta_log_07262021/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>TA Log 07192021
 </h2>
 </header>
@@ -131,20 +143,6 @@ Rendering is done by draw calls. The intermediate steps are not on the screen bu
 </section>
 <footer class=entry-footer>February 8, 2021&nbsp;·&nbsp;Kyle Fang</footer>
 <a class=entry-link aria-label="post link to Unity Overdraw" href=https://endfang.github.io/posts/unity-overdraw/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Unity EditorWindow And Assetprocessor
-</h2>
-</header>
-<section class=entry-content>
-<p>Tutorials Editor folder contains any editor scripts. It allows no mono behavior scripts in it.
-AssetPostprocessor is one of the editor class. One of the properties is assetPath, the path name of the asset being imported.
-A series of function is called in the following order during the model import:
-OnPreprocessModel: I can override ModelImporter settings in here. After meshes and materials are imported, GameObjects hierarchy is created from the imported nodes....</p>
-</section>
-<footer class=entry-footer>November 30, 2020&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Unity EditorWindow And Assetprocessor" href=https://endfang.github.io/posts/unity-editorwindow-and-assetpostprocessor/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

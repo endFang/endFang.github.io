@@ -81,6 +81,20 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>Unity EditorWindow And Assetprocessor
+</h2>
+</header>
+<section class=entry-content>
+<p>Tutorials Editor folder contains any editor scripts. It allows no mono behavior scripts in it.
+AssetPostprocessor is one of the editor class. One of the properties is assetPath, the path name of the asset being imported.
+A series of function is called in the following order during the model import:
+OnPreprocessModel: I can override ModelImporter settings in here. After meshes and materials are imported, GameObjects hierarchy is created from the imported nodes....</p>
+</section>
+<footer class=entry-footer>November 30, 2020&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Unity EditorWindow And Assetprocessor" href=https://endfang.github.io/posts/unity-editorwindow-and-assetpostprocessor/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>Tree And Wind Shader
 </h2>
 </header>
@@ -126,20 +140,6 @@ Shader "Unlit/SolidColor" { SubShader { Pass { CGPROGRAM #pragma vertex vert #pr
 </section>
 <footer class=entry-footer>November 30, 2019&nbsp;·&nbsp;Kyle Fang</footer>
 <a class=entry-link aria-label="post link to Unity Vertex And Fragment Shader" href=https://endfang.github.io/posts/unity-vertex-and-fragment/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Unity Shader Overview
-</h2>
-</header>
-<section class=entry-content>
-<p>Thanks to these posts and blogs: Michael Sanders Catike Coding Alan Zucconi
-Unity has 3 types of shader: surface shader, fragment and vertex shader, and the obsolete fixed function shader. They all have the same anatomy.
-Catlike Coding
-Shader "MyShader" { Properties { // The properties of your shaders // - textures // - colours // - parameters // ... _MyTexture ("My texture", 2D) = "white" {} _MyNormalMap ("My normal map", 2D) = "bump" {} // Grey _MyInt ("My integer", Int) = 2 _MyFloat ("My float", Float) = 1....</p>
-</section>
-<footer class=entry-footer>November 30, 2019&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Unity Shader Overview" href=https://endfang.github.io/posts/unity-shader-overview/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

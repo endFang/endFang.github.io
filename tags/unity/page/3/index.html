@@ -81,6 +81,17 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>TA Log 09062021
+</h2>
+</header>
+<section class=entry-content>
+<p>Shader Animation The usual method of making shader animation is to use time parameter and sin wave function. It’s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture....</p>
+</section>
+<footer class=entry-footer>September 6, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 09062021" href=https://endfang.github.io/posts/ta_log_09062021/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>TA Log 08302021
 </h2>
 </header>
@@ -140,18 +151,6 @@ The third way is to use the height map to determine the blend of two textures...
 </section>
 <footer class=entry-footer>August 2, 2021&nbsp;·&nbsp;Kyle Fang</footer>
 <a class=entry-link aria-label="post link to TA Log 08022021" href=https://endfang.github.io/posts/ta_log_08022021/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>TA Log 07262021
-</h2>
-</header>
-<section class=entry-content>
-<p>Render Texture OnRenderImage is an event function called after a Camera has finished rendering. It allows us to modify the Camera’s final image. Built-in: calls it on the same GameObject as an enabled Camera component. SRP: use ScriptableRenderPass instead.
-GetTemporary and ReleaseTemporary GetTemporary will return a RT for temporary calculations. Release it using ReleaseTemporary as soon as we’re done with it. Unity keeps an internal RT pool, so calling GetTemporary might return a created one if the size and the format are the same....</p>
-</section>
-<footer class=entry-footer>July 26, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 07262021" href=https://endfang.github.io/posts/ta_log_07262021/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

@@ -1,0 +1,293 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>TA Log 01232022 | After1995</title>
+<meta name=keywords content="shader,unity,c#">
+<meta name=description content="Shadow Mapping  Renders the entire scene’s depth from the point of the view of the camera. This data corresponds to a fragment’s z coordinates in clip space. Render the entire scene’s shadow map of the light from the point of the view of the light source. Light acts as a camera.  the depth values tell us how far a ray of light traveled before it hit something. multiple renders if shadow cascades is active.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/ta_log_01232022/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="TA Log 01232022">
+<meta property="og:description" content="Shadow Mapping  Renders the entire scene’s depth from the point of the view of the camera. This data corresponds to a fragment’s z coordinates in clip space. Render the entire scene’s shadow map of the light from the point of the view of the light source. Light acts as a camera.  the depth values tell us how far a ray of light traveled before it hit something. multiple renders if shadow cascades is active.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/ta_log_01232022/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-01-23T23:33:21+08:00">
+<meta property="article:modified_time" content="2022-01-23T23:33:21+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="TA Log 01232022">
+<meta name=twitter:description content="Shadow Mapping  Renders the entire scene’s depth from the point of the view of the camera. This data corresponds to a fragment’s z coordinates in clip space. Render the entire scene’s shadow map of the light from the point of the view of the light source. Light acts as a camera.  the depth values tell us how far a ray of light traveled before it hit something. multiple renders if shadow cascades is active.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"TA Log 01232022","item":"https://endfang.github.io/posts/ta_log_01232022/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"TA Log 01232022","name":"TA Log 01232022","description":"Shadow Mapping  Renders the entire scene’s depth from the point of the view of the camera. This data corresponds to a fragment’s z coordinates in clip space. Render the entire scene’s shadow map of the light from the point of the view of the light source. Light acts as a camera.  the depth values tell us how far a ray of light traveled before it hit something. multiple renders if shadow cascades is active.","keywords":["shader","unity","c#"],"articleBody":"Shadow Mapping  Renders the entire scene’s depth from the point of the view of the camera. This data corresponds to a fragment’s z coordinates in clip space. Render the entire scene’s shadow map of the light from the point of the view of the light source. Light acts as a camera.  the depth values tell us how far a ray of light traveled before it hit something. multiple renders if shadow cascades is active.   Compare depth measurements from both points of view. The point is lit if both view points can see the point.  Unity uses ScreenSpaceShadows shader to samples both depth textures, compares the values, and renders the final shadow value to a screen space shadow map.    URP Cascade: https://zhuanlan.zhihu.com/p/378451316\nWater Harry Alisavaski’s take on water shader: https://halisavakis.com/my-take-on-shaders-stylized-water-shader/\nAlan Zucconi: https://www.alanzucconi.com/2019/10/08/journey-sand-shader-4/\nscreenPos.w: https://forum.unity.com/threads/what-is-screenpos-w.616003/\nThere are three parts in this water shader: color by depth, specular by normals, and fresnel.\nColor by depth\nInterpolating color by depth, or the difference between the eye depth and the view space depth, we can create the fog like effect in the water. With multiple lerp, we can even create foam, intersection, and fog color.\nfloat sceneRawDepth = SampleSceneDepth(screenPos.xy / screenPos.w); float sceneEyeDepth = LinearEyeDepth(sceneRawDepth, _ZBufferParams) float diff = saturate( (sceneEyeDepth - screenPos.w) / _Threshold); It worth to notice that a sine wave created the ripple effect in the intersection. By adding an offset in the foam area, the sine wave extended visually. By adding a foam texture value to the wave, the wave has foam shapes.\nSpecular by normal\n$$ I = (N \\cdot H)^{power} * \\text{strength} $$\nIt worth to notice that unpack normal on different platforms is different too. UnpackNormal usually handles it better than hand written method. It is same as BlendNormal.\nFresnel\nThis part changes the transparency in the foam area. Without uniform normal values, there will be more details, but I think the water looks good without it too.\nfloat fresnel = pow(1.0 - saturate(normal, viewDir), _FresnelPower); float alpha = lerp( lerp(Alpha * fresnel, 1.0, foam), _FogColor.a, fogDiff); Caustic\nFLOGELZ, Caustic effect, Twitter: https://twitter.com/flogelz/status/1165251296720576512?s=20 Alan Zucconi: https://www.alanzucconi.com/2019/09/13/believable-caustics-reflections/\nA hacky way to add caustic effect. It samples the same texture twice and blends them by min().\nShader ZTest\nhttps://blog.csdn.net/puppet_master/article/details/53900568\nOffset\nOffset [factor] [units]\nFactor takes z-slope in screen space. Negative number means pulling closer to the camera. If we only have set factor to 1 or -1, it will avoid z-fighting when the camera is NOT perpendicular to the screen, because it has very very little contribution to the z-slope. The equation is:\n$$ \\text{finalOffset} = r \\times \\text{factor} + d \\times \\text{units} $$\nr is the z-slope of the geometry, and d is the minimum constant units for the depth offset. d’s value depends on the devices.\nWorldDir vs. WorldNormal in Unity Shader\nWorldDir is applying the rotation from the transform matrix. WorldNormal is applying the rotation from the inverse transpose matrix.\nWhy?\nAnswer:\n http://web.archive.org/web/20120228095346/http://www.arcsynthesis.org/gltut/Illumination/Tut09 Normal Transformation.html https://forum.unity.com/threads/difference-between-unityobjecttoworlddir-and-unityobjecttoworldnormal.435302/  keyword\nREQUIRES_WORLD_SPACE_POS_INTERPOLATOR and REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR https://forum.unity.com/threads/shadow-cascades-weird-since-7-2-0.828453/ URP defines this keyword when the calculation requires world space position. It does NOT mean the shader can calculate world space position in vertex or fragment. It means if the shader requires it. Same to the shadow coord.\nIn URP’s Lit shader:\nParallax effect defines REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR. It requires tangent space view direction.\nNormal Map defines REQUIRES_WORLD_SPACE_TANGENT_INTERPOLATOR. It requires world space tangent to calculate tanToWorld matrix.\nReceiving shadows and disabling cascade defines REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR. So it requires shadowCoord to get shadow value from shadow maps. Using cascade calls upon TransformWorldToShadowCoord to get shadowCoord.\nvertex animation\nrotate around y-axis https://forum.unity.com/threads/rotating-mesh-in-vertex-shader.501709/\nVariable, input, and methods\nunity_SpecCube0 contains data for the active reflection probe. UNITY_SAMPLE_TEXCUBE samples a cube map.\nDecode HDR\nIn DecodeHDR and DecodeHDREnvironment functions:\nX and y are in the decodedInstructions.\nRGBM = RGB + Magnitude. The final RGB values is :\n$$ xM^{y} \\cdot \\text{RGB} $$\nC# protected access modifier is similar to private, but any subclass has access too.\ninternal access modifier limit the access in the same assembly\nFractal Brownian Motion $$ y = A \\cdot \\sin{(x \\cdot \\text{frequency})} $$\nAdding up different sine waves together to create noise. Different sine waves surely can create some random effect, but Perlin Noise is a better way.\nFractal Brownian Motion: increment the frequencies in regular steps (lacunarity) and decrease the amplitude (gains) of the noise (octaves), we can obtain a finer granularity in the noise and get more fine details.\nconst int octaves = 1; // add more details, also more self-similarity are added float lacunarity = 2.0; float gain = 0.5; float amplitude = 0.5; float frequency = 1.0; for (int i=0; ioctaves; ++i) { y += amplitude * noise(frequency * x); frequency *= lacunarity; amplitude *= gain; } Turbulence. Essentially an fBm, but constructed the absolute value of a signed noise to crate sharp valleys\nfor (int i=0; iOCTAVES; ++i) { value += amplitude * abs(snoise(st)); st *= 2.0; amplitude *= .5; } Ridge. The sharp valleys are turned upside down to create sharp ridges instead.\nn = abs(n); // create creases n = offset - n; // invert so creases are at top n = n*n; // sharpen creases Reading Material: Normal Map:\n https://forum.unity.com/threads/way-to-bake-_bumpscale-into-a-normal-map-im-atlasing-many-textures.661360/ https://forum.unity.com/threads/load-and-apply-normal-maps-at-runtime.1140874/ https://www.fsdeveloper.com/wiki/index.php?title=DXT_compression_explained  Dithered Transparency\n bglous: https://forum.unity.com/threads/dof-on-transparent-shader.604363/  Depth Srot\n blog: https://jakobknudsen.wordpress.com/2013/07/20/transparency-and-sorting/  Dissolve Shader\n cyan: https://www.cyanilux.com/tutorials/dissolve-shader-breakdown/ Febucci: https://www.febucci.com/2018/09/dissolve-shader/  Malioffline Compiler\n https://www.codeproject.com/Articles/5307207/Shader-Optimization-with-the-Mali-Offline-Compiler  Light Wrap\n https://blog.csdn.net/pianpiansq/article/details/74453602  ","wordCount":"882","inLanguage":"en","datePublished":"2022-01-23T23:33:21+08:00","dateModified":"2022-01-23T23:33:21+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/ta_log_01232022/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+TA Log 01232022
+</h1>
+<div class=post-meta>January 23, 2022&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#shadow-mapping aria-label="Shadow Mapping">Shadow Mapping</a></li>
+<li>
+<a href=#water aria-label=Water>Water</a></li>
+<li>
+<a href=#shader aria-label=Shader>Shader</a></li>
+<li>
+<a href=#c aria-label=C#>C#</a></li>
+<li>
+<a href=#fractal-brownian-motion aria-label="Fractal Brownian Motion">Fractal Brownian Motion</a></li>
+<li>
+<a href=#reading-material aria-label="Reading Material:">Reading Material:</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=shadow-mapping>Shadow Mapping<a hidden class=anchor aria-hidden=true href=#shadow-mapping>#</a></h1>
+<ol>
+<li>Renders the entire scene’s depth from the point of the view of the camera. This data corresponds to a fragment’s z coordinates in clip space.</li>
+<li>Render the entire scene’s shadow map of the light from the point of the view of the light source. Light acts as a camera.
+<ol>
+<li>the depth values tell us how far a ray of light traveled before it hit something.</li>
+<li>multiple renders if shadow cascades is active.</li>
+</ol>
+</li>
+<li>Compare depth measurements from both points of view. The point is lit if both view points can see the point.
+<ol>
+<li>Unity uses ScreenSpaceShadows shader to samples both depth textures, compares the values, and renders the final shadow value to a screen space shadow map.</li>
+</ol>
+</li>
+</ol>
+<p>URP Cascade: <a href=https://zhuanlan.zhihu.com/p/378451316>https://zhuanlan.zhihu.com/p/378451316</a></p>
+<h1 id=water>Water<a hidden class=anchor aria-hidden=true href=#water>#</a></h1>
+<p>Harry Alisavaski’s take on water shader: <a href=https://halisavakis.com/my-take-on-shaders-stylized-water-shader/>https://halisavakis.com/my-take-on-shaders-stylized-water-shader/</a></p>
+<p>Alan Zucconi: <a href=https://www.alanzucconi.com/2019/10/08/journey-sand-shader-4/>https://www.alanzucconi.com/2019/10/08/journey-sand-shader-4/</a></p>
+<p>screenPos.w: <a href=https://forum.unity.com/threads/what-is-screenpos-w.616003/>https://forum.unity.com/threads/what-is-screenpos-w.616003/</a></p>
+<p>There are three parts in this water shader: color by depth, specular by normals, and fresnel.</p>
+<p><strong>Color by depth</strong></p>
+<p>Interpolating color by depth, or the difference between the eye depth and the view space depth, we can create the fog like effect in the water. With multiple <code>lerp</code>, we can even create foam, intersection, and fog color.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl><span style=color:#66d9ef>float</span> sceneRawDepth <span style=color:#f92672>=</span> SampleSceneDepth(screenPos.xy <span style=color:#f92672>/</span> screenPos.w);
+<span style=color:#66d9ef>float</span> sceneEyeDepth <span style=color:#f92672>=</span> LinearEyeDepth(sceneRawDepth, _ZBufferParams)
+
+<span style=color:#66d9ef>float</span> diff <span style=color:#f92672>=</span> saturate( (sceneEyeDepth <span style=color:#f92672>-</span> screenPos.w) <span style=color:#f92672>/</span> _Threshold);
+</code></pre></div><p>It worth to notice that a sine wave created the ripple effect in the intersection. By adding an offset in the foam area, the sine wave extended visually. By adding a foam texture value to the wave, the wave has foam shapes.</p>
+<p><strong>Specular by normal</strong></p>
+<p>$$
+I = (N \cdot H)^{power} * \text{strength}
+$$</p>
+<p>It worth to notice that unpack normal on different platforms is different too. <code>UnpackNormal</code> usually handles it better than hand written method. It is same as <code>BlendNormal</code>.</p>
+<p><strong>Fresnel</strong></p>
+<p>This part changes the transparency in the foam area. Without uniform normal values, there will be more details, but I think the water looks good without it too.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl><span style=color:#66d9ef>float</span> fresnel <span style=color:#f92672>=</span> pow(<span style=color:#ae81ff>1.0</span> <span style=color:#f92672>-</span> saturate(normal, viewDir), _FresnelPower);
+
+<span style=color:#66d9ef>float</span> alpha <span style=color:#f92672>=</span> lerp( lerp(Alpha <span style=color:#f92672>*</span> fresnel, <span style=color:#ae81ff>1.0</span>, foam), _FogColor.a, fogDiff);
+</code></pre></div><p><strong>Caustic</strong></p>
+<p>FLOGELZ, Caustic effect, Twitter: <a href="https://twitter.com/flogelz/status/1165251296720576512?s=20">https://twitter.com/flogelz/status/1165251296720576512?s=20</a>
+Alan Zucconi: <a href=https://www.alanzucconi.com/2019/09/13/believable-caustics-reflections/>https://www.alanzucconi.com/2019/09/13/believable-caustics-reflections/</a></p>
+<p>A hacky way to add caustic effect. It samples the same texture twice and blends them by <code>min()</code>.</p>
+<h1 id=shader>Shader<a hidden class=anchor aria-hidden=true href=#shader>#</a></h1>
+<p><strong>ZTest</strong></p>
+<p><a href=https://blog.csdn.net/puppet_master/article/details/53900568>https://blog.csdn.net/puppet_master/article/details/53900568</a></p>
+<p><strong>Offset</strong></p>
+<p><code>Offset [factor] [units]</code></p>
+<p>Factor takes z-slope in screen space. Negative number means pulling closer to the camera.
+If we only have set factor to 1 or -1, it will avoid z-fighting when the camera is NOT perpendicular to the screen, because it has very very little contribution to the z-slope.
+The equation is:</p>
+<p>$$
+\text{finalOffset} = r \times \text{factor} + d \times \text{units}
+$$</p>
+<p>r is the z-slope of the geometry, and d is the minimum constant units for the depth offset. d&rsquo;s value depends on the devices.</p>
+<p><strong>WorldDir vs. WorldNormal in Unity Shader</strong></p>
+<p><code>WorldDir</code> is applying the rotation from the transform matrix.
+<code>WorldNormal</code> is applying the rotation from the inverse transpose matrix.</p>
+<p>Why?</p>
+<p>Answer:</p>
+<ol>
+<li><a href=http://web.archive.org/web/20120228095346/http://www.arcsynthesis.org/gltut/Illumination/Tut09%20Normal%20Transformation.html>http://web.archive.org/web/20120228095346/http://www.arcsynthesis.org/gltut/Illumination/Tut09 Normal Transformation.html</a></li>
+<li><a href=https://forum.unity.com/threads/difference-between-unityobjecttoworlddir-and-unityobjecttoworldnormal.435302/>https://forum.unity.com/threads/difference-between-unityobjecttoworlddir-and-unityobjecttoworldnormal.435302/</a></li>
+</ol>
+<p><strong>keyword</strong></p>
+<p><code>REQUIRES_WORLD_SPACE_POS_INTERPOLATOR</code> and <code>REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR</code>
+<a href=https://forum.unity.com/threads/shadow-cascades-weird-since-7-2-0.828453/>https://forum.unity.com/threads/shadow-cascades-weird-since-7-2-0.828453/</a>
+URP defines this keyword when the calculation requires world space position. It does NOT mean the shader can calculate world space position in vertex or fragment. It means if the shader requires it. Same to the shadow coord.</p>
+<p>In URP&rsquo;s Lit shader:</p>
+<p>Parallax effect defines <code>REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR</code>. It requires tangent space view direction.</p>
+<p>Normal Map defines <code>REQUIRES_WORLD_SPACE_TANGENT_INTERPOLATOR</code>. It requires world space tangent to calculate <code>tanToWorld</code> matrix.</p>
+<p>Receiving shadows and disabling cascade defines <code>REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR</code>. So it requires <code>shadowCoord</code> to get shadow value from shadow maps. Using cascade calls upon <code>TransformWorldToShadowCoord</code> to get <code>shadowCoord</code>.</p>
+<p><strong>vertex animation</strong></p>
+<p>rotate around y-axis <a href=https://forum.unity.com/threads/rotating-mesh-in-vertex-shader.501709/>https://forum.unity.com/threads/rotating-mesh-in-vertex-shader.501709/</a></p>
+<p><strong>Variable, input, and methods</strong></p>
+<p><code>unity_SpecCube0</code> contains data for the active reflection probe.
+<code>UNITY_SAMPLE_TEXCUBE</code> samples a cube map.</p>
+<p><strong>Decode HDR</strong></p>
+<p>In <code>DecodeHDR</code> and <code>DecodeHDREnvironment</code> functions:</p>
+<p>X and y are in the <code>decodedInstructions</code>.</p>
+<p>RGBM = RGB + Magnitude. The final RGB values is :</p>
+<p>$$
+xM^{y} \cdot \text{RGB}
+$$</p>
+<h1 id=c>C#<a hidden class=anchor aria-hidden=true href=#c>#</a></h1>
+<p><code>protected</code> access modifier is similar to private, but any subclass has access too.</p>
+<p><code>internal</code> access modifier limit the access in the same assembly</p>
+<h1 id=fractal-brownian-motion>Fractal Brownian Motion<a hidden class=anchor aria-hidden=true href=#fractal-brownian-motion>#</a></h1>
+<p>$$
+y = A \cdot \sin{(x \cdot \text{frequency})}
+$$</p>
+<p>Adding up different sine waves together to create noise. Different sine waves surely can create some random effect, but Perlin Noise is a better way.</p>
+<p>Fractal Brownian Motion: increment the frequencies in regular steps (lacunarity) and decrease the amplitude (gains) of the noise (octaves), we can obtain a finer granularity in the noise and get more fine details.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> octaves <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>; <span style=color:#75715e>// add more details, also more self-similarity are added</span>
+<span style=color:#66d9ef>float</span> lacunarity <span style=color:#f92672>=</span> <span style=color:#ae81ff>2.0</span>;
+<span style=color:#66d9ef>float</span> gain <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.5</span>;
+
+<span style=color:#66d9ef>float</span> amplitude <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.5</span>;
+<span style=color:#66d9ef>float</span> frequency <span style=color:#f92672>=</span> <span style=color:#ae81ff>1.0</span>;
+
+<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>octaves; <span style=color:#f92672>++</span>i)
+{
+	y <span style=color:#f92672>+=</span> amplitude <span style=color:#f92672>*</span> noise(frequency <span style=color:#f92672>*</span> x);
+	frequency <span style=color:#f92672>*=</span> lacunarity;
+	amplitude <span style=color:#f92672>*=</span> gain;
+}
+</code></pre></div><p>Turbulence. Essentially an fBm, but constructed the absolute value of a signed noise to crate sharp valleys</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>OCTAVES; <span style=color:#f92672>++</span>i)
+{
+	value <span style=color:#f92672>+=</span> amplitude <span style=color:#f92672>*</span> abs(snoise(st));
+	st <span style=color:#f92672>*=</span> <span style=color:#ae81ff>2.0</span>;
+	amplitude <span style=color:#f92672>*=</span> <span style=color:#ae81ff>.5</span>;
+}
+</code></pre></div><p>Ridge. The sharp valleys are turned upside down to create sharp ridges instead.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl>n <span style=color:#f92672>=</span> abs(n); <span style=color:#75715e>// create creases</span>
+n <span style=color:#f92672>=</span> offset <span style=color:#f92672>-</span> n; <span style=color:#75715e>// invert so creases are at top</span>
+n <span style=color:#f92672>=</span> n<span style=color:#f92672>*</span>n; <span style=color:#75715e>// sharpen creases</span>
+</code></pre></div><h1 id=reading-material>Reading Material:<a hidden class=anchor aria-hidden=true href=#reading-material>#</a></h1>
+<p><strong>Normal Map</strong>:</p>
+<ul>
+<li><a href=https://forum.unity.com/threads/way-to-bake-_bumpscale-into-a-normal-map-im-atlasing-many-textures.661360/>https://forum.unity.com/threads/way-to-bake-_bumpscale-into-a-normal-map-im-atlasing-many-textures.661360/</a></li>
+<li><a href=https://forum.unity.com/threads/load-and-apply-normal-maps-at-runtime.1140874/>https://forum.unity.com/threads/load-and-apply-normal-maps-at-runtime.1140874/</a></li>
+<li><a href="https://www.fsdeveloper.com/wiki/index.php?title=DXT_compression_explained">https://www.fsdeveloper.com/wiki/index.php?title=DXT_compression_explained</a></li>
+</ul>
+<p><strong>Dithered Transparency</strong></p>
+<ul>
+<li>bglous: <a href=https://forum.unity.com/threads/dof-on-transparent-shader.604363/>https://forum.unity.com/threads/dof-on-transparent-shader.604363/</a></li>
+</ul>
+<p><strong>Depth Srot</strong></p>
+<ul>
+<li>blog: <a href=https://jakobknudsen.wordpress.com/2013/07/20/transparency-and-sorting/>https://jakobknudsen.wordpress.com/2013/07/20/transparency-and-sorting/</a></li>
+</ul>
+<p><strong>Dissolve Shader</strong></p>
+<ul>
+<li>cyan: <a href=https://www.cyanilux.com/tutorials/dissolve-shader-breakdown/>https://www.cyanilux.com/tutorials/dissolve-shader-breakdown/</a></li>
+<li>Febucci: <a href=https://www.febucci.com/2018/09/dissolve-shader/>https://www.febucci.com/2018/09/dissolve-shader/</a></li>
+</ul>
+<p><strong>Malioffline Compiler</strong></p>
+<ul>
+<li><a href=https://www.codeproject.com/Articles/5307207/Shader-Optimization-with-the-Mali-Offline-Compiler>https://www.codeproject.com/Articles/5307207/Shader-Optimization-with-the-Mali-Offline-Compiler</a></li>
+</ul>
+<p><strong>Light Wrap</strong></p>
+<ul>
+<li><a href=https://blog.csdn.net/pianpiansq/article/details/74453602>https://blog.csdn.net/pianpiansq/article/details/74453602</a></li>
+</ul>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/shader/>Shader</a></li>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+<li><a href=https://endfang.github.io/tags/c#/>c#</a></li>
+</ul>
+<nav class=paginav>
+<a class=next href=https://endfang.github.io/posts/reading_notes_01232022/>
+<span class=title>Next Page »</span>
+<br>
+<span>Reading Notes 01232022</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

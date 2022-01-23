@@ -82,6 +82,32 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>TA Log 09262021
+</h2>
+</header>
+<section class=entry-content>
+<p>C# It’s a good practice to save game setting data to binary files.
+To save:
+FileStream dataStream = new FileStream( dataPath, FileMode.Create); BinaryFormatter converter = new BinaryFormatter(); converter.Serialize(dataStream, toSave); dataStream.Close(); To open/load:
+FileStream dataStream = new FileStream(dataPath, FileMode.Open); BinaryFormatter converter = new BinaryFormatter(); DataClass data = converter.Deserialize(dataStream) as DataClass; We can use it outside game too. For example, dynamic bone’s parameter settings will lost once the model is updated, because people usually replace the whole prefab....</p>
+</section>
+<footer class=entry-footer>September 26, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 09262021" href=https://endfang.github.io/posts/ta_log_09262021/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>TA Log 09222021
+</h2>
+</header>
+<section class=entry-content>
+<p>RGB to Grayscale dot(color.rgb, float3(0.298999995, 0.587000012, 0.114)); It’s a convenient way to write rather than multiply and add up every channel.
+Tangent, Normal, Bitangent Tangent is the U of the UV for both OpenGL and DirectX. Left to right, 0.0 to 1.0. The binormal is the V of the UV. OpenGL is bottom to top, and DirectX is top to bottom. Unity is +Y, OpenGL standard. Unreal is -Y, DirectX standard....</p>
+</section>
+<footer class=entry-footer>September 22, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 09222021" href=https://endfang.github.io/posts/ta_log_09222021/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>TA Log 09062021
 </h2>
 </header>
@@ -122,36 +148,6 @@ $$f = \frac{1}{2^{cd^2}} = 2^{- (cd)^2}$$</p>
 </section>
 <footer class=entry-footer>August 16, 2021&nbsp;·&nbsp;Kyle Fang</footer>
 <a class=entry-link aria-label="post link to TA Log 08162021" href=https://endfang.github.io/posts/ta_log_08162021/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>TA Log 08092021
-</h2>
-</header>
-<section class=entry-content>
-<p>Light URP has only one main light. It must be the directional light. If it is not set in the Sun Source, then the brightest directional light is the main light. Test it with the light direction.
-half4 color = half4(_MainLightPosition.xyz, 1.0); Stencil Manual: https://docs.unity3d.com/Manual/SL-Stencil.html YouTube: https://www.youtube.com/watch?v=-NB2TR8IjE8
-The stencil buffer stores an 8-bit integer value for each pixel in the frame buffer. Stencil test happens before executing the fragment shader. It will compare the value with the reference value....</p>
-</section>
-<footer class=entry-footer>August 9, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 08092021" href=https://endfang.github.io/posts/ta_log_08092021/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>TA Log 08022021
-</h2>
-</header>
-<section class=entry-content>
-<p>Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/
-A common way to blend textures is the alpha blending.
-$$C_{result} = C_{source} \cdot F_{source} + C_{destination} \cdot F_{destination} \ F_{source} + F_{destination} = 1$$
-Another way is to do linear interpolation. We can linearly interpolate the result color between two textures.
-$$\frac{y-h_{0}}{x - x_{0}} = \frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$
-$$y = \frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$
-The third way is to use the height map to determine the blend of two textures....</p>
-</section>
-<footer class=entry-footer>August 2, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 08022021" href=https://endfang.github.io/posts/ta_log_08022021/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

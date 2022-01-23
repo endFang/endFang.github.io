@@ -81,6 +81,18 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>TA Log 07262021
+</h2>
+</header>
+<section class=entry-content>
+<p>Render Texture OnRenderImage is an event function called after a Camera has finished rendering. It allows us to modify the Camera’s final image. Built-in: calls it on the same GameObject as an enabled Camera component. SRP: use ScriptableRenderPass instead.
+GetTemporary and ReleaseTemporary GetTemporary will return a RT for temporary calculations. Release it using ReleaseTemporary as soon as we’re done with it. Unity keeps an internal RT pool, so calling GetTemporary might return a created one if the size and the format are the same....</p>
+</section>
+<footer class=entry-footer>July 26, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 07262021" href=https://endfang.github.io/posts/ta_log_07262021/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>TA Log 07192021
 </h2>
 </header>
