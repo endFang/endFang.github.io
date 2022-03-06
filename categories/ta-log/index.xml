@@ -9,7 +9,52 @@
       <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 23 Jan 2022 23:33:21 +0800</lastBuildDate><atom:link href="https://endfang.github.io/categories/ta-log/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Feb 2022 17:07:50 +0800</lastBuildDate><atom:link href="https://endfang.github.io/categories/ta-log/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TA Log 02282022</title>
+      <link>https://endfang.github.io/posts/ta_log_02282022/</link>
+      <pubDate>Mon, 28 Feb 2022 17:07:50 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_02282022/</guid>
+      <description>URP URP doesn’t support OnPreCull, OnPreRender, OnPostRener, and OnRenderImage. URP does support OnRenderObjectand OnWillRenderObject, but it doesn’t support recursive rendering. URP has 4 new hooks:
+RenderPipelineManager.beginFrameRendering RenderPipelineManager.beginCameraRendering RenderPipelineManager.endCameraRendering RenderPipelineManager.endFrameRendering // we can subscribe these events private void OnEnable() { RenderPipelineManager.beginCameraRendering += ExecuteRenderActions; } public void ExecuteRenderActions(ScriptableRenderContext context, Camera camera) { // rendering code .. } Planar Reflection The idea is to create a reflected camera to render the screen from below, and render what the reflected camera sees on the planar.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 02212022</title>
+      <link>https://endfang.github.io/posts/ta_log_02212022/</link>
+      <pubDate>Mon, 21 Feb 2022 17:04:06 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_02212022/</guid>
+      <description>Snow A simple snow surface implementation is to calculate dot product of normal and a custom direction.
+half snowSurfaceMask = clamp(dot(normalWS, _SnowDirection), 0.0f, 1.0f); It is similar to NdotL. We can add some small scale gradient noise or simple noise to this mask, and make it white. When we change the _SnowDirection, we might add some unwanted artifacts. To solve this problem, multiplying another upward snow mask to the snow surface mask.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 02142022</title>
+      <link>https://endfang.github.io/posts/ta_log_02142022/</link>
+      <pubDate>Mon, 14 Feb 2022 16:53:04 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_02142022/</guid>
+      <description>Unity Settings source: https://forum.unity.com/threads/warning-to-all-my-friends-beware-optimise-mesh-data.544735/
+Optimize Mesh Data will strip unused in mesh component. If the project only instantiate mesh during runtimes, Unity might delete some components in the build, such as lightmap uv.
+Unity Shader Erosion
+The most basic erosion (or dissolve) is the alpha clipping method. To soft the erosion, we can instead use a float to convert the noise between 0 and 1, and use the result as alpha.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 01242022</title>
+      <link>https://endfang.github.io/posts/ta_log_01242022/</link>
+      <pubDate>Mon, 24 Jan 2022 20:27:47 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_01242022/</guid>
+      <description>Unity Shader Undocumented rules https://medium.com/@jasonbooth_86226/loose-ends-in-unity-shaders-df5e98bdcc3
+URP Depth https://www.cyanilux.com/tutorials/depth/ https://forum.unity.com/threads/need-clarification-on-urps-use-of-the-depth-prepass.1004577/
+Between rendering opaque and transparent objects, URP copies the depth buffer and store it to the depth texture. Transparent objects don&amp;rsquo;t write to it, because writing happened before the transparent rendering. Whenever URP can not copy depth, it uses Depth Prepass. It uses DepthOnly pass in the shader to write the depth.
+The following situation cannot copy the depth:
+ URP Asset enabled MSAA Hardware doesn&amp;rsquo;t support copying or the RT format URP resolves depth with MSAA and keeps precision (future update) Scene Camera or Preview Camera Rendering to XR  In the scene view, any shader that has not DepthOnly pass will not write depth.</description>
+    </item>
+    
     <item>
       <title>TA Log 01232022</title>
       <link>https://endfang.github.io/posts/ta_log_01232022/</link>
@@ -17,6 +62,20 @@
       
       <guid>https://endfang.github.io/posts/ta_log_01232022/</guid>
       <description>Shadow Mapping  Renders the entire scene’s depth from the point of the view of the camera. This data corresponds to a fragment’s z coordinates in clip space. Render the entire scene’s shadow map of the light from the point of the view of the light source. Light acts as a camera.  the depth values tell us how far a ray of light traveled before it hit something. multiple renders if shadow cascades is active.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 01222022</title>
+      <link>https://endfang.github.io/posts/ta_log_01222022/</link>
+      <pubDate>Sat, 22 Jan 2022 16:50:30 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_01222022/</guid>
+      <description>MatCap Material Capture. It is to capture the material on a texture. And represent it to the model.(https://digitalrune.github.io/DigitalRune-Documentation/html/9a8c8b37-b996-477a-aeab-5d92714be3ca.htm)
+The general procedure is: (https://forum.unity.com/threads/writing-a-matcap-shader.518949/)
+ convert the object space normal to view space. remap it to (0,1) use it as UV to sample matcap texture.  Ben Golus’ implementation: https://gist.github.com/bgolus/02e37cd76568520e20219dc51653ceaahttps://twitter.com/bgolus/status/1487224443688554497?s=20&amp;amp;t=-4eC1dOBkMmIMLR5-9QloQhttps://forum.unity.com/threads/getting-normals-relative-to-camera-view.452631/
+Unity Lighting Optimization source: https://unity.com/how-to/advanced/optimize-lighting-mobile-games
+UV channels
+One set of UV channels is enough, because metallic, occlusion, and smoothness value from the texture usually stores in the same place.</description>
     </item>
     
     <item>
