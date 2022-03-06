@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>VFX on After1995</title>
+    <link>https://endfang.github.io/tags/vfx/</link>
+    <description>Recent content in VFX on After1995</description>
+    <image>
+      <url>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 14 Feb 2022 16:53:04 +0800</lastBuildDate><atom:link href="https://endfang.github.io/tags/vfx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TA Log 02142022</title>
+      <link>https://endfang.github.io/posts/ta_log_02142022/</link>
+      <pubDate>Mon, 14 Feb 2022 16:53:04 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_02142022/</guid>
+      <description>Unity Settings source: https://forum.unity.com/threads/warning-to-all-my-friends-beware-optimise-mesh-data.544735/
+Optimize Mesh Data will strip unused in mesh component. If the project only instantiate mesh during runtimes, Unity might delete some components in the build, such as lightmap uv.
+Unity Shader Erosion
+The most basic erosion (or dissolve) is the alpha clipping method. To soft the erosion, we can instead use a float to convert the noise between 0 and 1, and use the result as alpha.</description>
+    </item>
+    
+  </channel>
+</rss>

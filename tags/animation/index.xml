@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>animation on After1995</title>
+    <link>https://endfang.github.io/tags/animation/</link>
+    <description>Recent content in animation on After1995</description>
+    <image>
+      <url>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 22 Jan 2022 16:50:30 +0800</lastBuildDate><atom:link href="https://endfang.github.io/tags/animation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TA Log 01222022</title>
+      <link>https://endfang.github.io/posts/ta_log_01222022/</link>
+      <pubDate>Sat, 22 Jan 2022 16:50:30 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_01222022/</guid>
+      <description>MatCap Material Capture. It is to capture the material on a texture. And represent it to the model.(https://digitalrune.github.io/DigitalRune-Documentation/html/9a8c8b37-b996-477a-aeab-5d92714be3ca.htm)
+The general procedure is: (https://forum.unity.com/threads/writing-a-matcap-shader.518949/)
+ convert the object space normal to view space. remap it to (0,1) use it as UV to sample matcap texture.  Ben Golus’ implementation: https://gist.github.com/bgolus/02e37cd76568520e20219dc51653ceaahttps://twitter.com/bgolus/status/1487224443688554497?s=20&amp;amp;t=-4eC1dOBkMmIMLR5-9QloQhttps://forum.unity.com/threads/getting-normals-relative-to-camera-view.452631/
+Unity Lighting Optimization source: https://unity.com/how-to/advanced/optimize-lighting-mobile-games
+UV channels
+One set of UV channels is enough, because metallic, occlusion, and smoothness value from the texture usually stores in the same place.</description>
+    </item>
+    
+  </channel>
+</rss>

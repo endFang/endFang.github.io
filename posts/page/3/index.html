@@ -82,72 +82,73 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 09262021
+<h2>Pre Endwalker Entries
 </h2>
 </header>
 <section class=entry-content>
-<p>C# It’s a good practice to save game setting data to binary files.
-To save:
-FileStream dataStream = new FileStream( dataPath, FileMode.Create); BinaryFormatter converter = new BinaryFormatter(); converter.Serialize(dataStream, toSave); dataStream.Close(); To open/load:
-FileStream dataStream = new FileStream(dataPath, FileMode.Open); BinaryFormatter converter = new BinaryFormatter(); DataClass data = converter.Deserialize(dataStream) as DataClass; We can use it outside game too. For example, dynamic bone’s parameter settings will lost once the model is updated, because people usually replace the whole prefab....</p>
+<p>Entry 1 SE announced the next expansion for Final Fantasy XIV was named “Endwalker”(EW). It meant to be the end of the saga between Zodiark and Hydaelyn. In the teaser trailer, WoL became the PLD and walked on the moon. It seems that Garlemald is not the only map we’ll going to visit, but also the moon itself. Alphinaud also revealed his new power from the new shield healer job, Sage....</p>
 </section>
-<footer class=entry-footer>September 26, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 09262021" href=https://endfang.github.io/posts/ta_log_09262021/></a>
+<footer class=entry-footer>December 3, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Pre Endwalker Entries" href=https://endfang.github.io/posts/pre_endwalker_entries/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 09222021
+<h2>TA Log 11292021
 </h2>
 </header>
 <section class=entry-content>
-<p>RGB to Grayscale dot(color.rgb, float3(0.298999995, 0.587000012, 0.114)); It’s a convenient way to write rather than multiply and add up every channel.
-Tangent, Normal, Bitangent Tangent is the U of the UV for both OpenGL and DirectX. Left to right, 0.0 to 1.0. The binormal is the V of the UV. OpenGL is bottom to top, and DirectX is top to bottom. Unity is +Y, OpenGL standard. Unreal is -Y, DirectX standard....</p>
+<p>Compute Shader It transfers some computation from CPU to GPU by HLSL code. Hence the name has “compute” and “shader”.
+References:
+Getting Started with Compute Shaders in Unity: https://www.youtube.com/watch?v=BrZ4pWwkpto Coding Adventure: Compute Shaders: https://www.youtube.com/watch?v=9RHGLZLUuwc&list=LL2T54R7-vJmcMBzcaTL_oBw GPU Ray Tracing in Unity: http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/ Unity Documentation: https://docs.unity3d.com/Manual/class-ComputeShader.html
+Compute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:
+Android: OpenGL ES 3.1, iOS: Metal Compute Shader Assets...</p>
 </section>
-<footer class=entry-footer>September 22, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 09222021" href=https://endfang.github.io/posts/ta_log_09222021/></a>
+<footer class=entry-footer>November 29, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 11292021" href=https://endfang.github.io/posts/ta_log_11292021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 09062021
+<h2>TA Log 11082021
 </h2>
 </header>
 <section class=entry-content>
-<p>Shader Animation The usual method of making shader animation is to use time parameter and sin wave function. It’s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture....</p>
+<p>Blom like an artist:
+Bloom Like an Artist
+Circular Progress Bar https://bgolus.medium.com/progressing-in-circles-13452434fdb9
+ATan vs. ATan2 $$ \tan{\alpha} = \frac{\sin{\alpha}}{\cos{\alpha}} $$
+and we have
+Quadrant Angle sin cos tan ------------------------------------------------- I 0 &lt; α &lt; π/2 + + + II π/2 &lt; α &lt; π + - - III π &lt; α &lt; 3π/2 - - + IV 3π/2 &lt; α &lt; 2π - + - Only knowing tangent doesn’t give exact quadrant, so we need atan2()....</p>
 </section>
-<footer class=entry-footer>September 6, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 09062021" href=https://endfang.github.io/posts/ta_log_09062021/></a>
+<footer class=entry-footer>November 8, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 11082021" href=https://endfang.github.io/posts/ta_log_11082021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 08302021
+<h2>TA Log 11012021
 </h2>
 </header>
 <section class=entry-content>
-<p>Collections UV distortion: https://twitter.com/Fakirgnome/status/1120421374571495426 Easy PS techniques to create distance field texture: https://twitter.com/Ed_dV/status/1415156393959518209 easing demonstration: https://easings.net/ URP SurfaceInput.hlsl Declartion:
-BaseMap BumpMap / NormalMap EmissionMap Helpers:
-Alpha() sample albedo and alpha sample normal sample emission There’s a problem in URP’s hlsl files. They are all tight together to build the URP shader, not SRP. This reminds me that URP is an example of SRP. It’s better to have my own helper library....</p>
+<p>Unity Lighting System Direct light is light that is emitted, hits a surface and is then reflected directly into a sensor. Indirect light is all other light that is ultimately reflected into a sensor, including sky light.
+Reali-time lighting is calculated at runtime, while baked lighting is calculated in advance and is saved as lighting data.
+Unity: Render Feature Blit https://forum.unity.com/threads/apply-effect-to-objects-on-specific-layer-using-stencil-solved.841150/
+https://forum.unity.com/threads/has-anyone-ever-gotten-a-stencil-buffer-to-copy-with-commandbuffer-blit.432503/
+In URP’s custom render feature pass, Blit doesn’t pass the depth/stencil when blitting a color texture....</p>
 </section>
-<footer class=entry-footer>August 30, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 08302021" href=https://endfang.github.io/posts/ta_log_08302021/></a>
+<footer class=entry-footer>November 1, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 11012021" href=https://endfang.github.io/posts/ta_log_11012021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 08162021
+<h2>TA Log 10182021
 </h2>
 </header>
 <section class=entry-content>
-<p>Fog Linear Fog
-c = fog coordinates,
-S, E = start and end
-$$f = \frac{E - c}{ E - S}$$
-Exponential Fog
-d = fog density
-$$f = \frac{1}{2^{cd}} = 2^{-cd}$$
-Exponential Squared Fog
-$$f = \frac{1}{2^{cd^2}} = 2^{- (cd)^2}$$</p>
+<p>Sprite Billboard https://www.reddit.com/r/Unity3D/comments/ahqbod/a_billboard_sprite_shader_in_only_one_axis/
+To make the sprite look at the camera all the time (billboard)_
+View space is a rotated version of world space with the xy plane parallel to the view plane. It’s intuitive to make the billboard in here. First we transform the origin in the view coordinates and then float4 newVertex = mul(UNITY_MATRIX_P, mul(UNITY_MATRIX_MV, float4(0.0, 0.0, 0.0, 1.0)) + float4(input.vertex.x, input.vertex.y, 0.0, 1.0)); We can also cancel out the rotation before the model matrix and then apply the view matrix....</p>
 </section>
-<footer class=entry-footer>August 16, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 08162021" href=https://endfang.github.io/posts/ta_log_08162021/></a>
+<footer class=entry-footer>October 21, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 10182021" href=https://endfang.github.io/posts/ta_log_10182021/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

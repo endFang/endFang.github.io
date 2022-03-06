@@ -82,73 +82,77 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Pre Endwalker Entries
+<h2>Reading Notes 01232022
 </h2>
 </header>
 <section class=entry-content>
-<p>Entry 1 SE announced the next expansion for Final Fantasy XIV was named “Endwalker”(EW). It meant to be the end of the saga between Zodiark and Hydaelyn. In the teaser trailer, WoL became the PLD and walked on the moon. It seems that Garlemald is not the only map we’ll going to visit, but also the moon itself. Alphinaud also revealed his new power from the new shield healer job, Sage....</p>
+<p>Reading: https://telegra.ph/一个哥大教授关于英文学术写作的一些建议-01-07 Notes:
+outlines, drafts with simple sentences, hard copy, and makes the words better subject verb object structure is a better way to start. Make an example once I have a point. remove extra words: moreover, furthermore, additionally, however. in other words, in short Don’t use transition. Let the logic of your outline carry it. Start directly. We don’t need “First and foremost” unless we have five points....</p>
 </section>
-<footer class=entry-footer>December 3, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Pre Endwalker Entries" href=https://endfang.github.io/posts/pre_endwalker_entries/></a>
+<footer class=entry-footer>January 23, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Reading Notes 01232022" href=https://endfang.github.io/posts/reading_notes_01232022/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 11292021
+<h2>TA Log 01222022
 </h2>
 </header>
 <section class=entry-content>
-<p>Compute Shader It transfers some computation from CPU to GPU by HLSL code. Hence the name has “compute” and “shader”.
-References:
-Getting Started with Compute Shaders in Unity: https://www.youtube.com/watch?v=BrZ4pWwkpto Coding Adventure: Compute Shaders: https://www.youtube.com/watch?v=9RHGLZLUuwc&list=LL2T54R7-vJmcMBzcaTL_oBw GPU Ray Tracing in Unity: http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/ Unity Documentation: https://docs.unity3d.com/Manual/class-ComputeShader.html
-Compute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:
-Android: OpenGL ES 3.1, iOS: Metal Compute Shader Assets...</p>
+<p>MatCap Material Capture. It is to capture the material on a texture. And represent it to the model.(https://digitalrune.github.io/DigitalRune-Documentation/html/9a8c8b37-b996-477a-aeab-5d92714be3ca.htm)
+The general procedure is: (https://forum.unity.com/threads/writing-a-matcap-shader.518949/)
+convert the object space normal to view space. remap it to (0,1) use it as UV to sample matcap texture. Ben Golus’ implementation: https://gist.github.com/bgolus/02e37cd76568520e20219dc51653ceaahttps://twitter.com/bgolus/status/1487224443688554497?s=20&t=-4eC1dOBkMmIMLR5-9QloQhttps://forum.unity.com/threads/getting-normals-relative-to-camera-view.452631/
+Unity Lighting Optimization source: https://unity.com/how-to/advanced/optimize-lighting-mobile-games
+UV channels
+One set of UV channels is enough, because metallic, occlusion, and smoothness value from the texture usually stores in the same place....</p>
 </section>
-<footer class=entry-footer>November 29, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 11292021" href=https://endfang.github.io/posts/ta_log_11292021/></a>
+<footer class=entry-footer>January 22, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 01222022" href=https://endfang.github.io/posts/ta_log_01222022/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 11082021
+<h2>TA Log 01102022
 </h2>
 </header>
 <section class=entry-content>
-<p>Blom like an artist:
-Bloom Like an Artist
-Circular Progress Bar https://bgolus.medium.com/progressing-in-circles-13452434fdb9
-ATan vs. ATan2 $$ \tan{\alpha} = \frac{\sin{\alpha}}{\cos{\alpha}} $$
-and we have
-Quadrant Angle sin cos tan ------------------------------------------------- I 0 &lt; α &lt; π/2 + + + II π/2 &lt; α &lt; π + - - III π &lt; α &lt; 3π/2 - - + IV 3π/2 &lt; α &lt; 2π - + - Only knowing tangent doesn’t give exact quadrant, so we need atan2()....</p>
+<p>Vertex Animation Vertex offset achieves the wind animation of tree leaves. By specifying the vertex color, vertex shader can use lerp to filter the animation on a certain part of the mesh. For example, only leaves will wave by painting all leaves’ color red.
+URP Sample Texture
+https://forum.unity.com/threads/writing-shaders-urp-texture2d-sampler.1000782/
+TEXTURE2D()translates the texture to the target API’s native type. GLES2 is sampler2D and others are Texture2D.
+Maintenance pow() vs. sqrt()
+After compile pow(a, b) in shader, the code will become exp2(log2(a) * b )...</p>
 </section>
-<footer class=entry-footer>November 8, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 11082021" href=https://endfang.github.io/posts/ta_log_11082021/></a>
+<footer class=entry-footer>January 17, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 01102022" href=https://endfang.github.io/posts/ta_log_01102022/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 11012021
+<h2>TA Log 12202021
 </h2>
 </header>
 <section class=entry-content>
-<p>Unity Lighting System Direct light is light that is emitted, hits a surface and is then reflected directly into a sensor. Indirect light is all other light that is ultimately reflected into a sensor, including sky light.
-Reali-time lighting is calculated at runtime, while baked lighting is calculated in advance and is saved as lighting data.
-Unity: Render Feature Blit https://forum.unity.com/threads/apply-effect-to-objects-on-specific-layer-using-stencil-solved.841150/
-https://forum.unity.com/threads/has-anyone-ever-gotten-a-stencil-buffer-to-copy-with-commandbuffer-blit.432503/
-In URP’s custom render feature pass, Blit doesn’t pass the depth/stencil when blitting a color texture....</p>
+<p>SRP Batcher + OpenGL bug:
+https://forum.unity.com/threads/srp-batcher-does-not-work-with-opengles3.1095937/
+Shadow Cascade
+Unity Doc: https://docs.unity3d.com/Manual/shadow-cascades.html Cat Like Coding: https://catlikecoding.com/unity/tutorials/scriptable-render-pipeline/directional-shadows/
+Shadow map pixels close to the Camera look enlarged and chunky to those farther away. Unity solves this problem by splitting the frustum area int otwo zones based on the distance from the camera, and use two separate shadow map. The resolution of each map is staged reduced.
+It also increased Drawcall: https://forum.unity.com/threads/unity-draw-5-4-introducing-more-draw-calls.426185/
+Outline https://alexanderameye.github.io/notes/rendering-outlines/...</p>
 </section>
-<footer class=entry-footer>November 1, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 11012021" href=https://endfang.github.io/posts/ta_log_11012021/></a>
+<footer class=entry-footer>December 20, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 12202021" href=https://endfang.github.io/posts/ta_log_12202021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 10182021
+<h2>TA Log 12132021
 </h2>
 </header>
 <section class=entry-content>
-<p>Sprite Billboard https://www.reddit.com/r/Unity3D/comments/ahqbod/a_billboard_sprite_shader_in_only_one_axis/
-To make the sprite look at the camera all the time (billboard)_
-View space is a rotated version of world space with the xy plane parallel to the view plane. It’s intuitive to make the billboard in here. First we transform the origin in the view coordinates and then float4 newVertex = mul(UNITY_MATRIX_P, mul(UNITY_MATRIX_MV, float4(0.0, 0.0, 0.0, 1.0)) + float4(input.vertex.x, input.vertex.y, 0.0, 1.0)); We can also cancel out the rotation before the model matrix and then apply the view matrix....</p>
+<p>Unity URP _MainLightShadowParams
+x: shadowStrength y: 1.0 = soft shadow, 0.0 = otherwise z: 1/ fade distance w: 1- start fade Anti-Aliasing What is AA: https://www.youtube.com/watch?v=hqi0114mwtY
+How to do AA? There’re two types of AA. One is to increase the sample rate, that means to render the scene in a higher resolution and sample down it to the target resolution to smooth the line. Two is to blur the edge or contrast, known as Post AA or Post Processing ....</p>
 </section>
-<footer class=entry-footer>October 21, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 10182021" href=https://endfang.github.io/posts/ta_log_10182021/></a>
+<footer class=entry-footer>December 13, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 12132021" href=https://endfang.github.io/posts/ta_log_12132021/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

@@ -82,31 +82,90 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Unity Physically Based Render
+<h2>低于期望的FFXV
 </h2>
 </header>
 <section class=entry-content>
-<p>Lambertian and Blinn-Phong Lambertian Model Lambertian model is based on lambertian reflectance, is the property that defines an ideal “matte” or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.
-Shader "Custom/LambertianShader" { Properties { _MainTex ("Texture", 2D) = "white" {} } SubShader { Tags { "RenderType"="Opaque" } LOD 200 CGPROGRAM #pragma surface surf SimpleLambert struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf (Input IN, inout SurfaceOutput o) { o....</p>
+<p>Update 1:
+虽然各大游戏评论网站都给出了高分。我觉得大概是 6/10。
+十年做出了这个？我竟然专门买了 Deluxe 和 PS4？
+优点都被别人说遍了。
+说说不足的地方才有意思。
+Chapter 13 是游戏中最失败的地方。整个章节就是开启这个，通往那里，然后重复，重复到要吐。时不时还有倒在地上的士兵抓住你。没见过这么恶心的设计。Boss 战是打败 Ravus。如何打败呢？没有一点技巧就是四人群殴。
+Ravus 这个角色的设计也是莫名其妙。作为女主角 Lunafreya 的哥哥以及一名大将，游戏中首次出场给我的印象和鬼泣中 Kyrie 的哥哥 Credo 是一样的。几个章节后走了一个过场，在回忆中出现过一次，然后我就发现他死了！中间究竟发生了没有解释。
+Noctis 被吸入水晶中和 Bahamut 对话后回到现实。发现已经到了 10 年后。为什么要安排这个？除了为故事增加了一点点黑暗以外没有其它作用。而且其它角色对于 Notics 回归的反应也很不合情理，每个人就像“hey buddy you are back. hurry up, we gotta things to do. oh it’s nice to see you again by the way.” 而游戏结束之后却强制煽情了一波。入不了戏。
+战斗系统有点意思但是并不有趣。丢药瓶给队友，攒槽发动 techniques。差不多就是这样。魔法敌我不分，特别容易伤及队友，不过可以用 Regroup 弥补。仅仅是按着 O 键就可以不停的攻击，游戏性很低。召唤非常随机，这点很特别，但是也很烦，经常是打到一半突然就能召唤，然后按住 L2 不放，敌人直接朝你冲了过来！啪！飞出五米远。
+剧情断裂。每个章节开始之前的加载画面都会有一小段的文字作为剧情补充，但是没有一点点帮助啊！为什么 Ravus 死了？为什么 Ardyn 会一开始帮助 Noctis？Niflhem 入侵了 Insomnia 后做了什么？Niflhem 为什么突然就从剧情中消失？我打完整个游戏还是没弄懂发生了什么，又看了一会儿 fandom 才了解。...</p>
 </section>
-<footer class=entry-footer>Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Unity Physically Based Render" href=https://endfang.github.io/posts/unity-pbr/></a>
+<footer class=entry-footer>December 10, 2016&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to 低于期望的FFXV" href=https://endfang.github.io/posts/disappointmenttoffxiv/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Unity Surface Shader
+<h2>现代医学与碰运气
 </h2>
 </header>
 <section class=entry-content>
-<p>Shader "Example/Diffuse Simple" { SubShader { Tags { "RenderType" = "Opaque" } CGPROGRAM #pragma surface surf Lambert struct Input { float4 color : COLOR; }; void surf (Input IN, inout SurfaceOutput o) { o.Albedo = 1; // 1 = (1,1,1,1) = white } ENDCG } Fallback "Diffuse" } #pragma surface surf Lambert specify the shader is surface and use Lambertian Lighting Model.
-SurfaceOutput has several properties to determine the final aspect of a material....</p>
+<p>因为说了中医不科学被骂了。
+就要说就要说就要说！(｀^´ )！
+首先我认为只有现代医学和碰运气这两种治疗方法。
+现代医学中，药品的有效成分如何在人体内发生化学作用以及副作用都可以被解释清楚。药品在上市之前也会被严格测试很多次。
+当然有些中药肯定有用。如果它们的作用机理也能够被解释清楚，那么便可以将有效成分做成药片，也就是现代药。这不是什么“西医”，不过是脱去了传统的“外衣”的药。
+中药如果可以这么严谨的发展，那就非常棒了。
+中医基于大量的经验，千百年来的药方治好了那么多人的病痛，这是事实。但是不科学，因为不严谨。我们不知道为什么这些中药能够治病，喝下汤药后人体内究竟发生了什么。
+那些所谓的个人经验“我七大姑八大姨得了什么病是中医治好的”，这只是个例。有多少人得了同样的病是靠着同样的中医药方治好的？有多少人得了同样的病吃了同样的中医药方却失败了？没有具体数据这就是空谈。
+科学是可以复制结果的。我做了A动作，得到了B结果。而且我们知道是 A 导致了 C， C 导致了 D，最终 D 导致了 B。你做了A动作，也会得到B结果。任何人做了A动作，都会得到B结果。而且都是因为 A C D B 的因果链，这才是科学。
+而碰运气，就是拒绝能够被解释清楚的药物，选择没有被严谨证实的方法治病。
+祝你好运。</p>
 </section>
-<footer class=entry-footer>Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Unity Surface Shader" href=https://endfang.github.io/posts/unity-surface-shader/></a>
+<footer class=entry-footer>September 9, 2016&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to 现代医学与碰运气" href=https://endfang.github.io/posts/traditionalchinesemedicinesucks/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>2016.08.31
+</h2>
+</header>
+<section class=entry-content>
+<p> 新浪微博上的狗头表情，猫头表情看着就让人血压升高。
+丧失了语言能力的“666”以及相关用法都让人恶心。
+表情包斗图让对话根本进行不下去。对方发来任何表情我都有拉黑的冲动。
+永远第一时间用上最新“xx狗”头衔的人就是互联网上的食腐动物。
+</p>
+</section>
+<footer class=entry-footer>August 31, 2016&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to 2016.08.31" href=https://endfang.github.io/posts/20160831/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>黑塔编年史
+</h2>
+</header>
+<section class=entry-content>
+<p>混沌年代，众神年代，和冒险年代都是我从电子海洋中打捞回来的遗产。
+混沌年代 老实说我很难相信一个网络团体可以持续很长时间。因为网络的虚拟性以及匿名性让人们可以随意交流。通过即时通讯工具聊天，今天我和你说了几句话，可能明天我就不再搭理你了。但谁能想到我通过描写黑塔这个网络团体，让我的论文拿了一个A呢？ 初次到黑塔的时候是主动加了塔主的第一个黑塔巫师阵营，还不是血B吧的群组。后来为了显得 professinal 一点（原谅我不会用正确的中文词语），重新建了一个血B吧的群组，就是现在的主塔。当时划分党派还很严重（现在一样严重），也没有像现在这么重视DND，人们总是潜水，很少有人发言。塔主当时的两个帖子：咒语帖和语C帖非常的受欢迎。依靠这两个帖子的宣传，才陆续有人加入进来。本人还和没成为绅士的黑刃聊了一夜，准确的说是他聊了一夜，我因为时差的关系处于白天。 随后六页，秦，以及其他几个人加入进来，话题逐渐从聊天打屁升华到科技理论。他们聊了很多很多化学物理我完全不懂的事情，秦还写了一个化学中二帖。后来还被人挖了出来。 笑，冷漠，暮雪，雷吉，晚亡，牛奶，D，sono，雪崩，伯爵，古然，还有好多其他人也渐渐的进入群组。我却因为时差的关系很少发言和查看信息。中间这段时间我的确不太确定发生了什么事情。只是模模糊糊记得一点，和听别人说起过。比如晚亡把很多人惹恼了，比如第一座分塔被拆了，比如很多人都吵过架然后气得退群。 对了，伯爵曾经建立过一个巫师讲谈社，一个昙花一现的群组。解散原因是什么不记得了。 曾经有一段时间因为名额限制，塔主还苦恼如何加入新成员。我指出提高群组等级便可以，于是少数几个成员开始每天都冒泡发言。那两周我疯狂使用冒泡术并且在血B吧水经验。那句“我就看看，不说话”就是从那时候开始的。相信很多人都烦透了我只回复一句“我就看看，不说话。” 后来有一段时间黑塔写文风浓厚，很多人开始写故事，伯爵丢出了“戏仿现实”的活动，呼吁大家写文画图。暮雪的无底大坑就是这个时候开始挖的，同时还有其他同袍也在挖。这些坑到现在也没有被填上。我曾经想过写一个短篇，可是烂尾的结局让我改了很多次最终不了了之。 黑塔的关系也很乱。莫名其妙出现的新闻部有一个任务就是理清大家的关系。只是随着大家的扯淡，关系越来越乱。比如说，有一次笑因为说了“既然对我家雪坑心怀不轨！”而被白咒揶揄，雪坑试图用千年杀对准白咒，可是小茜不小心中途插了一脚成为了受害者。总而言之就是关系越来越乱了。连婚礼都有过三场。第一场西茜和西格的我全程参与，极黑之塔吧是前台，群组是后台。当时后台一片混乱。两个地方的节奏完全没有跟上，导致前台已经交换戒指了后台还在找伴郎伴娘的演讲词。 我对网络文学不是很了解，但是一直觉得牛奶写的小幕很棒。虽然中途离开了，但她也是黑塔历史上很重要的一笔。
+众神年代 随着大家对DND的了解和伯爵的加入，对DND有了更多的认识。最终导致了现在的局面，新人很难加入进来了。因为都很喜欢讨论DND，新人们又基本上都是零知识，因此大部分新人都很难过意志检定，最终都潜入水中成为了死尸。sigh。不过还是有很多坚强的新人们挺了过来，虽然不经常发言，但是不会永远沉默。白咒为你们点一个赞！ 另一方面，随着我将伯爵推上封神之路，让他成为 黑手之王，有几位同袍也一跃而上，最终出现了黑塔三神：黑手之王伯爵，毒舌(口活)之神古然（娜拉），以及冷漠之神冷漠。 如今冷漠因为学业暂时离开了，伯爵接手了分塔。黑塔还没有完结。我们因为血族Bloodline或者DND聚集在一起。过去的一年大家吵过闹过笑过，依旧很开心。我们等待冷漠的回归，以及期盼更多的人加入。这个时代还在继续。
+冒险年代 众神已经消失在历史中，大迁徙开始，冒险者踏上了新大陆。 血族Bloodline 的停更标志着众神时代的正式结束。贴吧群组已经没有新的话题。同袍们转移到了企鹅的阵地。 大部分核心成员还是留下来了，但是新人这个物种估计已经绝迹。 曾经有一个疑似严重中二病晚期的新人加入进来后将自己放在了至高的位置，居高临下的看着大家，说着一些十分奇怪的语言。被我调戏了一番。最终自己退群了。 一部分人开始跑团，一部分人浪费青春，一部分人也不知道在干什么。简而言之，同袍们相继走出了黑塔，走向了不同的道路，也许有交错，也许完全不同。 黑塔依旧矗立，只是繁荣不再。
+冒险年代（2） 黑塔还在，我真的很开心很开心。年初的时候出现了一个接文活动。我仔细看了看你们写的文章，感觉又回到了以前的混沌年代。这么说太感性了，可是我真的很怀念那段时光。 前几天有个小新人进来，依旧没有过意志检定。想当初从贴吧群组开始，每个人都是很有礼貌说话，谁知如今都一个个竟是出口就是各种调笑。真真是让人想笑。 血族没有更新的日子里，黑塔还能存活这么久，感觉这是一个很不一般的团体。 我不知道 IO 会不会继续画血族，但是我好希望黑塔中的这群人不要离开。 说到底我还是一个很感性但文笔却不好的人，有很多话想对你们说的话，一碰到键盘却又不知道从何开始，乃至最后脑子也宕机了，也不知道写些什么才好。</p>
+</section>
+<footer class=entry-footer>May 4, 2015&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to 黑塔编年史" href=https://endfang.github.io/posts/blackchronicle/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>夜莺的眼泪
+</h2>
+</header>
+<section class=entry-content>
+<p>想要靠着歌声征服一切的夜莺飞到了皇帝的御花园，展现了它绝妙的歌声。 而这美妙的歌声并不能打动同样心高气傲的皇帝的冰冷之心。 同样想要获得一切的皇帝企图获得高傲的夜莺的眼泪。 这场持久的拉锯战让双方都精疲力竭。所有人都留着眼泪，猜测着到底是那一方会获得胜利。 预感不妙的皇帝求助了死神。 在死神的帮助下，夜莺的生命开始走向尽头。 听见死神脚步的夜莺感到无比的绝望，于是为自己唱了最后一首歌却并未哭泣。 皇帝听到这歌声却流下了他的眼泪。 被绝望的歌声感动到的皇帝哀求死神不要带走这个世界上最美妙的声音。 于是死神拿走了皇帝和夜莺的灵魂。 并且将夜莺的身体化成了机械。 日复一日的发出最美妙的声音。</p>
+</section>
+<footer class=entry-footer>March 19, 2014&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to 夜莺的眼泪" href=https://endfang.github.io/posts/nightingalestear/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://endfang.github.io/posts/page/30/>« Prev Page</a>
+<a class=next href=https://endfang.github.io/posts/page/32/>Next Page »</a>
 </nav>
 </footer>
 </main>
