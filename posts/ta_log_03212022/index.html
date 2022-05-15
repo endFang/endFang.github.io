@@ -1,0 +1,249 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>TA Log 03212022 | After1995</title>
+<meta name=keywords content="shader,unity">
+<meta name=description content="TA Log Created: March 21, 2022 12:23 PM
+HLSL float is 32 bits. It is for world space position, texture coordinates, trigonometry or power/exponentiation.
+half is 15 bits. It is for short vectors, directions, object space positions, high dynamic range colors.
+real is half in default if the platform supports it. It can be either half or float in a function
+fixed is not supported in HLSL. Old CG syntax.">
+<meta name=author content="Kyle Fang">
+<link rel=canonical href=https://endfang.github.io/posts/ta_log_03212022/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.9f1d947375927e9847272b1f4e9be81336f539e513bf04d52cade31f81cad1af.css integrity="sha256-nx2Uc3WSfphHJysfTpvoEzb1OeUTvwTVLK3jH4HK0a8=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://endfang.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://endfang.github.io/favicon-16x16.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://endfang.github.io/favicon-32x32.ico>
+<link rel=apple-touch-icon href=https://endfang.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://endfang.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<meta property="og:title" content="TA Log 03212022">
+<meta property="og:description" content="TA Log Created: March 21, 2022 12:23 PM
+HLSL float is 32 bits. It is for world space position, texture coordinates, trigonometry or power/exponentiation.
+half is 15 bits. It is for short vectors, directions, object space positions, high dynamic range colors.
+real is half in default if the platform supports it. It can be either half or float in a function
+fixed is not supported in HLSL. Old CG syntax.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://endfang.github.io/posts/ta_log_03212022/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-03-21T19:06:42+08:00">
+<meta property="article:modified_time" content="2022-03-21T19:06:42+08:00"><meta property="og:site_name" content="After1995">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="TA Log 03212022">
+<meta name=twitter:description content="TA Log Created: March 21, 2022 12:23 PM
+HLSL float is 32 bits. It is for world space position, texture coordinates, trigonometry or power/exponentiation.
+half is 15 bits. It is for short vectors, directions, object space positions, high dynamic range colors.
+real is half in default if the platform supports it. It can be either half or float in a function
+fixed is not supported in HLSL. Old CG syntax.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://endfang.github.io/posts/"},{"@type":"ListItem","position":3,"name":"TA Log 03212022","item":"https://endfang.github.io/posts/ta_log_03212022/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"TA Log 03212022","name":"TA Log 03212022","description":"TA Log Created: March 21, 2022 12:23 PM\nHLSL float is 32 bits. It is for world space position, texture coordinates, trigonometry or power/exponentiation.\nhalf is 15 bits. It is for short vectors, directions, object space positions, high dynamic range colors.\nreal is half in default if the platform supports it. It can be either half or float in a function\nfixed is not supported in HLSL. Old CG syntax.","keywords":["shader","unity"],"articleBody":"TA Log Created: March 21, 2022 12:23 PM\nHLSL float is 32 bits. It is for world space position, texture coordinates, trigonometry or power/exponentiation.\nhalf is 15 bits. It is for short vectors, directions, object space positions, high dynamic range colors.\nreal is half in default if the platform supports it. It can be either half or float in a function\nfixed is not supported in HLSL. Old CG syntax.\nData type does not matter on PC GPUs, because they always use the high precision. Mobile GPUs might have issues on precision.\nGlobal Illumination The slow computation of real-time indirect light is usually not suitable for video games. But Unity uses Baked GI: it calculates the static objects’ indirect light ahead of time to save the computation time.\nLight Probes are the positions where Unity measure in the baking. Non-static objects can use the value from the closest probes to approximate the indirect light.\nTrick\nModifying the skybox along with the directional light might create a time-of-day effect. (Procedural skybox.)\nBézier Curves or splines.\nInterpolation\nLerp: Linear interpolation calculates the blended result between two points.\nQuadratic Bezier Curve: Calculate 2 lerp between 3 points, and calculate the 3rd lerp between 2 results.\nCubit Bezier Curve: repeat the same process between 4 points. This is also “De Casteljau’s Algorithm”\nA = lerp(P0, P1, t) B = lerp(P1, P2, t) C = lerp(P2, P3, t) D = lerp(A, B, t) E = lerp(B, C, t) P = lerp(E, E, t) // Expanding the lerp to mathmatical equations, we will finally have: // Bernstein Polynomial Form P(t) = P0 ( -t^3 +3t^2 -3t +1) + P1 ( 3t^3 -6t^2 +3t) + P2 ( -3t^3 + 3t^2) + P3 ( t^3) $$ P(t） = P_0(-t^3 + 3t^2 - 3t + 1) + \\ P_1(3t^3 - 6t^2 + 3t）+ \\ P_2( -3t^3 + 3t^2) + \\ P_3(t^3) $$\nBernstein Polynomial form trades weights between 4 vectors, so the sum of the weights is one.\nDerivatives\nThe 1st derivative P’ is the velocity of the vector given t value in the curve. It’s the rate of change. The 2nd derivative P’’ is the rate of the change of velocity, the acceleration. The 3rd derivative P’’’ is Jerk (Jolt). It’s a 2D constant.\nThe 1st derivate is also tangent of the curve. Normalizing it will give us the tangent vector, and normal vector by rotation of 90 degrees.\nCurvature\n$$ k = \\frac{det(P', P'')}{ \\lVert P' \\rVert ^{3} } $$\nCurvature is “how bent the curve is at a point.” Curvature is 0, then the curve is flat. The unit is rad/m. or reciprocal of radiance. Or the reciprocal of the radius of a circle with the same curvature.\n$$ r = k^{-1} $$\nWe can calculate the osculating circle by r.\nAt the inflection point, the sign of curvature will change. It passes through zero and can not define an osculating circle.\nBounding Box\nSoft Particles Calculate the alpha values for fading particles based on the depth to the background pixel. Examples are fire on the ground and smoke in the higher place.\n// near and far // usually near should be smaller than far, the default should be 0 and 1. // they are both offsets on depth // if the near and far are too big, the particle might appear behind the background pixel.  // first we calculate the rawDepth float4 positionNDC = positionCS * 0.5f; positionNDC.xy = float2(positionNDC.x, positionNDC.y * _ProjectionParams.x) + positionNDC.w; positionNDC.zw = input.positionCS.zw; float rawDepth = SampleSceneDepth(positionNDC.xy / positionNDC.w); // then we calculate scene depth and this fragment's depth float sceneDepth = LinearEyeDepth(rawDepth, _ZBufferParams); float thisDepth = LinearEyeDepth(params.positionWS.xyz, GetWorldToViewMatrix()); // and finally we calculate fade fade = saturate(far * (sceneDepth - near) - thisDepth); ","wordCount":"624","inLanguage":"en","datePublished":"2022-03-21T19:06:42+08:00","dateModified":"2022-03-21T19:06:42+08:00","author":{"@type":"Person","name":"Kyle Fang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://endfang.github.io/posts/ta_log_03212022/"},"publisher":{"@type":"Organization","name":"After1995","logo":{"@type":"ImageObject","url":"https://endfang.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://endfang.github.io accesskey=h title="After1995 (Alt + H)">
+<img src=/apple-touch-icon.png alt=logo aria-label=logo height=35>After1995</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://endfang.github.io/archives/ title=archives>
+<span>archives</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/about/ title=about>
+<span>about</span>
+</a>
+</li>
+<li>
+<a href=https://endfang.github.io/search/ title="search (Alt + /)" accesskey=/>
+<span>search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://endfang.github.io>Home</a>&nbsp;»&nbsp;<a href=https://endfang.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+TA Log 03212022
+</h1>
+<div class=post-meta>March 21, 2022&nbsp;·&nbsp;Kyle Fang
+</div>
+</header> <div class=toc>
+<details open>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#ta-log aria-label="TA Log">TA Log</a></li>
+<li>
+<a href=#hlsl aria-label=HLSL>HLSL</a></li>
+<li>
+<a href=#global-illumination aria-label="Global Illumination">Global Illumination</a></li>
+<li>
+<a href=#b%c3%a9zier-curves aria-label="Bézier Curves">B<strong>ézier Curves</strong></a></li>
+<li>
+<a href=#soft-particles aria-label="Soft Particles">Soft Particles</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=ta-log>TA Log<a hidden class=anchor aria-hidden=true href=#ta-log>#</a></h1>
+<p>Created: March 21, 2022 12:23 PM</p>
+<h1 id=hlsl>HLSL<a hidden class=anchor aria-hidden=true href=#hlsl>#</a></h1>
+<p><code>float</code> is 32 bits. It is for world space position, texture coordinates, trigonometry or power/exponentiation.</p>
+<p><code>half</code> is 15 bits. It is for short vectors, directions, object space positions, high dynamic range colors.</p>
+<p><code>real</code> is half in default if the platform supports it. It can be either half or float in a function</p>
+<p><code>fixed</code> is not supported in HLSL. Old CG syntax.</p>
+<p>Data type does not matter on PC GPUs, because they always use the high precision. Mobile GPUs might have issues on precision.</p>
+<h1 id=global-illumination>Global Illumination<a hidden class=anchor aria-hidden=true href=#global-illumination>#</a></h1>
+<p>The slow computation of real-time indirect light is usually not suitable for video games. But Unity uses Baked GI: it calculates the static objects’ indirect light ahead of time to save the computation time.</p>
+<p>Light Probes are the positions where Unity measure in the baking. Non-static objects can use the value from the closest probes to approximate the indirect light.</p>
+<p><strong>Trick</strong></p>
+<p>Modifying the skybox along with the directional light might create a time-of-day effect. (Procedural skybox.)</p>
+<h1 id=bézier-curves>B<strong>ézier Curves</strong><a hidden class=anchor aria-hidden=true href=#bézier-curves>#</a></h1>
+<p>or splines.</p>
+<p><strong>Interpolation</strong></p>
+<p>Lerp: Linear interpolation calculates the blended result between two points.</p>
+<p>Quadratic Bezier Curve: Calculate 2 lerp between 3 points, and calculate the 3rd lerp between 2 results.</p>
+<p><img loading=lazy src=https://i.imgur.com/qY6eDML.png alt=beizer>
+</p>
+<p>Cubit Bezier Curve: repeat the same process between 4 points. This is also “De Casteljau’s Algorithm”</p>
+<p><img loading=lazy src=https://i.imgur.com/jp8vbjH.png alt=beizer>
+</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#a6e22e>A</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lerp</span>(<span style=color:#a6e22e>P0</span>, <span style=color:#a6e22e>P1</span>, <span style=color:#a6e22e>t</span>)
+<span style=color:#a6e22e>B</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lerp</span>(<span style=color:#a6e22e>P1</span>, <span style=color:#a6e22e>P2</span>, <span style=color:#a6e22e>t</span>)
+<span style=color:#a6e22e>C</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lerp</span>(<span style=color:#a6e22e>P2</span>, <span style=color:#a6e22e>P3</span>, <span style=color:#a6e22e>t</span>)
+<span style=color:#a6e22e>D</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lerp</span>(<span style=color:#a6e22e>A</span>, <span style=color:#a6e22e>B</span>, <span style=color:#a6e22e>t</span>)
+<span style=color:#a6e22e>E</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lerp</span>(<span style=color:#a6e22e>B</span>, <span style=color:#a6e22e>C</span>, <span style=color:#a6e22e>t</span>)
+<span style=color:#a6e22e>P</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lerp</span>(<span style=color:#a6e22e>E</span>, <span style=color:#a6e22e>E</span>, <span style=color:#a6e22e>t</span>)
+
+<span style=color:#75715e>// Expanding the lerp to mathmatical equations, we will finally have:
+</span><span style=color:#75715e>// Bernstein Polynomial Form
+</span><span style=color:#75715e></span><span style=color:#a6e22e>P</span>(<span style=color:#a6e22e>t</span>) <span style=color:#f92672>=</span> <span style=color:#a6e22e>P0</span> ( <span style=color:#f92672>-</span><span style=color:#a6e22e>t</span><span style=color:#f92672>^</span><span style=color:#ae81ff>3</span> <span style=color:#f92672>+</span><span style=color:#ae81ff>3</span><span style=color:#a6e22e>t</span><span style=color:#f92672>^</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>3</span><span style=color:#a6e22e>t</span> <span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>) <span style=color:#f92672>+</span>
+			 <span style=color:#a6e22e>P1</span> ( <span style=color:#ae81ff>3</span><span style=color:#a6e22e>t</span><span style=color:#f92672>^</span><span style=color:#ae81ff>3</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>6</span><span style=color:#a6e22e>t</span><span style=color:#f92672>^</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>+</span><span style=color:#ae81ff>3</span><span style=color:#a6e22e>t</span>) <span style=color:#f92672>+</span>
+			 <span style=color:#a6e22e>P2</span> ( <span style=color:#f92672>-</span><span style=color:#ae81ff>3</span><span style=color:#a6e22e>t</span><span style=color:#f92672>^</span><span style=color:#ae81ff>3</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>3</span><span style=color:#a6e22e>t</span><span style=color:#f92672>^</span><span style=color:#ae81ff>2</span>) <span style=color:#f92672>+</span>
+			 <span style=color:#a6e22e>P3</span> ( <span style=color:#a6e22e>t</span><span style=color:#f92672>^</span><span style=color:#ae81ff>3</span>)
+</code></pre></div><p>$$
+P(t） = P_0(-t^3 + 3t^2 - 3t + 1) +
+\ P_1(3t^3 - 6t^2 + 3t）+
+\ P_2( -3t^3 + 3t^2) +
+\ P_3(t^3)
+$$</p>
+<p>Bernstein Polynomial form trades weights between 4 vectors, so the sum of the weights is one.</p>
+<p><strong>Derivatives</strong></p>
+<p>The 1st derivative P’ is the velocity of the vector given t value in the curve. It’s the rate of change.
+The 2nd derivative P’’ is the rate of the change of velocity, the acceleration.
+The 3rd derivative P’’’ is Jerk (Jolt). It’s a 2D constant.</p>
+<p>The 1st derivate is also tangent of the curve. Normalizing it will give us the tangent vector, and normal vector by rotation of 90 degrees.</p>
+<p><strong>Curvature</strong></p>
+<p>$$
+k = \frac{det(P', P'')}{ \lVert P' \rVert ^{3} }
+$$</p>
+<p>Curvature is “how bent the curve is at a point.” Curvature is 0, then the curve is flat.
+The unit is rad/m. or reciprocal of radiance. Or the reciprocal of the radius of a circle with the same curvature.</p>
+<p>$$
+r = k^{-1}
+$$</p>
+<p>We can calculate the osculating circle by r.</p>
+<p>At the inflection point, the sign of curvature will change. It passes through zero and can not define an osculating circle.</p>
+<p><strong>Bounding Box</strong></p>
+<h1 id=soft-particles>Soft Particles<a hidden class=anchor aria-hidden=true href=#soft-particles>#</a></h1>
+<p>Calculate the alpha values for fading particles based on the depth to the background pixel. Examples are fire on the ground and smoke in the higher place.</p>
+<p><img loading=lazy src=https://i.imgur.com/bB2GhtA.png alt=softparticles>
+</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#75715e>// near and far
+</span><span style=color:#75715e>// usually near should be smaller than far, the default should be 0 and 1. 
+</span><span style=color:#75715e>// they are both offsets on depth
+</span><span style=color:#75715e>// if the near and far are too big, the particle might appear behind the background pixel.
+</span><span style=color:#75715e></span>
+<span style=color:#75715e>// first we calculate the rawDepth
+</span><span style=color:#75715e></span><span style=color:#a6e22e>float4</span> <span style=color:#a6e22e>positionNDC</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>positionCS</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>0.5</span><span style=color:#a6e22e>f</span>;
+<span style=color:#a6e22e>positionNDC</span>.<span style=color:#a6e22e>xy</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>float2</span>(<span style=color:#a6e22e>positionNDC</span>.<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>positionNDC</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>_ProjectionParams</span>.<span style=color:#a6e22e>x</span>) <span style=color:#f92672>+</span> <span style=color:#a6e22e>positionNDC</span>.<span style=color:#a6e22e>w</span>;
+<span style=color:#a6e22e>positionNDC</span>.<span style=color:#a6e22e>zw</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>input</span>.<span style=color:#a6e22e>positionCS</span>.<span style=color:#a6e22e>zw</span>;
+<span style=color:#66d9ef>float</span> <span style=color:#a6e22e>rawDepth</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>SampleSceneDepth</span>(<span style=color:#a6e22e>positionNDC</span>.<span style=color:#a6e22e>xy</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>positionNDC</span>.<span style=color:#a6e22e>w</span>);
+
+<span style=color:#75715e>// then we calculate scene depth and this fragment&#39;s depth
+</span><span style=color:#75715e></span><span style=color:#66d9ef>float</span> <span style=color:#a6e22e>sceneDepth</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>LinearEyeDepth</span>(<span style=color:#a6e22e>rawDepth</span>, <span style=color:#a6e22e>_ZBufferParams</span>);
+<span style=color:#66d9ef>float</span> <span style=color:#a6e22e>thisDepth</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>LinearEyeDepth</span>(<span style=color:#a6e22e>params</span>.<span style=color:#a6e22e>positionWS</span>.<span style=color:#a6e22e>xyz</span>, <span style=color:#a6e22e>GetWorldToViewMatrix</span>());
+
+<span style=color:#75715e>// and finally we calculate fade
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fade</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>saturate</span>(<span style=color:#a6e22e>far</span> <span style=color:#f92672>*</span> (<span style=color:#a6e22e>sceneDepth</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>near</span>) <span style=color:#f92672>-</span> <span style=color:#a6e22e>thisDepth</span>);
+</code></pre></div>
+</div>
+<footer class=post-footer>
+<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+</a><p style=font-size:small>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/>Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<br>
+<ul class=post-tags>
+<li><a href=https://endfang.github.io/tags/shader/>Shader</a></li>
+<li><a href=https://endfang.github.io/tags/unity/>Unity</a></li>
+</ul>
+<nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/ta_log_04132022/>
+<span class=title>« Prev Page</span>
+<br>
+<span>TA Log 04132022</span>
+</a>
+<a class=next href=https://endfang.github.io/posts/ta_log_02282022/>
+<span class=title>Next Page »</span>
+<br>
+<span>TA Log 02282022</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://endfang.github.io>After1995</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

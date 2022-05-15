@@ -25,7 +25,11 @@
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript><meta property="og:title" content="Shader">
+</noscript>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<meta property="og:title" content="Shader">
 <meta property="og:description" content="Alll Ended Happily">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endfang.github.io/tags/shader/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="After1995">
@@ -81,58 +85,68 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Rotation Matrix
+<h2>Unity Render Pipeline
 </h2>
 </header>
 <section class=entry-content>
-<p>$P = (x, y) = (1, 0)$ $P' = (x', y' )$
-$\cos{\theta} = \frac{x'}{x}$ $\sin{\theta} = \frac{y'}{x}$
-therefore:
-$x' = \cos{\theta} \cdot x$ $y' = \sin{\theta} \cdot x$
-similarly:
-$Q = (x, y) = (0, 1)$ $ Q' = (x', y' )$
-$\cos{\theta} = \frac{y'}{y}$ $\sin{\theta} = \frac{-x'}{y}$
-therefore:
-$x' = -\sin{\theta} \cdot y$ $y' = \cos{\theta} \cdot y$
-add them together:
-$\begin{bmatrix} \cos{\theta} & -\sin{\theta} \\
-\sin{\theta} & \cos{\theta} \\...</p>
+<p>RP is a series of operations that take the contents of a Scene and displays them on a screen. At a high level, these operations are Culling, Rendering, and Post-Processing. It’s difficult to switch from one to another RP because the shader outputs varies and might not have the same feature. We can custom shaders in different piplelines, but the ultimate effect may be different. Unity has Built-In, Universal, and High Definition and Scriptable RP....</p>
 </section>
-<footer class=entry-footer>May 14, 2019&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Rotation Matrix" href=https://endfang.github.io/posts/rotation-matrix/></a>
+<footer class=entry-footer>May 30, 2020&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Unity Render Pipeline" href=https://endfang.github.io/posts/unity-render-pipeline/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Dot Product
+<h2>Guide Mask Shader
 </h2>
 </header>
 <section class=entry-content>
-<p>Reference: “Dot products and duality | Essence of linear algebra, chapter 9”, 3Blue1Brown
-Algebra example:
-$\begin{bmatrix} 1 & 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \ 4 \end{bmatrix} = 1 \cdot 3 + 2 \cdot 4$
-Gemoetrically:
-![projection](https://i.imgur.com/HYJeePM.png =150x150)
-The dot product of v and u = (length of projection of v onto u)(length of u)
-Order and Symmetry Order doesn’t matter. (Length of projected v) x (Length of u) = (Length of projected u) x (Length of v)...</p>
+<p>Shader "UI/GuideMask" { Properties { [PreRendererData] _MainTex ("Sprite Texture", 2D) = "white" {} _Color ("tint", Color) = (1,1,1,1) _StencilComp ("Stencil Comparison", Float) = 8 _Stencil ("Stencil ID", Float) = 0 _StencilOp ("Stencil Operation", Float) = 0 _StencilWritemask("Stencil Write Mask", Float ) = 255 _StencilReadMask("Stencil Read Mask", Float) = 255 _ColorMask("Color Mask", Float) = 15 [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0 _Center("Center", vector) = (0, 0, 0, 0) _Slider("Slider", Range(0, 1500)) = 1500 } SubShader { Tags { "RenderType"="Opaque" "IgnoreProjector" = "True" "RenderType" = "Transparent" "PreviewType" = "Plane" "CanUseSpriteAtlas" = "True" } Stencil { Ref [_Stencil] Comp [_StencilComp] Pass [_StencilOp] ReadMask [_StencilReadmask] Writemask [_StencilWriteMask] } Cull Off Lighting Off ZWrite Off ZTest [unit_GUIZTestMode] Blend SrcAlpha OneMinusSrcAlpha ColorMask [_ColorMask] Pass { Name "Default" CGPROGRAM #pragma vertex vert #pragma fragment frag #pragma target 2....</p>
 </section>
-<footer class=entry-footer>January 27, 2019&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Dot Product" href=https://endfang.github.io/posts/dot-product/></a>
+<footer class=entry-footer>May 7, 2020&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Guide Mask Shader" href=https://endfang.github.io/posts/guide-mask/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Unity Physically Based Render
+<h2>Unity Vertex And Fragment Shader
 </h2>
 </header>
 <section class=entry-content>
-<p>Lambertian and Blinn-Phong Lambertian Model Lambertian model is based on lambertian reflectance, is the property that defines an ideal “matte” or diffusely reflecting surface. The reflected quantity is equal to the vertical component of the incident light ray.
-Shader "Custom/LambertianShader" { Properties { _MainTex ("Texture", 2D) = "white" {} } SubShader { Tags { "RenderType"="Opaque" } LOD 200 CGPROGRAM #pragma surface surf SimpleLambert struct Input { float2 uv_MainTex; }; sampler2D _MainTex; void surf (Input IN, inout SurfaceOutput o) { o....</p>
+<p>Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There’s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.
+*Surface shader is actually compiled to vert/frag shader.
+Shader "Unlit/SolidColor" { SubShader { Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag struct vertInput { float4 pos : POSITION; }; struct vertOuput { float4 pos : SV_POSITION; }; vertOuput vert(vertInput input) { vertOuput o; o....</p>
 </section>
-<footer class=entry-footer>Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Unity Physically Based Render" href=https://endfang.github.io/posts/unity-pbr/></a>
+<footer class=entry-footer>November 30, 2019&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Unity Vertex And Fragment Shader" href=https://endfang.github.io/posts/unity-vertex-and-fragment/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Unity Shader Overview
+</h2>
+</header>
+<section class=entry-content>
+<p>Thanks to these posts and blogs: Michael Sanders Catike Coding Alan Zucconi
+Unity has 3 types of shader: surface shader, fragment and vertex shader, and the obsolete fixed function shader. They all have the same anatomy.
+Catlike Coding
+Shader "MyShader" { Properties { // The properties of your shaders // - textures // - colours // - parameters // ... _MyTexture ("My texture", 2D) = "white" {} _MyNormalMap ("My normal map", 2D) = "bump" {} // Grey _MyInt ("My integer", Int) = 2 _MyFloat ("My float", Float) = 1....</p>
+</section>
+<footer class=entry-footer>November 30, 2019&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Unity Shader Overview" href=https://endfang.github.io/posts/unity-shader-overview/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Shader Basic
+</h2>
+</header>
+<section class=entry-content>
+<p>Basics shader language has a single main that returns color at the end final pixel color is assigned to gl_FragColor C-flavored language has built in variable, function, type preprocessor macros (pre-compiled) #define global variable #ifdef and #endif lower precision → faster rendering, less quality precision medium float precision lowp float precision highp float GLSL specs doesn’t guarantee auto-cast vec4(1, 0, 0, 1) will raise error, because it’s not float multiple ways of constructing vec4 vec4 color = vec4(vec3(1....</p>
+</section>
+<footer class=entry-footer>September 23, 2019&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Shader Basic" href=https://endfang.github.io/posts/shader-basic/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://endfang.github.io/tags/shader/page/6/>« Prev Page</a>
+<a class=next href=https://endfang.github.io/tags/shader/page/8/>Next Page »</a>
 </nav>
 </footer>
 </main>

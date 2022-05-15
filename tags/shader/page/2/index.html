@@ -25,7 +25,11 @@
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript><meta property="og:title" content="Shader">
+</noscript>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<meta property="og:title" content="Shader">
 <meta property="og:description" content="Alll Ended Happily">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endfang.github.io/tags/shader/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="After1995">
@@ -81,80 +85,67 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>TA Log 01222022
+<h2>TA Log 02282022
 </h2>
 </header>
 <section class=entry-content>
-<p>MatCap Material Capture. It is to capture the material on a texture. And represent it to the model.(https://digitalrune.github.io/DigitalRune-Documentation/html/9a8c8b37-b996-477a-aeab-5d92714be3ca.htm)
-The general procedure is: (https://forum.unity.com/threads/writing-a-matcap-shader.518949/)
-convert the object space normal to view space. remap it to (0,1) use it as UV to sample matcap texture. Ben Golus’ implementation: https://gist.github.com/bgolus/02e37cd76568520e20219dc51653ceaahttps://twitter.com/bgolus/status/1487224443688554497?s=20&t=-4eC1dOBkMmIMLR5-9QloQhttps://forum.unity.com/threads/getting-normals-relative-to-camera-view.452631/
-Unity Lighting Optimization source: https://unity.com/how-to/advanced/optimize-lighting-mobile-games
-UV channels
-One set of UV channels is enough, because metallic, occlusion, and smoothness value from the texture usually stores in the same place....</p>
+<p>URP URP doesn’t support OnPreCull, OnPreRender, OnPostRener, and OnRenderImage. URP does support OnRenderObjectand OnWillRenderObject, but it doesn’t support recursive rendering. URP has 4 new hooks:
+RenderPipelineManager.beginFrameRendering RenderPipelineManager.beginCameraRendering RenderPipelineManager.endCameraRendering RenderPipelineManager.endFrameRendering // we can subscribe these events private void OnEnable() { RenderPipelineManager.beginCameraRendering += ExecuteRenderActions; } public void ExecuteRenderActions(ScriptableRenderContext context, Camera camera) { // rendering code .. } Planar Reflection The idea is to create a reflected camera to render the screen from below, and render what the reflected camera sees on the planar....</p>
 </section>
-<footer class=entry-footer>January 22, 2022&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 01222022" href=https://endfang.github.io/posts/ta_log_01222022/></a>
+<footer class=entry-footer>February 28, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 02282022" href=https://endfang.github.io/posts/ta_log_02282022/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>TA Log 01102022
+<h2>TA Log 02212022
 </h2>
 </header>
 <section class=entry-content>
-<p>Vertex Animation Vertex offset achieves the wind animation of tree leaves. By specifying the vertex color, vertex shader can use lerp to filter the animation on a certain part of the mesh. For example, only leaves will wave by painting all leaves’ color red.
-URP Sample Texture
-https://forum.unity.com/threads/writing-shaders-urp-texture2d-sampler.1000782/
-TEXTURE2D()translates the texture to the target API’s native type. GLES2 is sampler2D and others are Texture2D.
-Maintenance pow() vs. sqrt()
-After compile pow(a, b) in shader, the code will become exp2(log2(a) * b )...</p>
+<p>Snow A simple snow surface implementation is to calculate dot product of normal and a custom direction.
+half snowSurfaceMask = clamp(dot(normalWS, _SnowDirection), 0.0f, 1.0f); It is similar to NdotL. We can add some small scale gradient noise or simple noise to this mask, and make it white. When we change the _SnowDirection, we might add some unwanted artifacts. To solve this problem, multiplying another upward snow mask to the snow surface mask....</p>
 </section>
-<footer class=entry-footer>January 17, 2022&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 01102022" href=https://endfang.github.io/posts/ta_log_01102022/></a>
+<footer class=entry-footer>February 21, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 02212022" href=https://endfang.github.io/posts/ta_log_02212022/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>TA Log 12202021
+<h2>TA Log 02142022
 </h2>
 </header>
 <section class=entry-content>
-<p>SRP Batcher + OpenGL bug:
-https://forum.unity.com/threads/srp-batcher-does-not-work-with-opengles3.1095937/
-Shadow Cascade
-Unity Doc: https://docs.unity3d.com/Manual/shadow-cascades.html Cat Like Coding: https://catlikecoding.com/unity/tutorials/scriptable-render-pipeline/directional-shadows/
-Shadow map pixels close to the Camera look enlarged and chunky to those farther away. Unity solves this problem by splitting the frustum area int otwo zones based on the distance from the camera, and use two separate shadow map. The resolution of each map is staged reduced.
-It also increased Drawcall: https://forum.unity.com/threads/unity-draw-5-4-introducing-more-draw-calls.426185/
-Outline https://alexanderameye.github.io/notes/rendering-outlines/...</p>
+<p>Unity Settings source: https://forum.unity.com/threads/warning-to-all-my-friends-beware-optimise-mesh-data.544735/
+Optimize Mesh Data will strip unused in mesh component. If the project only instantiate mesh during runtimes, Unity might delete some components in the build, such as lightmap uv.
+Unity Shader Erosion
+The most basic erosion (or dissolve) is the alpha clipping method. To soft the erosion, we can instead use a float to convert the noise between 0 and 1, and use the result as alpha....</p>
 </section>
-<footer class=entry-footer>December 20, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 12202021" href=https://endfang.github.io/posts/ta_log_12202021/></a>
+<footer class=entry-footer>February 14, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 02142022" href=https://endfang.github.io/posts/ta_log_02142022/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>TA Log 12132021
+<h2>TA Log 01242022
 </h2>
 </header>
 <section class=entry-content>
-<p>Unity URP _MainLightShadowParams
-x: shadowStrength y: 1.0 = soft shadow, 0.0 = otherwise z: 1/ fade distance w: 1- start fade Anti-Aliasing What is AA: https://www.youtube.com/watch?v=hqi0114mwtY
-How to do AA? There’re two types of AA. One is to increase the sample rate, that means to render the scene in a higher resolution and sample down it to the target resolution to smooth the line. Two is to blur the edge or contrast, known as Post AA or Post Processing ....</p>
+<p>Unity Shader Undocumented rules https://medium.com/@jasonbooth_86226/loose-ends-in-unity-shaders-df5e98bdcc3
+URP Depth https://www.cyanilux.com/tutorials/depth/ https://forum.unity.com/threads/need-clarification-on-urps-use-of-the-depth-prepass.1004577/
+Between rendering opaque and transparent objects, URP copies the depth buffer and store it to the depth texture. Transparent objects don’t write to it, because writing happened before the transparent rendering. Whenever URP can not copy depth, it uses Depth Prepass. It uses DepthOnly pass in the shader to write the depth.
+The following situation cannot copy the depth:
+URP Asset enabled MSAA Hardware doesn’t support copying or the RT format URP resolves depth with MSAA and keeps precision (future update) Scene Camera or Preview Camera Rendering to XR In the scene view, any shader that has not DepthOnly pass will not write depth....</p>
 </section>
-<footer class=entry-footer>December 13, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 12132021" href=https://endfang.github.io/posts/ta_log_12132021/></a>
+<footer class=entry-footer>January 24, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 01242022" href=https://endfang.github.io/posts/ta_log_01242022/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>TA Log 11292021
+<h2>TA Log 01232022
 </h2>
 </header>
 <section class=entry-content>
-<p>Compute Shader It transfers some computation from CPU to GPU by HLSL code. Hence the name has “compute” and “shader”.
-References:
-Getting Started with Compute Shaders in Unity: https://www.youtube.com/watch?v=BrZ4pWwkpto Coding Adventure: Compute Shaders: https://www.youtube.com/watch?v=9RHGLZLUuwc&list=LL2T54R7-vJmcMBzcaTL_oBw GPU Ray Tracing in Unity: http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/ Unity Documentation: https://docs.unity3d.com/Manual/class-ComputeShader.html
-Compute Shader are programs that run on the graphic card, outside of the normal rendering pipeline. It works on:
-Android: OpenGL ES 3.1, iOS: Metal Compute Shader Assets...</p>
+<p>Shadow Mapping Renders the entire scene’s depth from the point of the view of the camera. This data corresponds to a fragment’s z coordinates in clip space. Render the entire scene’s shadow map of the light from the point of the view of the light source. Light acts as a camera. the depth values tell us how far a ray of light traveled before it hit something. multiple renders if shadow cascades is active....</p>
 </section>
-<footer class=entry-footer>November 29, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 11292021" href=https://endfang.github.io/posts/ta_log_11292021/></a>
+<footer class=entry-footer>January 23, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 01232022" href=https://endfang.github.io/posts/ta_log_01232022/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

@@ -25,7 +25,11 @@
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript><meta property="og:title" content="TA Log">
+</noscript>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<meta property="og:title" content="TA Log">
 <meta property="og:description" content="Alll Ended Happily">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endfang.github.io/categories/ta-log/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="After1995">
@@ -81,67 +85,77 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>TA Log 02282022
+<h2>TA Log 05092022
 </h2>
 </header>
 <section class=entry-content>
-<p>URP URP doesn’t support OnPreCull, OnPreRender, OnPostRener, and OnRenderImage. URP does support OnRenderObjectand OnWillRenderObject, but it doesn’t support recursive rendering. URP has 4 new hooks:
-RenderPipelineManager.beginFrameRendering RenderPipelineManager.beginCameraRendering RenderPipelineManager.endCameraRendering RenderPipelineManager.endFrameRendering // we can subscribe these events private void OnEnable() { RenderPipelineManager.beginCameraRendering += ExecuteRenderActions; } public void ExecuteRenderActions(ScriptableRenderContext context, Camera camera) { // rendering code .. } Planar Reflection The idea is to create a reflected camera to render the screen from below, and render what the reflected camera sees on the planar....</p>
+<p>Tiling Texture Variation: https://iquilezles.org/articles/texturerepetition/
+Blender: https://www.youtube.com/watch?v=-VgtSL5ZpYc
+Visible repetition of texture is the common problem of a large scale mapping. To avoid the repetition, we can:
+add random offset and orientation to each tile. This has a boundary problem, because tiles won’t match anymore. Mipmapping will break because the discountinuity in the final texture fetch coordinates themselves. To solve the problems, we can sample multiple times with offset and orientation and blend them near the border of the tile....</p>
 </section>
-<footer class=entry-footer>February 28, 2022&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 02282022" href=https://endfang.github.io/posts/ta_log_02282022/></a>
+<footer class=entry-footer>May 9, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 05092022" href=https://endfang.github.io/posts/ta_log_05092022/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>TA Log 02212022
+<h2>TA Log 04242022
 </h2>
 </header>
 <section class=entry-content>
-<p>Snow A simple snow surface implementation is to calculate dot product of normal and a custom direction.
-half snowSurfaceMask = clamp(dot(normalWS, _SnowDirection), 0.0f, 1.0f); It is similar to NdotL. We can add some small scale gradient noise or simple noise to this mask, and make it white. When we change the _SnowDirection, we might add some unwanted artifacts. To solve this problem, multiplying another upward snow mask to the snow surface mask....</p>
+<p>Fast Arctan and Arctan2 in [-1, 1] https://www.dsprelated.com/showarticle/1052.php
+One of the approximation of arctan() is:
+$$ atan(z) \approx \frac{z}{1.0 + 0.28 z^2} $$
+Another is a polynomial:
+$$ atan(x) \approx 0.9724x - 0.1919x^3 $$
+Vegetation Procedural Animation GPU Gem 3: https://developer.nvidia.com/gpugems/gpugems3/part-iii-rendering/chapter-16-vegetation-procedural-animation-and-shading-crysis
+Vertical Weight
+Simply using y-axis as weight on swing calculation might not be enough. When the mesh is too high on the y-axis, the bending will be too strong to look good....</p>
 </section>
-<footer class=entry-footer>February 21, 2022&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 02212022" href=https://endfang.github.io/posts/ta_log_02212022/></a>
+<footer class=entry-footer>April 24, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 04242022" href=https://endfang.github.io/posts/ta_log_04242022/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>TA Log 02142022
+<h2>TA Log 04182022
 </h2>
 </header>
 <section class=entry-content>
-<p>Unity Settings source: https://forum.unity.com/threads/warning-to-all-my-friends-beware-optimise-mesh-data.544735/
-Optimize Mesh Data will strip unused in mesh component. If the project only instantiate mesh during runtimes, Unity might delete some components in the build, such as lightmap uv.
-Unity Shader Erosion
-The most basic erosion (or dissolve) is the alpha clipping method. To soft the erosion, we can instead use a float to convert the noise between 0 and 1, and use the result as alpha....</p>
+<p>TA Log Dynamic Link Library Unity automatically compiles our code in Editor, but compiling code first is usually the way in the development. Using dll ensures that accidental editing will not happen during the development, but it also means direct editing is impossible, which makes development harder.
+How to create dll files is easy:
+create a ClassLibrary in IDE Add source code Add reference. Unity’s referenced files are in the Editor directory and project’s library directory....</p>
 </section>
-<footer class=entry-footer>February 14, 2022&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 02142022" href=https://endfang.github.io/posts/ta_log_02142022/></a>
+<footer class=entry-footer>April 18, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 04182022" href=https://endfang.github.io/posts/ta_log_04182022/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>TA Log 01242022
+<h2>TA Log 04132022
 </h2>
 </header>
 <section class=entry-content>
-<p>Unity Shader Undocumented rules https://medium.com/@jasonbooth_86226/loose-ends-in-unity-shaders-df5e98bdcc3
-URP Depth https://www.cyanilux.com/tutorials/depth/ https://forum.unity.com/threads/need-clarification-on-urps-use-of-the-depth-prepass.1004577/
-Between rendering opaque and transparent objects, URP copies the depth buffer and store it to the depth texture. Transparent objects don’t write to it, because writing happened before the transparent rendering. Whenever URP can not copy depth, it uses Depth Prepass. It uses DepthOnly pass in the shader to write the depth.
-The following situation cannot copy the depth:
-URP Asset enabled MSAA Hardware doesn’t support copying or the RT format URP resolves depth with MSAA and keeps precision (future update) Scene Camera or Preview Camera Rendering to XR In the scene view, any shader that has not DepthOnly pass will not write depth....</p>
+<p>URP TEXTURE2D_ARGS and TEXTURE2D_PARAS help passing texture and sampler to methods.
+TEXTURE2D(_AlbedoMap); TEXTURE2D_SAMPLER(sampler_AlbedoMap); half4 SampleAlbedo(float2 uv, TEXTURE2D_PARAM(albedoMap, sampler_albedoMap)) { return SAMPLE_TEXTURE2D(albedoMap, sampler_albedoMap, uv); } // to call SampleAlbedo, we have: half4 albedoAlpha = SampleAlbedo(uv, TEXTURE2D_ARGS(_Albedo, sampler_Albedo)); https://catlikecoding.com/unity/tutorials/scriptable-render-pipeline/global-illumination/
+Vertex Compression vs. Mesh Compression
+Vertex Compression is in the Player Settings. It works on all the mesh files. It will compress vertex data from 32-bit to 16-bit to help the game’s performance by reducing the mesh data size in memory and file size....</p>
 </section>
-<footer class=entry-footer>January 24, 2022&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 01242022" href=https://endfang.github.io/posts/ta_log_01242022/></a>
+<footer class=entry-footer>April 13, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 04132022" href=https://endfang.github.io/posts/ta_log_04132022/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>TA Log 01232022
+<h2>TA Log 03212022
 </h2>
 </header>
 <section class=entry-content>
-<p>Shadow Mapping Renders the entire scene’s depth from the point of the view of the camera. This data corresponds to a fragment’s z coordinates in clip space. Render the entire scene’s shadow map of the light from the point of the view of the light source. Light acts as a camera. the depth values tell us how far a ray of light traveled before it hit something. multiple renders if shadow cascades is active....</p>
+<p>TA Log Created: March 21, 2022 12:23 PM
+HLSL float is 32 bits. It is for world space position, texture coordinates, trigonometry or power/exponentiation.
+half is 15 bits. It is for short vectors, directions, object space positions, high dynamic range colors.
+real is half in default if the platform supports it. It can be either half or float in a function
+fixed is not supported in HLSL. Old CG syntax....</p>
 </section>
-<footer class=entry-footer>January 23, 2022&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 01232022" href=https://endfang.github.io/posts/ta_log_01232022/></a>
+<footer class=entry-footer>March 21, 2022&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 03212022" href=https://endfang.github.io/posts/ta_log_03212022/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

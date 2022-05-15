@@ -25,7 +25,11 @@
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript><meta property="og:title" content="Posts">
+</noscript>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<meta property="og:title" content="Posts">
 <meta property="og:description" content="Alll Ended Happily">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endfang.github.io/posts/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="After1995">
@@ -82,69 +86,72 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 08092021
+<h2>TA Log 09262021
 </h2>
 </header>
 <section class=entry-content>
-<p>Light URP has only one main light. It must be the directional light. If it is not set in the Sun Source, then the brightest directional light is the main light. Test it with the light direction.
-half4 color = half4(_MainLightPosition.xyz, 1.0); Stencil Manual: https://docs.unity3d.com/Manual/SL-Stencil.html YouTube: https://www.youtube.com/watch?v=-NB2TR8IjE8
-The stencil buffer stores an 8-bit integer value for each pixel in the frame buffer. Stencil test happens before executing the fragment shader. It will compare the value with the reference value....</p>
+<p>C# It’s a good practice to save game setting data to binary files.
+To save:
+FileStream dataStream = new FileStream( dataPath, FileMode.Create); BinaryFormatter converter = new BinaryFormatter(); converter.Serialize(dataStream, toSave); dataStream.Close(); To open/load:
+FileStream dataStream = new FileStream(dataPath, FileMode.Open); BinaryFormatter converter = new BinaryFormatter(); DataClass data = converter.Deserialize(dataStream) as DataClass; We can use it outside game too. For example, dynamic bone’s parameter settings will lost once the model is updated, because people usually replace the whole prefab....</p>
 </section>
-<footer class=entry-footer>August 9, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 08092021" href=https://endfang.github.io/posts/ta_log_08092021/></a>
+<footer class=entry-footer>September 26, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 09262021" href=https://endfang.github.io/posts/ta_log_09262021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 08022021
+<h2>TA Log 09222021
 </h2>
 </header>
 <section class=entry-content>
-<p>Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/
-A common way to blend textures is the alpha blending.
-$$C_{result} = C_{source} \cdot F_{source} + C_{destination} \cdot F_{destination} \ F_{source} + F_{destination} = 1$$
-Another way is to do linear interpolation. We can linearly interpolate the result color between two textures.
-$$\frac{y-h_{0}}{x - x_{0}} = \frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$
-$$y = \frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$
-The third way is to use the height map to determine the blend of two textures....</p>
+<p>RGB to Grayscale dot(color.rgb, float3(0.298999995, 0.587000012, 0.114)); It’s a convenient way to write rather than multiply and add up every channel.
+Tangent, Normal, Bitangent Tangent is the U of the UV for both OpenGL and DirectX. Left to right, 0.0 to 1.0. The binormal is the V of the UV. OpenGL is bottom to top, and DirectX is top to bottom. Unity is +Y, OpenGL standard. Unreal is -Y, DirectX standard....</p>
 </section>
-<footer class=entry-footer>August 2, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 08022021" href=https://endfang.github.io/posts/ta_log_08022021/></a>
+<footer class=entry-footer>September 22, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 09222021" href=https://endfang.github.io/posts/ta_log_09222021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 07262021
+<h2>TA Log 09062021
 </h2>
 </header>
 <section class=entry-content>
-<p>Render Texture OnRenderImage is an event function called after a Camera has finished rendering. It allows us to modify the Camera’s final image. Built-in: calls it on the same GameObject as an enabled Camera component. SRP: use ScriptableRenderPass instead.
-GetTemporary and ReleaseTemporary GetTemporary will return a RT for temporary calculations. Release it using ReleaseTemporary as soon as we’re done with it. Unity keeps an internal RT pool, so calling GetTemporary might return a created one if the size and the format are the same....</p>
+<p>Shader Animation The usual method of making shader animation is to use time parameter and sin wave function. It’s fast and easy to make simple periodical animation, such as water wave and flashing color. However, to have more complex periodical animation, we need to shape sin wave function with min(), max(), abs(), and the sin function it self. It might requires a lot of works to shape it. I figured out a simpler way to input the animation parameters: texture....</p>
 </section>
-<footer class=entry-footer>July 26, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 07262021" href=https://endfang.github.io/posts/ta_log_07262021/></a>
+<footer class=entry-footer>September 6, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 09062021" href=https://endfang.github.io/posts/ta_log_09062021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 07192021
+<h2>TA Log 08302021
 </h2>
 </header>
 <section class=entry-content>
-<p>Shader Shader.SetGlobalVector(int nameID, Vector4 value)` Sets a global vector proper. Shader will use the global property if it is not defined in Properties block. example: `_LightDirection` in `ShadowCasterPass.hlsl ZTest Always sets NO depth testing. The geometry is drawn regardless of distance.
-Texels vs. Pixels Texels are the elements of a texture. While pixel is the element of an image. When we zoom in a 3D model, we may see 1 texel presented by many pixels....</p>
+<p>Collections UV distortion: https://twitter.com/Fakirgnome/status/1120421374571495426 Easy PS techniques to create distance field texture: https://twitter.com/Ed_dV/status/1415156393959518209 easing demonstration: https://easings.net/ URP SurfaceInput.hlsl Declartion:
+BaseMap BumpMap / NormalMap EmissionMap Helpers:
+Alpha() sample albedo and alpha sample normal sample emission There’s a problem in URP’s hlsl files. They are all tight together to build the URP shader, not SRP. This reminds me that URP is an example of SRP. It’s better to have my own helper library....</p>
 </section>
-<footer class=entry-footer>July 19, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 07192021" href=https://endfang.github.io/posts/ta_log_07192021/></a>
+<footer class=entry-footer>August 30, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 08302021" href=https://endfang.github.io/posts/ta_log_08302021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>TA Log 07122021
+<h2>TA Log 08162021
 </h2>
 </header>
 <section class=entry-content>
-<p>hlsl float frac(float v) { return v - floor(v); } fmod(x, y) returns the floating-point remainder of the x parameter divided by the y parameter
-float remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x); } float fresnelEffect(float3 normal, float3 viewDir, float power) { return pow(1.0 - saturate(dot(normalize(normal), normalize(viewDir))), power) } Shader Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another....</p>
+<p>Fog Linear Fog
+c = fog coordinates,
+S, E = start and end
+$$f = \frac{E - c}{ E - S}$$
+Exponential Fog
+d = fog density
+$$f = \frac{1}{2^{cd}} = 2^{-cd}$$
+Exponential Squared Fog
+$$f = \frac{1}{2^{cd^2}} = 2^{- (cd)^2}$$</p>
 </section>
-<footer class=entry-footer>July 12, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to TA Log 07122021" href=https://endfang.github.io/posts/ta_log_07122021/></a>
+<footer class=entry-footer>August 16, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 08162021" href=https://endfang.github.io/posts/ta_log_08162021/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

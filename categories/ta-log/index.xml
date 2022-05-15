@@ -9,7 +9,71 @@
       <link>https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 28 Feb 2022 17:07:50 +0800</lastBuildDate><atom:link href="https://endfang.github.io/categories/ta-log/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 19:56:26 +0800</lastBuildDate><atom:link href="https://endfang.github.io/categories/ta-log/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TA Log 05092022</title>
+      <link>https://endfang.github.io/posts/ta_log_05092022/</link>
+      <pubDate>Mon, 09 May 2022 19:56:26 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_05092022/</guid>
+      <description>Tiling Texture Variation: https://iquilezles.org/articles/texturerepetition/
+Blender: https://www.youtube.com/watch?v=-VgtSL5ZpYc
+Visible repetition of texture is the common problem of a large scale mapping. To avoid the repetition, we can:
+ add random offset and orientation to each tile.  This has a boundary problem, because tiles won’t match anymore. Mipmapping will break because the discountinuity in the final texture fetch coordinates themselves. To solve the problems, we can sample multiple times with offset and orientation and blend them near the border of the tile.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 04242022</title>
+      <link>https://endfang.github.io/posts/ta_log_04242022/</link>
+      <pubDate>Sun, 24 Apr 2022 19:41:36 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_04242022/</guid>
+      <description>Fast Arctan and Arctan2 in [-1, 1] https://www.dsprelated.com/showarticle/1052.php
+One of the approximation of arctan() is:
+$$ atan(z) \approx \frac{z}{1.0 + 0.28 z^2} $$
+Another is a polynomial:
+$$ atan(x) \approx 0.9724x - 0.1919x^3 $$
+Vegetation Procedural Animation GPU Gem 3: https://developer.nvidia.com/gpugems/gpugems3/part-iii-rendering/chapter-16-vegetation-procedural-animation-and-shading-crysis
+Vertical Weight
+Simply using y-axis as weight on swing calculation might not be enough. When the mesh is too high on the y-axis, the bending will be too strong to look good.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 04182022</title>
+      <link>https://endfang.github.io/posts/ta_log_04182022/</link>
+      <pubDate>Mon, 18 Apr 2022 19:38:49 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_04182022/</guid>
+      <description>TA Log Dynamic Link Library Unity automatically compiles our code in Editor, but compiling code first is usually the way in the development. Using dll ensures that accidental editing will not happen during the development, but it also means direct editing is impossible, which makes development harder.
+How to create dll files is easy:
+ create a ClassLibrary in IDE Add source code Add reference. Unity’s referenced files are in the Editor directory and project’s library directory.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 04132022</title>
+      <link>https://endfang.github.io/posts/ta_log_04132022/</link>
+      <pubDate>Wed, 13 Apr 2022 19:33:51 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_04132022/</guid>
+      <description>URP TEXTURE2D_ARGS and TEXTURE2D_PARAS help passing texture and sampler to methods.
+TEXTURE2D(_AlbedoMap); TEXTURE2D_SAMPLER(sampler_AlbedoMap); half4 SampleAlbedo(float2 uv, TEXTURE2D_PARAM(albedoMap, sampler_albedoMap)) { return SAMPLE_TEXTURE2D(albedoMap, sampler_albedoMap, uv); } // to call SampleAlbedo, we have: half4 albedoAlpha = SampleAlbedo(uv, TEXTURE2D_ARGS(_Albedo, sampler_Albedo)); https://catlikecoding.com/unity/tutorials/scriptable-render-pipeline/global-illumination/
+Vertex Compression vs. Mesh Compression
+Vertex Compression is in the Player Settings. It works on all the mesh files. It will compress vertex data from 32-bit to 16-bit to help the game’s performance by reducing the mesh data size in memory and file size.</description>
+    </item>
+    
+    <item>
+      <title>TA Log 03212022</title>
+      <link>https://endfang.github.io/posts/ta_log_03212022/</link>
+      <pubDate>Mon, 21 Mar 2022 19:06:42 +0800</pubDate>
+      
+      <guid>https://endfang.github.io/posts/ta_log_03212022/</guid>
+      <description>TA Log Created: March 21, 2022 12:23 PM
+HLSL float is 32 bits. It is for world space position, texture coordinates, trigonometry or power/exponentiation.
+half is 15 bits. It is for short vectors, directions, object space positions, high dynamic range colors.
+real is half in default if the platform supports it. It can be either half or float in a function
+fixed is not supported in HLSL. Old CG syntax.</description>
+    </item>
+    
     <item>
       <title>TA Log 02282022</title>
       <link>https://endfang.github.io/posts/ta_log_02282022/</link>

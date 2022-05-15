@@ -25,7 +25,11 @@
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript><meta property="og:title" content="Posts">
+</noscript>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<meta property="og:title" content="Posts">
 <meta property="og:description" content="Alll Ended Happily">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endfang.github.io/posts/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="After1995">
@@ -82,66 +86,69 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Patch 5.5 Full Moon
+<h2>TA Log 08092021
 </h2>
 </header>
 <section class=entry-content>
-<p>Intro I resigned and I have one week’s free time, so here it goes the gaming marathon. I had to change my glamours and hairstyle because they were ugly. I would never start a MSQ without getting well dressed.
-MSQ After Zeno killed the previous emperor, he and Fandaniel formed a fraction " Telophoroi" and joined the civil war. However, crown prince had no intention on controlling the empire. Most of the soldiers were tempered by the Lunar Primals....</p>
+<p>Light URP has only one main light. It must be the directional light. If it is not set in the Sun Source, then the brightest directional light is the main light. Test it with the light direction.
+half4 color = half4(_MainLightPosition.xyz, 1.0); Stencil Manual: https://docs.unity3d.com/Manual/SL-Stencil.html YouTube: https://www.youtube.com/watch?v=-NB2TR8IjE8
+The stencil buffer stores an 8-bit integer value for each pixel in the frame buffer. Stencil test happens before executing the fragment shader. It will compare the value with the reference value....</p>
 </section>
-<footer class=entry-footer>June 10, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Patch 5.5 Full Moon" href=https://endfang.github.io/posts/5-5-full-moon/></a>
+<footer class=entry-footer>August 9, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 08092021" href=https://endfang.github.io/posts/ta_log_08092021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Frowned II
+<h2>TA Log 08022021
 </h2>
 </header>
 <section class=entry-content>
-<p>That was March. I was suffering from the poor project management and designer’s whimsical feature requirements. I started sending resumes and taking interviews and really got one position before the Qingming break. It was the best decision I made in Daydream Games. Now I don’t need to deal with the tightened project timeline and other nonsense.
-It disappointed me that this game company did not want a technical artist but a cheap labor....</p>
+<p>Blend Textures (Multitexturing) http://untitledgam.es/2017/01/height-blending-shader/
+A common way to blend textures is the alpha blending.
+$$C_{result} = C_{source} \cdot F_{source} + C_{destination} \cdot F_{destination} \ F_{source} + F_{destination} = 1$$
+Another way is to do linear interpolation. We can linearly interpolate the result color between two textures.
+$$\frac{y-h_{0}}{x - x_{0}} = \frac{y_{1} - y_{0}}{x_{1} - x_{0}}$$
+$$y = \frac{ y_0(x_1 - x) +y_1({x - x_{0})} }{x_1 - x_0}$$
+The third way is to use the height map to determine the blend of two textures....</p>
 </section>
-<footer class=entry-footer>June 9, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Frowned II" href=https://endfang.github.io/posts/frowned-ii/></a>
+<footer class=entry-footer>August 2, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 08022021" href=https://endfang.github.io/posts/ta_log_08022021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Mali Offline Compiler
+<h2>TA Log 07262021
 </h2>
 </header>
 <section class=entry-content>
-<p>Valhall uses index-driven vertex shading to compiles vertex shaders into two binaries: Position Shader and Varying Shader.
-Position Shader computes only position and is executed for every indexed vertex. Varying Shader computes the remaining non-position attribute outputs. It’s only executed for vertices that are part of a visible primitive that survives culling.
-Work Registers Uniform Registers Stack spilling: how much memory is stacked because variables spilled spill: when there are not enough registers to keep the variables, some of them may be moved to and from RAM....</p>
+<p>Render Texture OnRenderImage is an event function called after a Camera has finished rendering. It allows us to modify the Camera’s final image. Built-in: calls it on the same GameObject as an enabled Camera component. SRP: use ScriptableRenderPass instead.
+GetTemporary and ReleaseTemporary GetTemporary will return a RT for temporary calculations. Release it using ReleaseTemporary as soon as we’re done with it. Unity keeps an internal RT pool, so calling GetTemporary might return a created one if the size and the format are the same....</p>
 </section>
-<footer class=entry-footer>May 29, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Mali Offline Compiler" href=https://endfang.github.io/posts/malioffline/></a>
+<footer class=entry-footer>July 26, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 07262021" href=https://endfang.github.io/posts/ta_log_07262021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Unity Rendering Optimization
+<h2>TA Log 07192021
 </h2>
 </header>
 <section class=entry-content>
-<p>Q; The ways of optimizting?
-Static Batching.
-Objects are explicitly specified to be static. It can’t have any change in transform. It also requires additional memory to store combined geometry. 100 objects are 100 copy.
-Dynamic Batching
-The mesh and materials need to be the same, and the mesh must have less than 300 vertices. The objects should not moving around. Shaders should have one pass. Instanced materials and lightmapping are not allowed....</p>
+<p>Shader Shader.SetGlobalVector(int nameID, Vector4 value)` Sets a global vector proper. Shader will use the global property if it is not defined in Properties block. example: `_LightDirection` in `ShadowCasterPass.hlsl ZTest Always sets NO depth testing. The geometry is drawn regardless of distance.
+Texels vs. Pixels Texels are the elements of a texture. While pixel is the element of an image. When we zoom in a 3D model, we may see 1 texel presented by many pixels....</p>
 </section>
-<footer class=entry-footer>March 17, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Unity Rendering Optimization" href=https://endfang.github.io/posts/rendering-optimization/></a>
+<footer class=entry-footer>July 19, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 07192021" href=https://endfang.github.io/posts/ta_log_07192021/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>2021 Lunar New Year Break Review
+<h2>TA Log 07122021
 </h2>
 </header>
 <section class=entry-content>
-<p>The lunar new year break was longer than I expected. I spent all the time in my apartment and barely go outside. I usually play the games from morning to 2pm. Then I would either read or play Ring Fit Adventure in the afternoon, and a movie or another gaming session for the night. It was peaceful until I watched a monitor review video on YouTube. This video shown me an affordable 27 inches 4K resolution monitor, and I didn’t resist the urge to buy it....</p>
+<p>hlsl float frac(float v) { return v - floor(v); } fmod(x, y) returns the floating-point remainder of the x parameter divided by the y parameter
+float remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x); } float fresnelEffect(float3 normal, float3 viewDir, float power) { return pow(1.0 - saturate(dot(normalize(normal), normalize(viewDir))), power) } Shader Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another....</p>
 </section>
-<footer class=entry-footer>February 19, 2021&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to 2021 Lunar New Year Break Review" href=https://endfang.github.io/posts/2021-new-year-break-review/></a>
+<footer class=entry-footer>July 12, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 07122021" href=https://endfang.github.io/posts/ta_log_07122021/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

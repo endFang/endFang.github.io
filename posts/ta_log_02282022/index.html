@@ -26,7 +26,11 @@ RenderPipelineManager.beginFrameRendering RenderPipelineManager.beginCameraRende
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript><meta property="og:title" content="TA Log 02282022">
+</noscript>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<meta property="og:title" content="TA Log 02282022">
 <meta property="og:description" content="URP URP doesn’t support OnPreCull, OnPreRender, OnPostRener, and OnRenderImage. URP does support OnRenderObjectand OnWillRenderObject, but it doesn’t support recursive rendering. URP has 4 new hooks:
 RenderPipelineManager.beginFrameRendering RenderPipelineManager.beginCameraRendering RenderPipelineManager.endCameraRendering RenderPipelineManager.endFrameRendering // we can subscribe these events private void OnEnable() { RenderPipelineManager.beginCameraRendering += ExecuteRenderActions; } public void ExecuteRenderActions(ScriptableRenderContext context, Camera camera) { // rendering code .. } Planar Reflection The idea is to create a reflected camera to render the screen from below, and render what the reflected camera sees on the planar.">
 <meta property="og:type" content="article">
@@ -148,6 +152,11 @@ This is a tool to create narrative for games. It has multiple integration with d
 <li><a href=https://endfang.github.io/tags/procedural/>procedural</a></li>
 </ul>
 <nav class=paginav>
+<a class=prev href=https://endfang.github.io/posts/ta_log_03212022/>
+<span class=title>« Prev Page</span>
+<br>
+<span>TA Log 03212022</span>
+</a>
 <a class=next href=https://endfang.github.io/posts/ta_log_02212022/>
 <span class=title>Next Page »</span>
 <br>

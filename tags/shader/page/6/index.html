@@ -25,7 +25,11 @@
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript><meta property="og:title" content="Shader">
+</noscript>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<meta property="og:title" content="Shader">
 <meta property="og:description" content="Alll Ended Happily">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endfang.github.io/tags/shader/"><meta property="og:image" content="https://endfang.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="After1995">
@@ -81,63 +85,65 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Unity Render Pipeline
+<h2>TA Log 07262021
 </h2>
 </header>
 <section class=entry-content>
-<p>RP is a series of operations that take the contents of a Scene and displays them on a screen. At a high level, these operations are Culling, Rendering, and Post-Processing. It’s difficult to switch from one to another RP because the shader outputs varies and might not have the same feature. We can custom shaders in different piplelines, but the ultimate effect may be different. Unity has Built-In, Universal, and High Definition and Scriptable RP....</p>
+<p>Render Texture OnRenderImage is an event function called after a Camera has finished rendering. It allows us to modify the Camera’s final image. Built-in: calls it on the same GameObject as an enabled Camera component. SRP: use ScriptableRenderPass instead.
+GetTemporary and ReleaseTemporary GetTemporary will return a RT for temporary calculations. Release it using ReleaseTemporary as soon as we’re done with it. Unity keeps an internal RT pool, so calling GetTemporary might return a created one if the size and the format are the same....</p>
 </section>
-<footer class=entry-footer>May 30, 2020&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Unity Render Pipeline" href=https://endfang.github.io/posts/unity-render-pipeline/></a>
+<footer class=entry-footer>July 26, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 07262021" href=https://endfang.github.io/posts/ta_log_07262021/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Guide Mask Shader
+<h2>TA Log 07192021
 </h2>
 </header>
 <section class=entry-content>
-<p>Shader "UI/GuideMask" { Properties { [PreRendererData] _MainTex ("Sprite Texture", 2D) = "white" {} _Color ("tint", Color) = (1,1,1,1) _StencilComp ("Stencil Comparison", Float) = 8 _Stencil ("Stencil ID", Float) = 0 _StencilOp ("Stencil Operation", Float) = 0 _StencilWritemask("Stencil Write Mask", Float ) = 255 _StencilReadMask("Stencil Read Mask", Float) = 255 _ColorMask("Color Mask", Float) = 15 [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0 _Center("Center", vector) = (0, 0, 0, 0) _Slider("Slider", Range(0, 1500)) = 1500 } SubShader { Tags { "RenderType"="Opaque" "IgnoreProjector" = "True" "RenderType" = "Transparent" "PreviewType" = "Plane" "CanUseSpriteAtlas" = "True" } Stencil { Ref [_Stencil] Comp [_StencilComp] Pass [_StencilOp] ReadMask [_StencilReadmask] Writemask [_StencilWriteMask] } Cull Off Lighting Off ZWrite Off ZTest [unit_GUIZTestMode] Blend SrcAlpha OneMinusSrcAlpha ColorMask [_ColorMask] Pass { Name "Default" CGPROGRAM #pragma vertex vert #pragma fragment frag #pragma target 2....</p>
+<p>Shader Shader.SetGlobalVector(int nameID, Vector4 value)` Sets a global vector proper. Shader will use the global property if it is not defined in Properties block. example: `_LightDirection` in `ShadowCasterPass.hlsl ZTest Always sets NO depth testing. The geometry is drawn regardless of distance.
+Texels vs. Pixels Texels are the elements of a texture. While pixel is the element of an image. When we zoom in a 3D model, we may see 1 texel presented by many pixels....</p>
 </section>
-<footer class=entry-footer>May 7, 2020&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Guide Mask Shader" href=https://endfang.github.io/posts/guide-mask/></a>
+<footer class=entry-footer>July 19, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 07192021" href=https://endfang.github.io/posts/ta_log_07192021/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Unity Vertex And Fragment Shader
+<h2>TA Log 07122021
 </h2>
 </header>
 <section class=entry-content>
-<p>Rendering is done in 2 steps. First, geometry is passed to the vertex function which can alter the position and data of each vertex. Then, the result goes through a fragment function which outputs the color. There’s no albedo, gloss and specular properties in here, so Vertex and fragment shader is often used in non-realistic material, 2D graphics, and post-processing effects.
-*Surface shader is actually compiled to vert/frag shader.
-Shader "Unlit/SolidColor" { SubShader { Pass { CGPROGRAM #pragma vertex vert #pragma fragment frag struct vertInput { float4 pos : POSITION; }; struct vertOuput { float4 pos : SV_POSITION; }; vertOuput vert(vertInput input) { vertOuput o; o....</p>
+<p>hlsl float frac(float v) { return v - floor(v); } fmod(x, y) returns the floating-point remainder of the x parameter divided by the y parameter
+float remap(float v, float2 inMinMax, float2 outMinMax) { return outMinMax.x + (v - inMinMax.x) * (outMinMax.y - outMinMax.x) / (inMinMax.y - inMinMax.x); } float fresnelEffect(float3 normal, float3 viewDir, float power) { return pow(1.0 - saturate(dot(normalize(normal), normalize(viewDir))), power) } Shader Posterization / Posterisation is the conversion of a continuous gradation of tone to several regions of fewer tones, with abrupt changes from one to another....</p>
 </section>
-<footer class=entry-footer>November 30, 2019&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Unity Vertex And Fragment Shader" href=https://endfang.github.io/posts/unity-vertex-and-fragment/></a>
+<footer class=entry-footer>July 12, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to TA Log 07122021" href=https://endfang.github.io/posts/ta_log_07122021/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Unity Shader Overview
+<h2>Mali Offline Compiler
 </h2>
 </header>
 <section class=entry-content>
-<p>Thanks to these posts and blogs: Michael Sanders Catike Coding Alan Zucconi
-Unity has 3 types of shader: surface shader, fragment and vertex shader, and the obsolete fixed function shader. They all have the same anatomy.
-Catlike Coding
-Shader "MyShader" { Properties { // The properties of your shaders // - textures // - colours // - parameters // ... _MyTexture ("My texture", 2D) = "white" {} _MyNormalMap ("My normal map", 2D) = "bump" {} // Grey _MyInt ("My integer", Int) = 2 _MyFloat ("My float", Float) = 1....</p>
+<p>Valhall uses index-driven vertex shading to compiles vertex shaders into two binaries: Position Shader and Varying Shader.
+Position Shader computes only position and is executed for every indexed vertex. Varying Shader computes the remaining non-position attribute outputs. It’s only executed for vertices that are part of a visible primitive that survives culling.
+Work Registers Uniform Registers Stack spilling: how much memory is stacked because variables spilled spill: when there are not enough registers to keep the variables, some of them may be moved to and from RAM....</p>
 </section>
-<footer class=entry-footer>November 30, 2019&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Unity Shader Overview" href=https://endfang.github.io/posts/unity-shader-overview/></a>
+<footer class=entry-footer>May 29, 2021&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Mali Offline Compiler" href=https://endfang.github.io/posts/malioffline/></a>
 </article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Shader Basic
+<h2>Tree And Wind Shader
 </h2>
 </header>
 <section class=entry-content>
-<p>Basics shader language has a single main that returns color at the end final pixel color is assigned to gl_FragColor C-flavored language has built in variable, function, type preprocessor macros (pre-compiled) #define global variable #ifdef and #endif lower precision → faster rendering, less quality precision medium float precision lowp float precision highp float GLSL specs doesn’t guarantee auto-cast vec4(1, 0, 0, 1) will raise error, because it’s not float multiple ways of constructing vec4 vec4 color = vec4(vec3(1....</p>
+<p>Vertex Color, Alpha and Shadow Surface shader is actually a vertex and fragment shader too, so theoretically the vertex data is accessible in surface shader too by using SEMANTICS or common state vert
+struct v2f { half4 color : COLOR; }; As for the Alpha Texture, we can decide the color based on the UV mapping in vertex function
+fixed4 frag (v2f i) : COLOR0 { ... fixed alpha = tex2D (_AlphaTex, i....</p>
 </section>
-<footer class=entry-footer>September 23, 2019&nbsp;·&nbsp;Kyle Fang</footer>
-<a class=entry-link aria-label="post link to Shader Basic" href=https://endfang.github.io/posts/shader-basic/></a>
+<footer class=entry-footer>October 23, 2020&nbsp;·&nbsp;Kyle Fang</footer>
+<a class=entry-link aria-label="post link to Tree And Wind Shader" href=https://endfang.github.io/posts/unity-tree-and-wind/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
